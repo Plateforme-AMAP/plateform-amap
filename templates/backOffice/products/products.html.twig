@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produits{% endblock %}
+
+{% block body %}
+	<h1>Produits BACKOFFICE</h1>
+	{% for product in products %}
+		<div>
+			<div>
+				<!-- Product image-->
+				{# {% if product.productPicture %}
+												<img class="card-img-top" src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="..."/>
+											{% else %} #}
+				<img src="https://via.placeholder.com/80" alt="Card image cap"> {# {% endif %} #}
+				<div
+					class="text-center">
+					<!-- Product name-->
+					<h5>{{ product.productName }}</h5>
+					<!-- Product price-->
+					{{ product.productPrice|number_format(0, ',', ' ') }} €
+					<p>créé le {{ product.productCreatedAt|date("d/m/Y à H:i:s") }}</p>
+				</div>
+				<!-- Product actions-->
+                <a href="{{ path('details_product', {id : product.id }) }}">Voir le Produit dans le site</a>
+                <br>
+                <a style="color:green" href="{{ path('edit_product', {id : product.id }) }}">Modifier le Produit</a>
+                <br>
+                <a style="color:red" href="{{ path('delete_product', {id : product.id }) }}" onclick="confirm('Voulez vous vraiment suprimer ce produit?') || event.preventDefault()">Supprimer le Produit</a>
+                <br><br><br>
+			</div>
+		</div>
+	{% endfor %}
+	<a href="{{ path('add_product') }}">Ajouter un produit</a>
+	<br>
+	<a href="{{ path('app_products') }}">VOIR LE SITE</a>
+{% endblock %}

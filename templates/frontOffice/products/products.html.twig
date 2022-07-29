@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produits{% endblock %}
+
+{% block body %}
+	<h1>Produits BACKOFFICE</h1>
+	{% for product in products %}
+		<div>
+			<div>
+				<!-- Product image-->
+				{# {% if product.productPicture %}
+												<img class="card-img-top" src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="..."/>
+											{% else %} #}
+				<img src="https://via.placeholder.com/80" alt="Card image cap"> {# {% endif %} #}
+				<div
+					class="text-center">
+					<!-- Product name-->
+					<h5>{{ product.productName }}</h5>
+					<!-- Product price-->
+					{{ product.productPrice|number_format(0, ',', ' ') }} €
+					<p>créé le {{ product.productCreatedAt|date("d/m/Y à H:i:s") }}</p>
+				</div>
+                <br><br><br>
+			</div>
+		</div>
+	{% endfor %}
+	<a href="{{ path('app_products-admin') }}" class="">ALLER AU BACKOFFICE</a>
+</div>
+{% endblock %}
+	

@@ -20,26 +20,25 @@ class ProductsController extends AbstractController
      * 
      * 
      * **/
-
-    // Affichage de l'ensemble des produits
+    // Affichage de l'ensemble des produits [FRONTOFFICE]
     #[Route('/produits', name: 'app_products')]
     public function readAll(ManagerRegistry $doctrine): Response
     {
         $products = $doctrine->getRepository(Products::class)->findBy([], ['id' => 'DESC']);
 
-        return $this->render('products/products.html.twig', [
+        return $this->render('frontOffice/products/products.html.twig', [
             'products' => $products,
         ]);
     }
 
-    // Affichage d'un produit au détail
+    // Affichage d'un produit au détail [FRONTOFFICE]
     #[Route('/produits/{id}', name: 'details_product')]
     public function read($id, ManagerRegistry $doctrine): Response
     {
         $product = $doctrine->getRepository(Products::class)->find($id);
         $products = $doctrine->getRepository(Products::class)->findAll();
 
-        return $this->render('products/details_product.html.twig', [
+        return $this->render('frontOffice/products/details_product.html.twig', [
             'products' => $products,
             'product' => $product,
         ]);
@@ -51,6 +50,17 @@ class ProductsController extends AbstractController
      * 
      * 
      * **/
+
+    // Affichage de l'ensemble des produits [BACKOFFICE]
+    #[Route('/admin/produits', name: 'app_products-admin')]
+    public function readAllAdmin(ManagerRegistry $doctrine): Response
+    {
+        $products = $doctrine->getRepository(Products::class)->findBy([], ['id' => 'DESC']);
+
+        return $this->render('backOffice/products/products.html.twig', [
+            'products' => $products,
+        ]);
+    }
 
      //creation d'un produit [BACKOFFICE]
      #[Route('/admin/produits/ajouter', name: 'add_product')]
@@ -68,10 +78,10 @@ class ProductsController extends AbstractController
                  'success_add',
                  'Votre bien' . $product->getProductName() . 'a bien été ajouté !'
              );
-             return $this->redirectToRoute('app_products');
+             return $this->redirectToRoute('app_products-admin');
          }
          // On envois la page avec le formulaire et on permet la création de la vue (qu'on appellera dans le template)
-         return $this->render('products/form_product.html.twig', [
+         return $this->render('backOffice/products/form_product.html.twig', [
              'formProduct' => $formProduct->createView(),
              'formTitle' => 'Ajouter un bien',
              'formSubmitLabel'=> 'Ajouter',
@@ -93,21 +103,19 @@ class ProductsController extends AbstractController
                  'success_add',
                  'Votre produit' . $product->getProductName() . 'a bien été modifié !'
              );
-             return $this->redirectToRoute('app_products');
+             return $this->redirectToRoute('app_products-admin');
          }
-         // On envois la page avec le formulaire et on permet la création de la vue (qu'on appellera dans le template)
-         return $this->render('products/form_product.html.twig', [
+         return $this->render('backOffice/products/form_product.html.twig', [
              'formProduct' => $formProduct->createView(),
              'formTitle' => 'Modifier le produit',
              'formSubmitLabel'=> 'Modifier',
          ]);
      }
 
-    //Delete
+    //suppression d'un produit [BACKOFFICE]
     #[Route('/admin/suprimer/{id}', name: 'delete_product')]
     public function delete($id, ManagerRegistry $doctrine) : RedirectResponse
     {
-        // Etape 01 : on va récupérer l'objet concerné avec son id
         $product = $doctrine->getRepository(Products::class)->find($id);
 
         $entityManager = $doctrine->getManager();
@@ -119,6 +127,6 @@ class ProductsController extends AbstractController
             'Votre produit' . $product->getProductName() . 'a bien été suprimé !'
         );
 
-        return $this->redirectToRoute('app_products');
+        return $this->redirectToRoute('app_products-admin');
     }
 }

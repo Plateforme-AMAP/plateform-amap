@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit FRONTOFFICE{% endblock %}
+
+{% block body %}
+
+    <h1>{{ product.productName }}</h1>
+
+<a href="{{ path('app_products') }}" >Retour</a>
+{% endblock %}
