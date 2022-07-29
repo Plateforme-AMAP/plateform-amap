@@ -13,5 +13,9 @@
 
     la page marche ! prout
     <a href="{{ path('add_product') }}" class="">Ajouter un produit</a>
+    <a class="mr-1 btn btn-outline-dark flex-shrink-0" href="{{ path('edit_product', {id: product.id}) }}">
+	<i class="bi-pen me-1"></i>
+	Modifier
+	</a>
 </div>
 {% endblock %}

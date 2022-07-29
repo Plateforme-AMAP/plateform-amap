@@ -30,6 +30,8 @@
 								</div>
 							<!-- Product actions-->
 							<a class="btn btn-outline-dark mt-auto" href="{{ path('details_product', {id : product.id }) }}">Voir le Produit</a>
+							<a class="btn btn-outline-dark mt-auto" href="{{ path('edit_product', {id : product.id }) }}">Modifier le Produit</a>
+							<a class="btn btn-outline-dark mt-auto" href="{{ path('delete_product', {id : product.id }) }}">Supprimer le Produit</a>
 						</div>
 					</div>
 				{% endfor %}
