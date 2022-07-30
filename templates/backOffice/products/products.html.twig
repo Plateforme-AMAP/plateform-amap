@@ -8,10 +8,11 @@
 		<div>
 			<div>
 				<!-- Product image-->
-				{# {% if product.productPicture %}
-												<img class="card-img-top" src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="..."/>
-											{% else %} #}
-				<img src="https://via.placeholder.com/80" alt="Card image cap"> {# {% endif %} #}
+				{% if product.imageName %}
+					<img style="max-height:200px;" src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="..."/>
+				{% else %} 
+				    <img src="https://via.placeholder.com/80" alt="Card image cap"> 
+                {% endif %}
 				<div
 					class="text-center">
 					<!-- Product name-->

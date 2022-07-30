@@ -5,10 +5,12 @@ namespace App\Form;
 use App\Entity\Products;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
 
 class ProductsType extends AbstractType
 {
@@ -22,7 +24,13 @@ class ProductsType extends AbstractType
             ->add('productPrice', NumberType::class, [
                 "required" => true
             ])
-            ->add('productPicture')
+            ->add('imageFile', VichImageType::class, [
+                "label" => 'Image du produit',
+                "label_attr" => [
+                    'class' => 'ajouterlaclass'
+                ],
+                "required" => false,
+            ])
         ;
     }
 
