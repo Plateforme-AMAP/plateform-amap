@@ -6,6 +6,7 @@ use App\Repository\ProductsRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProductsRepository::class)]
 #[Vich\Uploadable] 
@@ -17,12 +18,14 @@ class Products
     private $id;
 
     #[ORM\Column(type: 'string', length: 100)]
+    #[Assert\Length(min: 2, max: 100)]
     private $productName;
 
     #[ORM\Column(type: 'text', nullable: true)]
     private $productDescription;
 
     #[ORM\Column(type: 'float')]
+    #[Assert\Positive()]
     private $productPrice;
 
     #[ORM\Column(type: 'datetime_immutable')]
