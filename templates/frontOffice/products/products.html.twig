@@ -3,17 +3,16 @@
 {% block title %}Produits{% endblock %}
 
 {% block body %}
-	<h1>Produits BACKOFFICE</h1>
+	<h1>Produits FrontOffice</h1>
 	{% for product in products %}
 		<div>
 			<div>
 				<!-- Product image-->
 				{% if product.imageName %}
-					<img style="max-height:200px;" src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="..."/>
+					<img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.productName }}"/>
 				{% else %} 
 				    <img src="https://via.placeholder.com/80" alt="Card image cap"> 
                 {% endif %}
-				<img src="https://via.placeholder.com/80" alt="Card image cap"> {# {% endif %} #}
 				<div
 					class="text-center">
 					<!-- Product name-->
