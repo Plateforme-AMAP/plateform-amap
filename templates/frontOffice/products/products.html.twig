@@ -9,9 +9,9 @@
 			<div>
 				<!-- Product image-->
 				{% if product.imageName %}
-					<img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.productName }}"/>
+					<img src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('min') }}" alt="{{ product.productName }}"/>
 				{% else %} 
-				    <img src="https://via.placeholder.com/80" alt="Card image cap"> 
+				    <img src="https://via.placeholder.com/300x200" alt="Card image cap"> 
                 {% endif %}
 				<div
 					class="text-center">
