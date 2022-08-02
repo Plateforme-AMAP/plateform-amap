@@ -1,0 +1,25 @@
+// Site global colors
+$color-primary: #00796B;
+$color-secondary: #004C40;
+$color-light: #48a999;
+$color-background: #E3E9E9;
+$color-background-element: #FFF;
+$color-alert: #EC6262;
+$color-black: #161616;
+
+// Fonts
+$font-volte: "Volte", sans-serif;
+$text-font: $font-volte;
+$font-poppins: "Poppins", sans-serif;
+
+// Media queries breakpoints
+$screen-xs-max: "(max-width: #{$xs-max})";
+$screen-sm-min: "(min-width: #{$sm-min})";
+$screen-sm-max: "(max-width: #{$sm-max})";
+$screen-sm-only: "#{$screen-sm-min} and #{$screen-sm-max}";
+$screen-md-min: "(min-width: #{$md-min})";
+$screen-md-max: "(max-width: #{$md-max})";
+$screen-md-only: $screen-md-min + " and " + $screen-md-max;
+$screen-lg-min: "(min-width: #{$lg-min})";
+$screen-lg-max: "(max-width: 1439px)";
+$screen-xl-min: "(min-width: 1440px)";
