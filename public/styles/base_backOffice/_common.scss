@@ -1,3 +1,9 @@
+/*
+* Atoms
+*
+*/
+
+//buttons
 .a-btn {
     @include textButton;
     padding: 8px 16px;
@@ -8,19 +14,102 @@
         @include regular-btn($color-primary, $color-white);
     }
     &.-primaryGhost {
-        @include regular-btn($color-primary, $color-white);
+        @include ghost-btn($color-primary, $color-white);
     }
     &.-alert {
         @include regular-btn($color-alert, $color-white);
     }
     &.-alertGhost {
-        @include regular-btn($color-alert, $color-white);
+        @include ghost-btn($color-alert, $color-white);
     }
 }
 
-.a-btn__icon {
+.a-icon {
     width: 20px;
     height: auto;
     margin: 8px;
-    color: currentColor;
 }
+
+/*
+* Molecules
+*
+*/
+.m-cardWithImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    padding: 0 8px 8px 8px;
+    background-color: $color-white;
+    &__image {
+        border-radius:  10px 10px 0 0;
+    }
+    &__buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+.m-cardAddNew {
+    @include textButton;
+    width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    background: $color-primary;
+    color: $color-white;
+}
+
+/*
+* Organisms
+*
+*/
+.o-pageWithCards {
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    grid-gap: 10px;
+    justify-content: center;
+}
+
+/*
+* Generics rules
+*
+*/
+
+.generic-flex {
+    display: flex;
+    .-column {
+        flex-direction: column;
+    }
+    .-alignCenter {
+        align-items: center;
+    }
+    .-justifyCenter {
+        justify-items: center;
+    }
+
+}
+
+.generic-m8 {
+    margin: 8px;
+}
+
+.generic-m16 {
+    margin: 16px;
+}
+
+.generic-m8_row {
+    margin: 8px 0;
+}
+
+.generic-m16_row {
+    margin: 16px 0;
+}
+

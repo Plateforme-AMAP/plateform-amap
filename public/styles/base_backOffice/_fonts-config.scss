@@ -9,17 +9,23 @@ Fonts
     font-weight: 400;
     line-height: normal;
   }
+
+  body {
+    background-color: $color-background;
+  }
   
   .a-title1 {
     font-size: 32px;
     font-weight: 600;
     color: $color-secondary;
+    margin: 16px 0;
   }
   
   .a-title2 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
     color: $color-primary;
+    margin: 8px 0;
   }
   
   .a-title3 {
@@ -39,7 +45,7 @@ Fonts
     font-style: italic;
     font-size: $normalFont;
     font-weight: $regular;
-    color: $color0;
+    color: $color-black;
   }
     
   %textLink{ 

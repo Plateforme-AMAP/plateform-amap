@@ -1,5 +1,6 @@
 //buttons
 @mixin textButton {
+    text-decoration: none;
     text-transform: uppercase;
     font-size: $normalFont;
     font-weight: $medium;

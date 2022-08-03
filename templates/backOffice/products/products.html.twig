@@ -6,22 +6,30 @@
 	{% include('backOffice/includes/_pagesNav.html.twig') %}
 	<div class="">
 		<h1>Produits</h1>
-		<section>
-			<a href="{{ path('add_product') }}" class="" title="">Ajouter un produit</a>
+		<section class="o-pageWithCards">
+			<a href="{{ path('add_product') }}" class="m-cardAddNew" title="Ajouter un produit"><img src="/images/backOffice/add-icon.svg" class="a-icon" alt="icon +">Ajouter un produit</a>
 			{% for product in products %}
-				<!-- Product image-->
-				{% if product.imageName %}
-					<img src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('min') }}" alt="{{ product.productName }}"/>
-				{% else %} 
-				    <img src="https://via.placeholder.com/80" alt="Card image cap"> 
-                {% endif %}
+				<article class="m-cardWithImage">
+
+					<!-- Product image-->
+					{% if product.imageName %}
+						<img src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('min') }}" alt="{{ product.productName }}"  class="m-cardWithImage__image"/>
+					{% else %}
+						<img src="https://via.placeholder.com/300x200" alt="aucune image pour ce produit">
+					{% endif %}
+
 					<!-- Product name-->
-					<h2>{{ product.productName }}</h2>
+					<h2 class="a-title2">{{ product.productName }}</h2>
+
 					<!-- Product status-->
-					<p><img src="" alt="">En ligne{# à dynamiser #}</p>
+					<p class="generic-flex -alignCenter"><img src="/images/backOffice/Vectorcheckgreen.svg" alt="icon check" class="a-icon"><span class="generic-m8_row">En ligne{# à dynamiser #}</span></p>
+
 					<!-- Product control-->
-					<a  class="a-btn -primary" href="{{ path('edit_product', {id : product.id }) }}">Modifier</a>
-					<button class="a-btn -alert" href="{{ path('delete_product', {id : product.id }) }}" onclick="confirm('Voulez vous vraiment suprimer ce produit?') || event.preventDefault()">Supprimer</button>
+					<div class="m-cardWithImage__buttons generic-m8_row">
+						<button class="a-btn -primaryGhost -width50" href="{{ path('edit_product', {id : product.id }) }}" title="Modifier le produit">Modifier</button>
+						<button class="a-btn -primaryGhost -width50" href="{{ path('delete_product', {id : product.id }) }}" onclick="confirm('Voulez vous vraiment suprimer ce produit?') || event.preventDefault()" title="Supprimer le produit">Supprimer</button>
+					</div>
+				</article>
 			{% endfor %}
 		</section>
 	</div>
