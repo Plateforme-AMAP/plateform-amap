@@ -54,16 +54,75 @@ table {
 
 @font-face {
   font-family: "Poppins";
-  src: url("~assets/fonts/Poppins.woff2") format("woff2"), url("~assets/fonts/Poppins.woff") format("woff");
-  font-weight: 100 500;
+  src: url("/fonts/Poppins-Regular.woff") format("woff"), url("/fonts/Poppins-Regular.ttf") format("ttf");
+  font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Poppins";
-  src: url("~assets/fonts/Poppins-Bold.woff2") format("woff2"), url("~assets/fonts/Poppins-Bold.woff") format("woff");
-  font-weight: 600 900;
+  src: url("/fonts/Poppins-Medium.woff") format("woff"), url("/fonts/Poppins-Medium.ttf") format("ttf");
+  font-weight: 500;
   font-style: normal;
 }
-body {
-  background-color: red;
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-SemiBold.woff") format("woff"), url("/fonts/Poppins-SemiBold.ttf") format("ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+.a-btn {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.a-btn.-primary {
+  color: #FFF;
+  background: #00796B;
+  border: 1px solid #00796B;
+}
+.a-btn.-primary:hover, .a-btn.-primary :focus {
+  color: #00796B;
+  background: transparent;
+  border: 1px solid #00796B;
+}
+.a-btn.-primaryGhost {
+  color: #FFF;
+  background: #00796B;
+  border: 1px solid #00796B;
+}
+.a-btn.-primaryGhost:hover, .a-btn.-primaryGhost :focus {
+  color: #00796B;
+  background: transparent;
+  border: 1px solid #00796B;
+}
+.a-btn.-alert {
+  color: #FFF;
+  background: #EC6262;
+  border: 1px solid #EC6262;
+}
+.a-btn.-alert:hover, .a-btn.-alert :focus {
+  color: #EC6262;
+  background: transparent;
+  border: 1px solid #EC6262;
+}
+.a-btn.-alertGhost {
+  color: #FFF;
+  background: #EC6262;
+  border: 1px solid #EC6262;
+}
+.a-btn.-alertGhost:hover, .a-btn.-alertGhost :focus {
+  color: #EC6262;
+  background: transparent;
+  border: 1px solid #EC6262;
+}
+
+.a-btn__icon {
+  width: 20px;
+  height: auto;
+  margin: 8px;
+  color: currentColor;
 }/*# sourceMappingURL=app_backOffice.css.map */

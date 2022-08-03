@@ -54,13 +54,19 @@ table {
 
 @font-face {
   font-family: "Poppins";
-  src: url("~assets/fonts/Poppins.woff2") format("woff2"), url("~assets/fonts/Poppins.woff") format("woff");
-  font-weight: 100 500;
+  src: url("/fonts/Poppins-Regular.woff") format("woff"), url("/fonts/Poppins-Regular.ttf") format("ttf");
+  font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Poppins";
-  src: url("~assets/fonts/Poppins-Bold.woff2") format("woff2"), url("~assets/fonts/Poppins-Bold.woff") format("woff");
-  font-weight: 600 900;
+  src: url("/fonts/Poppins-Medium.woff") format("woff"), url("/fonts/Poppins-Medium.ttf") format("ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-SemiBold.woff") format("woff"), url("/fonts/Poppins-SemiBold.ttf") format("ttf");
+  font-weight: 600;
   font-style: normal;
 }/*# sourceMappingURL=app_frontOffice.css.map */
