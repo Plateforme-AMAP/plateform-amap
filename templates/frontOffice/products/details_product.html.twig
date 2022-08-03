@@ -3,8 +3,10 @@
 {% block title %}Produit FRONTOFFICE{% endblock %}
 
 {% block body %}
+	{# please create your own html here :) you can trash main, just keep the php logic ! #}
+
 
     <h1>{{ product.productName }}</h1>
 
-<a href="{{ path('app_products') }}" >Retour</a>
+<a href="{{ path('app_products') }}"  title="">Retour</a>
 {% endblock %}
