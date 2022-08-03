@@ -22,11 +22,11 @@
 					<p>créé le {{ product.productCreatedAt|date("d/m/Y à H:i:s") }}</p>
 				</div>
 				<!-- Product actions-->
-                <a href="{{ path('details_product', {id : product.id }) }}">Voir le Produit dans le site</a>
+                <a class="a-btn -primaryGhost" href="{{ path('details_product', {id : product.id }) }}">Voir le Produit dans le site</a>
                 <br>
-                <a style="color:green" href="{{ path('edit_product', {id : product.id }) }}">Modifier le Produit</a>
+                <a  class="a-btn -primary" href="{{ path('edit_product', {id : product.id }) }}">Modifier le Produit</a>
                 <br>
-                <a style="color:red" href="{{ path('delete_product', {id : product.id }) }}" onclick="confirm('Voulez vous vraiment suprimer ce produit?') || event.preventDefault()">Supprimer le Produit</a>
+                <button class="a-btn -alert" href="{{ path('delete_product', {id : product.id }) }}" onclick="confirm('Voulez vous vraiment suprimer ce produit?') || event.preventDefault()">Supprimer le Produit</button>
                 <br><br><br>
 			</div>
 		</div>

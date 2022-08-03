@@ -1,0 +1,27 @@
+//buttons
+@mixin textButton {
+    text-transform: uppercase;
+    font-size: $normalFont;
+    font-weight: $medium;
+}
+
+@mixin ghost-btn($colour, $colour-text){
+    color: $colour;
+    background: transparent;
+    border: 1px solid $colour;
+    &:hover, :focus {
+        color: $colour-text;
+        background: $colour;
+        border: 1px solid $colour;
+    }
+}
+@mixin regular-btn($colour, $colour-text){
+    color: $colour-text;
+    background: $colour;
+    border: 1px solid $colour;
+    &:hover, :focus {
+        color: $colour;
+        background: transparent;
+        border: 1px solid $colour;
+    }
+}

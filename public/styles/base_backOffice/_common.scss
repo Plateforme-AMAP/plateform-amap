@@ -1,3 +1,26 @@
-body {
-    background-color: red;
+.a-btn {
+    @include textButton;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    &.-primary {
+        @include regular-btn($color-primary, $color-white);
+    }
+    &.-primaryGhost {
+        @include regular-btn($color-primary, $color-white);
+    }
+    &.-alert {
+        @include regular-btn($color-alert, $color-white);
+    }
+    &.-alertGhost {
+        @include regular-btn($color-alert, $color-white);
+    }
+}
+
+.a-btn__icon {
+    width: 20px;
+    height: auto;
+    margin: 8px;
+    color: currentColor;
 }
