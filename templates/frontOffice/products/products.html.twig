@@ -3,6 +3,8 @@
 {% block title %}Produits{% endblock %}
 
 {% block body %}
+	{# please create your own html here :) you can trash main, just keep the php logic ! #}
+
 	<h1>Produits FrontOffice</h1>
 	{% for product in products %}
 		<div>
@@ -25,6 +27,6 @@
 			</div>
 		</div>
 	{% endfor %}
-	<a href="{{ path('app_products-admin') }}" class="">ALLER AU BACKOFFICE</a>
+	<a href="{{ path('app_products-admin') }}" class=""  title="">ALLER AU BACKOFFICE</a>
 </div>
 {% endblock %}
