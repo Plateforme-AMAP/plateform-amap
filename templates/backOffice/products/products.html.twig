@@ -4,8 +4,8 @@
 
 {% block body %}
 	{% include('backOffice/includes/_pagesNav.html.twig') %}
-	<div class="">
-		<h1>Produits</h1>
+	<div class="o-pageContainer">
+		<h1 class="a-title1">Produits</h1>
 		<section class="o-pageWithCards">
 			<a href="{{ path('add_product') }}" class="m-cardAddNew" title="Ajouter un produit"><img src="/images/backOffice/add-icon.svg" class="a-icon" alt="icon +">Ajouter un produit</a>
 			{% for product in products %}

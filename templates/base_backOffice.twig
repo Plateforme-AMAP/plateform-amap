@@ -1,93 +1,89 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    <link href="/styles/app_backOffice.css" rel="stylesheet">
+	<link href="/styles/app_backOffice.css" rel="stylesheet">
 {% endblock %}
 
 {% block navbar %}
-    {# here the top-menu #}
-    <header class="">
-        <div class="">
-            <div class=""><img src="assetsbo/logo.svg" alt="logo" class="icon"> </div>
-            <nav>
-                <a class="" href="{{ path('app_products') }}" title=""><img src="" alt="" class="">voir le site</a>
-
-                <ul class="">
-                    <li class="">
-                        <a href="#" class="" id="" title="">
-                            <img src="" alt="" class="">Mon compte
-                        </a>
-                        <!-- submenu with informations -->
-                        <section class="" id="">
-                            <div class="">
-                                <p>Mon compte</p>
-                                <a href="#" class="" title=""><img src="" alt="close" class=""> </a>
-                            </div>
-                            <ul>
-                                <li class="">Nom personne<span class="textDetails">mail personne</span>
-                                </li>
-                                <li class="">
-                                    <a href="#" title="">Inviter un nouvel administrateur</a>
-                                </li>
-                                <li class="">
-                                    <a href="#" title="">Modifier mes informations</a>
-                                </li>
-                                <li class="">
-                                    <a href="#" title="">Suprimer mon compte</a>
-                                </li>
-                                <li class="">se déconnecter</li>
-                                <li class="">
-                                    <a href="#" class="" title="">
-                                        <img src="" alt="" class="">Aide
-                                    </a>
-                                </li>
-                            </ul>
-                        </section>
-                        <!-- submenu's end -->
-                    </li>
-                    <li class="">
-                        <a href="#" class="" title=""><img src="" alt="notifications" class=""> </a>
-                    </li>
-                </ul>
-                <button class="textLink-light link-icon"><img src="assetsbo/notifications-no_icon.svg" alt="icon de notifications" class="icon"> </button>
-            </nav>
-        </div>
-    </header>
+	{# here the top-menu #}
+	<header class="o-navigationTopBar">
+		<div class=""><img src="/images/backOffice/logo.svg" alt="logo" class="icon">
+		</div>
+		<nav class="o-navigationTopBar__nav">
+			
+			<ul class="o-navigationTopBar__items">
+                <li>
+                    <a class="" href="{{ path('app_products') }}" title=""><img src="" alt="" class="">voir le site</a>
+                </li>
+				<li class="">
+					<a href="#" class="" id="" title="">
+						<img src="" alt="" class="">Mon compte
+					</a>
+					<!-- submenu with informations -->
+					<section class="m-userSection" id="">
+						<div class="">
+							<p class="">Mon compte</p>
+							<a href="#" class="" title=""><img src="" alt="close" class="">
+							</a>
+						</div>
+						<ul>
+							<li class="">Nom personne<span class="textDetails">mail personne</span>
+							</li>
+							<li class="">
+								<a href="#" title="">Inviter un nouvel administrateur</a>
+							</li>
+							<li class="">
+								<a href="#" title="">Modifier mes informations</a>
+							</li>
+							<li class="">
+								<a href="#" title="">Suprimer mon compte</a>
+							</li>
+							<li class="">se déconnecter</li>
+							<li class="">
+								<a href="#" class="" title="">
+									<img src="" alt="" class="">Aide
+								</a>
+							</li>
+						</ul>
+					</section>
+					<!-- submenu's end -->
+				</li>
+			</ul>
+			<button class="textLink-light link-icon"><img src="/images/backOffice/notification-icon.svg" alt="icon de notifications" class="icon">
+			</button>
+		</nav>
+	</header>
 {% endblock %}
 
 {% block sideNavbar %}
-    {# here the side-menu #}
-    <aside class="">
-        <nav class="">
-            <ul class="">
+	{# here the side-menu #}
+	<aside class="o-navigationSideBar">
+		<nav class="o-navigationSideBar__nav">
+			<ul class="">
+				<li>
+					<a href="#" class="m-tabsNav" title="">
+						<img src="/images/backOffice/dashboard-category-icon.svg" alt=""> Dashboard
+					</a>
+				</li>
+				<li>
+					<a href="#" class="m-tabsNav" title="">
+						<img src="/images/backOffice/pages-category-icon.svg" alt=""> Pages
+					</a>
+				</li>
+				<li>
+					<a href="#" class="m-tabsNav" title="">
+						<img src="/images/backOffice/delete-category-icon.svg" alt=""> Corbeille
+					</a>
+				</li>
                 <li>
-                    <a href="#" class="" title="">
-                        <img src="" alt="">
-                        Dashboard
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="" title="">
-                        <img src="" alt="">
-                        Pages
-                    </a>
-                </li>
-                <li >
-                    <a href="#" class="" title="">
-                        <img src="" alt="">
-                        Corbeille
-                    </a>
-                </li>
-                <li >
-                    <a href="#" class="" title="">
-                        <img src="" alt="">
-                        Paramètres
-                    </a>
-                </li>
-            </ul>
-            <button class="" title="">Inviter</button>
-        </nav>
-    </aside>    
+					<a href="#" class="m-tabsNav" title="">
+						<img src="/images/backOffice/settings-icon.svg" alt=""> Paramètres
+					</a>
+				</li>
+			</ul>
+		</nav>
+        <button class="a-btn -primaryGhostLight m-tabsNav" title="inviter un nouvel administrateur">Inviter</button>
+	</aside>
 {% endblock %}
 
 {% block footer %}{# no footer in the backOffice #}{% endblock %}

@@ -8,13 +8,14 @@
     @include textButton;
     padding: 8px 16px;
     border-radius: 5px;
-    text-decoration: none;
-    cursor: pointer;
     &.-primary {
         @include regular-btn($color-primary, $color-white);
     }
     &.-primaryGhost {
         @include ghost-btn($color-primary, $color-white);
+    }
+    &.-primaryGhostLight {
+        @include ghost-btn($color-background, $color-secondary);
     }
     &.-alert {
         @include regular-btn($color-alert, $color-white);
@@ -35,15 +36,12 @@
 *
 */
 .m-cardWithImage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    border-radius: 10px;
+    @include generic-flexCenterColumn;
+    border-radius: 8px;
     padding: 0 8px 8px 8px;
     background-color: $color-white;
     &__image {
-        border-radius:  10px 10px 0 0;
+        border-radius:  8px 8px 0 0;
     }
     &__buttons {
         width: 100%;
@@ -57,11 +55,9 @@
     width: 300px;
     height: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include generic-flexCenterColumn;
     justify-content: center;
-    text-align: center;
-    border-radius: 10px;
+    border-radius: 8px;
     background: $color-primary;
     color: $color-white;
 }
@@ -75,7 +71,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);
     grid-gap: 10px;
-    justify-content: center;
+    justify-content: left;
 }
 
 /*

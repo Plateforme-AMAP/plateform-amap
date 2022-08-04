@@ -21,6 +21,8 @@ time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -52,6 +54,16 @@ table {
   border-spacing: 0;
 }
 
+button, input[type=submit], input[type=reset] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
 @font-face {
   font-family: "Poppins";
   src: url("/fonts/Poppins-Regular.woff") format("woff"), url("/fonts/Poppins-Regular.ttf") format("ttf");
@@ -75,14 +87,11 @@ table {
 Fonts 
 
 ---------------------------------*/
-* {
+body {
+  background-color: #E3E9E9;
   font-family: "Poppins";
   font-weight: 400;
   line-height: normal;
-}
-
-body {
-  background-color: #E3E9E9;
 }
 
 .a-title1 {
@@ -119,21 +128,6 @@ body {
   color: #161616;
 }
 
-.a-textLink__light {
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.a-textLink__light {
-  color: #FFF;
-}
-.a-textLink__light:hover {
-  font-weight: 600;
-}
-.a-textLink__light:active {
-  color: #48a999;
-}
-
 .a-textDetails {
   font-size: 12px;
   font-weight: 400;
@@ -151,14 +145,11 @@ body {
 *
 */
 .a-btn {
-  text-decoration: none;
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 500;
   padding: 8px 16px;
   border-radius: 5px;
-  text-decoration: none;
-  cursor: pointer;
 }
 .a-btn.-primary {
   color: #FFF;
@@ -179,6 +170,16 @@ body {
   color: #FFF;
   background: #00796B;
   border: 1px solid #00796B;
+}
+.a-btn.-primaryGhostLight {
+  color: #E3E9E9;
+  background: transparent;
+  border: 1px solid #E3E9E9;
+}
+.a-btn.-primaryGhostLight:hover, .a-btn.-primaryGhostLight :focus {
+  color: #004C40;
+  background: #E3E9E9;
+  border: 1px solid #E3E9E9;
 }
 .a-btn.-alert {
   color: #FFF;
@@ -216,12 +217,12 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 0 8px 8px 8px;
   background-color: #FFF;
 }
 .m-cardWithImage__image {
-  border-radius: 10px 10px 0 0;
+  border-radius: 8px 8px 0 0;
 }
 .m-cardWithImage__buttons {
   width: 100%;
@@ -230,18 +231,18 @@ body {
 }
 
 .m-cardAddNew {
-  text-decoration: none;
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 500;
   width: 300px;
   height: 100%;
   display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
-  border-radius: 10px;
+  justify-content: center;
+  border-radius: 8px;
   background: #00796B;
   color: #FFF;
 }
@@ -255,7 +256,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, 300px);
   grid-gap: 10px;
-  justify-content: center;
+  justify-content: left;
 }
 
 /*
@@ -289,4 +290,138 @@ body {
 
 .generic-m16_row {
   margin: 16px 0;
+}
+
+main {
+  width: 88vw;
+  margin-left: 10vw;
+  padding-top: 68px;
+}
+
+/*
+* Nav on the top
+*
+*/
+.o-navigationTopBar {
+  width: 100vw;
+  height: 50px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  background: #004C40;
+  color: #E3E9E9;
+  position: fixed;
+  z-index: 1;
+}
+.o-navigationTopBar__nav {
+  display: flex;
+  width: 100%;
+}
+.o-navigationTopBar__items {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.o-navigationTopBar__items a {
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 500;
+}
+.o-navigationTopBar__items a:hover {
+  font-weight: 600;
+}
+.o-navigationTopBar__items a:active {
+  color: #48a999;
+}
+
+.m-userSection {
+  display: none;
+}
+
+/*
+*Nav on the left side
+*
+*/
+.o-navigationSideBar {
+  position: fixed;
+  height: 100vh;
+  width: 10vw;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: space-between;
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 500;
+  background: #00796B;
+  padding: 0 auto;
+}
+.o-navigationSideBar:hover {
+  font-weight: 600;
+}
+.o-navigationSideBar:active {
+  color: #48a999;
+}
+.o-navigationSideBar__nav {
+  height: 100%;
+}
+.o-navigationSideBar__nav ul {
+  padding-top: 80px;
+  height: 50%;
+}
+.o-navigationSideBar__nav button {
+  width: 90%;
+  max-width: 160px;
+}
+
+.m-tabsNav {
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 500;
+  height: auto;
+  width: 90%;
+  max-width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  background: #004C40;
+  margin: 0 auto 16px;
+  padding: 8px;
+}
+.m-tabsNav:hover {
+  font-weight: 600;
+}
+.m-tabsNav:active {
+  color: #48a999;
+}
+.m-tabsNav:hover, .m-tabsNav :active {
+  background: transparent;
+}
+
+/*
+* partie naviagtion sur les pages (arborescence)
+*
+*/
+.o-navPages {
+  position: fixed;
+  width: 12vw;
+  height: 100vh;
+}
+.o-navPages a {
+  color: #004C40;
+  font-size: 16px;
+  font-weight: 500;
+}
+.o-navPages a:hover {
+  font-weight: 500;
+}
+.o-navPages a:active {
+  color: #48a999;
+}
+
+.o-pageContainer {
+  margin-left: 10vw;
+  padding: 16px;
 }/*# sourceMappingURL=app_backOffice.css.map */

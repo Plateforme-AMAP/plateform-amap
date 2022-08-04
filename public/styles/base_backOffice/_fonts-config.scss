@@ -4,14 +4,11 @@ Fonts
 
 ---------------------------------*/
 
-* {
+  body {
+    background-color: $color-background;
     font-family: "Poppins";
     font-weight: 400;
     line-height: normal;
-  }
-
-  body {
-    background-color: $color-background;
   }
   
   .a-title1 {
@@ -46,22 +43,6 @@ Fonts
     font-size: $normalFont;
     font-weight: $regular;
     color: $color-black;
-  }
-    
-  %textLink{ 
-    font-size: $normalFont;
-    font-weight: $medium;  
-  }
-  
-  .a-textLink__light{
-    @extend %textLink;
-    color: $color-white;
-    &:hover{
-      font-weight: $semiBold;
-    }
-    &:active{
-      color: $color-light;
-    }
   }
   
   .a-textDetails{
