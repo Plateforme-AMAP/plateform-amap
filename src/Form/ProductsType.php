@@ -29,6 +29,7 @@ class ProductsType extends AbstractType
                     'class' => 'ajouterlaclass'
                 ],
                 "required" => false,
+                "imagine_pattern" => 'large'
             ])
         ;
     }

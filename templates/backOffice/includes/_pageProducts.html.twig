@@ -1,11 +1,3 @@
-{% extends 'base_backOffice.twig' %}
-
-{% block title %}Produits{% endblock %}
-
-{% block body %}
-	{% include('backOffice/includes/_pagesNav.html.twig') %}
-	<div class="o-pageContainer">
-		<h1 class="a-title1">Produits</h1>
 		<section class="o-pageWithCards">
 			<a href="{{ path('add_product') }}" class="m-cardAddNew" title="Ajouter un produit"><img src="/images/backOffice/add-icon.svg" class="a-icon" alt="icon +">Ajouter un produit</a>
 			{% for product in products %}
@@ -26,11 +18,10 @@
 
 					<!-- Product control-->
 					<div class="m-cardWithImage__buttons generic-m8_row">
-						<button class="a-btn -primaryGhost -width50" href="{{ path('edit_product', {id : product.id }) }}" title="Modifier le produit">Modifier</button>
-						<button class="a-btn -primaryGhost -width50" href="{{ path('delete_product', {id : product.id }) }}" onclick="confirm('Voulez vous vraiment suprimer ce produit?') || event.preventDefault()" title="Supprimer le produit">Supprimer</button>
+						<a class="a-btn -primaryGhost -width50" href="{{ path('edit_product', {id : product.id }) }}" title="Modifier le produit">Modifier</a>
+						<a class="a-btn -primaryGhost -width50" href="{{ path('delete_product', {id : product.id }) }}" onclick="confirm('Voulez vous vraiment suprimer ce produit?') || event.preventDefault()" title="Supprimer le produit">Supprimer</a>
+
 					</div>
 				</article>
 			{% endfor %}
 		</section>
-	</div>
-{% endblock %}

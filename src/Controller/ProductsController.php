@@ -57,8 +57,10 @@ class ProductsController extends AbstractController
     {
         $products = $doctrine->getRepository(Products::class)->findBy([], ['id' => 'DESC']);
 
-        return $this->render('backOffice/products/products.html.twig', [
+        return $this->render('/backOffice/pages/pages.html.twig', [
             'products' => $products,
+            'pageInclude' => 'backOffice/includes/_pageProducts.html.twig',
+            'pageIncludeTitle' => 'Produits',
         ]);
     }
 
@@ -81,10 +83,12 @@ class ProductsController extends AbstractController
              return $this->redirectToRoute('app_products-admin');
          }
          // On envois la page avec le formulaire et on permet la création de la vue (qu'on appellera dans le template)
-         return $this->render('backOffice/products/form_product.html.twig', [
-             'formProduct' => $formProduct->createView(),
-             'formTitle' => 'Ajouter un bien',
-             'formSubmitLabel'=> 'Ajouter',
+         return $this->render('/backOffice/pages/pages.html.twig', [
+            'formProduct' => $formProduct->createView(),
+            'formTitle' => 'Ajouter un produit',
+            'formSubmitLabel'=> 'Ajouter',
+            'pageInclude' => 'backOffice/includes/_pageProductForm.html.twig',
+            'pageIncludeTitle' => 'Ajouter un produit',
          ]);
      }
 
@@ -105,10 +109,12 @@ class ProductsController extends AbstractController
              );
              return $this->redirectToRoute('app_products-admin');
          }
-         return $this->render('backOffice/products/form_product.html.twig', [
-             'formProduct' => $formProduct->createView(),
-             'formTitle' => 'Modifier le produit',
-             'formSubmitLabel'=> 'Modifier',
+         return $this->render('/backOffice/pages/pages.html.twig', [
+            'formProduct' => $formProduct->createView(),
+            'formTitle' => 'Modifier le produit',
+            'formSubmitLabel'=> 'Modifier',
+            'pageInclude' => 'backOffice/includes/_pageProductForm.html.twig',
+            'pageIncludeTitle' => 'Modifier le produit',
          ]);
      }
 
