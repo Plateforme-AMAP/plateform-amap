@@ -10,15 +10,15 @@
 			<a href="{{ path('add_product') }}" class="m-cardAddNew" title="Ajouter un produit"><img src="/images/backOffice/add-icon.svg" class="a-icon" alt="icon +">Ajouter un produit</a>
 			{% for product in products %}
 				<article class="m-cardWithImage">
-
 					<!-- Product image-->
 					{% if product.imageName %}
-						<img src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('min') }}" alt="{{ product.productName }}"  class="m-cardWithImage__image"/>
+						<img src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('min400x200') }}" alt="{{ product.productName }}"  class="m-cardWithImage__image"/>
 					{% else %}
-						<img src="https://via.placeholder.com/300x200" alt="aucune image pour ce produit">
+						<img src="https://via.placeholder.com/400x200" alt="aucune image pour ce produit" class="m-cardWithImage__image">
 					{% endif %}
 
 					<!-- Product name-->
+
 					<h2 class="a-title2">{{ product.productName }}</h2>
 
 					<!-- Product status-->

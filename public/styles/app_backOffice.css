@@ -218,25 +218,30 @@ body {
   align-items: center;
   text-align: center;
   border-radius: 8px;
-  padding: 0 8px 8px 8px;
   background-color: #FFF;
 }
 .m-cardWithImage__image {
   border-radius: 8px 8px 0 0;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 200px;
 }
 .m-cardWithImage__buttons {
   width: 100%;
   display: flex;
   justify-content: space-around;
+  margin: 0 8px;
+}
+.m-cardWithImage h2 {
+  margin: 0 8px;
 }
 
 .m-cardAddNew {
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 500;
-  width: 300px;
   height: 100%;
-  display: flex;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -252,10 +257,9 @@ body {
 *
 */
 .o-pageWithCards {
-  width: 80vw;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
-  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-gap: 16px;
   justify-content: left;
 }
 
@@ -293,9 +297,9 @@ body {
 }
 
 main {
-  width: 88vw;
+  width: 90vw;
   margin-left: 10vw;
-  padding-top: 68px;
+  padding-top: 80px;
 }
 
 /*
@@ -406,7 +410,7 @@ main {
 */
 .o-navPages {
   position: fixed;
-  width: 12vw;
+  width: 13vw;
   height: 100vh;
 }
 .o-navPages a {
@@ -422,6 +426,26 @@ main {
 }
 
 .o-pageContainer {
-  margin-left: 10vw;
-  padding: 16px;
+  margin-left: 13vw;
+  padding: 0 16px 16px 24px;
+}
+
+.m-linksPages {
+  margin: 16px 8px;
+}
+.m-linksPages a {
+  display: flex;
+  align-items: center;
+  margin: 8px;
+}
+.m-linksPages img {
+  margin-right: 8px;
+}
+
+.a-illuArbo {
+  border: 2px solid #004C40;
+  border-width: 0 0 2px 2px;
+  width: 8px;
+  height: 16px;
+  margin: 0 8px 8px 8px;
 }/*# sourceMappingURL=app_backOffice.css.map */

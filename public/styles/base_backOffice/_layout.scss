@@ -1,7 +1,7 @@
 main {
-    width: 88vw;
+    width: 90vw;
     margin-left: 10vw;
-    padding-top: 68px;
+    padding-top: 80px;
 }
 /*
 * Nav on the top
@@ -89,7 +89,7 @@ main {
 
 .o-navPages {
     position: fixed;
-    width: 12vw;
+    width: 13vw;
     height: 100vh;
     & a {
         @include a-textLink__primary;
@@ -97,6 +97,26 @@ main {
 }
 
 .o-pageContainer {
-    margin-left: 10vw;
-    padding: 16px;
+    margin-left: 13vw;
+    padding: 0 16px 16px 24px;
+}
+
+.m-linksPages {
+    margin: 16px 8px;;
+    & a {
+        display: flex;
+        align-items: center;
+        margin: 8px;
+    }
+    & img {
+        margin-right: 8px;
+    }
+}
+
+.a-illuArbo {
+    border: 2px solid $color-secondary;
+    border-width: 0 0 2px 2px;
+    width: 8px;
+    height: 16px;
+    margin: 0 8px 8px 8px;
 }
