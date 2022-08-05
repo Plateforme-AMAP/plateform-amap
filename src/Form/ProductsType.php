@@ -25,11 +25,10 @@ class ProductsType extends AbstractType
             ])
             ->add('imageFile', VichImageType::class, [
                 "label" => 'Image du produit',
-                "label_attr" => [
-                    'class' => 'ajouterlaclass'
-                ],
                 "required" => false,
-                "imagine_pattern" => 'large'
+                "imagine_pattern" => 'min',
+                'allow_delete' => true,
+                'delete_label' => 'Suprimer l\'image',
             ])
         ;
     }

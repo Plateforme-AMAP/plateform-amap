@@ -1,7 +1,4 @@
-/*
-* Atoms
-*
-*/
+
 
 //buttons
 .a-btn {
@@ -31,10 +28,6 @@
     margin: 8px;
 }
 
-/*
-* Molecules
-*
-*/
 .m-cardWithImage {
     @include generic-flexCenterColumn;
     border-radius: 8px;
@@ -66,15 +59,20 @@
     color: $color-white;
 }
 
-/*
-* Organisms
-*
-*/
 .o-pageWithCards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     grid-gap: 16px;
     justify-content: left;
+}
+
+.a-logo {
+    width: 10vw;
+}
+
+.a-linkLight {
+    display: flex;
+    align-items: center;
 }
 
 /*
@@ -100,15 +98,101 @@
     margin: 8px;
 }
 
+.generic-m8r {
+    margin-right: 8px;
+}
+
 .generic-m16 {
     margin: 16px;
+}
+
+.generic-m16r {
+    margin-right: 16px;
 }
 
 .generic-m8_row {
     margin: 8px 0;
 }
 
+.generic-m8_col {
+    margin: 0 8px;
+}
+
 .generic-m16_row {
     margin: 16px 0;
+}
+
+.generic-whiteBackground {
+    background-color: $color-white;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+/*
+* FORMS
+*
+*/
+
+.formInput {
+    margin: 8px 0;
+}
+
+.formField {
+    width: -moz-available;          /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
+    border: 2px solid $color-primary;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-style: italic;
+    font-size: $normalFont;
+    font-weight: $regular;
+    color: $color-black;
+    &:focus {
+        border: 1px;
+        outline: solid $color-primary;
+        background-color: $color-background;
+    }
+}
+
+.formLabel {
+    @extend %a-title3;
+}
+
+
+.vich-image {
+    display: grid; 
+    grid-template-columns: auto 1.5fr 1fr;
+    grid-template-rows: 45px 45px;
+    gap: 0; 
+    grid-template-areas: 
+      "img formField formField"
+      "img formInput formInput"; 
+    & > .formField {
+        grid-area: formField;
+    }
+    .formInput {
+        grid-area: formInput;
+        .formLabel {
+            @extend %a-p;
+        }
+        .formField {
+            width: auto;
+            margin-left: 16px;
+        }
+    }
+    :nth-child(3n) {
+        grid-area: img;
+        & img { 
+            height: 100%; 
+            width: 100%;
+            object-fit: cover;
+            padding-right: 16px;
+        }
+    }
+    :nth-child(4n) {
+        display: none;
+    }
 }
 

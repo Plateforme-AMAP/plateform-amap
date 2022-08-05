@@ -17,7 +17,7 @@ Fonts
     color: $color-secondary;
     margin: 16px 0;
   }
-  
+
   .a-title2 {
     font-size: 20px;
     font-weight: 600;
@@ -25,13 +25,13 @@ Fonts
     margin: 8px 0;
   }
   
-  .a-title3 {
-    font-size: 24px;
+  %a-title3 {
+    font-size: 20px;
     font-weight: $medium;
-    color: $color-primary;
+    color: $color-black;
   }
   
-  .a-p {
+  %a-p {
     font-size: $normalFont;
     font-weight: $regular;
     color: $color-black;

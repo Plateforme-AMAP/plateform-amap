@@ -7,17 +7,17 @@
 {% block navbar %}
 	{# here the top-menu #}
 	<header class="o-navigationTopBar">
-		<div class=""><img src="/images/backOffice/logo.svg" alt="logo" class="icon">
+		<div class="a-logo"><img src="/images/backOffice/logo.svg" alt="logo" class="icon">
 		</div>
 		<nav class="o-navigationTopBar__nav">
 			
 			<ul class="o-navigationTopBar__items">
                 <li>
-                    <a class="" href="{{ path('app_products') }}" title=""><img src="" alt="" class="">voir le site</a>
+                    <a class="a-linkLight" href="{{ path('app_products') }}" title="Aller voir le site"><img src="/images/backOffice/eye-icon.svg" alt="eye" class="generic-m8r">voir le site</a>
                 </li>
 				<li class="">
-					<a href="#" class="" id="" title="">
-						<img src="" alt="" class="">Mon compte
+					<a href="#" class="a-linkLight generic-m16r" id="" title="voir mon compte" >
+						<img src="/images/backOffice/user-icon.svg" alt="utilisateur" class="generic-m8r">Mon compte
 					</a>
 					<!-- submenu with informations -->
 					<section class="m-userSection" id="">
@@ -49,7 +49,7 @@
 					<!-- submenu's end -->
 				</li>
 			</ul>
-			<button class="textLink-light link-icon"><img src="/images/backOffice/notification-icon.svg" alt="icon de notifications" class="icon">
+			<button class="textLink-light link-icon generic-m8_col"><img src="/images/backOffice/notification-icon.svg" alt="icon de notifications">
 			</button>
 		</nav>
 	</header>

@@ -1,6 +1,16 @@
-	<section>
-		{{ form_start(formProduct) }}
-		{{ form_widget(formProduct) }}
-		<button type="submit">{{ formSubmitLabel }}</button>
-		{{ form_end(formProduct) }}
-	</section>
+<section>
+	{{ form_start(formProduct) }}
+
+	<div class="generic-whiteBackground">
+	{{ form_row(formProduct.productName) }}
+
+	{{ form_row(formProduct.productDescription) }}
+		
+	{{ form_row(formProduct.productPrice) }}
+
+	{{ form_row(formProduct.imageFile) }}
+	</div>
+
+	<button type="submit" class="a-btn -primary">{{ formSubmitLabel }}</button>
+	{{ form_end(formProduct) }}
+</section>

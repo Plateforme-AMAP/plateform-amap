@@ -1,0 +1,16 @@
+{% use 'form_div_layout.html.twig' %}
+{%- block form_row -%}
+    {%- set row_attr = row_attr|merge({ class: row_attr.class|default(row_class|default('formInput')) }) -%}
+    {{- parent() -}}
+{%- endblock form_row -%}
+
+{%- block widget_attributes -%}
+    {%- set attr = attr|merge({ class: attr.class|default(widget_class|default('formField')) ~ (disabled ? ' ' ~ widget_disabled_class|default('formField--desabled')) ~ (errors|length ? ' ' ~ widget_errors_class|default('formField--alert')) }) -%}
+    {{- parent() -}}
+{%- endblock widget_attributes -%}
+
+{%- block form_label -%}
+    {%- set label_attr = label_attr|merge({ class: label_attr.class|default(label_class|default('formLabel')) }) -%}
+    {{- parent() -}}
+{%- endblock form_label -%}
+
