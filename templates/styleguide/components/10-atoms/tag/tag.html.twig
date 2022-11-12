@@ -1,0 +1,19 @@
+<!-- on défini le nom de ce component (ici "tag") -->
+{% set componentClass = 'a-tag' %}
+<!-- on lui dit de prendre les attribut qui seront donnés lors de son "include" -->
+<!--
+si on défini un attribut alors il s'applique à cetr élément
+-->
+{% set attributeList = attributeList is defined ? attributeList : {} %}
+<!--
+dans la liste d'attribut, si une class est déclarée Alors on l'ajoute à la classe déjà définie
+-->
+{% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
+<!--
+on lui donne un tag par défaut, si il n'est pas "redéfini" lors de l'inclue on lui donne la valeur 'span'
+-->
+{% set defaultTag = 'span' %}
+{% set tag = tag is defined ? tag : defaultTag %}
+<{{ tag }}{% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
+    {{ text }}
+</{{ tag }}>

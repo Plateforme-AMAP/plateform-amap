@@ -1,0 +1,16 @@
+.a-tag {
+    color: red;
+    font-weight: bold;
+    background-color: aqua;
+
+    &.-uppercase {
+        text-transform: uppercase;
+    }
+
+    &.-purple {
+        color: white;
+        font-weight: bold;
+        background-color: purple;
+        font-size: 30px;
+    }
+}

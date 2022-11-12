@@ -81,4 +81,18 @@ button, input[type=submit], input[type=reset] {
   src: url("/fonts/Poppins-SemiBold.woff") format("woff"), url("/fonts/Poppins-SemiBold.ttf") format("ttf");
   font-weight: 600;
   font-style: normal;
-}/*# sourceMappingURL=app_frontOffice.css.map */
+}
+.a-tag {
+  color: red;
+  font-weight: bold;
+  background-color: aqua;
+}
+.a-tag.-uppercase {
+  text-transform: uppercase;
+}
+.a-tag.-purple {
+  color: white;
+  font-weight: bold;
+  background-color: purple;
+  font-size: 30px;
+}/*# sourceMappingURL=app.css.map */
