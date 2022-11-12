@@ -56,64 +56,6 @@ body {
   color: #004C40;
 }
 
-.a-btn {
-  text-transform: uppercase;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 5px;
-}
-.a-btn.-primary {
-  color: #FFF;
-  background: #00796B;
-  border: 1px solid #00796B;
-}
-.a-btn.-primary:hover, .a-btn.-primary :focus {
-  color: #00796B;
-  background: transparent;
-  border: 1px solid #00796B;
-}
-.a-btn.-primaryGhost {
-  color: #00796B;
-  background: transparent;
-  border: 1px solid #00796B;
-}
-.a-btn.-primaryGhost:hover, .a-btn.-primaryGhost :focus {
-  color: #FFF;
-  background: #00796B;
-  border: 1px solid #00796B;
-}
-.a-btn.-primaryGhostLight {
-  color: #E3E9E9;
-  background: transparent;
-  border: 1px solid #E3E9E9;
-}
-.a-btn.-primaryGhostLight:hover, .a-btn.-primaryGhostLight :focus {
-  color: #004C40;
-  background: #E3E9E9;
-  border: 1px solid #E3E9E9;
-}
-.a-btn.-alert {
-  color: #FFF;
-  background: #EC6262;
-  border: 1px solid #EC6262;
-}
-.a-btn.-alert:hover, .a-btn.-alert :focus {
-  color: #EC6262;
-  background: transparent;
-  border: 1px solid #EC6262;
-}
-.a-btn.-alertGhost {
-  color: #EC6262;
-  background: transparent;
-  border: 1px solid #EC6262;
-}
-.a-btn.-alertGhost:hover, .a-btn.-alertGhost :focus {
-  color: #FFF;
-  background: #EC6262;
-  border: 1px solid #EC6262;
-}
-
 .a-icon {
   width: 20px;
   height: auto;
@@ -436,4 +378,82 @@ main {
   width: 8px;
   height: 16px;
   margin: 0 8px 8px 8px;
+}
+
+.a-button {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+.a-button.-primary {
+  color: #FFF;
+  background: #00796B;
+  border: 1px solid #00796B;
+}
+.a-button.-primary:hover, .a-button.-primary :focus {
+  color: #00796B;
+  background: transparent;
+  border: 1px solid #00796B;
+}
+.a-button.-primaryGhost {
+  color: #00796B;
+  background: transparent;
+  border: 1px solid #00796B;
+}
+.a-button.-primaryGhost:hover, .a-button.-primaryGhost :focus {
+  color: #FFF;
+  background: #00796B;
+  border: 1px solid #00796B;
+}
+.a-button.-primaryGhostLight {
+  color: #E3E9E9;
+  background: transparent;
+  border: 1px solid #E3E9E9;
+}
+.a-button.-primaryGhostLight:hover, .a-button.-primaryGhostLight :focus {
+  color: #004C40;
+  background: #E3E9E9;
+  border: 1px solid #E3E9E9;
+}
+.a-button.-alert {
+  color: #FFF;
+  background: #EC6262;
+  border: 1px solid #EC6262;
+}
+.a-button.-alert:hover, .a-button.-alert :focus {
+  color: #EC6262;
+  background: transparent;
+  border: 1px solid #EC6262;
+}
+.a-button.-alertGhost {
+  color: #EC6262;
+  background: transparent;
+  border: 1px solid #EC6262;
+}
+.a-button.-alertGhost:hover, .a-button.-alertGhost :focus {
+  color: #FFF;
+  background: #EC6262;
+  border: 1px solid #EC6262;
+}
+.a-button.-website {
+  color: #FFF;
+  background: #689F38;
+  border: 1px solid #689F38;
+}
+.a-button.-website:hover, .a-button.-website :focus {
+  color: #689F38;
+  background: transparent;
+  border: 1px solid #689F38;
+}
+.a-button.-websiteGhost {
+  color: #689F38;
+  background: transparent;
+  border: 1px solid #689F38;
+}
+.a-button.-websiteGhost:hover, .a-button.-websiteGhost :focus {
+  color: transparent;
+  background: #689F38;
+  border: 1px solid #689F38;
 }/*# sourceMappingURL=app_backOffice.css.map */

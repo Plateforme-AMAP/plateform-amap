@@ -1,30 +1,66 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_backOffice.twig' %}
 {% block title %}Hello TestController!{% endblock %}
+{% block navbar %}
+{% endblock %}
 
+{% block sideNavbar %}
+{% endblock %}
 {% block body %}
 
 
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
-    <h2> ATOMS </2>
+    <h1 class="a-title1"> ATOMS </1>
     <ul>
         <li>
-            <h4>buttons</h4>
-            {% include '@atom/tag/tag.html.twig' with {
-            text: "test",
+            <h2>buttons</h2>
+            {% include '@atom/button/button.html.twig' with {
+            text: "primary",
             attributeList: {
-                class: '-uppercase'
+                class: '-primary'
             }
             } only %}
-            {% include '@atom/tag/tag.html.twig' with {
-            text: "test",
+            {% include '@atom/button/button.html.twig' with {
+            text: "primaryGhost",
             attributeList: {
-                class: '-purple'
+                class: '-primaryGhost'
+            }
+            } only %}
+            {% include '@atom/button/button.html.twig' with {
+            text: "primaryGhostLight",
+            attributeList: {
+                class: '-primaryGhostLight'
+            }
+            } only %}
+            {% include '@atom/button/button.html.twig' with {
+            text: "alert",
+            attributeList: {
+                class: '-alert'
+            }
+            } only %}
+            {% include '@atom/button/button.html.twig' with {
+            text: "alertGhost",
+            attributeList: {
+                class: '-alertGhost'
+            }
+            } only %}
+                        {% include '@atom/button/button.html.twig' with {
+            text: "website",
+            attributeList: {
+                class: '-website'
+            }
+            } only %}
+            {% include '@atom/button/button.html.twig' with {
+            text: "websiteGhost",
+            attributeList: {
+                class: '-websiteGhost'
             }
             } only %}
         </li>
-        <li></li>
+        <li>
+            <h2>buttons</h2>
+        </li>
     </ul>
 </div>
 {% endblock %}

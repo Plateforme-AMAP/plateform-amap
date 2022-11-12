@@ -1,0 +1,7 @@
+{% set componentClass = 'a-image' %}
+{% set attributeList = attributeList is defined ? attributeList : {} %}
+{% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? attributeList.class ~ ' ' ~ componentClass : componentClass), 'alt': attributeList.alt is defined ? attributeList.alt : ''}) %}
+
+{% if attributeList.src is defined %}
+<img {% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %} />
+{% endif %}

@@ -1,26 +1,26 @@
 
 
-//buttons
-.a-btn {
-    @include textButton;
-    padding: 8px 16px;
-    border-radius: 5px;
-    &.-primary {
-        @include regular-btn($color-primary, $color-white);
-    }
-    &.-primaryGhost {
-        @include ghost-btn($color-primary, $color-white);
-    }
-    &.-primaryGhostLight {
-        @include ghost-btn($color-background, $color-secondary);
-    }
-    &.-alert {
-        @include regular-btn($color-alert, $color-white);
-    }
-    &.-alertGhost {
-        @include ghost-btn($color-alert, $color-white);
-    }
-}
+// //buttons
+// .a-btn {
+//     @include textButton;
+//     padding: 8px 16px;
+//     border-radius: 5px;
+//     &.-primary {
+//         @include regular-btn($color-primary, $color-white);
+//     }
+//     &.-primaryGhost {
+//         @include ghost-btn($color-primary, $color-white);
+//     }
+//     &.-primaryGhostLight {
+//         @include ghost-btn($color-background, $color-secondary);
+//     }
+//     &.-alert {
+//         @include regular-btn($color-alert, $color-white);
+//     }
+//     &.-alertGhost {
+//         @include ghost-btn($color-alert, $color-white);
+//     }
+// }
 
 .a-icon {
     width: 20px;

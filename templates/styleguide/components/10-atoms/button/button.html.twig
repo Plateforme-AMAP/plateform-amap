@@ -1,5 +1,5 @@
 <!-- on défini le nom de ce component (ici "tag") -->
-{% set componentClass = 'a-tag' %}
+{% set componentClass = 'a-button' %}
 <!-- on lui dit de prendre les attribut qui seront donnés lors de son "include" -->
 <!--
 si on défini un attribut alors il s'applique à cetr élément
@@ -10,9 +10,13 @@ dans la liste d'attribut, si une class est déclarée Alors on l'ajoute à la cl
 -->
 {% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
 <!--
-on lui donne un tag par défaut, si il n'est pas "redéfini" lors de l'inclue on lui donne la valeur 'span'
+"a" is the button default value. but if no links is defined, it's a button, so it takes that value
 -->
-{% set defaultTag = 'span' %}
+{% set defaultTag = 'a' %}
+{% if attributeList.href is not defined %}
+  {% set defaultTag = 'button' %}
+  {% set attributeList = {'type': 'button'}|merge(attributeList) %}
+{% endif %}
 {% set tag = tag is defined ? tag : defaultTag %}
 <{{ tag }}{% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
     {{ text }}
