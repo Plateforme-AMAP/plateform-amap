@@ -1,0 +1,8 @@
+.o-menuArbo {
+    position: fixed;
+    width: 13vw;
+    height: 100vh;
+    & a {
+        @include a-textLink__primary;
+    }
+}

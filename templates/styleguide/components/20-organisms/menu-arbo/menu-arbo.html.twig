@@ -1,0 +1,69 @@
+{% set componentClass = 'o-menuArbo' %}
+{% set attributeList = attributeList is defined ? attributeList : {} %}
+{% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
+{% set tag = 'nav' %}
+
+<{{ tag }}{% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
+<ul>
+	{# This navigation is static for the moment, resume this diagram in case of dynamization #}
+	{% set linkList = [
+		{
+		'text': 'Page "Accueil"',
+		'href': '#',
+		},
+		{
+		'text': 'Page "Les Produits"',
+		'href': '#',
+		'subLinkList': {
+			'text': 'Produits',
+			'href': '{{ path(\'app_products-admin\') }}',
+			},
+		},
+		{
+		'text': 'L\'AMAP',
+		'href': '#',
+		},
+		{
+		'text': 'Page "Nos producteurs"',
+		'href': '#',
+		'subLinkList': {
+			'text': 'Producteurs',
+			'href': "#",
+			},
+		},
+		{
+		'text': 'Page "Nous trouver"',
+		'href': '#',
+		},
+		{
+		'text': 'Page "Nous Contacter"',
+		'href': '#',
+		},
+		{
+		'text': 'Page "Actualités"',
+		'href': '#',
+		'subLinkList': {
+			'text': 'Actualités',
+			'href': "#",
+			},
+		},	
+		{
+		'text': 'Page "Recettes"',
+		'href': '#',
+		'subLinkList': {
+			'text': 'Recettes',
+			'href': "#",
+			},
+		},
+	]
+	%}
+	{% for link in linkList %}
+		<li class="m-linksPages">
+			<a href="{{ link.href }}"  title="{{ link.text }}"><img src="/images/backOffice/file-icon.svg" alt="">{{ link.text }}</a>
+			{% if link.subLinkList is defined %}
+				<a href="{{ link.subLinkList.href }}"  title="{{ link.subLinkList.text }}"><div class="a-illuArbo"></div><img src="/images/backOffice/folder-icon.svg" alt="">{{ link.subLinkList.text }}</a>
+			{% endif %}
+		</li>
+	{% endfor %}
+</ul>
+</{{ tag }}>

@@ -338,23 +338,6 @@ main {
 * partie naviagtion sur les pages (arborescence)
 *
 */
-.o-navPages {
-  position: fixed;
-  width: 13vw;
-  height: 100vh;
-}
-.o-navPages a {
-  color: #004C40;
-  font-size: 16px;
-  font-weight: 500;
-}
-.o-navPages a:hover {
-  font-weight: 500;
-}
-.o-navPages a:active {
-  color: #48a999;
-}
-
 .o-pageContainer {
   margin-left: 13vw;
   padding: 0 16px 16px 24px;
@@ -453,7 +436,25 @@ main {
   border: 1px solid #689F38;
 }
 .a-button.-websiteGhost:hover, .a-button.-websiteGhost :focus {
-  color: transparent;
+  color: #FFF;
   background: #689F38;
   border: 1px solid #689F38;
+}
+
+/* All scss files are called at the app.scss file */
+.o-menuArbo {
+  position: fixed;
+  width: 13vw;
+  height: 100vh;
+}
+.o-menuArbo a {
+  color: #004C40;
+  font-size: 16px;
+  font-weight: 500;
+}
+.o-menuArbo a:hover {
+  font-weight: 500;
+}
+.o-menuArbo a:active {
+  color: #48a999;
 }/*# sourceMappingURL=app_backOffice.css.map */

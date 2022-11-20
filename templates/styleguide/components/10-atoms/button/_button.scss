@@ -22,6 +22,6 @@
         @include regular-btn($color-website, $color-white);
     }
     &.-websiteGhost {
-        @include ghost-btn($color-website, $color-transparent);
+        @include ghost-btn($color-website, $color-white);
     }
 }

@@ -3,7 +3,8 @@
 {% block title %}{{ pageIncludeTitle }}{% endblock %}
 
 {% block body %}
-	{% include('backOffice/includes/_pagesNav.html.twig') %}
+	{# {% include('backOffice/includes/_pagesNav.html.twig') %} #}
+	{% include('@organism/menu-arbo/menu-arbo.html.twig') %}
 	<div class="o-pageContainer">
 		<h1 class="a-title1">{{ pageIncludeTitle }}</h1>
 	{% include( pageInclude ) %}
