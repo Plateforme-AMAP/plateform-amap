@@ -59,9 +59,9 @@
 	%}
 	{% for link in linkList %}
 		<li class="m-linksPages">
-			<a href="{{ link.href }}"  title="{{ link.text }}"><img src="/images/backOffice/file-icon.svg" alt="">{{ link.text }}</a>
+			<a href="{{ link.href }}"  title="{{ link.text }}"><img src="/icons/file.svg" alt="">{{ link.text }}</a>
 			{% if link.subLinkList is defined %}
-				<a href="{{ link.subLinkList.href }}"  title="{{ link.subLinkList.text }}"><div class="a-illuArbo"></div><img src="/images/backOffice/folder-icon.svg" alt="">{{ link.subLinkList.text }}</a>
+				<a href="{{ link.subLinkList.href }}"  title="{{ link.subLinkList.text }}"><div class="a-illuArbo"></div><img src="/icons/folder.svg" alt="">{{ link.subLinkList.text }}</a>
 			{% endif %}
 		</li>
 	{% endfor %}
