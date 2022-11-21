@@ -28,44 +28,6 @@
     margin: 8px;
 }
 
-.m-cardWithImage {
-    @include generic-flexCenterColumn;
-    border-radius: 8px;
-    background-color: $color-white;
-    &__image {
-        border-radius:  8px 8px 0 0;
-        width: 100%;
-        object-fit: cover;
-        height: 200px;
-    }
-    &__buttons {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        margin: 0 8px;
-    }
-    & h2 {
-        margin: 0 8px;
-    }
-}
-
-.m-cardAddNew {
-    @include textButton;
-    height: 100%;
-    @include generic-flexCenterColumn;
-    justify-content: center;
-    border-radius: 8px;
-    background: $color-primary;
-    color: $color-white;
-}
-
-.o-pageWithCards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    grid-gap: 16px;
-    justify-content: left;
-}
-
 .a-logo {
     width: 10vw;
 }

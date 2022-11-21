@@ -1,0 +1,41 @@
+{% set componentClass = 'm-cardWithImage' %}
+{% set attributeList = attributeList is defined ? attributeList : {} %}
+{% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
+{% set tag = 'article' %}
+
+<{{ tag }}{% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
+    <!-- Product image-->
+    {% if product.imageName %}
+        <img src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('min400x200') }}" alt="{{ product.productName }}"  class="m-cardWithImage__image"/>
+    {% else %}
+        <img src="https://via.placeholder.com/400x200" alt="aucune image pour ce produit" class="m-cardWithImage__image">
+    {% endif %}
+
+    <!-- Product name-->
+
+    <h2 class="a-title2">{{ product.productName }}</h2>
+
+    <!-- Product status-->
+    <p class="generic-flex -alignCenter"><img src="/icons/Vectorcheckgreen.svg" alt="icon check" class="a-icon"><span class="generic-m8_row">En ligne{# à dynamiser #}</span></p>
+
+    <!-- Product control-->
+    <div class="m-cardWithImage__buttons generic-m8_row">
+        {% include '@atom/button/button.html.twig' with {
+            text: "Modifier",
+            attributeList: {
+                class: '-primaryGhost',
+                href: path('edit_product', {id : product.id}),
+                title:"Modifier le produit",
+            }
+        } only %}
+        {% include '@atom/button/button.html.twig' with {
+            text: "Supprimer",
+            attributeList: {
+                class: '-alertGhost',
+                href: path('delete_product', {id : product.id }),
+                onclick:"confirm('Voulez vous vraiment suprimer ce produit?') || event.preventDefault()",
+                title:"Supprimer le produit",
+            }
+        } only %}
+    </div>
+</{{ tag }}>

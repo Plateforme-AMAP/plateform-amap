@@ -1,0 +1,20 @@
+.m-cardWithImage {
+    @include generic-flexCenterColumn;
+    border-radius: 8px;
+    background-color: $color-white;
+    &__image {
+        border-radius:  8px 8px 0 0;
+        width: 100%;
+        object-fit: cover;
+        height: 200px;
+    }
+    &__buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin: 0 8px;
+    }
+    & h2 {
+        margin: 0 8px;
+    }
+}

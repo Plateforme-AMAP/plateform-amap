@@ -59,7 +59,7 @@ class ProductsController extends AbstractController
 
         return $this->render('/backOffice/pages/pages.html.twig', [
             'products' => $products,
-            'pageInclude' => 'backOffice/includes/_pageProducts.html.twig',
+            'pageInclude' => '@organism/gallery/gallery.html.twig',
             'pageIncludeTitle' => 'Produits',
         ]);
     }

@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PagesController extends AbstractController
 { 
-    //les dossiers sont gérés dans leur propre controllers :
+    //les dossiers sont gérés dans leurs propres controllers :
     // dossier produits > gérée dans productController
     // dossier recette > gérée dans recettesController
     // idem dossier producteurs 

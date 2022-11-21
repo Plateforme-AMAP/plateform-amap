@@ -62,53 +62,6 @@ body {
   margin: 8px;
 }
 
-.m-cardWithImage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  border-radius: 8px;
-  background-color: #FFF;
-}
-.m-cardWithImage__image {
-  border-radius: 8px 8px 0 0;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 200px;
-}
-.m-cardWithImage__buttons {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  margin: 0 8px;
-}
-.m-cardWithImage h2 {
-  margin: 0 8px;
-}
-
-.m-cardAddNew {
-  text-transform: uppercase;
-  font-size: 16px;
-  font-weight: 500;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  border-radius: 8px;
-  background: #00796B;
-  color: #FFF;
-}
-
-.o-pageWithCards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  grid-gap: 16px;
-  justify-content: left;
-}
-
 .a-logo {
   width: 10vw;
 }
@@ -442,6 +395,32 @@ main {
 }
 
 /* All scss files are called at the app.scss file */
+.m-cardWithImage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  background-color: #FFF;
+}
+.m-cardWithImage__image {
+  border-radius: 8px 8px 0 0;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 200px;
+}
+.m-cardWithImage__buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 8px;
+}
+.m-cardWithImage h2 {
+  margin: 0 8px;
+}
+
+/* All scss files are called at the app.scss file */
 .o-menuArbo {
   position: fixed;
   width: 13vw;
@@ -457,4 +436,25 @@ main {
 }
 .o-menuArbo a:active {
   color: #48a999;
+}
+
+.o-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-gap: 16px;
+  justify-content: left;
+}
+.o-gallery .o-gallery__newCard {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 500;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #00796B;
+  color: #FFF;
 }/*# sourceMappingURL=app_backOffice.css.map */

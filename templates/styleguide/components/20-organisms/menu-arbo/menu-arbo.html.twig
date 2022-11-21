@@ -9,56 +9,57 @@
 	{% set linkList = [
 		{
 		'text': 'Page "Accueil"',
-		'href': '#',
+		'href': "path('app_products-admin')",
 		},
 		{
 		'text': 'Page "Les Produits"',
-		'href': '#',
+		'href': "path('app_products-admin')",
 		'subLinkList': {
 			'text': 'Produits',
-			'href': '{{ path(\'app_products-admin\') }}',
+			'href': "path('app_products-admin')",
 			},
 		},
 		{
 		'text': 'L\'AMAP',
-		'href': '#',
+		'href': "path('app_products-admin')",
 		},
 		{
 		'text': 'Page "Nos producteurs"',
 		'href': '#',
 		'subLinkList': {
 			'text': 'Producteurs',
-			'href': "#",
+			'href': "path('app_products-admin')",
 			},
 		},
 		{
 		'text': 'Page "Nous trouver"',
-		'href': '#',
+		'href': "path('app_products-admin')",
 		},
 		{
 		'text': 'Page "Nous Contacter"',
-		'href': '#',
+		'href': "path('app_products-admin')",
 		},
 		{
 		'text': 'Page "Actualités"',
-		'href': '#',
+		'href': "path('app_products-admin')",
 		'subLinkList': {
 			'text': 'Actualités',
-			'href': "#",
+			'href': "path('app_products-admin')",
 			},
 		},	
 		{
 		'text': 'Page "Recettes"',
-		'href': '#',
+		'href': "path('app_products-admin')",
 		'subLinkList': {
 			'text': 'Recettes',
-			'href': "#",
+			'href': "path('app_products-admin')",
 			},
 		},
 	]
 	%}
 	{% for link in linkList %}
-		<li class="m-linksPages">
+		 <li class="m-linksPages">
+
 			<a href="{{ link.href }}"  title="{{ link.text }}"><img src="/icons/file.svg" alt="">{{ link.text }}</a>
 			{% if link.subLinkList is defined %}
 				<a href="{{ link.subLinkList.href }}"  title="{{ link.subLinkList.text }}"><div class="a-illuArbo"></div><img src="/icons/folder.svg" alt="">{{ link.subLinkList.text }}</a>
