@@ -1,5 +1,6 @@
-{% extends 'base_frontOffice.twig' %}
-
+{% extends 'base_backOffice.twig' %}
+{% block navbar %}{% endblock %}
+{% block sideNavbar %}{% endblock %}
 {% block title %}Produits{% endblock %}
 
 {% block body %}
@@ -22,6 +23,7 @@
 					<!-- Product price-->
 					{{ product.productPrice|number_format(0, ',', ' ') }} €
 					<p>créé le {{ product.productCreatedAt|date("d/m/Y à H:i:s") }}</p>
+					<a href="{{ path('details_product', { 'id' : product.id }) }}">Voir le produit</a>
 				</div>
                 <br><br><br>
 			</div>

@@ -87,7 +87,7 @@ class ProductsController extends AbstractController
             'formProduct' => $formProduct->createView(),
             'formTitle' => 'Ajouter un produit',
             'formSubmitLabel'=> 'Ajouter',
-            'pageInclude' => 'backOffice/includes/_pageProductForm.html.twig',
+            'pageInclude' => 'backOffice/includes/_productForm.html.twig',
             'pageIncludeTitle' => 'Ajouter un produit',
          ]);
      }
@@ -113,13 +113,13 @@ class ProductsController extends AbstractController
             'formProduct' => $formProduct->createView(),
             'formTitle' => 'Modifier le produit',
             'formSubmitLabel'=> 'Modifier',
-            'pageInclude' => 'backOffice/includes/_pageProductForm.html.twig',
+            'pageInclude' => 'backOffice/includes/_productForm.html.twig',
             'pageIncludeTitle' => 'Modifier le produit',
          ]);
      }
 
     //suppression d'un produit [BACKOFFICE]
-    #[Route('/admin/suprimer/{id}', name: 'delete_product')]
+    #[Route('/admin/supprimer/{id}', name: 'delete_product')]
     public function delete($id, ManagerRegistry $doctrine) : RedirectResponse
     {
         $product = $doctrine->getRepository(Products::class)->find($id);

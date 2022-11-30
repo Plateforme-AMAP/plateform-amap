@@ -9,60 +9,59 @@
 	{% set linkList = [
 		{
 		'text': 'Page "Accueil"',
-		'href': "path('app_products-admin')",
+		'href': 'app_products-admin',
 		},
 		{
 		'text': 'Page "Les Produits"',
-		'href': "path('app_products-admin')",
+		'href': 'app_products-admin',
 		'subLinkList': {
 			'text': 'Produits',
-			'href': "path('app_products-admin')",
+			'href': 'app_products-admin',
 			},
 		},
 		{
 		'text': 'L\'AMAP',
-		'href': "path('app_products-admin')",
+		'href': 'app_products-admin',
 		},
 		{
 		'text': 'Page "Nos producteurs"',
-		'href': '#',
+		'href': 'app_products-admin',
 		'subLinkList': {
 			'text': 'Producteurs',
-			'href': "path('app_products-admin')",
+			'href': 'app_products-admin',
 			},
 		},
 		{
 		'text': 'Page "Nous trouver"',
-		'href': "path('app_products-admin')",
+		'href': 'app_products-admin',
 		},
 		{
 		'text': 'Page "Nous Contacter"',
-		'href': "path('app_products-admin')",
+		'href': 'app_products-admin',
 		},
 		{
 		'text': 'Page "Actualités"',
-		'href': "path('app_products-admin')",
+		'href': 'app_products-admin',
 		'subLinkList': {
 			'text': 'Actualités',
-			'href': "path('app_products-admin')",
+			'href': 'app_products-admin',
 			},
 		},	
 		{
 		'text': 'Page "Recettes"',
-		'href': "path('app_products-admin')",
+		'href': 'app_products-admin',
 		'subLinkList': {
 			'text': 'Recettes',
-			'href': "path('app_products-admin')",
+			'href': 'app_products-admin',
 			},
 		},
 	]
 	%}
 	{% for link in linkList %}
 		 <li class="m-linksPages">
-
-			<a href="{{ link.href }}"  title="{{ link.text }}"><img src="/icons/file.svg" alt="">{{ link.text }}</a>
+			<a href="{{ path( link.href ) }}"  title="{{ link.text }}"><img src="/icons/file.svg" alt="">{{ link.text }}</a>
 			{% if link.subLinkList is defined %}
-				<a href="{{ link.subLinkList.href }}"  title="{{ link.subLinkList.text }}"><div class="a-illuArbo"></div><img src="/icons/folder.svg" alt="">{{ link.subLinkList.text }}</a>
+				<a href="{{ path( link.subLinkList.href )}}"  title="{{ link.subLinkList.text }}"><div class="a-illuArbo"></div><img src="/icons/folder.svg" alt="">{{ link.subLinkList.text }}</a>
 			{% endif %}
 		</li>
 	{% endfor %}

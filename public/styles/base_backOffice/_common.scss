@@ -44,16 +44,15 @@
 
 .generic-flex {
     display: flex;
-    .-column {
+    &.-column {
         flex-direction: column;
     }
-    .-alignCenter {
+    &.-alignCenter {
         align-items: center;
     }
-    .-justifyCenter {
+    &.-justifyCenter {
         justify-items: center;
     }
-
 }
 
 .generic-m8 {

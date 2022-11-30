@@ -1,5 +1,5 @@
 <!-- on défini le nom de ce component (ici "tag") -->
-{% set componentClass = 'a-button' %}
+{% set componentClass = 'a-logo' %}
 <!-- on lui dit de prendre les attribut qui seront donnés lors de son "include" -->
 <!--
 si on défini un attribut alors il s'applique à cetr élément
@@ -19,8 +19,5 @@ dans la liste d'attribut, si une class est déclarée Alors on l'ajoute à la cl
 {% endif %}
 {% set tag = tag is defined ? tag : defaultTag %}
 <{{ tag }}{% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
-  {% if image is defined %}
-      <img src="{{ imgSrc }}" alt="{{ text }}" title="{{ text }}">
-  {% endif %}
-  {{ text }}
+    {{ text }}
 </{{ tag }}>
