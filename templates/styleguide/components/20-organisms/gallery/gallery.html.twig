@@ -6,6 +6,6 @@
 <{{ tag }}{% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
     <a href="{{ path('add_product') }}" class="o-gallery__newCard" title="Ajouter un produit"><img src="/icons/add.svg" class="a-icon" alt="icon +">Ajouter un produit</a>
     {% for product in products %}
-        {% include('@molecule/card-with-image/card-with-image.html.twig') %}
+        {% include ('@molecule/card-with-image/card-with-image.html.twig')%}
     {% endfor %}
 </{{ tag }}>

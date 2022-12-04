@@ -7,6 +7,8 @@
 	{# please create your own html here :) you can trash main, just keep the php logic ! #}
 
 	<h1>Produits FrontOffice</h1>
+	{% include( pageInclude ) %}
+
 	{% for product in products %}
 		<div>
 			<div>
@@ -26,6 +28,7 @@
 					<a href="{{ path('details_product', { 'id' : product.id }) }}">Voir le produit</a>
 				</div>
                 <br><br><br>
+
 			</div>
 		</div>
 	{% endfor %}

@@ -19,4 +19,11 @@
     &__state {
         justify-content: center;
     }
+    .-frontOffice {
+        display: none;
+    }
+
+    .-backOffice {
+        display: none;
+    }
 }
