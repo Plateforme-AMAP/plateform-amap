@@ -1,0 +1,21 @@
+{% extends 'base_backOffice.twig' %}
+
+{% block title %}Bienvenue{% endblock %}
+
+{% block body %}
+        <div >
+            <h1 class="">Bienvenue !</h1>
+            <h2>On y est presque...</h2>
+            <div class="">
+                <p>Vous avez reçu un mail de confirmation à votre adresse mail</p>
+                <p>Pour activer ce compte merci de cliquer sur le lien qui vous a été envoyé !</p>
+            </div>
+            {% include '@atom/button/button.html.twig' with {
+                text: "Activer mon compte",
+                attributeList: {
+                    class: '-primaryGhost',
+                    href: 'https://mailtrap.io/inboxes/1989988/messages',
+                }
+            } only %}
+        </div>
+{% endblock %}

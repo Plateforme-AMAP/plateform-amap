@@ -418,6 +418,12 @@ main {
 .m-cardWithImage__state {
   justify-content: center;
 }
+.m-cardWithImage .-frontOffice {
+  display: none;
+}
+.m-cardWithImage .-backOffice {
+  display: none;
+}
 
 /* All scss files are called at the app.scss file */
 .o-menuArbo {
