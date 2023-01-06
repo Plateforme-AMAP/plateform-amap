@@ -33,7 +33,7 @@
 .email-content {
   padding: 15px;
   margin: 15px;
-  border-radius: 15px;
+  border-radius: 8px;
   background-color: white;
   text-align: center;
 }
@@ -48,6 +48,7 @@
   border: 1px solid #00796B;
 }
 .button__checking:hover {
+  text-decoration: none;
   color: #00796B;
   background: transparent;
   border: 1px solid #00796B;
@@ -60,7 +61,7 @@
 
     <p class="p">
         Pour finaliser la création de votre compte sur la plateforme HO, il suffit de confirmer votre email avec le lien suivant: <br><br>
-        <a href="{{ signedUrl }}" class="button__checking">C'est bien mon email</a>.
+        <a href="{{ signedUrl }}" class="button__checking">Confirmer mon email</a><br><br>
         Ce lien expire dans {{ expiresAtMessageKey|trans(expiresAtMessageData , 'VerifyEmailBundle') }}.
     </p>
 

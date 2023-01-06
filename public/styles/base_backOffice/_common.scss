@@ -1,27 +1,3 @@
-
-
-// //buttons
-// .a-btn {
-//     @include textButton;
-//     padding: 8px 16px;
-//     border-radius: 5px;
-//     &.-primary {
-//         @include regular-btn($color-primary, $color-white);
-//     }
-//     &.-primaryGhost {
-//         @include ghost-btn($color-primary, $color-white);
-//     }
-//     &.-primaryGhostLight {
-//         @include ghost-btn($color-background, $color-secondary);
-//     }
-//     &.-alert {
-//         @include regular-btn($color-alert, $color-white);
-//     }
-//     &.-alertGhost {
-//         @include ghost-btn($color-alert, $color-white);
-//     }
-// }
-
 .a-icon {
     width: 20px;
     height: auto;
@@ -83,6 +59,14 @@
     margin: 16px 0;
 }
 
+.generic-m40t {
+    margin-top: 40px;
+}
+
+.generic-m40b {
+    margin-bottom: 40px;
+}
+
 .generic-whiteBackground {
     background-color: $color-white;
     border-radius: 10px;
@@ -90,37 +74,56 @@
     margin-bottom: 24px;
 }
 
+.generic-center {
+    text-align: center;
+}
+
 /*
 * FORMS
 *
 */
+.form-cancel {
+    position: absolute;
+    top: 16px; left: 16px;
+    vertical-align: baseline;
+    cursor: pointer;
+}
+
+.form-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $color-white;
+    border-radius: 8px;
+    padding: 32px 40px;
+}
 
 .formInput {
     margin: 8px 0;
 }
 
-.formField {
+.formField, .password-field, .form-control  {
     width: -moz-available;          /* WebKit-based browsers will ignore this. */
     width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
     width: fill-available;
-    border: 2px solid $color-primary;
+    border: 1px solid $color-primary;
     padding: 8px 16px;
     border-radius: 5px;
     font-style: italic;
     font-size: $normalFont;
     font-weight: $regular;
     color: $color-black;
+
     &:focus {
-        border: 1px;
-        outline: solid $color-primary;
-        background-color: $color-background;
+        border: 1px solid $color-primary;
+        outline: none;
+        background-color: $color-light--opacity;
     }
 }
 
 .formLabel {
-    @extend %a-title3;
+    @extend %a-label;
 }
-
 
 .vich-image {
     display: grid; 
@@ -133,6 +136,7 @@
     & > .formField {
         grid-area: formField;
     }
+    
     .formInput {
         grid-area: formInput;
         .formLabel {
@@ -157,3 +161,7 @@
     }
 }
 
+/*
+* END FORMS
+*
+*/

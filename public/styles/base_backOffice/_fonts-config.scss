@@ -16,12 +16,22 @@ Fonts
     font-weight: 600;
     color: $color-secondary;
     margin: 16px 0;
+    &.-center{
+      text-align: center;
+    }
   }
 
   .a-title2 {
     font-size: 20px;
     font-weight: 600;
     color: $color-primary;
+    margin: 8px 0;
+  }
+
+  %a-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: $color-black;
     margin: 8px 0;
   }
   
@@ -43,6 +53,12 @@ Fonts
     font-size: $normalFont;
     font-weight: $regular;
     color: $color-black;
+  }
+
+  .a-link {
+    font-size: $normalFont;
+    font-weight: $medium;
+    color: $color-primary;
   }
   
   .a-textDetails{
