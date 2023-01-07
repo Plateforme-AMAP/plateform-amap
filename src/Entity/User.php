@@ -25,7 +25,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'string')]
     private $password;
-
+        
+    // for the email confirmation
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
@@ -34,6 +35,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'string', length: 255)]
     private $lastname;
+
+    // for the custom reset password
+    #[ORM\Column(type: 'string', length: 100)]
+    private $resetToken;
 
     public function getId(): ?int
     {
@@ -137,6 +142,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * for our custom reset password
+     */
+
+    public function getResetToken(): ?string
+    {
+        return $this->resetToken;
+    }
+
+    public function setResetToken(?string $resetToken): self
+    {
+        $this->resetToken = $resetToken;
 
         return $this;
     }
