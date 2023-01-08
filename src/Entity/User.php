@@ -37,7 +37,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $lastname;
 
     // for the custom reset password
-    #[ORM\Column(type: 'string', length: 100)]
+    #[ORM\Column(type: 'string', nullable: true)]
     private $resetToken;
 
     public function getId(): ?int
