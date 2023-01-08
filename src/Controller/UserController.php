@@ -13,6 +13,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class UserController extends AbstractController
 {
     #[Route('/admin/compte/{id}', name: 'app_user')]
+    public function read(): Response
+    {
+        return $this->render('user/account.html.twig', [
+            'accountTitle' => 'Mes informations'
+        ]);
+    }
+
+    #[Route('/admin/compte/modifier/{id}', name: 'app_userEdit')]
     public function edit(User $user, Request $request,  EntityManagerInterface $manager): Response
     {
         //we check if the user in connected
@@ -40,8 +48,9 @@ class UserController extends AbstractController
             return $this->redirectToRoute('app_products-admin');
         }
 
-        return $this->render('user/edit_account.html.twig', [
+        return $this->render('user/account.html.twig', [
             'userForm' => $form->createView(),
+            'accountTitle' => 'Modifier mes informations'
         ]);
     }
 }

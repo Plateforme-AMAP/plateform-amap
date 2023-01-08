@@ -1,0 +1,56 @@
+{% extends 'base_backOffice.twig' %}
+
+{% block title %}{{ accountTitle }}{% endblock %}
+{% block body %}
+<a class="a-textAriane" href="{{ path('app_products') }}">< Retour au site</a>
+{% for message in app.flashes('success') %}
+    <div class="">
+        {{ message }}
+    </div>
+{% endfor %}
+<div class="form-center">
+    <h1 class="a-title1 -center">{{ accountTitle }}</h1>
+    {% if userForm is defined and userForm %}
+        {{ form_start(userForm) }}
+            {{ form_row(userForm.firstname) }}
+            {{ form_row(userForm.lastname) }}
+            <a href="{{ path('forgotten_password') }}" title="changer de mot de passe">changer de mot de passe</a>
+
+            <div class="generic-center generic-m40t">
+                {% include '@atom/button/button.html.twig' with {
+                    text: "Envoyer",
+                    attributeList: {
+                        class: '-primary',
+                        title:"Envoyer",
+                        type:"submit"
+                    }
+                } only %}
+                {% include '@atom/button/button.html.twig' with {
+                    text: "Annuler",
+                    attributeList: {
+                        class: '-primaryGhost',
+                        title:"Retour à mes informations",
+                        href: path('app_user', { 'id' : app.user.id }),
+                    }
+                } only %}
+            </div>
+        {{ form_end(userForm) }}
+    {% else %}
+        prénom : {{ app.user.firstname }}
+        nom : {{ app.user.lastname }}
+        email : {{ app.user.email }}
+        <div class="generic-center generic-m40t">
+        {% include '@atom/button/button.html.twig' with {
+            text: "Modifier mes informations",
+            attributeList: {
+                class: '-primaryGhost',
+                title:"Modifier mes informations",
+                href: path('app_userEdit', { 'id' : app.user.id }),
+            }
+        } only %}
+        </div>
+    {% endif %}
+</div>
+
+
+{% endblock %}
