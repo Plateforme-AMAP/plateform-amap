@@ -3,6 +3,11 @@
 {% block title %}Modifier mes informations{% endblock %}
 {% block body %}
 <a class="a-textAriane" href="{{ path('app_products') }}">< Retour au site</a>
+{% for message in app.flashes('success') %}
+    <div class="">
+        {{ message }}
+    </div>
+{% endfor %}
 <div class="form-center">
     <h1 class="a-title1 -center">Modifier mes informations</h1>
     {{ form_start(userForm) }}

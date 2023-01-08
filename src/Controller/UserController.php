@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class UserController extends AbstractController
 {
-    #[Route('/compte/edition/{id}', name: 'app_user')]
+    #[Route('/admin/compte/{id}', name: 'app_user')]
     public function edit(User $user, Request $request,  EntityManagerInterface $manager): Response
     {
         //we check if the user in connected
