@@ -16,6 +16,9 @@ body {
   color: #004C40;
   margin: 16px 0;
 }
+.a-title1.-center {
+  text-align: center;
+}
 
 .a-title2 {
   font-size: 20px;
@@ -25,9 +28,10 @@ body {
 }
 
 .formLabel {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
   color: #161616;
+  margin: 8px 0;
 }
 
 .vich-image .formInput .formLabel {
@@ -42,6 +46,12 @@ body {
   font-size: 16px;
   font-weight: 400;
   color: #161616;
+}
+
+.a-link {
+  font-size: 16px;
+  font-weight: 500;
+  color: #00796B;
 }
 
 .a-textDetails {
@@ -116,6 +126,14 @@ body {
   margin: 16px 0;
 }
 
+.generic-m40t {
+  margin-top: 40px;
+}
+
+.generic-m40b {
+  margin-bottom: 40px;
+}
+
 .generic-whiteBackground {
   background-color: #FFF;
   border-radius: 10px;
@@ -123,19 +141,41 @@ body {
   margin-bottom: 24px;
 }
 
+.generic-center {
+  text-align: center;
+}
+
 /*
 * FORMS
 *
 */
+.form-cancel {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  vertical-align: baseline;
+  cursor: pointer;
+}
+
+.form-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FFF;
+  border-radius: 8px;
+  padding: 32px 40px;
+}
+
 .formInput {
   margin: 8px 0;
 }
 
-.formField {
+.formField, .password-field, .form-control {
   width: -moz-available; /* WebKit-based browsers will ignore this. */
   width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
   width: fill-available;
-  border: 2px solid #00796B;
+  border: 1px solid #00796B;
   padding: 8px 16px;
   border-radius: 5px;
   font-style: italic;
@@ -143,10 +183,10 @@ body {
   font-weight: 400;
   color: #161616;
 }
-.formField:focus {
-  border: 1px;
-  outline: solid #00796B;
-  background-color: #E3E9E9;
+.formField:focus, .password-field:focus, .form-control:focus {
+  border: 1px solid #00796B;
+  outline: none;
+  background-color: rgba(72, 169, 153, 0.3725490196);
 }
 
 .vich-image {
@@ -180,6 +220,10 @@ body {
   display: none;
 }
 
+/*
+* END FORMS
+*
+*/
 main {
   margin-left: 10vw;
   padding-top: 80px;
@@ -417,6 +461,12 @@ main {
 }
 .m-cardWithImage__state {
   justify-content: center;
+}
+.m-cardWithImage .-frontOffice {
+  display: none;
+}
+.m-cardWithImage .-backOffice {
+  display: none;
 }
 
 /* All scss files are called at the app.scss file */

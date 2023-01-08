@@ -1,42 +1,62 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_backOffice.twig' %}
 
-{% block title %}Log in!{% endblock %}
-
+{% block title %}Connexion{% endblock %}
+{% block navbar %}{% endblock %}
+{% block sideNavbar %}{% endblock %}
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+<a class="a-textAriane" href="{{ path('app_products') }}">< Retour au site</a>
+<div class="form-center">
+    <h1 class="a-title1 -center">Connexion</h1>
+    <form method="post">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        {% if app.user %}
+            <div class="mb-3">
+                Vous êtes déjà connecté {{ app.user.firstname }} {{ app.user.lastname }}, <a href="{{ path('app_logout') }}" class="a-link">se déconnecter</a>
+            </div>
+        {% endif %}
+
+        <label for="inputEmail" class="formLabel">Email</label>
+        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control formInput" autocomplete="email" required autofocus>
+        <label for="inputPassword" class="formLabel">Mot de passe</label>
+        <input type="password" name="password" id="inputPassword" class="form-control formInput" autocomplete="current-password" required>
+        <a href="{{ path('forgotten_password') }}" class="a-link">Mot de passe oublié</a>
+
+        <input type="hidden" name="_csrf_token"
+            value="{{ csrf_token('authenticate') }}"
+        >
+
+        {#
+            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+            See https://symfony.com/doc/current/security/remember_me.html
+
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" name="_remember_me"> Remember me
+                </label>
+            </div>
+        #}
+
+        <div class="generic-center generic-m40t">
+            {% include '@atom/button/button.html.twig' with {
+                text: "Se connecter",
+                attributeList: {
+                    class: '-primary',
+                    title:"se connecter",
+                    type:"submit"
+                }
+            } only %}
+            {% include '@atom/button/button.html.twig' with {
+                text: "Annuler",
+                attributeList: {
+                    class: '-primaryGhost',
+                    title:"Retour au site",
+                    href: path('app_products'),
+                }
+            } only %}
         </div>
-    {% endif %}
-
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
+    </form>
+</div>
 {% endblock %}

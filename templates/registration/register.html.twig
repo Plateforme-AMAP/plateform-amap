@@ -1,21 +1,40 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_backOffice.twig' %}
 
-{% block title %}Register{% endblock %}
-
+{% block title %}Inscription{% endblock %}
+{% block navbar %}{% endblock %}
+{% block sideNavbar %}{% endblock %}
 {% block body %}
+<a class="a-textAriane" href="{{ path('app_products') }}">< Retour au site</a>
+<div class="form-center">
+    <h1 class="a-title1 -center">Inscription</h1>
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
-
-    <h1>Register</h1>
-
     {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.firstname) }}
+        {{ form_row(registrationForm.lastname) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
+        <div class="generic-center generic-m40t">
+        {% include '@atom/button/button.html.twig' with {
+            text: "Créer le compte",
+            attributeList: {
+                class: '-primary',
+                title:"Valider l'inscription",
+                type:"submit"
+            }
+        } only %}
+        {% include '@atom/button/button.html.twig' with {
+            text: "Annuler",
+            attributeList: {
+                class: '-primaryGhost',
+                title:"Retour au site",
+                href: path('app_products'),
+            }
+        } only %}
+        </div>
     {{ form_end(registrationForm) }}
+</div>
 {% endblock %}
