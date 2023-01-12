@@ -42,8 +42,8 @@ class SecurityController extends AbstractController
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 
-    // for reset forgotten password 
-    #[Route('/oubli-pass', name:'forgotten_password')]
+    // request and create a link for a new password
+    #[Route('/recuperation', name:'forgotten_password')]
     public function forgottenPassword(
         Request $request,
         UserRepository $usersRepository,
@@ -57,18 +57,18 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
-            //On va chercher l'utilisateur par son email
+            // We will look for the user by his email thanks to the fields that we have proposed to him
             $user = $usersRepository->findOneByEmail($form->get('email')->getData());
 
-            // On vérifie si on a un utilisateur
+            // We check if we have a user
             if($user){
-                // On génère un token de réinitialisation
+                // Generate a token to create a unique link
                 $token = $tokenGenerator->generateToken();
                 $user->setResetToken($token);
                 $entityManager->persist($user);
                 $entityManager->flush();
 
-                // On génère un lien de réinitialisation du mot de passe
+                // Generate a password reset link
                 $url = $this->generateUrl('reset_pass', ['token' => $token], UrlGeneratorInterface::ABSOLUTE_URL);
 
                 // sending the url with mailer + mime like Verify bundle
@@ -83,21 +83,25 @@ class SecurityController extends AbstractController
                         ->htmlTemplate('security/reset_password_email.html.twig')
                 );
 
+                // send a success message
                 $this->addFlash('success', 'Email envoyé avec succès');
                 return $this->redirectToRoute('app_login');
             }
-            // $user est null
+
+            // if $user is null, we stop the action, return on app_login
             $this->addFlash('danger', 'Un problème est survenu');
             return $this->redirectToRoute('app_login');
         }
 
+        // we send a form for the user to make his password reset request with his email
         return $this->render('security/reset_password.html.twig', [
             'passForm' => $form->createView(),
             'request' => true
         ]);
     }
 
-    #[Route('/oubli-pass/{token}', name:'reset_pass')]
+    // password change
+    #[Route('/recuperation/{token}', name:'reset_pass')]
     public function resetPass(
         string $token,
         Request $request,
@@ -106,28 +110,34 @@ class SecurityController extends AbstractController
         UserPasswordHasherInterface $userPasswordHasher
     ): Response 
     {
-        //on vérifie si on a ce token dans la bdd
+        // we check that the token is in the db of this user
         $user = $usersRepository->findOneByResetToken($token);
+
         if ($user){
             $form = $this->createForm(ResetPasswordFormType::class);
 
             $form->handleRequest($request);
 
             if($form->isSubmitted() && $form->isValid()){
-                // On efface le token
+                // we erase the token
                 $user->setResetToken('');
+
+                //recover the password entered by the user
                 $user->setPassword(
+                    //we hash it
                     $userPasswordHasher->hashPassword(
                         $user,
                         $form->get('password')->getData()
                     )
                     );
+                    // then we push it in the db
                     $entityManager->persist($user);
                     $entityManager->flush();
 
                     $this->addFlash('success', 'mot de passe changé avec succès');
             }
 
+            // once the link is sent, the user clicks on the link and we send the form to reset the password
             return $this->render('security/reset_password.html.twig', [
                 'passForm' => $form->createView()
             ]);
