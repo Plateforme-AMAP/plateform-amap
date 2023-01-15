@@ -6,17 +6,102 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">	
         <link href="/styles/app.css" rel="stylesheet">
         {% block stylesheets %}
+        	<link href="/styles/app.css" rel="stylesheet">
         {% endblock %}
 
         {% block javascripts %}
         {% endblock %}
     </head>
     <body>
-        {% block navbar %}{% endblock %}
-        {% block sideNavbar %}{% endblock %}
+        {% block navbar %}
+            {# here the top-menu #}
+            {# if it's the backOffice #}
+            {# <header class="o-navigationTopBar">
+                <div class="a-logo"><img src="/icons/logo.svg" alt="logo" class="icon">
+                </div>
+                <nav class="o-navigationTopBar__nav">
+                    
+                    <ul class="o-navigationTopBar__items">
+                        <li>
+                            <a class="a-linkLight" href="{{ path('app_products') }}" title="Aller voir le site"><img src="/icons/eye.svg" alt="eye" class="generic-m8r">voir le site</a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="a-linkLight generic-m16r" id="" title="voir mon compte" >
+                                <img src="/icons/user.svg" alt="utilisateur" class="generic-m8r">Mon compte
+                            </a>
+                            <!-- submenu with informations -->
+                            <section class="m-userSection" id="">
+                                <div class="">
+                                    <p class="">Mon compte</p>
+                                    <a href="#" class="" title=""><img src="" alt="close" class="">
+                                    </a>
+                                </div>
+                                <ul>
+                                    <li class="">Nom personne<span class="textDetails">mail personne</span>
+                                    </li>
+                                    <li class="">
+                                        <a href="#" title="">Inviter un nouvel administrateur</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#" title="">Modifier mes informations</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#" title="">Suprimer mon compte</a>
+                                    </li>
+                                    <li class="">se déconnecter</li>
+                                    <li class="">
+                                        <a href="#" class="" title="">
+                                            <img src="" alt="" class="">Aide
+                                        </a>
+                                    </li>
+                                </ul>
+                            </section>
+                            <!-- submenu's end -->
+                        </li>
+                    </ul>
+                    <button class="textLink-light link-icon generic-m8_col"><img src="/icons/notification.svg" alt="icon de notifications">
+                    </button>
+                </nav>
+            </header> #}
+        {% endblock %}        
+        {% block sideNavbar %}
+            {# here the side-menu #}
+            {# id it's the backoffice #}
+            <aside class="o-navigationSideBar">
+                <nav class="o-navigationSideBar__nav">
+                    <ul class="">
+                        <li>
+                            <a href="#" class="m-tabsNav" title="Aller au tableau de bord">
+                                <img src="/icons/dashboard-category.svg" alt="Tableau de bord"> Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="m-tabsNav" title="Aller aux pages">
+                                <img src="/icons/pages-category.svg" alt="Page"> Pages
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="m-tabsNav" title="Aller à la corbeille">
+                                <img src="/icons/delete-category.svg" alt="corbeille"> Corbeille
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="m-tabsNav" title="Aller aux paramètres">
+                                <img src="/icons/settings.svg" alt="Rouages"> Paramètres
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <button class="a-btn -primaryGhostLight m-tabsNav" title="inviter un nouvel administrateur">Inviter</button>
+            </aside>
+        {% endblock %}
         <main>
         {% block body %}{% endblock %}
         </main>
-        {% block footer %}{% endblock %}
+        {% block footer %}{# no footer in the backOffice #}{% endblock %}
     </body>
 </html>
+
+
+
+

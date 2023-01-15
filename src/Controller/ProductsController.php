@@ -16,11 +16,11 @@ class ProductsController extends AbstractController
 {
     /** 
      * 
-     * FRONTOFFICE
+     * website
      * 
      * 
      * **/
-    // Affichage de l'ensemble des produits [FRONTOFFICE]
+    // Viewing all products [website]
     #[Route('/produits', name: 'app_products')]
     public function readAll(ManagerRegistry $doctrine): Response
     {
@@ -33,7 +33,7 @@ class ProductsController extends AbstractController
         ]);
     }
 
-    // Affichage d'un produit au détail [FRONTOFFICE]
+    // Retail product display [website]
     #[Route('/produits/{id}', name: 'details_product')]
     public function read($id, ManagerRegistry $doctrine): Response
     {
@@ -53,8 +53,7 @@ class ProductsController extends AbstractController
      * 
      * 
      * **/
-
-    // Affichage de l'ensemble des produits [BACKOFFICE]
+    // Viewing all products [backOffice]
     #[Route('/admin/produits', name: 'app_products-admin')]
     public function readAllAdmin(ManagerRegistry $doctrine): Response
     {
@@ -68,25 +67,29 @@ class ProductsController extends AbstractController
         ]);
     }
 
-     //creation d'un produit [BACKOFFICE]
+     // creation of a product [backOffice]
      #[Route('/admin/produits/ajouter', name: 'add_product')]
      public function add(Request $request, ManagerRegistry $doctrine): Response
      {
          $product = new Products();
+
          $product->setProductCreatedAt(new DateTimeImmutable());
          $formProduct = $this->createForm(ProductsType::class, $product);
          $formProduct->handleRequest($request);
+
          if ($formProduct->isSubmitted() && $formProduct->isValid()) {
+
              $entityManager = $doctrine->getManager();
              $entityManager->persist($product);
              $entityManager->flush(); 
+
              $this->addFlash(
                  'success_add',
                  'Votre bien' . $product->getProductName() . 'a bien été ajouté !'
              );
              return $this->redirectToRoute('app_products-admin');
          }
-         // On envois la page avec le formulaire et on permet la création de la vue (qu'on appellera dans le template)
+         // We send the page with the form and we allow the creation of the view (which we will call in the template)
          return $this->render('/backOffice/pages/pages.html.twig', [
             'formProduct' => $formProduct->createView(),
             'formTitle' => 'Ajouter un produit',
@@ -96,17 +99,22 @@ class ProductsController extends AbstractController
          ]);
      }
 
-    //modification d'un produit [BACKOFFICE]
+    //modification of a product [backOffice]
      #[Route('/admin/produits/modifier/{id}', name: 'edit_product')]
      public function edit($id, Request $request, ManagerRegistry $doctrine): Response
      {
          $product = $doctrine->getRepository(Products::class)->find($id);
+
+         // we enter the date of modification automatically in the form
          $product->setProductUpdatedAt(new DateTimeImmutable());
          $formProduct = $this->createForm(ProductsType::class, $product);
          $formProduct->handleRequest($request);
+
          if ($formProduct->isSubmitted() && $formProduct->isValid()) {
+
              $entityManager = $doctrine->getManager();
              $entityManager->flush(); 
+
              $this->addFlash(
                  'success_add',
                  'Votre produit' . $product->getProductName() . 'a bien été modifié !'
@@ -132,6 +140,7 @@ class ProductsController extends AbstractController
         $entityManager->remove($product);
         $entityManager->flush();
 
+        //for the product the only deletion security in V1 is in the template via a confirmation alert
         $this->addFlash(
             'success_delete',
             'Votre produit' . $product->getProductName() . 'a bien été suprimé !'

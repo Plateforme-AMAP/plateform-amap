@@ -1,4 +1,4 @@
-{% extends 'base_backOffice.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}{{ pageIncludeTitle }}{% endblock %}
 
@@ -6,5 +6,10 @@
 	{% include('@organism/menu-arbo/menu-arbo.html.twig') %}
 	<div class="o-pageContainer">
 		<h1 class="a-title1">{{ pageIncludeTitle }}</h1>
+		{% for message in app.flashes('success') %}
+            <div class="">
+                {{ message }}
+            </div>
+        {% endfor %}
 	{% include( pageInclude ) %}
 {% endblock %}
