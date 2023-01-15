@@ -1,4 +1,4 @@
-{% extends 'base_backOffice.twig' %}
+{% extends 'base.html.twig' %}
 {% block title %}Hello TestController!{% endblock %}
 {% block navbar %}
 {% endblock %}
@@ -11,10 +11,10 @@
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
-    <h1 class="a-title1"> ATOMS </1>
+    <h2 class="a-title1"> ATOMS </1>
     <ul>
         <li>
-            <h2>buttons</h2>
+            <h3>buttons</h2>
             {% include '@atom/button/button.html.twig' with {
             text: "primary",
             attributeList: {
@@ -59,7 +59,15 @@
             } only %}
         </li>
         <li>
-            <h2>buttons</h2>
+            <h3>buttons</h2>
+        </li>
+    </ul>
+
+    <h2 class="a-title1"> MOLECULES </1>
+    <ul>
+        <li>
+            <h3>buttons</h2>
+                {% include '@molecule/menu/menu.html.twig' %}
         </li>
     </ul>
 </div>

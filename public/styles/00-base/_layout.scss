@@ -2,38 +2,38 @@ main {
     margin-left: 10vw;
     padding-top: 80px;
 }
-/*
-* Nav on the top
-*
-*/
+// /*
+// * Nav on the top
+// *
+// */
 
-.o-navigationTopBar {
-    width: 100vw;
-    height: 50px;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    background: $color-secondary;
-    color: $color-background;
-    position: fixed;
-    z-index: 1;
-    &__nav {
-        display: flex;
-        width: 100%;
-    }
-    &__items {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        & a {
-            @include a-textLink__light;
-        }
-    }
-}
+// .o-navigationTopBar {
+//     width: 100vw;
+//     height: 50px;
+//     padding: 0 20px;
+//     display: flex;
+//     align-items: center;
+//     background: $color-secondary;
+//     color: $color-background;
+//     position: fixed;
+//     z-index: 1;
+//     &__nav {
+//         display: flex;
+//         width: 100%;
+//     }
+//     &__items {
+//         width: 100%;
+//         display: flex;
+//         justify-content: space-between;
+//         & a {
+//             @include a-textLink__light;
+//         }
+//     }
+// }
 
-.m-userSection {
-    display: none;
-}
+// .m-userSection {
+//     display: none;
+// }
 
 /*
 *Nav on the left side

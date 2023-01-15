@@ -81,4 +81,525 @@ button, input[type=submit], input[type=reset] {
   src: url("/fonts/Poppins-SemiBold.woff") format("woff"), url("/fonts/Poppins-SemiBold.ttf") format("ttf");
   font-weight: 600;
   font-style: normal;
+}
+/**
+ * Breakpoints
+ */
+/*  ------------------------------
+
+Fonts 
+
+---------------------------------*/
+body {
+  background-color: #E3E9E9;
+  font-family: "Poppins";
+  font-weight: 400;
+  line-height: normal;
+}
+
+.a-title1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #004C40;
+  margin: 16px 0;
+}
+.a-title1.-center {
+  text-align: center;
+}
+
+.a-title2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #00796B;
+  margin: 8px 0;
+}
+
+.formLabel {
+  font-size: 16px;
+  font-weight: 600;
+  color: #161616;
+  margin: 8px 0;
+}
+
+.vich-image .formInput .formLabel {
+  font-size: 16px;
+  font-weight: 400;
+  color: #161616;
+  line-height: normal;
+}
+
+.a-placeholder {
+  font-style: italic;
+  font-size: 16px;
+  font-weight: 400;
+  color: #161616;
+}
+
+.a-link {
+  font-size: 16px;
+  font-weight: 500;
+  color: #00796B;
+}
+
+.a-textDetails {
+  font-size: 12px;
+  font-weight: 400;
+  color: #00796B;
+}
+
+.a-textAriane {
+  font-size: 16px;
+  font-weight: 400;
+  color: #004C40;
+}
+
+.a-icon {
+  width: 20px;
+  height: auto;
+  margin: 8px;
+}
+
+.a-logo {
+  display: flex;
+  align-items: center;
+  width: 10vw;
+}
+
+.a-linkLight {
+  display: flex;
+  align-items: center;
+}
+
+/*
+* Generics rules
+*
+*/
+.generic-flex {
+  display: flex;
+}
+.generic-flex.-column {
+  flex-direction: column;
+}
+.generic-flex.-alignCenter {
+  align-items: center;
+}
+.generic-flex.-justifyCenter {
+  justify-items: center;
+}
+
+.generic-m8 {
+  margin: 8px;
+}
+
+.generic-m8r {
+  margin-right: 8px;
+}
+
+.generic-m16 {
+  margin: 16px;
+}
+
+.generic-m16r {
+  margin-right: 16px;
+}
+
+.generic-m8_row {
+  margin: 8px 0;
+}
+
+.generic-m8_col {
+  margin: 0 8px;
+}
+
+.generic-m16_row {
+  margin: 16px 0;
+}
+
+.generic-m40t {
+  margin-top: 40px;
+}
+
+.generic-m40b {
+  margin-bottom: 40px;
+}
+
+.generic-whiteBackground {
+  background-color: #FFF;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.generic-center {
+  text-align: center;
+}
+
+/*
+* FORMS
+*
+*/
+.form-cancel {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  vertical-align: baseline;
+  cursor: pointer;
+}
+
+.form-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FFF;
+  border-radius: 8px;
+  padding: 32px 40px;
+}
+
+.formInput {
+  margin: 8px 0;
+}
+
+.formField, .password-field, .form-control {
+  width: -moz-available; /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+  width: fill-available;
+  border: 1px solid #00796B;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-style: italic;
+  font-size: 16px;
+  font-weight: 400;
+  color: #161616;
+}
+.formField:focus, .password-field:focus, .form-control:focus {
+  border: 1px solid #00796B;
+  outline: none;
+  background-color: rgba(72, 169, 153, 0.3725490196);
+}
+
+.vich-image {
+  display: grid;
+  grid-template-columns: auto 1.5fr 1fr;
+  grid-template-rows: 45px 45px;
+  gap: 0;
+  grid-template-areas: "img formField formField" "img formInput formInput";
+}
+.vich-image > .formField {
+  grid-area: formField;
+}
+.vich-image .formInput {
+  grid-area: formInput;
+}
+.vich-image .formInput .formField {
+  width: auto;
+  margin-left: 16px;
+}
+.vich-image :nth-child(3n) {
+  grid-area: img;
+}
+.vich-image :nth-child(3n) img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding-right: 16px;
+}
+.vich-image :nth-child(4n) {
+  display: none;
+}
+
+/*
+* END FORMS
+*
+*/
+main {
+  margin-left: 10vw;
+  padding-top: 80px;
+}
+
+/*
+*Nav on the left side
+*
+*/
+.o-navigationSideBar {
+  position: fixed;
+  height: 100vh;
+  width: 10vw;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: space-between;
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 500;
+  background: #00796B;
+  padding: 0 auto;
+}
+.o-navigationSideBar:hover {
+  font-weight: 600;
+}
+.o-navigationSideBar:active {
+  color: #48a999;
+}
+.o-navigationSideBar__nav {
+  height: 100%;
+}
+.o-navigationSideBar__nav ul {
+  padding-top: 80px;
+  height: 50%;
+}
+.o-navigationSideBar__nav button {
+  width: 90%;
+  max-width: 160px;
+}
+
+.m-tabsNav {
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 500;
+  height: auto;
+  width: 90%;
+  max-width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  background: #004C40;
+  margin: 0 auto 16px;
+  padding: 8px;
+}
+.m-tabsNav:hover {
+  font-weight: 600;
+}
+.m-tabsNav:active {
+  color: #48a999;
+}
+.m-tabsNav:hover, .m-tabsNav :active {
+  background: transparent;
+}
+
+/*
+* partie naviagtion sur les pages (arborescence)
+*
+*/
+.o-pageContainer {
+  margin-left: 13vw;
+  padding: 0 16px 16px 24px;
+}
+
+.m-linksPages {
+  margin: 16px 8px;
+}
+.m-linksPages a {
+  display: flex;
+  align-items: center;
+  margin: 8px;
+}
+.m-linksPages img {
+  margin-right: 8px;
+}
+
+.a-illuArbo {
+  border: 2px solid #004C40;
+  border-width: 0 0 2px 2px;
+  width: 8px;
+  height: 16px;
+  margin: 0 8px 8px 8px;
+}
+
+.a-button {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+.a-button.-primary {
+  color: #FFF;
+  background: #00796B;
+  border: 1px solid #00796B;
+}
+.a-button.-primary:hover, .a-button.-primary :focus {
+  color: #00796B;
+  background: transparent;
+  border: 1px solid #00796B;
+}
+.a-button.-primaryGhost {
+  color: #00796B;
+  background: transparent;
+  border: 1px solid #00796B;
+}
+.a-button.-primaryGhost:hover, .a-button.-primaryGhost :focus {
+  color: #FFF;
+  background: #00796B;
+  border: 1px solid #00796B;
+}
+.a-button.-primaryGhostLight {
+  color: #E3E9E9;
+  background: transparent;
+  border: 1px solid #E3E9E9;
+}
+.a-button.-primaryGhostLight:hover, .a-button.-primaryGhostLight :focus {
+  color: #004C40;
+  background: #E3E9E9;
+  border: 1px solid #E3E9E9;
+}
+.a-button.-alert {
+  color: #FFF;
+  background: #EC6262;
+  border: 1px solid #EC6262;
+}
+.a-button.-alert:hover, .a-button.-alert :focus {
+  color: #EC6262;
+  background: transparent;
+  border: 1px solid #EC6262;
+}
+.a-button.-alertGhost {
+  color: #EC6262;
+  background: transparent;
+  border: 1px solid #EC6262;
+}
+.a-button.-alertGhost:hover, .a-button.-alertGhost :focus {
+  color: #FFF;
+  background: #EC6262;
+  border: 1px solid #EC6262;
+}
+.a-button.-website {
+  color: #FFF;
+  background: #689F38;
+  border: 1px solid #689F38;
+}
+.a-button.-website:hover, .a-button.-website :focus {
+  color: #689F38;
+  background: transparent;
+  border: 1px solid #689F38;
+}
+.a-button.-websiteGhost {
+  color: #689F38;
+  background: transparent;
+  border: 1px solid #689F38;
+}
+.a-button.-websiteGhost:hover, .a-button.-websiteGhost :focus {
+  color: #FFF;
+  background: #689F38;
+  border: 1px solid #689F38;
+}
+
+/* All scss files are called at the app.scss file */
+.m-cardWithImage {
+  text-align: center;
+  border-radius: 8px;
+  background-color: #FFF;
+}
+.m-cardWithImage__image {
+  border-radius: 8px 8px 0 0;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 200px;
+}
+.m-cardWithImage__buttons {
+  display: flex;
+  justify-content: space-around;
+  margin: 8px;
+}
+.m-cardWithImage h2 {
+  margin: 0 8px;
+}
+.m-cardWithImage__state {
+  justify-content: center;
+}
+.m-cardWithImage .-frontOffice {
+  display: none;
+}
+.m-cardWithImage .-backOffice {
+  display: none;
+}
+
+/*
+* Nav backOffice
+*
+*/
+.m-navigationTopBar {
+  width: 100vw;
+  height: 50px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  background: #004C40;
+  color: #E3E9E9;
+  position: fixed;
+  z-index: 1;
+}
+.m-navigationTopBar .m-navigationTopBar__nav {
+  display: flex;
+  width: 100%;
+}
+.m-navigationTopBar .m-navigationTopBar__items {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.m-navigationTopBar .m-navigationTopBar__items a {
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 500;
+}
+.m-navigationTopBar .m-navigationTopBar__items a:hover {
+  font-weight: 600;
+}
+.m-navigationTopBar .m-navigationTopBar__items a:active {
+  color: #48a999;
+}
+@media (min-width: 1200px) {
+  .m-navigationTopBar {
+    background: red;
+    border-radius: 12px;
+  }
+}
+
+.m-userSection {
+  display: none;
+}
+
+/* All scss files are called at the app.scss file */
+.o-menuArbo {
+  position: fixed;
+  width: 13vw;
+  height: 100vh;
+}
+.o-menuArbo a {
+  color: #004C40;
+  font-size: 16px;
+  font-weight: 500;
+}
+.o-menuArbo a:hover {
+  font-weight: 500;
+}
+.o-menuArbo a:active {
+  color: #48a999;
+}
+
+.o-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-gap: 16px;
+  justify-content: left;
+}
+.o-gallery .o-gallery__newCard {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 500;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #00796B;
+  color: #FFF;
 }/*# sourceMappingURL=app.css.map */
