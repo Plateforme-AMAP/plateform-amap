@@ -85,13 +85,15 @@ button, input[type=submit], input[type=reset] {
 /**
  * Breakpoints
  */
+/**
+ * Grid system
+ */
 /*  ------------------------------
 
 Fonts 
 
 ---------------------------------*/
 body {
-  background-color: #E3E9E9;
   font-family: "Poppins";
   font-weight: 400;
   line-height: normal;
@@ -313,9 +315,57 @@ body {
 * END FORMS
 *
 */
-main {
-  margin-left: 10vw;
-  padding-top: 80px;
+.l-backOffice {
+  background-color: #E3E9E9;
+}
+@media (min-width: 1200px) {
+  .l-backOffice {
+    margin-left: 10vw;
+    padding-top: 80px;
+  }
+}
+
+.l-frontOffice {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+@media (min-width: 1200px) {
+  .l-frontOffice {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+.l-frontOffice.-noTop {
+  padding-top: 0;
+}
+.l-frontOffice.-noBottom {
+  padding-bottom: 0;
+}
+.l-frontOffice.-paddingBottom {
+  padding: 0 0 60px 0;
+}
+
+.l-frontOffice__content {
+  width: 100vw;
+  padding: 0 16px;
+  max-width: 1200px;
+}
+.l-frontOffice__content.-spaceBetween {
+  display: flex;
+  justify-content: space-between;
+}
+.l-frontOffice__content.-slider {
+  max-width: 1300px;
+}
+.l-frontOffice__content.-slider {
+  max-width: 1300px;
+}
+@media (min-width: 1200px) {
+  .l-frontOffice__content.-centerBlock {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }
 
 /*

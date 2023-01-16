@@ -95,8 +95,10 @@
                 <button class="a-btn -primaryGhostLight m-tabsNav" title="inviter un nouvel administrateur">Inviter</button>
             </aside>
         {% endblock %}
-        <main>
+        <main class="{% if "-admin" in app.request.attributes.get('_route') %}l-backOffice{% else %}l-frontOffice{% endif %}"> 
+
         {% block body %}{% endblock %}
+
         </main>
         {% block footer %}{# no footer in the backOffice #}{% endblock %}
     </body>

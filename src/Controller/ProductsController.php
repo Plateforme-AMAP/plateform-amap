@@ -43,7 +43,7 @@ class ProductsController extends AbstractController
         return $this->render('frontOffice/products/details_product.html.twig', [
             'products' => $products,
             'product' => $product,
-            'state' => 'backOffice',
+            'state' => 'frontOffice',
         ]);
     }
 
@@ -68,7 +68,7 @@ class ProductsController extends AbstractController
     }
 
      // creation of a product [backOffice]
-     #[Route('/admin/produits/ajouter', name: 'add_product')]
+     #[Route('/admin/produits/ajouter', name: 'add_product-admin')]
      public function add(Request $request, ManagerRegistry $doctrine): Response
      {
          $product = new Products();
@@ -100,7 +100,7 @@ class ProductsController extends AbstractController
      }
 
     //modification of a product [backOffice]
-     #[Route('/admin/produits/modifier/{id}', name: 'edit_product')]
+     #[Route('/admin/produits/modifier/{id}', name: 'edit_product-admin')]
      public function edit($id, Request $request, ManagerRegistry $doctrine): Response
      {
          $product = $doctrine->getRepository(Products::class)->find($id);
@@ -131,7 +131,7 @@ class ProductsController extends AbstractController
      }
 
     //suppression d'un produit [BACKOFFICE]
-    #[Route('/admin/supprimer/{id}', name: 'delete_product')]
+    #[Route('/admin/supprimer/{id}', name: 'delete_product-admin')]
     public function delete($id, ManagerRegistry $doctrine) : RedirectResponse
     {
         $product = $doctrine->getRepository(Products::class)->find($id);

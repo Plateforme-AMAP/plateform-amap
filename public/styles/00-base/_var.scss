@@ -32,3 +32,20 @@ $regular: 400;
 $medium: 500;
 $semiBold: 600;
 $normalFont: 16px;
+
+/**
+ * Grid system
+ */
+// Minimum lateral space between side of screen and content
+$content-offset-sm: 16px;
+$content-offset-md: 72px;
+
+// Vertical space between blocks
+$block-spacer-sm: 20px;    
+$block-spacer-md: 32px;
+$block-spacer-lg: 69px;
+
+// Space between elements inside blocks
+$content-width: 1200px;
+$small-content-width: 990px;
+$content-inner-padding: 40px;

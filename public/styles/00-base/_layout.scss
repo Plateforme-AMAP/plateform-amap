@@ -1,6 +1,59 @@
-main {
+.l-backOffice {
+  background-color: $color-background;
+
+  @include desktop-up {
     margin-left: 10vw;
     padding-top: 80px;
+  }
+}
+
+.l-frontOffice {
+    padding-top: $block-spacer-sm;
+    padding-bottom: $block-spacer-sm;
+  
+    @include desktop-up {
+      padding-top: $block-spacer-md;
+      padding-bottom: $block-spacer-md;
+    }
+  
+    &.-noTop {
+      padding-top: 0;
+    }
+  
+    &.-noBottom {
+      padding-bottom: 0;
+    }
+  
+    &.-paddingBottom {
+      padding: 0 0 60px 0;
+    }
+  }
+
+.l-frontOffice__content {
+    width: 100vw;
+    padding: 0 $content-offset-sm;
+    max-width: $content-width;
+  
+    &.-spaceBetween {
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    &.-slider {
+      max-width: $content-width + 100;
+    }
+  
+    &.-slider {
+      max-width: $content-width + 100;
+    }
+  
+    &.-centerBlock {
+      @include desktop-up {
+        width: 80%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+    }
 }
 // /*
 // * Nav on the top

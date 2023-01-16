@@ -1,4 +1,4 @@
-{% extends 'base_frontOffice.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Produit FRONTOFFICE{% endblock %}
 
@@ -9,4 +9,5 @@
     <h1>{{ product.productName }}</h1>
 
 <a href="{{ path('app_products') }}"  title="">Retour</a>
+
 {% endblock %}

@@ -4,34 +4,8 @@
 {% block title %}Produits{% endblock %}
 
 {% block body %}
-	{# please create your own html here :) you can trash main, just keep the php logic ! #}
+	<div class="l-frontOffice__content -centerBlock">
+		{% include( pageInclude ) %}
+	</div>
 
-	<h1>Produits FrontOffice</h1>
-	{% include( pageInclude ) %}
-
-	{% for product in products %}
-		<div>
-			<div>
-				<!-- Product image-->
-				{% if product.imageName %}
-					<img src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('min') }}" alt="{{ product.productName }}"/>
-				{% else %} 
-				    <img src="https://via.placeholder.com/300x200" alt="Card image cap"> 
-                {% endif %}
-				<div
-					class="text-center">
-					<!-- Product name-->
-					<h5>{{ product.productName }}</h5>
-					<!-- Product price-->
-					{{ product.productPrice|number_format(0, ',', ' ') }} €
-					<p>créé le {{ product.productCreatedAt|date("d/m/Y à H:i:s") }}</p>
-					<a href="{{ path('details_product', { 'id' : product.id }) }}">Voir le produit</a>
-				</div>
-                <br><br><br>
-
-			</div>
-		</div>
-	{% endfor %}
-	<a href="{{ path('app_products-admin') }}" class=""  title="">ALLER AU BACKOFFICE</a>
-</div>
 {% endblock %}
