@@ -55,31 +55,6 @@
     }
 }
 
-// links
-@mixin a-textLink__light {
-    color: $color-white;
-    font-size: $normalFont;
-    font-weight: $medium;  
-    &:hover{
-      font-weight: $semiBold;
-    }
-    &:active{
-      color: $color-light;
-    }
-  }
-
-  @mixin a-textLink__primary {
-    color: $color-secondary;
-    font-size: $normalFont;
-    font-weight: $medium;  
-    &:hover{
-      font-weight: $medium;
-    }
-    &:active{
-      color: $color-light;
-    }
-  }
-
 //generic
 @mixin generic-flexCenterColumn {
     display: flex;

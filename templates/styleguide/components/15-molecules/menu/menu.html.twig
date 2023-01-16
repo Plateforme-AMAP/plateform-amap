@@ -1,0 +1,64 @@
+{% set componentClass = 'm-navigationTopBar' %}
+{% set attributeList = attributeList is defined ? attributeList : {} %}
+{% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
+{% set tag = 'article' %}
+
+<header {% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>  
+    <div class="a-logo"><img src="/icons/logo.svg" alt="logo" class="icon">
+    </div>
+    <nav class="m-navigationTopBar__nav">
+        <ul class="m-navigationTopBar__items">
+            <li>
+            {% include '@atom/link/link.html.twig' with {
+                    text: "voir le site",
+                    icon: "/icons/eye.svg",
+                    alt: "voir le site",
+                    attributeList: {
+                        class:"-light -withIcon",
+                        href: "#"
+                    }
+                } %}
+            </li>
+            <li>
+            {% include '@atom/link/link.html.twig' with {
+                    text: "mon compte",
+                    icon: "/icons/user.svg",
+                    alt: "utilisateur",
+                    attributeList: {
+                        class:"-light -withIcon -hideIcon",
+                        href: "#"
+                    }
+                } %}
+                <!-- submenu with informations -->
+                <section class="m-userSection" id="">
+                    <div class="">
+                        <p class="">Mon compte</p>
+                        <a href="#" class="" title=""><img src="" alt="close" class="">
+                        </a>
+                    </div>
+                    <ul>
+                        <li class="">Nom personne<span class="textDetails">mail personne</span>
+                        </li>
+                        <li class="">
+                            <a href="#" title="">Inviter un nouvel administrateur</a>
+                        </li>
+                        <li class="">
+                            <a href="#" title="">Modifier mes informations</a>
+                        </li>
+                        <li class="">
+                            <a href="#" title="">Suprimer mon compte</a>
+                        </li>
+                        <li class="">se déconnecter</li>
+                        <li class="">
+                            <a href="#" class="" title="">
+                                <img src="" alt="" class="">Aide
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                <!-- submenu's end -->
+            </li>
+        </ul>
+    </nav>
+
+</header>

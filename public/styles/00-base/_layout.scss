@@ -1,9 +1,9 @@
 .l-backOffice {
   background-color: $color-background;
-
+  padding-top: 48px;
   @include desktop-up {
     margin-left: 10vw;
-    padding-top: 80px;
+    height: calc(100vh - 50px);
   }
 }
 
@@ -100,7 +100,7 @@
     flex-direction: column;
     box-sizing: border-box;
     justify-content: space-between;
-    @include a-textLink__light;
+    // @include a-textLink__light;
     background: $color-primary;
     padding: 0 auto;
     &__nav {
@@ -117,7 +117,7 @@
 }
 
 .m-tabsNav {
-    @include a-textLink__light;
+    // @include a-textLink__light;
     height: auto;
     width: 90%;
     max-width: 160px;

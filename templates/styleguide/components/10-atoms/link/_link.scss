@@ -1,0 +1,30 @@
+.a-link {
+font-size: $normalFont;
+font-weight: $medium;
+color: $color-primary;
+cursor: pointer;
+    &.-withIcon {
+        display: flex;
+        align-items: center;
+    }
+    &.-light {
+        color: $color-white;
+        &:active{
+        color: $color-light;
+        }
+    }
+    &:hover {
+        text-decoration: underline;
+    }
+    &:active {
+        color: $color-primary;
+    }
+    &.-hideIcon {
+        span {
+            display: none;
+            @include desktop-up {
+                display: block;
+            }
+        }
+    }
+}

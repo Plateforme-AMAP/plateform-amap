@@ -137,12 +137,6 @@ body {
   color: #161616;
 }
 
-.a-link {
-  font-size: 16px;
-  font-weight: 500;
-  color: #00796B;
-}
-
 .a-textDetails {
   font-size: 12px;
   font-weight: 400;
@@ -165,11 +159,6 @@ body {
   display: flex;
   align-items: center;
   width: 10vw;
-}
-
-.a-linkLight {
-  display: flex;
-  align-items: center;
 }
 
 /*
@@ -317,11 +306,12 @@ body {
 */
 .l-backOffice {
   background-color: #E3E9E9;
+  padding-top: 48px;
 }
 @media (min-width: 1200px) {
   .l-backOffice {
     margin-left: 10vw;
-    padding-top: 80px;
+    height: calc(100vh - 50px);
   }
 }
 
@@ -380,17 +370,8 @@ body {
   flex-direction: column;
   box-sizing: border-box;
   justify-content: space-between;
-  color: #FFF;
-  font-size: 16px;
-  font-weight: 500;
   background: #00796B;
   padding: 0 auto;
-}
-.o-navigationSideBar:hover {
-  font-weight: 600;
-}
-.o-navigationSideBar:active {
-  color: #48a999;
 }
 .o-navigationSideBar__nav {
   height: 100%;
@@ -405,9 +386,6 @@ body {
 }
 
 .m-tabsNav {
-  color: #FFF;
-  font-size: 16px;
-  font-weight: 500;
   height: auto;
   width: 90%;
   max-width: 160px;
@@ -419,12 +397,6 @@ body {
   background: #004C40;
   margin: 0 auto 16px;
   padding: 8px;
-}
-.m-tabsNav:hover {
-  font-weight: 600;
-}
-.m-tabsNav:active {
-  color: #48a999;
 }
 .m-tabsNav:hover, .m-tabsNav :active {
   background: transparent;
@@ -537,6 +509,37 @@ body {
   border: 1px solid #689F38;
 }
 
+.a-link {
+  font-size: 16px;
+  font-weight: 500;
+  color: #00796B;
+  cursor: pointer;
+}
+.a-link.-withIcon {
+  display: flex;
+  align-items: center;
+}
+.a-link.-light {
+  color: #FFF;
+}
+.a-link.-light:active {
+  color: #48a999;
+}
+.a-link:hover {
+  text-decoration: underline;
+}
+.a-link:active {
+  color: #00796B;
+}
+.a-link.-hideIcon span {
+  display: none;
+}
+@media (min-width: 1200px) {
+  .a-link.-hideIcon span {
+    display: block;
+  }
+}
+
 /* All scss files are called at the app.scss file */
 .m-cardWithImage {
   text-align: center;
@@ -596,23 +599,6 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.m-navigationTopBar .m-navigationTopBar__items a {
-  color: #FFF;
-  font-size: 16px;
-  font-weight: 500;
-}
-.m-navigationTopBar .m-navigationTopBar__items a:hover {
-  font-weight: 600;
-}
-.m-navigationTopBar .m-navigationTopBar__items a:active {
-  color: #48a999;
-}
-@media (min-width: 1200px) {
-  .m-navigationTopBar {
-    background: red;
-    border-radius: 12px;
-  }
-}
 
 .m-userSection {
   display: none;
@@ -623,17 +609,6 @@ body {
   position: fixed;
   width: 13vw;
   height: 100vh;
-}
-.o-menuArbo a {
-  color: #004C40;
-  font-size: 16px;
-  font-weight: 500;
-}
-.o-menuArbo a:hover {
-  font-weight: 500;
-}
-.o-menuArbo a:active {
-  color: #48a999;
 }
 
 .o-gallery {
