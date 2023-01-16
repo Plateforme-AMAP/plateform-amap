@@ -42,9 +42,10 @@
                 title:"Supprimer le produit",
             }
         } only %}
+
         {% elseif state is defined and state == "frontOffice"  %}
             {% include '@atom/button/button.html.twig' with {
-                text: "Voir le produit",
+                text: text | default('var is not defined'),
                 attributeList: {
                     class: '-website',
                     href: path('details_product', { 'id' : product.id }),

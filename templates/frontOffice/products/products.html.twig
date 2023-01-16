@@ -5,7 +5,13 @@
 
 {% block body %}
 	<div class="l-frontOffice__content -centerBlock">
-		{% include( pageInclude ) %}
+		{% include '@organism/gallery/gallery.html.twig' with {
+            CardText: "En savoir plus",
+			CardClass: "-backgroundGreen",
+            attributeList: {
+                class: '-grid24',
+            }
+        }  %}
 	</div>
 
 {% endblock %}

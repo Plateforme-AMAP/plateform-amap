@@ -28,7 +28,6 @@ class ProductsController extends AbstractController
 
         return $this->render('frontOffice/products/products.html.twig', [
             'products' => $products,
-            'pageInclude' => '@organism/gallery/gallery.html.twig',
             'state' => 'frontOffice',
         ]);
     }
@@ -63,7 +62,7 @@ class ProductsController extends AbstractController
             'products' => $products,
             'pageInclude' => '@organism/gallery/gallery.html.twig',
             'pageIncludeTitle' => 'Produits',
-            'state' => 'backOffice'
+            'state' => 'backOffice',
         ]);
     }
 

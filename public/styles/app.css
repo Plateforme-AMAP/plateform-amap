@@ -567,6 +567,9 @@ body {
 .m-cardWithImage .-backOffice {
   display: none;
 }
+.m-cardWithImage.-backgroundGreen {
+  background-color: #EFF5EA;
+}
 
 /*
 * Nav backOffice
@@ -652,4 +655,7 @@ body {
   border-radius: 8px;
   background: #00796B;
   color: #FFF;
+}
+.o-gallery.-grid24 {
+  grid-gap: 24px;
 }/*# sourceMappingURL=app.css.map */

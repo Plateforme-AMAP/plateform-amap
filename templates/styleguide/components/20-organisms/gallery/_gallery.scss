@@ -12,4 +12,7 @@
         background: $color-primary;
         color: $color-white;
     }
+    &.-grid24 {
+        grid-gap: 24px;
+    }
 }

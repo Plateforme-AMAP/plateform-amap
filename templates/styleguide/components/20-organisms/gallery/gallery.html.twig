@@ -8,6 +8,11 @@
         <a href="{{ path('add_product-admin') }}" class="o-gallery__newCard" title="Ajouter un produit"><img src="/icons/add.svg" class="a-icon" alt="icon +">Ajouter un produit</a>
     {% endif %}
     {% for product in products %}
-        {% include ('@molecule/card-with-image/card-with-image.html.twig')%}
+        {% include '@molecule/card-with-image/card-with-image.html.twig' with {
+            text: CardText | default('En savoir plus'),
+            attributeList: {
+                class: CardClass | default('En savoir plus'),
+            }
+        } %}
     {% endfor %}
 </{{ tag }}>
