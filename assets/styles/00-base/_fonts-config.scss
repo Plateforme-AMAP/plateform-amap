@@ -1,0 +1,67 @@
+/*  ------------------------------
+
+Fonts 
+
+---------------------------------*/
+
+  body {
+    font-family: "Poppins";
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  .a-title1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: $color-secondary;
+    margin: 16px 0;
+    &.-center{
+      text-align: center;
+    }
+  }
+
+  .a-title2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: $color-primary;
+    margin: 8px 0;
+  }
+
+  %a-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: $color-black;
+    margin: 8px 0;
+  }
+  
+  %a-title3 {
+    font-size: 20px;
+    font-weight: $medium;
+    color: $color-black;
+  }
+  
+  %a-p {
+    font-size: $normalFont;
+    font-weight: $regular;
+    color: $color-black;
+    line-height: normal;
+  }
+  
+  .a-placeholder {
+    font-style: italic;
+    font-size: $normalFont;
+    font-weight: $regular;
+    color: $color-black;
+  }
+  
+  .a-textDetails{
+    font-size: 12px;
+    font-weight: $regular;
+    color: $color-primary;
+  }
+  
+  .a-textAriane {
+    font-size: $normalFont;
+    font-weight: $regular;
+    color: $color-secondary;
+  }

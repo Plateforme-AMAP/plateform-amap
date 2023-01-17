@@ -30,7 +30,7 @@
                     attributeList: {
                         class: '-primaryGhost',
                         title:"Retour à mes informations",
-                        href: path('app_user', { 'id' : app.user.id }),
+                        href: path('app_user-admin', { 'id' : app.user.id }),
                     }
                 } only %}
             </div>
@@ -43,7 +43,7 @@
                 class: '-alert',
                 title:"Supprimer mon compte",
                 onclick:"confirm('Voulez vous vraiment supprimer votre compte ? Cette action est irrémédiable') || event.preventDefault()",
-                href: path('app_userDelete', { 'id' : app.user.id }),
+                href: path('app_userDelete-admin', { 'id' : app.user.id }),
             }
         } only %}
     {% elseif emailSend is defined and emailSend %}
@@ -57,7 +57,7 @@
             attributeList: {
                 class: '-primaryGhost',
                 title:"Modifier mes informations",
-                href: path('app_userEdit', { 'id' : app.user.id }),
+                href: path('app_userEdit-admin', { 'id' : app.user.id }),
             }
         } only %}
         {# le bouton ci-dessous crée un token qui est envoyé sous form de lien par email, au clique sur ce lien, le véritable bouton de suppression apparaît. on ne peut pas suprimer son compte par erreur #}
@@ -66,7 +66,7 @@
             attributeList: {
                 class: '-alertGhost',
                 title:"Supprimer mon compte",
-                href: path('app_userDelete_request', { 'id' : app.user.id }),
+                href: path('app_userDelete_request-admin', { 'id' : app.user.id }),
             }
         } only %}
         </div>

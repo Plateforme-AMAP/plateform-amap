@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <clipPath id="clip-tree">
+      <rect width="30" height="30"/>
+    </clipPath>
+  </defs>
+  <g id="tree" clip-path="url(#clip-tree)">
+    <path id="Tracé_1" data-name="Tracé 1" d="M134.746,73.5h20a1.254,1.254,0,0,0,1.25-1.25v-7.5a1.254,1.254,0,0,0-1.25-1.25h-20a1.254,1.254,0,0,0-1.25,1.25v2.5h-5V56H126v26.25h7.5v2.5a1.254,1.254,0,0,0,1.25,1.25h20a1.254,1.254,0,0,0,1.25-1.25v-7.5a1.254,1.254,0,0,0-1.25-1.25h-20a1.254,1.254,0,0,0-1.25,1.25v2.5h-5v-10h5v2.5a1.254,1.254,0,0,0,1.25,1.25ZM136,66h17.5v5H136Zm0,12.5h17.5v5H136Z" transform="translate(-125.996 -56.004)" fill="#fff"/>
+  </g>
+</svg>
