@@ -1,7 +1,6 @@
 {% set componentClass = 'm-navigationTopBar' %}
 {% set attributeList = attributeList is defined ? attributeList : {} %}
 {% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
-{% set tag = 'article' %}
 
 <header {% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>  
     <div class="a-logo"><img src="/icons/logo.svg" alt="logo" class="icon">

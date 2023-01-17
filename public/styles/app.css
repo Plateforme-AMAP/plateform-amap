@@ -221,6 +221,10 @@ body {
   margin-bottom: 24px;
 }
 
+.generic-greenBackground {
+  background-color: #00796B;
+}
+
 .generic-center {
   text-align: center;
 }
@@ -358,54 +362,6 @@ body {
   }
 }
 
-/*
-*Nav on the left side
-*
-*/
-.o-navigationSideBar {
-  position: fixed;
-  height: 100vh;
-  width: 10vw;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  justify-content: space-between;
-  background: #00796B;
-  padding: 0 auto;
-}
-.o-navigationSideBar__nav {
-  height: 100%;
-}
-.o-navigationSideBar__nav ul {
-  padding-top: 80px;
-  height: 50%;
-}
-.o-navigationSideBar__nav button {
-  width: 90%;
-  max-width: 160px;
-}
-
-.m-tabsNav {
-  height: auto;
-  width: 90%;
-  max-width: 160px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  border-radius: 8px;
-  background: #004C40;
-  margin: 0 auto 16px;
-  padding: 8px;
-}
-.m-tabsNav:hover, .m-tabsNav :active {
-  background: transparent;
-}
-
-/*
-* partie naviagtion sur les pages (arborescence)
-*
-*/
 .o-pageContainer {
   margin-left: 13vw;
   padding: 0 16px 16px 24px;
@@ -508,6 +464,11 @@ body {
   background: #689F38;
   border: 1px solid #689F38;
 }
+.a-button.-withIcon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
 .a-link {
   font-size: 16px;
@@ -537,6 +498,38 @@ body {
 @media (min-width: 1200px) {
   .a-link.-hideIcon span {
     display: block;
+  }
+}
+.a-link.-menuVariant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+}
+.a-link.-menuVariant img {
+  height: 16px;
+  width: 16px;
+  margin-right: 0;
+}
+@media (min-width: 1200px) {
+  .a-link.-menuVariant {
+    font-size: 16px;
+    height: auto;
+    width: 90%;
+    max-width: 160px;
+    border-radius: 8px;
+    background: #004C40;
+    margin: 0 auto 16px;
+    padding: 8px;
+  }
+  .a-link.-menuVariant:hover, .a-link.-menuVariant :active {
+    background: transparent;
+    text-decoration: none;
+  }
+  .a-link.-menuVariant img {
+    height: 32px;
+    width: 32px;
+    margin-right: 8px;
   }
 }
 
@@ -602,6 +595,39 @@ body {
 
 .m-userSection {
   display: none;
+}
+
+.m-navigationSideBar {
+  position: fixed;
+  bottom: 0;
+  background: #00796B;
+  width: 100vw;
+}
+.m-navigationSideBar ul {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+@media (min-width: 1200px) {
+  .m-navigationSideBar {
+    height: 100vh;
+    width: 10vw;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 auto;
+  }
+  .m-navigationSideBar .m-navigationSideBar__nav {
+    height: 100%;
+  }
+  .m-navigationSideBar .m-navigationSideBar__nav ul {
+    display: block;
+    padding-top: 80px;
+    height: 50%;
+  }
+  .m-navigationSideBar .m-navigationSideBar__nav button {
+    width: 90%;
+    max-width: 160px;
+  }
 }
 
 /* All scss files are called at the app.scss file */

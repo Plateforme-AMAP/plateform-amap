@@ -19,8 +19,8 @@ dans la liste d'attribut, si une class est déclarée Alors on l'ajoute à la cl
 {% endif %}
 {% set tag = tag is defined ? tag : defaultTag %}
 <{{ tag }}{% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
-  {% if image is defined %}
-      <img src="{{ imgSrc }}" alt="{{ text }}" title="{{ text }}">
+  {% if icon is defined %}
+      <img src="{{ icon }}" alt="{{ text }}" title="{{ text }}">
   {% endif %}
-  {{ text }}
+  <span>{{ text }}</span>
 </{{ tag }}>

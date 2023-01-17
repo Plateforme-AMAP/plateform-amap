@@ -27,4 +27,34 @@ cursor: pointer;
             }
         }
     }
+    &.-menuVariant {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: $smallFont;
+        img {
+            height: 16px;
+            width: 16px;
+            margin-right: 0;
+        }
+        @include desktop-up {
+            font-size: $normalFont;
+            height: auto;
+            width: 90%;
+            max-width: 160px;
+            border-radius: 8px;
+            background: $color-secondary;
+            margin: 0 auto 16px;    
+            padding: 8px;
+            &:hover, :active {
+                background: transparent;
+                text-decoration: none;;
+            }
+            img {
+                height: 32px;
+                width: 32px;
+                margin-right: 8px;
+            }
+        }
+    }
 }

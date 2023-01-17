@@ -1,0 +1,46 @@
+{% set componentClass = 'm-navigationSideBar' %}
+{% set attributeList = attributeList is defined ? attributeList : {} %}
+{% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
+
+<aside {% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
+    <nav class="m-navigationSideBar__nav">
+        <ul class="">
+            <li>
+                {% include '@atom/link/link.html.twig' with {
+                    text: "Dashboard",
+                    icon: "/icons/dashboard-category.svg",
+                    alt: "dashboard",
+                    attributeList: {
+                        class:"-light -menuVariant",
+                        href: "#",
+                        title: "Aller au tableau de bord"
+                    }
+                } %}
+            </li>
+            <li>
+                {% include '@atom/link/link.html.twig' with {
+                    text: "Pages",
+                    icon: "/icons/pages-category.svg",
+                    alt: "Page",
+                    attributeList: {
+                        class:"-light -menuVariant",
+                        href: "#",
+                        title: "Aller aux pages"
+                    }
+                } %}
+            </li>
+            <li>
+                {% include '@atom/link/link.html.twig' with {
+                    text: "Paramètres",
+                    icon: "/icons/settings.svg",
+                    alt: "Rouages",
+                    attributeList: {
+                        class:"-light -menuVariant",
+                        href: "#",
+                        title: "Aller aux paramètres"
+                    }
+                } %}
+            </li>
+        </ul>
+    </nav>
+</aside>

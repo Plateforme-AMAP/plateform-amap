@@ -57,9 +57,41 @@
                 class: '-websiteGhost'
             }
             } only %}
+
+            {% include '@atom/button/button.html.twig' with {
+            text: "with button",
+            icon: "/icons/file.svg",
+            alt: "link",
+            attributeList: {
+                class: '-primaryGhost -withIcon'
+            }
+            } only %}
+
         </li>
         <li>
-            <h3>buttons</h2>
+            <h3>link</h2>
+            <div class='generic-greenBackground'>
+            {% include '@atom/link/link.html.twig' with {
+                    text: "link -withIcon -light",
+                    icon: "/icons/eye.svg",
+                    alt: "voir le site",
+                    attributeList: {
+                        class:"-light -withIcon",
+                        href: "#"
+                    }
+                } %}
+            </div>
+
+            {% include '@atom/link/link.html.twig' with {
+                text: "link -withIcon",
+                icon: "/icons/file.svg",
+                alt: "link",
+                attributeList: {
+                    class:"-withIcon",
+                    href: "#"
+                }
+            } %}
+
         </li>
     </ul>
 
@@ -68,6 +100,7 @@
         <li>
             <h3>Menu</h2>
                 {% include '@molecule/menu/menu.html.twig' %}
+                {% include '@molecule/rail-navigation/rail-navigation.html.twig' %}
         </li>
     </ul>
 </div>

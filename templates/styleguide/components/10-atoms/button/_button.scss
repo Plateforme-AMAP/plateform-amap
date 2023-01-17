@@ -24,4 +24,9 @@
     &.-websiteGhost {
         @include ghost-btn($color-website, $color-white);
     }
+    &.-withIcon {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
 }
