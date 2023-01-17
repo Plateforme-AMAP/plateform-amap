@@ -330,11 +330,13 @@ body {
 .l-frontOffice {
   padding-top: 20px;
   padding-bottom: 20px;
+  height: calc(100vh - 40px);
 }
 @media (min-width: 1200px) {
   .l-frontOffice {
     padding-top: 32px;
     padding-bottom: 32px;
+    height: calc(100vh - 64px);
   }
 }
 .l-frontOffice.-noTop {

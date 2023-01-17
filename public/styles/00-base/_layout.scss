@@ -9,12 +9,16 @@
 }
 
 .l-frontOffice {
-    padding-top: $block-spacer-sm;
-    padding-bottom: $block-spacer-sm;
+      padding-top: $block-spacer-sm;
+      padding-bottom: $block-spacer-sm;
+      $total-spacer-sm :  $block-spacer-sm + $block-spacer-sm;
+      height: calc(100vh - $total-spacer-sm);
   
     @include desktop-up {
       padding-top: $block-spacer-md;
       padding-bottom: $block-spacer-md;
+      $total-spacer-sm :  $block-spacer-md + $block-spacer-md;
+      height: calc(100vh - $total-spacer-sm);
     }
   
     &.-noTop {
