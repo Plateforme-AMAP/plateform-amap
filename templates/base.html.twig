@@ -5,20 +5,26 @@
         <title>{% block title %}{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">	
         {% block stylesheets %}
-        	<link href="/styles/app.css" rel="stylesheet">
+            {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
         {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
     <body>
+
+    {% set isBackoffice = "-admin" in app.request.attributes.get('_route') %}
+    
         {% block navbar %}
-            {% include '@molecule/menu/menu.html.twig' %}
-        {% endblock %}        
+           {% if isBackoffice %} {% include '@molecule/menu/menu.html.twig' %}{% endif %} 
+        {% endblock %}   
         {% block sideNavbar %}
-            {% include '@molecule/rail-navigation/rail-navigation.html.twig' %}
-        {% endblock %}
-        <main class="{% if "-admin" in app.request.attributes.get('_route') %}l-backOffice{% else %}l-frontOffice{% endif %}"> 
+            {% if isBackoffice %}{% include '@molecule/rail-navigation/rail-navigation.html.twig' %}{% endif %} 
+        {% endblock %}     
+
+    
+        <main class="{% if isBackoffice %}l-backOffice{% else %}l-frontOffice{% endif %}"> 
 
         {% block body %}{% endblock %}
 

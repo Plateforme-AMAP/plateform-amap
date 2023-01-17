@@ -21,7 +21,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class UserController extends AbstractController
 {
-    #[Route('/admin/compte', name: 'app_user')]
+    #[Route('/admin/compte', name: 'app_user-admin')]
     public function read(): Response
     {
         // to display user information, nothing to send
@@ -30,7 +30,7 @@ class UserController extends AbstractController
         ]);
     }
         
-    #[Route('/admin/compte/modifier/{id}', name: 'app_userEdit')]
+    #[Route('/admin/compte/modifier/{id}', name: 'app_userEdit-admin')]
     public function edit(User $user, Request $request,  EntityManagerInterface $manager): Response
     {
         // Check if the user is logged in
@@ -75,7 +75,7 @@ class UserController extends AbstractController
     }
 
     // for reset forgotten password 
-    #[Route('/admin/compte/demande-de-suppression/{id}', name:'app_userDelete_request')]
+    #[Route('/admin/compte/demande-de-suppression/{id}', name:'app_userDelete_request-admin')]
     public function deleteRequest(
         User $user,
         TokenGeneratorInterface $tokenGenerator,
@@ -135,7 +135,7 @@ class UserController extends AbstractController
     }
 
     // account deletion
-    #[Route('/admin/suppression/{id}', name: 'app_userDelete')]
+    #[Route('/admin/suppression/{id}', name: 'app_userDelete-admin')]
     public function delete($id, User $user, ManagerRegistry $doctrine, MailerInterface $mailer) : RedirectResponse
     {
         // Check if the user is logged in

@@ -1,0 +1,65 @@
+// mediaqueries
+
+@mixin tablet-down {
+  @media (max-width: #{$bp-tablet-down}) {
+    @content;
+  }
+}
+@mixin tablet-up {
+  @media (min-width: #{$bp-tablet-up}) {
+    @content;
+  }
+}
+@mixin desktop-down {
+  @media (max-width: #{$bp-desktop-down}) {
+    @content;
+  }
+}
+@mixin desktop-up {
+  @media (min-width: #{$bp-desktop-up}) {
+    @content;
+  }
+}
+@mixin desktop-large-up {
+  @media (min-width: #{$bp-desktop-large-up}) {
+    @content;
+  }
+}
+
+//buttons
+@mixin textButton {
+    text-transform: uppercase;
+    font-size: $normalFont;
+    font-weight: $medium;
+}
+
+@mixin ghost-btn($colour, $colour-text) {
+    color: $colour;
+    background: transparent;
+    border: 1px solid $colour;
+    &:hover, :focus {
+        color: $colour-text;
+        background: $colour;
+        border: 1px solid $colour;
+    }
+}
+
+@mixin regular-btn($colour, $colour-text) {
+    color: $colour-text;
+    background: $colour;
+    border: 1px solid $colour;
+    &:hover, :focus {
+        color: $colour;
+        background: transparent;
+        border: 1px solid $colour;
+    }
+}
+
+//generic
+@mixin generic-flexCenterColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+

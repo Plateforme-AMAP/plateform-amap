@@ -65,12 +65,11 @@
 					alt: link.text,
 					attributeList: {
 						class:"-withIcon",
-						href: link.href,
+						href: path( link.href ),
 						title: link.text
 					}
 				} %}
 
-			{# <a href="{{ path( link.href ) }}"  title="{{ link.text }}"><img src="/icons/file.svg" alt="">{{ link.text }}</a> #}
 			{% if link.subLinkList is defined %}
 				<a href="{{ path( link.subLinkList.href )}}"  title="{{ link.subLinkList.text }}"  class="a-link"><div class="a-illuArbo"></div><img src="/icons/folder.svg" alt="">{{ link.subLinkList.text }}</a>
 				</div>

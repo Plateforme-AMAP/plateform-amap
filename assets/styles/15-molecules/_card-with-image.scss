@@ -1,0 +1,37 @@
+.m-cardWithImage {
+    text-align: center;
+    border-radius: 8px;
+    background-color: $color-white;
+    &__image {
+        border-radius:  8px 8px 0 0;
+        width: 100%;
+        object-fit: cover;
+        height: 200px;
+    }
+    
+    &__buttons {
+        display: flex;
+        justify-content: space-around;
+        margin: 8px;
+    }
+
+    & h2 {
+        margin: 0 8px;
+    }
+
+    &__state {
+        justify-content: center;
+    }
+
+    .-frontOffice {
+        display: none;
+    }
+
+    .-backOffice {
+        display: none;
+    }
+
+    &.-backgroundGreen {
+        background-color: $color-website--light;
+    }
+}
