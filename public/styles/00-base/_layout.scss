@@ -1,6 +1,7 @@
 .l-backOffice {
   background-color: $color-background;
   padding-top: 48px;
+  min-height: calc(100vh - 113px);
   @include desktop-up {
     margin-left: 10vw;
     height: calc(100vh - 50px);
@@ -57,8 +58,10 @@
 }
 
 .o-pageContainer {
+  padding: 0 16px 16px 24px;
+  @include desktop-up {
     margin-left: 13vw;
-    padding: 0 16px 16px 24px;
+  }
 }
 
 .m-linksPages {

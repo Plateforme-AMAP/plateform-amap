@@ -1,0 +1,54 @@
+.m-menuArbo { 
+    .m-menuArbo__menuButton-onlyForMobile {
+        display:none;
+    }   
+    @include desktop-down {
+        .m-menuArbo__menuButton-onlyForMobile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            bottom: 80px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            background-color: $color-primary;
+            box-shadow: $shadow;
+            cursor: pointer;
+
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+        ul {
+            transform: translate(50%);
+            position: absolute;
+            background-color: $color-light;
+            width: 100vw;
+            height: 100%;  
+            &:not(.-open) {
+                transform: translate(50%);
+                left: 100%;
+            }
+            &.-open {
+                left: 0;
+                transition: $transition;
+            }
+        }
+        
+    }
+    @include desktop-up {
+        display: block;
+        position: fixed;
+        width: 13vw;
+        height: 100vh;
+        background-color: $color-transparent;
+        .m-menuArbo__subTitle {
+            display: flex;
+            align-items: center;
+            margin: 8px;
+        }
+    }
+}

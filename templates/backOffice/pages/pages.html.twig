@@ -3,7 +3,7 @@
 {% block title %}{{ pageIncludeTitle }}{% endblock %}
 
 {% block body %}
-	{% include('@organism/menu-arbo/menu-arbo.html.twig') %}
+	{% include('@molecule/menu-arbo/menu-arbo.html.twig') %}
 	<div class="o-pageContainer">
 		<h1 class="a-title1">{{ pageIncludeTitle }}</h1>
 		{% for message in app.flashes('success') %}

@@ -51,3 +51,13 @@ $block-spacer-lg: 69px;
 $content-width: 1200px;
 $small-content-width: 990px;
 $content-inner-padding: 40px;
+
+/**
+ * Transitions
+ */
+ $transition: 0.2s ease;
+
+ /**
+ * Shadows
+ */
+ $shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);

@@ -1,9 +1,9 @@
-{% set componentClass = 'o-menuArbo' %}
+{% set componentClass = 'm-menuArbo js-menu-element' %}
 {% set attributeList = attributeList is defined ? attributeList : {} %}
 {% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
-{% set tag = 'nav' %}
 
-<{{ tag }}{% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
+<nav {% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
+<div class="m-menuArbo__menuButton-onlyForMobile js-menu-button"><img src="/icons/tree.svg" alt="arborescence"></div>
 <ul>
 	{# This navigation is static for the moment, resume this diagram in case of dynamization #}
 	{% set linkList = [
@@ -59,11 +59,23 @@
 	%}
 	{% for link in linkList %}
 		 <li class="m-linksPages">
-			<a href="{{ path( link.href ) }}"  title="{{ link.text }}"><img src="/icons/file.svg" alt="">{{ link.text }}</a>
+				{% include '@atom/link/link.html.twig' with {
+					text: link.text,
+					icon: "/icons/file.svg",
+					alt: link.text,
+					attributeList: {
+						class:"-withIcon",
+						href: link.href,
+						title: link.text
+					}
+				} %}
+
+			{# <a href="{{ path( link.href ) }}"  title="{{ link.text }}"><img src="/icons/file.svg" alt="">{{ link.text }}</a> #}
 			{% if link.subLinkList is defined %}
-				<a href="{{ path( link.subLinkList.href )}}"  title="{{ link.subLinkList.text }}"><div class="a-illuArbo"></div><img src="/icons/folder.svg" alt="">{{ link.subLinkList.text }}</a>
+				<a href="{{ path( link.subLinkList.href )}}"  title="{{ link.subLinkList.text }}"  class="a-link"><div class="a-illuArbo"></div><img src="/icons/folder.svg" alt="">{{ link.subLinkList.text }}</a>
+				</div>
 			{% endif %}
 		</li>
 	{% endfor %}
 </ul>
-</{{ tag }}>
+</nav>
