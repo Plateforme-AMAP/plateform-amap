@@ -106,6 +106,9 @@ body {
   line-height: normal;
   overflow-x: hidden;
 }
+body.-primary {
+  color: #00796B;
+}
 
 .a-title1 {
   font-size: 32px;
@@ -122,6 +125,9 @@ body {
   font-weight: 600;
   color: #00796B;
   margin: 8px 0;
+}
+.a-title2.-nowrap {
+  white-space: nowrap;
 }
 
 .formLabel {
@@ -379,6 +385,9 @@ body {
 @media (min-width: 1200px) {
   .o-pageContainer {
     margin-left: 13vw;
+  }
+  .o-pageContainer.-withoutArbo {
+    margin-left: 0;
   }
 }
 
@@ -796,6 +805,19 @@ body {
   margin-left: 8px;
 }
 
+.m-formSeparator {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+  margin: 32px 0 24px 0;
+}
+.m-formSeparator .m-formSeparator__separator {
+  height: 2px;
+  background: #00796B;
+  width: 100%;
+}
+
 /* All scss files are called at the app.scss file */
 .o-gallery {
   display: grid;
@@ -819,4 +841,9 @@ body {
 }
 .o-gallery.-grid24 {
   grid-gap: 24px;
+}
+
+.p-account__buttons {
+  display: flex;
+  gap: 16px;
 }/*# sourceMappingURL=app.css.map */

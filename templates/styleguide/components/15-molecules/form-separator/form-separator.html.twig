@@ -1,0 +1,16 @@
+{% set componentClass = 'm-formSeparator' %}
+{% set attributeList = attributeList is defined ? attributeList : {} %}
+{% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
+
+<div {% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>  
+    {% if title is defined and title %}
+        <p class="a-title2 -nowrap">{{ title }}</p>
+    {% endif %}
+    {% if subtitle is defined and subtitle %}
+    <p class="-primary">{{ subtitle }}</p>
+    {% endif %}
+    {% if icon is defined and icon %}
+    <a href="{{link}}"><img src="{{icon}}" alt="{{icon}}"></a>
+    {% endif %}
+    <div class="m-formSeparator__separator"></div>
+</div>

@@ -1,0 +1,12 @@
+.m-formSeparator {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+    margin: 32px 0 24px 0 ;
+    .m-formSeparator__separator {
+        height: 2px;
+        background: $color-primary;
+        width: 100%;
+    }
+}

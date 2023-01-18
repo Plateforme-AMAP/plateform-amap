@@ -65,6 +65,9 @@
   padding: 0 16px 16px 24px;
   @include desktop-up {
     margin-left: 13vw;
+    &.-withoutArbo {
+      margin-left: 0;
+    }
   }
 }
 
