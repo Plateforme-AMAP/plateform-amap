@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <clipPath id="clip-Arrow-close">
+      <rect width="30" height="30"/>
+    </clipPath>
+  </defs>
+  <g id="Arrow-close" clip-path="url(#clip-Arrow-close)">
+    <path id="Tracé_135" data-name="Tracé 135" d="M-1380.062,21790.684l11.359-11.963-11.359-10.922" transform="translate(1389.383 -21764.242)" fill="none" stroke="#fff" stroke-width="3"/>
+  </g>
+</svg>

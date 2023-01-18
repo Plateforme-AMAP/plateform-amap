@@ -1,9 +1,10 @@
-{% set componentClass = 'm-menuArbo js-menu-element' %}
+{% set componentClass = 'm-menuArbo' %}
 {% set attributeList = attributeList is defined ? attributeList : {} %}
 {% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
 
 <nav {% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
 <div class="m-menuArbo__menuButton-onlyForMobile js-menu-button"><img src="/icons/tree.svg" alt="arborescence"></div>
+<div class="m-menuArbo__background-onlyForMobile js-menu-zone"></div>
 <ul>
 	{# This navigation is static for the moment, resume this diagram in case of dynamization #}
 	{% set linkList = [
