@@ -10,9 +10,8 @@
     display: flex;
     align-items: center;
     background: $color-secondary;
-    color: $color-background;
     position: fixed;
-    z-index: 1;
+    z-index: 11;
     .m-navigationTopBar__nav {
         display: flex;
         width: 100%;
@@ -25,6 +24,3 @@
     }
 }
 
-.m-userSection {
-    display: none;
-}

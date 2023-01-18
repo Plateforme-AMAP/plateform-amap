@@ -24,40 +24,13 @@
                     icon: "/icons/user.svg",
                     alt: "utilisateur",
                     attributeList: {
-                        class:"-light -withIcon -hideIcon",
+                        class:"-light -withIcon -hideIcon js-user-button",
                         href: "#"
                     }
                 } %}
-                <!-- submenu with informations -->
-                <section class="m-userSection" id="">
-                    <div class="">
-                        <p class="">Mon compte</p>
-                        <a href="#" class="" title=""><img src="" alt="close" class="">
-                        </a>
-                    </div>
-                    <ul>
-                        <li class="">Nom personne<span class="textDetails">mail personne</span>
-                        </li>
-                        <li class="">
-                            <a href="#" title="">Inviter un nouvel administrateur</a>
-                        </li>
-                        <li class="">
-                            <a href="#" title="">Modifier mes informations</a>
-                        </li>
-                        <li class="">
-                            <a href="#" title="">Suprimer mon compte</a>
-                        </li>
-                        <li class="">se déconnecter</li>
-                        <li class="">
-                            <a href="#" class="" title="">
-                                <img src="" alt="" class="">Aide
-                            </a>
-                        </li>
-                    </ul>
-                </section>
+                {% include '@molecule/user-section/user-section.html.twig'  %}
                 <!-- submenu's end -->
             </li>
         </ul>
     </nav>
-
 </header>

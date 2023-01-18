@@ -11,6 +11,7 @@ import './styles/app.css';
 
 // any custom js is init here and hash in fontions on /scripts/
 import MenuToggleDisplay from './scripts/menu-arbo';
+import ShowUserCard from './scripts/user-section';
 
 var App = {
 
@@ -23,6 +24,10 @@ var App = {
         if (document.querySelector('.m-menuArbo')) {
             new MenuToggleDisplay(document.querySelector('.m-menuArbo'));
           }
+
+        if (document.querySelector('.js-user-card')) {
+            new ShowUserCard(document.querySelector('.js-user-card'));
+        }
     }
 }
 

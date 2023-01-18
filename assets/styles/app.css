@@ -504,6 +504,10 @@ body {
   display: flex;
   align-items: center;
 }
+.a-link.-withIcon img {
+  height: 24px;
+  width: 24px;
+}
 .a-link.-light {
   color: #FFF;
 }
@@ -602,9 +606,8 @@ body {
   display: flex;
   align-items: center;
   background: #004C40;
-  color: #E3E9E9;
   position: fixed;
-  z-index: 1;
+  z-index: 11;
 }
 .m-navigationTopBar .m-navigationTopBar__nav {
   display: flex;
@@ -615,10 +618,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.m-userSection {
-  display: none;
 }
 
 .m-navigationSideBar {
@@ -720,6 +719,81 @@ body {
     align-items: center;
     margin: 8px;
   }
+}
+
+.m-userSection {
+  width: 100vw;
+  height: 100vh;
+  right: 0;
+  top: 50px;
+  background-color: rgba(22, 22, 22, 0.2274509804);
+}
+.m-userSection:not(.-visible) {
+  display: none;
+}
+.m-userSection.-visible {
+  display: block;
+}
+
+.m-userSection .m-userSection__card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 10px;
+  right: 0;
+  border-radius: 0 5px;
+  background: #FFF;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: auto;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+.m-userSection .m-userSection__card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px 16px 24px 16px;
+}
+.m-userSection .m-userSection__card:not(.-open) {
+  transition: 0.2s ease;
+  right: -1000px;
+}
+.m-userSection .m-userSection__card.-open {
+  transition: 0.2s ease;
+  right: 20px;
+}
+
+.m-userSection .m-userSection__shape {
+  height: 48px;
+  width: 48px;
+  color: #FFF;
+  border-radius: 50px;
+  background-color: #00796B;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-userSection .m-userSection__cardHead {
+  background-color: #E3E9E9;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 24px 16px;
+  cursor: pointer;
+}
+
+.m-userSection .m-userSection__user {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+
+.m-userSection__userInformations {
+  margin-left: 8px;
 }
 
 /* All scss files are called at the app.scss file */

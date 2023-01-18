@@ -22,15 +22,3 @@ export default class MenuToggleDisplay {
         });
     }
   }
-
-
-//   const menuToggleDisplay = () => {
-//     this.menu = document.querySelector('.js-menu-element');
-//     this.menuButton = document.querySelector('.js-menu-button');
-//     menuButton.addEventListener('click', () => {
-//         console.log("connecté !");
-//     })
-//   }
-
-//   menuToggleDisplay();
-  
