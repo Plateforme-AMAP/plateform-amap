@@ -17,11 +17,15 @@ class ProductsType extends AbstractType
     {
         $builder
             ->add('productName', TextType::class, [
-                "required" => true
+                "required" => true,
+                'label' => 'Nom du produit'
             ])
-            ->add('productDescription', TextareaType::class)
+            ->add('productDescription', TextareaType::class, [
+                'label' => 'Description du produit'
+            ])
             ->add('productPrice', NumberType::class, [
-                "required" => true
+                "required" => true,
+                'label' => 'Prix du produit'
             ])
             ->add('imageFile', VichImageType::class, [
                 "label" => 'Image du produit',

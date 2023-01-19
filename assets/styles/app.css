@@ -104,6 +104,10 @@ body {
   font-family: "Poppins";
   font-weight: 400;
   line-height: normal;
+  overflow-x: hidden;
+}
+body.-primary {
+  color: #00796B;
 }
 
 .a-title1 {
@@ -121,6 +125,9 @@ body {
   font-weight: 600;
   color: #00796B;
   margin: 8px 0;
+}
+.a-title2.-nowrap {
+  white-space: nowrap;
 }
 
 .formLabel {
@@ -221,6 +228,19 @@ body {
   margin-bottom: 40px;
 }
 
+.generic-m32l {
+  margin-left: 32px;
+}
+
+.generic-p32 {
+  padding: 0 16px;
+}
+@media (min-width: 1200px) {
+  .generic-p32 {
+    padding: 0 32px;
+  }
+}
+
 .generic-whiteBackground {
   background-color: #FFF;
   border-radius: 10px;
@@ -236,6 +256,10 @@ body {
   text-align: center;
 }
 
+.generic-wrap {
+  flex-wrap: wrap;
+}
+
 /*
 * FORMS
 *
@@ -249,13 +273,27 @@ body {
 }
 
 .form-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  margin: 0 auto;
   background-color: #FFF;
   border-radius: 8px;
   padding: 32px 40px;
+}
+@media (min-width: 768px) {
+  .form-center {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    max-width: 700px;
+  }
+}
+
+.form__buttons-spaceBetween {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .formInput {
@@ -280,12 +318,36 @@ body {
   background-color: rgba(72, 169, 153, 0.3725490196);
 }
 
+@media (min-width: 1200px) {
+  .form-bloc__double {
+    display: flex;
+    gap: 24px;
+  }
+  .form-bloc__double .formInput {
+    flex: 1 1 0px;
+  }
+}
+
 .vich-image {
   display: grid;
   grid-template-columns: auto 1.5fr 1fr;
   grid-template-rows: 45px 45px;
   gap: 0;
   grid-template-areas: "img formField formField" "img formInput formInput";
+}
+@media (max-width: 767px) {
+  .vich-image {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .vich-image img {
+    height: 130px;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    padding-right: 16px;
+  }
 }
 .vich-image > .formField {
   grid-area: formField;
@@ -297,15 +359,17 @@ body {
   width: auto;
   margin-left: 16px;
 }
-.vich-image :nth-child(3n) {
-  grid-area: img;
-}
-.vich-image :nth-child(3n) img {
-  height: 100%;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  padding-right: 16px;
+@media (min-width: 768px) {
+  .vich-image :nth-child(3n) {
+    grid-area: img;
+  }
+  .vich-image :nth-child(3n) img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    padding-right: 16px;
+  }
 }
 .vich-image :nth-child(4n) {
   display: none;
@@ -323,7 +387,7 @@ body {
 @media (min-width: 1200px) {
   .l-backOffice {
     margin-left: 10vw;
-    height: calc(100vh - 50px);
+    min-height: calc(100vh - 50px);
   }
 }
 
@@ -347,6 +411,9 @@ body {
 }
 .l-frontOffice.-paddingBottom {
   padding: 0 0 60px 0;
+}
+.l-frontOffice.-grey {
+  background: #E3E9E9;
 }
 
 .l-frontOffice__content {
@@ -379,18 +446,30 @@ body {
   .o-pageContainer {
     margin-left: 13vw;
   }
+  .o-pageContainer.-withoutArbo {
+    margin-left: 0;
+  }
 }
 
 .m-linksPages {
-  margin: 16px 8px;
+  margin: 24px 8px;
 }
 .m-linksPages a {
   display: flex;
   align-items: center;
-  margin: 8px;
 }
 .m-linksPages img {
   margin-right: 8px;
+}
+@media (min-width: 1200px) {
+  .m-linksPages {
+    margin: 16px 8px;
+  }
+}
+@media (max-width: 1199px) {
+  .m-linksPages .a-link {
+    margin-top: 16px;
+  }
 }
 
 .a-illuArbo {
@@ -494,6 +573,10 @@ body {
   display: flex;
   align-items: center;
 }
+.a-link.-withIcon img {
+  height: 24px;
+  width: 24px;
+}
 .a-link.-light {
   color: #FFF;
 }
@@ -547,6 +630,46 @@ body {
   }
 }
 
+.a-tooltip {
+  position: relative;
+  display: inline-block;
+  /* Show the tooltip text when you mouse over the tooltip container */
+}
+.a-tooltip .a-tooltip__text {
+  color: #EC6262;
+}
+@media (min-width: 1200px) {
+  .a-tooltip .a-tooltip__text {
+    visibility: hidden;
+    background-color: #004C40;
+    color: #FFF;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    left: 32px;
+    z-index: 1;
+    min-width: 140px;
+    padding: 4px 8px;
+  }
+}
+@media (min-width: 1200px) {
+  .a-tooltip:hover .a-tooltip__text {
+    visibility: visible;
+  }
+}
+.a-tooltip .a-tooltip__img {
+  display: none;
+}
+@media (min-width: 1200px) {
+  .a-tooltip .a-tooltip__img {
+    display: block;
+    position: absolute;
+    top: 8px;
+  }
+}
+
 /* All scss files are called at the app.scss file */
 .m-cardWithImage {
   text-align: center;
@@ -592,9 +715,8 @@ body {
   display: flex;
   align-items: center;
   background: #004C40;
-  color: #E3E9E9;
   position: fixed;
-  z-index: 1;
+  z-index: 11;
 }
 .m-navigationTopBar .m-navigationTopBar__nav {
   display: flex;
@@ -607,11 +729,8 @@ body {
   align-items: center;
 }
 
-.m-userSection {
-  display: none;
-}
-
 .m-navigationSideBar {
+  z-index: 10;
   position: fixed;
   bottom: 0;
   background: #00796B;
@@ -646,41 +765,51 @@ body {
 }
 
 .m-menuArbo .m-menuArbo__menuButton-onlyForMobile {
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-color: #00796B;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  cursor: pointer;
+}
+.m-menuArbo .m-menuArbo__menuButton-onlyForMobile img {
+  width: 20px;
+  height: 20px;
 }
 @media (max-width: 1199px) {
-  .m-menuArbo .m-menuArbo__menuButton-onlyForMobile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    bottom: 80px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    background-color: #00796B;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-  }
-  .m-menuArbo .m-menuArbo__menuButton-onlyForMobile img {
-    width: 20px;
-    height: 20px;
-  }
-  .m-menuArbo ul {
-    transform: translate(50%);
+  .m-menuArbo:not(.-open) ul {
     position: absolute;
-    background-color: #48a999;
-    width: 100vw;
+    background-color: #E3E9E9;
+    width: 70vw;
     height: 100%;
-  }
-  .m-menuArbo ul:not(.-open) {
-    transform: translate(50%);
+    transition: 0.2s ease;
     left: 100%;
   }
-  .m-menuArbo ul.-open {
-    left: 0;
+  .m-menuArbo:not(.-open) .m-menuArbo__background-onlyForMobile {
+    display: none;
+  }
+  .m-menuArbo.-open ul {
+    position: absolute;
+    background-color: #E3E9E9;
+    width: 70vw;
+    height: 100%;
     transition: 0.2s ease;
+    left: 30vw;
+    transition: 0.2s ease;
+  }
+  .m-menuArbo.-open .m-menuArbo__background-onlyForMobile {
+    display: block;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(22, 22, 22, 0.2274509804);
   }
 }
 @media (min-width: 1200px) {
@@ -691,10 +820,115 @@ body {
     height: 100vh;
     background-color: transparent;
   }
+  .m-menuArbo .m-menuArbo__menuButton-onlyForMobile {
+    display: none;
+  }
   .m-menuArbo .m-menuArbo__subTitle {
     display: flex;
     align-items: center;
     margin: 8px;
+  }
+}
+
+.m-userSection {
+  width: 100vw;
+  height: 100vh;
+  right: 0;
+  top: 50px;
+  background-color: rgba(22, 22, 22, 0.2274509804);
+}
+.m-userSection:not(.-visible) {
+  display: none;
+}
+.m-userSection.-visible {
+  display: block;
+}
+
+.m-userSection .m-userSection__card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 10px;
+  right: 0;
+  border-radius: 0 5px;
+  background: #FFF;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: auto;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+.m-userSection .m-userSection__card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px 16px 24px 16px;
+}
+.m-userSection .m-userSection__card:not(.-open) {
+  transition: 0.2s ease;
+  right: -1000px;
+}
+.m-userSection .m-userSection__card.-open {
+  transition: 0.2s ease;
+  right: 20px;
+}
+
+.m-userSection .m-userSection__shape {
+  height: 48px;
+  width: 48px;
+  color: #FFF;
+  border-radius: 50px;
+  background-color: #00796B;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-userSection .m-userSection__cardHead {
+  background-color: #E3E9E9;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 24px 16px;
+  cursor: pointer;
+}
+
+.m-userSection .m-userSection__user {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+
+.m-userSection__userInformations {
+  margin-left: 8px;
+}
+
+.m-formSeparator {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+  margin: 32px 0 24px 0;
+}
+.m-formSeparator .m-formSeparator__separator {
+  height: 2px;
+  background: #00796B;
+  width: 100%;
+}
+
+.m-addflash {
+  padding: 16px;
+  background-color: #e0fffa;
+  color: #00796B;
+  border: 1px solid #00796B;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+@media (min-width: 1200px) {
+  .m-addflash {
+    padding: 24px;
   }
 }
 
@@ -718,7 +952,17 @@ body {
   border-radius: 8px;
   background: #00796B;
   color: #FFF;
+  padding: 16px;
 }
 .o-gallery.-grid24 {
   grid-gap: 24px;
+}
+
+.p-account__buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.p-account__p-subPart {
+  margin-left: 32px;
 }/*# sourceMappingURL=app.css.map */

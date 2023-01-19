@@ -1,0 +1,45 @@
+
+{% set componentClass = 'm-userSection js-user-zone' %}
+{% set attributeList = attributeList is defined ? attributeList : {} %}
+{% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
+
+<section {% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
+<div class="js-user-zone"></div>
+<div class="m-userSection__card js-user-card">
+    <div class="m-userSection__cardHead js-user-button">
+        <img src="/icons/close_dark.svg" alt="close">
+    </div>
+    <div class="m-userSection__user">
+        <div class="m-userSection__shape">{{ app.user.firstname|first }}</div>
+        <div class="m-userSection__userInformations">
+            <p class="">{{ app.user.firstname }} {{ app.user.lastname }}</p>
+            <p class="a-textDetails">{{ app.user.email }}</span>
+        </div>
+    </div>
+    <ul>
+        <li>
+            {% include '@atom/link/link.html.twig' with {
+                text: "Gérer mes informations",
+                icon: "/icons/edit-green.svg",
+                alt: "edit",
+                attributeList: {
+                    class:"-withIcon",
+                    href: path('app_user-admin'),
+                    title: "gérer les informations"
+                }
+            } %}
+        </li>
+        <li>
+            {% include '@atom/button/button.html.twig' with {
+                text: "Se déconnecter",
+                attributeList: {
+                    class: '-primaryGhost',
+                    href: path('app_logout'),
+                    title:"se déconnecter",
+                }
+            } only %}
+        </li>
+    </ul>
+</div>
+
+</section>

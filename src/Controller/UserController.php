@@ -64,7 +64,7 @@ class UserController extends AbstractController
             $this->addFlash('success', 'les informations de votre compte ont bien été modifiées');
 
             // We told where to go once the data has changed
-            return $this->redirectToRoute('app_products-admin');
+            return $this->redirectToRoute('app_user-admin');
         }
 
         // We send all edit/deletion forms on the same page : account.html.twig

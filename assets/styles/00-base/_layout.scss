@@ -4,7 +4,7 @@
   min-height: calc(100vh - 113px);
   @include desktop-up {
     margin-left: 10vw;
-    height: calc(100vh - 50px);
+    min-height: calc(100vh - 50px);
   }
 }
 
@@ -31,6 +31,10 @@
   
     &.-paddingBottom {
       padding: 0 0 60px 0;
+    }
+
+    &.-grey {
+      background: $color-background;
     }
   }
 
@@ -65,19 +69,30 @@
   padding: 0 16px 16px 24px;
   @include desktop-up {
     margin-left: 13vw;
+    &.-withoutArbo {
+      margin-left: 0;
+    }
   }
 }
 
 .m-linksPages {
-    margin: 16px 8px;;
+    margin: 24px 8px;
     & a {
         display: flex;
         align-items: center;
-        margin: 8px;
     }
     & img {
         margin-right: 8px;
     }
+    @include desktop-up {
+      margin: 16px 8px;
+    }
+    @include desktop-down {
+      .a-link {
+        margin-top: 16px;
+      }
+    }
+
 }
 
 .a-illuArbo {

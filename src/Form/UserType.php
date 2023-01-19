@@ -16,6 +16,7 @@ class UserType extends AbstractType
         $builder
             ->add('firstname', TextType::class, [
                 'required' => true,
+                'label' => 'Prénom',
                 'constraints' => [
                     new Length([
                         'min' => 2,
@@ -27,6 +28,7 @@ class UserType extends AbstractType
             ])
             ->add('lastname', TextType::class, [
                 'required' => true,
+                'label' => 'Nom',
                 'constraints' => [
                     new Length([
                         'min' => 2,

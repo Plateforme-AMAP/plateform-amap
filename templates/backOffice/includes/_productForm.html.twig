@@ -11,6 +11,13 @@
 	{{ form_row(formProduct.imageFile) }}
 	</div>
 
-	<button type="submit" class="a-btn -primary">{{ formSubmitLabel }}</button>
+	{% include '@atom/button/button.html.twig' with {
+		text: formSubmitLabel,
+		attributeList: {
+			class: '-primary',
+			title: formSubmitLabel,
+			type:"submit"
+		}
+	} only %}
 	{{ form_end(formProduct) }}
 </section>

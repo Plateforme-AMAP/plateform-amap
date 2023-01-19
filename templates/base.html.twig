@@ -24,7 +24,7 @@
         {% endblock %}     
 
     
-        <main class="{% if isBackoffice %}l-backOffice{% else %}l-frontOffice{% endif %}"> 
+        <main class="{% if isBackoffice %}l-backOffice{% else %}l-frontOffice{% endif %} {% if backOfficeBg is defined and backOfficeBg %}-grey{% endif %}"> 
 
         {% block body %}{% endblock %}
 

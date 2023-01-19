@@ -33,7 +33,7 @@ class SecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error, 'backOfficeBg' => true]);
     }
 
     #[Route(path: '/logout', name: 'app_logout')]
@@ -96,7 +96,8 @@ class SecurityController extends AbstractController
         // we send a form for the user to make his password reset request with his email
         return $this->render('security/reset_password.html.twig', [
             'passForm' => $form->createView(),
-            'request' => true
+            'request' => true,
+            'backOfficeBg' => true
         ]);
     }
 
@@ -139,7 +140,8 @@ class SecurityController extends AbstractController
 
             // once the link is sent, the user clicks on the link and we send the form to reset the password
             return $this->render('security/reset_password.html.twig', [
-                'passForm' => $form->createView()
+                'passForm' => $form->createView(),
+                'backOfficeBg' => true
             ]);
         }
         $this->addFlash('danger', 'invalide');

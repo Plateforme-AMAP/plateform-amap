@@ -1,0 +1,39 @@
+.a-tooltip {
+    position: relative;
+    display: inline-block;
+    .a-tooltip__text {
+        color: $color-alert;
+        @include desktop-up {
+            visibility: hidden;
+            // width: 120px;
+            background-color: $color-secondary;
+            color: $color-white;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+            /* Position the tooltip text - see examples below! */
+            position: absolute;
+            left: 32px;
+            z-index: 1;
+            min-width: 140px;
+            padding: 4px 8px;
+        }
+    }
+/* Show the tooltip text when you mouse over the tooltip container */
+        @include desktop-up {
+            &:hover {
+                .a-tooltip__text {
+                    visibility: visible;
+                }
+            }
+        }
+
+    .a-tooltip__img {
+        display: none;
+        @include desktop-up {
+            display: block;
+            position: absolute;
+            top: 8px;
+        }
+    }
+}

@@ -2,76 +2,124 @@
 
 {% block title %}{{ accountTitle }}{% endblock %}
 {% block body %}
-<a class="a-textAriane" href="{{ path('app_products') }}">< Retour au site</a>
-{% for message in app.flashes('success') %}
-    <div class="">
-        {{ message }}
-    </div>
-{% endfor %}
-<div class="form-center">
-    <h1 class="a-title1 -center">{{ accountTitle }}</h1>
-    {% if userForm is defined and userForm %}
-        {{ form_start(userForm) }}
-            {{ form_row(userForm.firstname) }}
-            {{ form_row(userForm.lastname) }}
-            <a href="{{ path('forgotten_password') }}" title="changer de mot de passe">changer de mot de passe</a>
+	<div class="o-pageContainer -withoutArbo">
+		<h1 class="a-title1">{{ accountTitle }}</h1>
+    	{% for message in app.flashes('success') %}
+			{% include '@molecule/addflash/addflash.html.twig' with {
+				text: message,
+			} %}		
+		{% endfor %}
 
-            <div class="generic-center generic-m40t">
+
+    {# edit information #}
+    <div class="">
+        {% if userForm is defined and userForm %}
+            {{ form_start(userForm) }}
+            {% include '@molecule/form-separator/form-separator.html.twig' with {
+                title: "Mes informations",
+            } only %}
+            <div class="generic-p32">
+                <div class="form-bloc__double">
+                    {{ form_row(userForm.firstname) }}
+                    {{ form_row(userForm.lastname) }}
+                </div>
+
+                <div class="p-account__buttons generic-m40t">
+                    {% include '@atom/button/button.html.twig' with {
+                        text: "Envoyer",
+                        attributeList: {
+                            class: '-primary',
+                            title:"Envoyer",
+                            type:"submit"
+                        }
+                    } only %}
+                    {% include '@atom/button/button.html.twig' with {
+                        text: "Annuler",
+                        attributeList: {
+                            class: '-primaryGhost',
+                            title:"Retour à mes informations",
+                            href: path('app_user-admin', { 'id' : app.user.id }),
+                        }
+                    } only %}
+                </div>
+
+            {{ form_end(userForm) }}
+
+            {% include '@atom/link/link.html.twig' with {
+                text: "modifier mon mot de passe",
+                icon: "/icons/edit-green.svg",
+                alt: "modifier le mot de passe",
+                attributeList: {
+                    class:"-withIcon generic-m40t",
+                    href: path('forgotten_password'),
+                    title: "Changer le mot de passe"
+                }
+            } %}
+        </div>
+        {# si on a cliqué une première fois sur "supprimer mon compte", on reçoi un email avec un lien qui permet d'afficher ce bouton ci-dessous #}
+        {% elseif deleteAutorisation is defined and deleteAutorisation %}
+
+
+        {% include '@atom/button/button.html.twig' with {
+                text: "Supprimer mon compte",
+                attributeList: {
+                    class: '-alert',
+                    title:"Supprimer mon compte",
+                    onclick:"confirm('Voulez vous vraiment supprimer votre compte ? Cette action est irrémédiable') || event.preventDefault()",
+                    href: path('app_userDelete-admin', { 'id' : app.user.id }),
+                }
+            } only %}
+        {% elseif emailSend is defined and emailSend %}
+
+        {# default page #}
+
+        {% else %}
+            {% include '@molecule/form-separator/form-separator.html.twig' with {
+                title: "Informations du compte",
+            } only %}
+            <div class="generic-p32">
+                <div>
+                    <p class="formLabel">Prénom</p>
+                    <p>{{ app.user.firstname }}</p>
+                </div>
+                <div>
+                    <p class="formLabel">Nom</p>
+                    <p>{{ app.user.lastname }}</p>
+                </div>
+                <div>
+                    <p class="formLabel">Email</p>
+                    <p>{{ app.user.email }}</p>
+                </div>
+            </div>
+            {% include '@molecule/form-separator/form-separator.html.twig' with {
+                title: "Actions",
+            } only %}
+            <div class="p-account__buttons generic-p32 generic-wrap">
                 {% include '@atom/button/button.html.twig' with {
-                    text: "Envoyer",
-                    attributeList: {
-                        class: '-primary',
-                        title:"Envoyer",
-                        type:"submit"
-                    }
-                } only %}
-                {% include '@atom/button/button.html.twig' with {
-                    text: "Annuler",
+                    text: "Modifier mes informations",
                     attributeList: {
                         class: '-primaryGhost',
-                        title:"Retour à mes informations",
-                        href: path('app_user-admin', { 'id' : app.user.id }),
+                        title:"Modifier mes informations",
+                        href: path('app_userEdit-admin', { 'id' : app.user.id }),
                     }
                 } only %}
+                {# le bouton ci-dessous crée un token qui est envoyé sous form de lien par email, au clique sur ce lien, le véritable bouton de suppression apparaît. on ne peut pas suprimer son compte par erreur #}
+                {% include '@atom/button/button.html.twig' with {
+                    text: "Supprimer mon compte",
+                    attributeList: {
+                        class: '-alertGhost',
+                        title:"Supprimer mon compte",
+                        href: path('app_userDelete_request-admin', { 'id' : app.user.id }),
+                    }
+                } only %}
+                {% include '@atom/tooltip/tooltip.html.twig' with {
+                    text: "vous recevrez un lien de suppression",
+                    icon: "/icons/help_alert.svg",
+                    alt: "aide",
+                } only %}
             </div>
-        {{ form_end(userForm) }}
-    {# si on a cliqué une première fois sur "suprimer mon compte", on reçoi un email avec un lien qui permet d'afficher ce bouton ci-dessous #}
-    {% elseif deleteAutorisation is defined and deleteAutorisation %}
-    {% include '@atom/button/button.html.twig' with {
-            text: "Supprimer mon compte",
-            attributeList: {
-                class: '-alert',
-                title:"Supprimer mon compte",
-                onclick:"confirm('Voulez vous vraiment supprimer votre compte ? Cette action est irrémédiable') || event.preventDefault()",
-                href: path('app_userDelete-admin', { 'id' : app.user.id }),
-            }
-        } only %}
-    {% elseif emailSend is defined and emailSend %}
-    {% else %}
-        prénom : {{ app.user.firstname }}
-        nom : {{ app.user.lastname }}
-        email : {{ app.user.email }}
-        <div class="generic-center generic-m40t">
-        {% include '@atom/button/button.html.twig' with {
-            text: "Modifier mes informations",
-            attributeList: {
-                class: '-primaryGhost',
-                title:"Modifier mes informations",
-                href: path('app_userEdit-admin', { 'id' : app.user.id }),
-            }
-        } only %}
-        {# le bouton ci-dessous crée un token qui est envoyé sous form de lien par email, au clique sur ce lien, le véritable bouton de suppression apparaît. on ne peut pas suprimer son compte par erreur #}
-         {% include '@atom/button/button.html.twig' with {
-            text: "Supprimer mon compte",
-            attributeList: {
-                class: '-alertGhost',
-                title:"Supprimer mon compte",
-                href: path('app_userDelete_request-admin', { 'id' : app.user.id }),
-            }
-        } only %}
-        </div>
-    {% endif %}
-
+        {% endif %}
+    </div>
 </div>
 
 
