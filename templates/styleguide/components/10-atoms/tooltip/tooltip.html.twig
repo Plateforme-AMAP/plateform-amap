@@ -1,0 +1,11 @@
+{% set componentClass = 'a-tooltip' %}
+{% set attributeList = attributeList is defined ? attributeList : {} %}
+{% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
+<div {% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
+    {% if icon is defined and icon %}
+        <img src="{{ icon }}" alt="{{ alt }}" class="a-tooltip__img">
+    {% endif %}
+    {% if text is defined and text %}
+        <p class="a-tooltip__text a-textDetails">{{ text }}</p>
+    {% endif %}
+</div>

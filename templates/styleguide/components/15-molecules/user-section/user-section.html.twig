@@ -19,13 +19,13 @@
     <ul>
         <li>
             {% include '@atom/link/link.html.twig' with {
-                text: "Modifier mes informations",
+                text: "Gérer mes informations",
                 icon: "/icons/edit-green.svg",
                 alt: "edit",
                 attributeList: {
                     class:"-withIcon",
-                    href: path('app_userEdit-admin', { 'id' : app.user.id }),
-                    title: "modifier les informations"
+                    href: path('app_user-admin'),
+                    title: "gérer les informations"
                 }
             } %}
         </li>

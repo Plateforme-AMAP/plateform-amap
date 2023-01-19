@@ -570,6 +570,34 @@ body.-primary {
   }
 }
 
+.a-tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  /* Show the tooltip text when you mouse over the tooltip container */
+}
+.a-tooltip .a-tooltip__text {
+  visibility: hidden;
+  background-color: #004C40;
+  color: #FFF;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  left: 32px;
+  z-index: 1;
+  min-width: 140px;
+  padding: 4px 8px;
+}
+.a-tooltip:hover .a-tooltip__text {
+  visibility: visible;
+}
+.a-tooltip .a-tooltip__img {
+  position: absolute;
+  top: 8px;
+}
+
 /* All scss files are called at the app.scss file */
 .m-cardWithImage {
   text-align: center;

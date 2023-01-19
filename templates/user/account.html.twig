@@ -87,7 +87,11 @@
                         href: path('app_userDelete_request-admin', { 'id' : app.user.id }),
                     }
                 } only %}
-                {# <img src="/" alt=""> #}
+                {% include '@atom/tooltip/tooltip.html.twig' with {
+                    text: "vous recevrez un lien de suppression",
+                    icon: "/icons/help_alert.svg",
+                    alt: "aide",
+                } only %}
             </div>
         {% endif %}
     </div>
