@@ -77,7 +77,7 @@
             {% include '@molecule/form-separator/form-separator.html.twig' with {
                 title: "Informations du compte",
             } only %}
-            <div class="generic-m32l">
+            <div class="generic-p32">
                 <div>
                     <p class="formLabel">Prénom</p>
                     <p>{{ app.user.firstname }}</p>
@@ -94,7 +94,7 @@
             {% include '@molecule/form-separator/form-separator.html.twig' with {
                 title: "Actions",
             } only %}
-            <div class="p-account__buttons generic-m32l">
+            <div class="p-account__buttons generic-p32 generic-wrap">
                 {% include '@atom/button/button.html.twig' with {
                     text: "Modifier mes informations",
                     attributeList: {

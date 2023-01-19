@@ -256,6 +256,10 @@ body.-primary {
   text-align: center;
 }
 
+.generic-wrap {
+  flex-wrap: wrap;
+}
+
 /*
 * FORMS
 *
@@ -331,6 +335,20 @@ body.-primary {
   gap: 0;
   grid-template-areas: "img formField formField" "img formInput formInput";
 }
+@media (max-width: 767px) {
+  .vich-image {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .vich-image img {
+    height: 130px;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    padding-right: 16px;
+  }
+}
 .vich-image > .formField {
   grid-area: formField;
 }
@@ -341,15 +359,17 @@ body.-primary {
   width: auto;
   margin-left: 16px;
 }
-.vich-image :nth-child(3n) {
-  grid-area: img;
-}
-.vich-image :nth-child(3n) img {
-  height: 100%;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  padding-right: 16px;
+@media (min-width: 768px) {
+  .vich-image :nth-child(3n) {
+    grid-area: img;
+  }
+  .vich-image :nth-child(3n) img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    padding-right: 16px;
+  }
 }
 .vich-image :nth-child(4n) {
   display: none;
@@ -610,29 +630,41 @@ body.-primary {
 .a-tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
   /* Show the tooltip text when you mouse over the tooltip container */
 }
 .a-tooltip .a-tooltip__text {
-  visibility: hidden;
-  background-color: #004C40;
-  color: #FFF;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  left: 32px;
-  z-index: 1;
-  min-width: 140px;
-  padding: 4px 8px;
+  color: #EC6262;
 }
-.a-tooltip:hover .a-tooltip__text {
-  visibility: visible;
+@media (min-width: 1200px) {
+  .a-tooltip .a-tooltip__text {
+    visibility: hidden;
+    background-color: #004C40;
+    color: #FFF;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    left: 32px;
+    z-index: 1;
+    min-width: 140px;
+    padding: 4px 8px;
+  }
+}
+@media (min-width: 1200px) {
+  .a-tooltip:hover .a-tooltip__text {
+    visibility: visible;
+  }
 }
 .a-tooltip .a-tooltip__img {
-  position: absolute;
-  top: 8px;
+  display: none;
+}
+@media (min-width: 1200px) {
+  .a-tooltip .a-tooltip__img {
+    display: block;
+    position: absolute;
+    top: 8px;
+  }
 }
 
 /* All scss files are called at the app.scss file */
@@ -903,6 +935,7 @@ body.-primary {
   border-radius: 8px;
   background: #00796B;
   color: #FFF;
+  padding: 16px;
 }
 .o-gallery.-grid24 {
   grid-gap: 24px;
