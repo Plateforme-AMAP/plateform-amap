@@ -412,6 +412,9 @@ body.-primary {
 .l-frontOffice.-paddingBottom {
   padding: 0 0 60px 0;
 }
+.l-frontOffice.-grey {
+  background: #E3E9E9;
+}
 
 .l-frontOffice__content {
   width: 100vw;
