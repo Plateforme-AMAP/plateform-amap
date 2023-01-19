@@ -4,11 +4,11 @@
 {% block body %}
 	<div class="o-pageContainer -withoutArbo">
 		<h1 class="a-title1">{{ accountTitle }}</h1>
-    {% for message in app.flashes('success') %}
-        <div class="">
-            {{ message }}
-        </div>
-    {% endfor %}
+    	{% for message in app.flashes('success') %}
+			{% include '@molecule/addflash/addflash.html.twig' with {
+				text: message,
+			} %}		
+		{% endfor %}
 
 
     {# edit information #}

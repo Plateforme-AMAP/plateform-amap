@@ -83,8 +83,8 @@ class ProductsController extends AbstractController
              $entityManager->flush(); 
 
              $this->addFlash(
-                 'success_add',
-                 'Votre bien' . $product->getProductName() . 'a bien été ajouté !'
+                 'success',
+                 'Votre bien ' . $product->getProductName() . ' a bien été ajouté !'
              );
              return $this->redirectToRoute('app_products-admin');
          }
@@ -115,8 +115,8 @@ class ProductsController extends AbstractController
              $entityManager->flush(); 
 
              $this->addFlash(
-                 'success_add',
-                 'Votre produit' . $product->getProductName() . 'a bien été modifié !'
+                 'success',
+                 'Votre produit ' . $product->getProductName() . ' a bien été modifié !'
              );
              return $this->redirectToRoute('app_products-admin');
          }
@@ -141,8 +141,8 @@ class ProductsController extends AbstractController
 
         //for the product the only deletion security in V1 is in the template via a confirmation alert
         $this->addFlash(
-            'success_delete',
-            'Votre produit' . $product->getProductName() . 'a bien été suprimé !'
+            'success',
+            'Votre produit ' . $product->getProductName() . ' a bien été supprimé !'
         );
 
         return $this->redirectToRoute('app_products-admin');

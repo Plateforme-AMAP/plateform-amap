@@ -7,10 +7,10 @@
 	<div class="o-pageContainer">
 		<h1 class="a-title1">{{ pageIncludeTitle }}</h1>
 		{% for message in app.flashes('success') %}
-            <div class="">
-                {{ message }}
-            </div>
-        {% endfor %}
+			{% include '@molecule/addflash/addflash.html.twig' with {
+				text: message,
+			} %}		
+		{% endfor %}
 	{% include( pageInclude ) %}
 	</div>
 {% endblock %}

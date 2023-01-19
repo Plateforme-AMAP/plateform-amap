@@ -918,6 +918,20 @@ body.-primary {
   width: 100%;
 }
 
+.m-addflash {
+  padding: 16px;
+  background-color: #e0fffa;
+  color: #00796B;
+  border: 1px solid #00796B;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+@media (min-width: 1200px) {
+  .m-addflash {
+    padding: 24px;
+  }
+}
+
 /* All scss files are called at the app.scss file */
 .o-gallery {
   display: grid;

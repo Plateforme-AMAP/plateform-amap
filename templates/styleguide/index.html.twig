@@ -101,6 +101,16 @@
             <h3>Menu</h2>
                 {% include '@molecule/menu/menu.html.twig' %}
                 {% include '@molecule/rail-navigation/rail-navigation.html.twig' %}
+            <h3>addflash</h3>
+            {% include '@molecule/addflash/addflash.html.twig' with {
+                text: "text",
+                icon: "/icons/file.svg",
+                alt: "link",
+                attributeList: {
+                    class:"-withIcon",
+                    href: "#"
+                }
+            } %}
         </li>
     </ul>
 </div>
