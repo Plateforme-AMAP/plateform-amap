@@ -38,6 +38,17 @@ class Products
     #[ORM\Column(type: 'string')]
     private ?string $imageName = null;
 
+    #[ORM\ManyToOne(targetEntity: Unity::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private $unity;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $unityValue;
+
+    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'products')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $category;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -135,5 +146,41 @@ class Products
     public function getImageName(): ?string
     {
         return $this->imageName;
+    }
+
+    public function getUnity(): ?Unity
+    {
+        return $this->unity;
+    }
+
+    public function setUnity(?Unity $unity): self
+    {
+        $this->unity = $unity;
+
+        return $this;
+    }
+
+    public function getUnityValue(): ?string
+    {
+        return $this->unityValue;
+    }
+
+    public function setUnityValue(string $unityValue): self
+    {
+        $this->unityValue = $unityValue;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
     }
 }
