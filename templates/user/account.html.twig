@@ -9,14 +9,22 @@
             {{ message }}
         </div>
     {% endfor %}
+
+
+    {# edit information #}
     <div class="">
         {% if userForm is defined and userForm %}
             {{ form_start(userForm) }}
-                {{ form_row(userForm.firstname) }}
-                {{ form_row(userForm.lastname) }}
-                <a href="{{ path('forgotten_password') }}" title="changer de mot de passe">changer de mot de passe</a>
+            {% include '@molecule/form-separator/form-separator.html.twig' with {
+                title: "Mes informations",
+            } only %}
+            <div class="generic-p32">
+                <div class="form-bloc__double">
+                    {{ form_row(userForm.firstname) }}
+                    {{ form_row(userForm.lastname) }}
+                </div>
 
-                <div class="generic-center generic-m40t">
+                <div class="p-account__buttons generic-m40t">
                     {% include '@atom/button/button.html.twig' with {
                         text: "Envoyer",
                         attributeList: {
@@ -34,9 +42,24 @@
                         }
                     } only %}
                 </div>
+
             {{ form_end(userForm) }}
+
+            {% include '@atom/link/link.html.twig' with {
+                text: "modifier mon mot de passe",
+                icon: "/icons/edit-green.svg",
+                alt: "modifier le mot de passe",
+                attributeList: {
+                    class:"-withIcon generic-m40t",
+                    href: path('forgotten_password'),
+                    title: "Changer le mot de passe"
+                }
+            } %}
+        </div>
         {# si on a cliqué une première fois sur "supprimer mon compte", on reçoi un email avec un lien qui permet d'afficher ce bouton ci-dessous #}
         {% elseif deleteAutorisation is defined and deleteAutorisation %}
+
+
         {% include '@atom/button/button.html.twig' with {
                 text: "Supprimer mon compte",
                 attributeList: {
@@ -54,22 +77,24 @@
             {% include '@molecule/form-separator/form-separator.html.twig' with {
                 title: "Informations du compte",
             } only %}
-            <div>
-                <p class="formLabel">Prénom</p>
-                <p>{{ app.user.firstname }}</p>
+            <div class="generic-m32l">
+                <div>
+                    <p class="formLabel">Prénom</p>
+                    <p>{{ app.user.firstname }}</p>
+                </div>
+                <div>
+                    <p class="formLabel">Nom</p>
+                    <p>{{ app.user.lastname }}</p>
+                </div>
+                <div>
+                    <p class="formLabel">Email</p>
+                    <p>{{ app.user.email }}</p>
+                </div>
             </div>
-            <div>
-                <p class="formLabel">Nom</p>
-                <p>{{ app.user.lastname }}</p>
-            </div>
-            <div>
-                <p class="formLabel">Email</p>
-                <p>{{ app.user.email }}</p>
-            </div> 
             {% include '@molecule/form-separator/form-separator.html.twig' with {
                 title: "Actions",
             } only %}
-            <div class="p-account__buttons">
+            <div class="p-account__buttons generic-m32l">
                 {% include '@atom/button/button.html.twig' with {
                     text: "Modifier mes informations",
                     attributeList: {
