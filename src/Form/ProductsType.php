@@ -46,12 +46,16 @@ class ProductsType extends AbstractType
                 'class' => Unity::class,
                 'label' => 'Unité',
                 'choice_label' => 'libelle', //on affiche tout les champs de la classe en option, ce qui est dans "libellé"
+                'placeholder' => 'Choisir une unité de mesure',
+                'empty_data' => null,
             ])
             ->add('category', EntityType::class, [
                 // looks for choices from this entity
                 'class' => Category::class,
                 'label' => 'Type',
                 'choice_label' => 'name', //on affiche tout les champs de la classe en option, ce qui est dans "libellé"
+                'placeholder' => 'Type d\'article',
+                'empty_data' => null,
             ])
         ;
     }

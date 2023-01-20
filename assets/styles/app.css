@@ -312,6 +312,9 @@ body.-primary {
   font-weight: 400;
   color: #161616;
 }
+.formField.-disabled, .password-field.-disabled, .form-control.-disabled {
+  opacity: 0.3;
+}
 .formField:focus, .password-field:focus, .form-control:focus {
   border: 1px solid #00796B;
   outline: none;

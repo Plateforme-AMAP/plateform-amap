@@ -10,7 +10,10 @@
                 
 	<div class="form-bloc__double">
 		{{ form_row(formProduct.unityValue) }}
-		{{ form_row(formProduct.unity) }}
+		<div class="formInput">
+			{{ form_label(formProduct.unity) }}
+			{{ form_widget(formProduct.unity, {'attr': {'class': 'formField -disabled', 'title': 'Merci de choisir le type d\'article'}}) }}
+		</div>
 		{{ form_row(formProduct.category) }}
 	</div>
 
