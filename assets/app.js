@@ -12,6 +12,7 @@ import './styles/app.css';
 // any custom js is init here and hash in fontions on /scripts/
 import MenuToggleDisplay from './scripts/menu-arbo';
 import ShowUserCard from './scripts/user-section';
+import FormsFieldsDisplay from './scripts/form-fields';
 
 var App = {
 
@@ -28,6 +29,10 @@ var App = {
         if (document.querySelector('.js-user-card')) {
             new ShowUserCard(document.querySelector('.js-user-card'));
         }
+
+        if (document.getElementById('products_category')) {
+          new FormsFieldsDisplay(document.getElementById('products_category'));
+      }
     }
 }
 

@@ -7,6 +7,17 @@
 	{{ form_row(formProduct.productDescription) }}
 		
 	{{ form_row(formProduct.productPrice) }}
+                
+	<div class="form-bloc__double">
+		{{ form_row(formProduct.unityValue) }}
+		<div class="formInput">
+			{{ form_label(formProduct.unity) }}
+			{{ form_widget(formProduct.unity, {'attr': {'class': 'formField -disabled', 'title': 'Merci de choisir le type d\'article'}}) }}
+		</div>
+		{{ form_row(formProduct.category) }}
+	</div>
+
+	
 
 	{{ form_row(formProduct.imageFile) }}
 	</div>

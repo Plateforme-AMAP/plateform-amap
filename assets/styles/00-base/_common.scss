@@ -142,6 +142,10 @@
     font-weight: $regular;
     color: $color-black;
 
+    &.-disabled {
+        opacity: 0.3;
+    }
+
     &:focus {
         border: 1px solid $color-primary;
         outline: none;
