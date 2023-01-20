@@ -82,7 +82,7 @@ class RegistrationController extends AbstractController
         //once the link is clicked, the email is validated, all you have to do is connect
         $this->addFlash('success', 'Votre adresse email a bien été vérifiée.');
 
-        return $this->redirectToRoute('app_login');
+        return $this->redirectToRoute('app_products-admin');
     }
 
     #[Route('/register/confirmation', name: 'app_register_confirmation')]
