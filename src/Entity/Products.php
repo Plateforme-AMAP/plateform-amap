@@ -38,10 +38,6 @@ class Products
     #[ORM\Column(type: 'string')]
     private ?string $imageName = null;
 
-    #[ORM\ManyToOne(targetEntity: Unity::class)]
-    #[ORM\JoinColumn(nullable: false)]
-    private $unity;
-
     #[ORM\Column(type: 'string', length: 255)]
     private $unityValue;
 
@@ -51,6 +47,10 @@ class Products
 
     #[ORM\Column(type: 'boolean')]
     private $state;
+
+    #[ORM\ManyToOne(targetEntity: Unity::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private $unity;
 
     public function getId(): ?int
     {
@@ -151,18 +151,6 @@ class Products
         return $this->imageName;
     }
 
-    public function getUnity(): ?Unity
-    {
-        return $this->unity;
-    }
-
-    public function setUnity(?Unity $unity): self
-    {
-        $this->unity = $unity;
-
-        return $this;
-    }
-
     public function getUnityValue(): ?string
     {
         return $this->unityValue;
@@ -195,6 +183,18 @@ class Products
     public function setState(bool $state): self
     {
         $this->state = $state;
+
+        return $this;
+    }
+
+    public function getUnity(): ?Unity
+    {
+        return $this->unity;
+    }
+
+    public function setUnity(?Unity $unity): self
+    {
+        $this->unity = $unity;
 
         return $this;
     }
