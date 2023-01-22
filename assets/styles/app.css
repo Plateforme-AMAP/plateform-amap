@@ -295,6 +295,9 @@ body.-primary {
   flex-wrap: wrap;
   gap: 16px;
 }
+.form__buttons-spaceBetween.-align-end {
+  align-items: end;
+}
 
 .formInput {
   margin: 8px 0;

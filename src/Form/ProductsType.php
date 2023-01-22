@@ -2,17 +2,18 @@
 
 namespace App\Form;
 
-use App\Entity\Products;
 use App\Entity\Unity;
 use App\Entity\Category;
+use App\Entity\Products;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Vich\UploaderBundle\Form\Type\VichImageType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class ProductsType extends AbstractType
 {
@@ -47,7 +48,6 @@ class ProductsType extends AbstractType
                 'label' => 'Unité',
                 'choice_label' => 'libelle', //on affiche tout les champs de la classe en option, ce qui est dans "libellé"
                 'placeholder' => 'Choisir une unité de mesure',
-                'empty_data' => null,
             ])
             ->add('category', EntityType::class, [
                 // looks for choices from this entity
@@ -55,8 +55,15 @@ class ProductsType extends AbstractType
                 'label' => 'Type',
                 'choice_label' => 'name', //on affiche tout les champs de la classe en option, ce qui est dans "libellé"
                 'placeholder' => 'Type d\'article',
-                'empty_data' => null,
             ])
+            ->add('state', ChoiceType::class, [
+                'label' => 'Statut de l\'article',
+                'choices'  => [
+                    'Hors ligne' => 0,
+                    'En ligne' => 1,
+                ],
+            ])
+
         ;
     }
 

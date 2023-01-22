@@ -17,9 +17,14 @@
 		{{ form_row(formProduct.category) }}
 	</div>
 
-	
-
 	{{ form_row(formProduct.imageFile) }}
+	</div>
+
+	<div class="form__buttons-spaceBetween -align-end">
+
+	<div class="formInput -relative -width js-input-with-image">
+		{{ form_label(formProduct.state) }}
+		{{ form_widget(formProduct.state, {'attr': {'class': 'formField'}}) }}
 	</div>
 
 	{% include '@atom/button/button.html.twig' with {
@@ -31,4 +36,6 @@
 		}
 	} only %}
 	{{ form_end(formProduct) }}
+
+	</div>
 </section>

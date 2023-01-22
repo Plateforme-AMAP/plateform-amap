@@ -33,7 +33,6 @@ export default class FormsFieldsDisplay {
                 this.unities[7].disabled = false;
                 this.unities[8].disabled = false;
             }
-
           });
     }
   }

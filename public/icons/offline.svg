@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-offline">
+      <rect width="20" height="20"/>
+    </clipPath>
+  </defs>
+  <g id="offline" clip-path="url(#clip-offline)">
+    <path id="noCheck-grey" d="M10.166,18.166a8,8,0,1,1,5.657-2.343A8,8,0,0,1,10.166,18.166Zm0-18a10,10,0,1,0,3.827.761A10,10,0,0,0,10.166.167Z" transform="translate(-0.167 -0.167)" fill="#00796b"/>
+  </g>
+</svg>

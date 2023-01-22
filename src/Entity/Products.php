@@ -49,6 +49,9 @@ class Products
     #[ORM\JoinColumn(nullable: false)]
     private $category;
 
+    #[ORM\Column(type: 'boolean')]
+    private $state;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -180,6 +183,18 @@ class Products
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function isState(): ?bool
+    {
+        return $this->state;
+    }
+
+    public function setState(bool $state): self
+    {
+        $this->state = $state;
 
         return $this;
     }
