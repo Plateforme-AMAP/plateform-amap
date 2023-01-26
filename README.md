@@ -78,4 +78,9 @@ and
 ```bash
   composer recipe
 ```
+
+still have troubles you can run :
+```bash
+  yarn
+```
 you can delete all migrations before creating the base
