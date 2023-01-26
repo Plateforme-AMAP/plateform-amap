@@ -59,3 +59,17 @@ Start the server
 ```bash
   symfony server:start
 ```
+
+## Help !
+
+in case of troubles you can run :
+
+```bash
+  composer update
+```
+and
+
+```bash
+  composer recipe
+```
+you can delete all migrations before creating the base
