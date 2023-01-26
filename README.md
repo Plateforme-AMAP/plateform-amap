@@ -67,6 +67,9 @@ build with Webpack encore
 ```bash
   yarn build
 ```
+```bash
+  yarn watch
+```
 
 [The Official documentation](https://symfony.com/doc/current/frontend/encore/simple-example.html)
 
