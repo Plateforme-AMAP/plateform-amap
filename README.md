@@ -42,6 +42,18 @@ Install dependencies
   composer install
 ```
 
+Create and migrate database
+
+```bash
+  symfony console doctrine:database:create
+```
+```bash
+  symfony console make:migration
+```
+```bash
+  symfony console doctrine:migrations:migrate
+```
+
 Start the server
 
 ```bash
