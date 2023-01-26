@@ -21,19 +21,25 @@ sudo apt install php8.1
 Clone the project
 
 ```bash
-  git clone 
+  git clone https://github.com/Plateforme-AMAP/plateform-amap.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd 
+  cd plateform-amap
+```
+
+Configure .env
+
+```bash
+  DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/ho-plateform?serverVersion=5.7&charset=utf8mb4"
 ```
 
 Install dependencies
 
 ```bash
-  yarn install
+  composer install
 ```
 
 Start the server
