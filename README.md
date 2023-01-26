@@ -60,6 +60,17 @@ Create and migrate database
   symfony console doctrine:migrations:migrate
 ```
 
+build with Webpack encore 
+```bash
+  yarn
+```
+```bash
+  yarn build
+```
+
+[The Official documentation](https://symfony.com/doc/current/frontend/encore/simple-example.html)
+
+
 Start the server
 
 ```bash
