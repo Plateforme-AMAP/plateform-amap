@@ -21,9 +21,13 @@ class Category
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Products::class)]
     private $products;
 
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Unity::class)]
+    private $unities;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
+        $this->unities = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -67,6 +71,36 @@ class Category
             // set the owning side to null (unless already changed)
             if ($product->getCategory() === $this) {
                 $product->setCategory(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Unity>
+     */
+    public function getUnities(): Collection
+    {
+        return $this->unities;
+    }
+
+    public function addUnity(Unity $unity): self
+    {
+        if (!$this->unities->contains($unity)) {
+            $this->unities[] = $unity;
+            $unity->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUnity(Unity $unity): self
+    {
+        if ($this->unities->removeElement($unity)) {
+            // set the owning side to null (unless already changed)
+            if ($unity->getCategory() === $this) {
+                $unity->setCategory(null);
             }
         }
 

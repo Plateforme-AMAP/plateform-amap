@@ -16,6 +16,9 @@ class Unity
     #[ORM\Column(type: 'string', length: 255)]
     private $libelle;
 
+    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'unities')]
+    private $category;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -29,6 +32,18 @@ class Unity
     public function setLibelle(string $libelle): self
     {
         $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

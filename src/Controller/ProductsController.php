@@ -79,6 +79,8 @@ class ProductsController extends AbstractController
          if ($formProduct->isSubmitted() && $formProduct->isValid()) {
 
              $entityManager = $doctrine->getManager();
+             $author = $this->getUser();
+             $product->setAuthor($author);
              $entityManager->persist($product);
              $entityManager->flush(); 
 
@@ -112,6 +114,10 @@ class ProductsController extends AbstractController
          if ($formProduct->isSubmitted() && $formProduct->isValid()) {
 
              $entityManager = $doctrine->getManager();
+            //  $unity = $this->unity;
+            //  $product->setUnity($unity);
+            //  $author = $this->getUser();
+            //  $product->setAuthor($author);
              $entityManager->flush(); 
 
              $this->addFlash(
