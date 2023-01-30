@@ -22,12 +22,12 @@ class Category
     private $products;
 
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Unity::class)]
-    private $unity;
+    private $unities;
 
     public function __construct()
     {
         $this->products = new ArrayCollection();
-        $this->unity = new ArrayCollection();
+        $this->unities = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -80,15 +80,15 @@ class Category
     /**
      * @return Collection<int, Unity>
      */
-    public function getUnity(): Collection
+    public function getUnities(): Collection
     {
-        return $this->unity;
+        return $this->unities;
     }
 
     public function addUnity(Unity $unity): self
     {
-        if (!$this->unity->contains($unity)) {
-            $this->unity[] = $unity;
+        if (!$this->unities->contains($unity)) {
+            $this->unities[] = $unity;
             $unity->setCategory($this);
         }
 
@@ -97,7 +97,7 @@ class Category
 
     public function removeUnity(Unity $unity): self
     {
-        if ($this->unity->removeElement($unity)) {
+        if ($this->unities->removeElement($unity)) {
             // set the owning side to null (unless already changed)
             if ($unity->getCategory() === $this) {
                 $unity->setCategory(null);

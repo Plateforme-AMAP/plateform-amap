@@ -13,11 +13,10 @@ class Unity
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', nullable: true)]
+    #[ORM\Column(type: 'string', length: 255)]
     private $libelle;
 
-    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'unity')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'unities')]
     private $category;
 
     public function getId(): ?int
@@ -30,7 +29,7 @@ class Unity
         return $this->libelle;
     }
 
-    public function setLibelle(?string $libelle): self
+    public function setLibelle(string $libelle): self
     {
         $this->libelle = $libelle;
 
@@ -48,5 +47,4 @@ class Unity
 
         return $this;
     }
-
 }
