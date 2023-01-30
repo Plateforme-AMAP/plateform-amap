@@ -41,8 +41,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     // for the custom reset password
     #[ORM\Column(type: 'string', nullable: true)]
     private $resetToken;
-
-    #[ORM\OneToMany(mappedBy: 'author', targetEntity: Products::class)]
+    
+    #[ORM\OneToMany(mappedBy: 'author', targetEntity: Products::class, orphanRemoval: true)]
     private $products;
 
     public function __construct()
