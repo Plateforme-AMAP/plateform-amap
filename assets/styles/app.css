@@ -388,7 +388,7 @@ body.-primary {
 .l-backOffice {
   background-color: #E3E9E9;
   padding-top: 48px;
-  min-height: calc(100vh - 113px);
+  min-height: calc(100vh - 100px);
 }
 @media (min-width: 1200px) {
   .l-backOffice {
@@ -951,6 +951,9 @@ body.-primary {
   display: flex;
   gap: 8px;
   align-items: center;
+}
+.m-filters-bar .a-button.js-filter-button {
+  display: none;
 }
 @media (max-width: 1199px) {
   .m-filters-bar {
