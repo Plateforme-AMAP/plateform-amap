@@ -15,9 +15,13 @@
 
     <h2 class="a-title2">{{ product.productName }}</h2>
 
-    <!-- Product status-->
+        <!-- Product status information (offline/online)-->
     {% if state is defined and state == "backOffice" %}
-    <p class="m-cardWithImage__state generic-flex"><img src="/icons/online.svg" alt="icon check" class="a-icon"><span class="generic-m8_row">En ligne{# à dynamiser #}</span></p>
+        {% if product.state == TRUE %}
+            <p class="m-cardWithImage__state generic-flex"><img src="/icons/online.svg" alt="icon check" class="a-icon"><span class="generic-m8_row">En ligne</span></p>
+        {% else %}
+            <p class="m-cardWithImage__state generic-flex"><img src="/icons/offline.svg" alt="icon check" class="a-icon"><span class="generic-m8_row">Hors ligne</span></p>
+        {% endif %}
     {% endif %}
 
     <!-- Product control-->
@@ -33,7 +37,30 @@
                 title:"Modifier le produit",
             }
         } only %}
-        {% include '@atom/button/button.html.twig' with {
+
+        <!-- Product status control (offline/online)-->
+
+        {% if product.state == TRUE %}
+            {% include '@atom/button/button.html.twig' with {
+                text: "Dépublier",
+                attributeList: {
+                    class: '-primaryGhost',
+                    href: path('products_publication-admin', {id : product.id}),
+                    title:"Dépublier le produit",
+                }
+            } only %}
+        {% else %}
+            {% include '@atom/button/button.html.twig' with {
+                text: "Publier",
+                attributeList: {
+                    class: '-primaryGhost',
+                    href: path('products_publication-admin', {id : product.id}),
+                    title:"Publier le produit",
+                }
+            } only %}
+        {% endif %}
+        
+        {# {% include '@atom/button/button.html.twig' with {
             text: "Supprimer",
             attributeList: {
                 class: '-alertGhost',
@@ -41,7 +68,7 @@
                 onclick:"confirm('Voulez vous vraiment supprimer ce produit?') || event.preventDefault()",
                 title:"Supprimer le produit",
             }
-        } only %}
+        } only %} #}
 
         {% elseif state is defined and state == "frontOffice"  %}
             {% include '@atom/button/button.html.twig' with {

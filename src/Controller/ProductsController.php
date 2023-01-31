@@ -5,6 +5,8 @@ namespace App\Controller;
 use DateTimeImmutable;
 use App\Entity\Products;
 use App\Form\ProductsType;
+use App\Repository\ProductsRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,15 +34,14 @@ class ProductsController extends AbstractController
         ]);
     }
 
-    // Retail product display [website]
+    // Detail product display [website]
     #[Route('/produits/{id}', name: 'details_product')]
     public function read($id, ManagerRegistry $doctrine): Response
     {
+        
         $product = $doctrine->getRepository(Products::class)->find($id);
-        $products = $doctrine->getRepository(Products::class)->findAll();
 
         return $this->render('frontOffice/products/details_product.html.twig', [
-            'products' => $products,
             'product' => $product,
             'state' => 'frontOffice',
         ]);
@@ -99,6 +100,30 @@ class ProductsController extends AbstractController
             'pageIncludeTitle' => 'Ajouter un produit',
          ]);
      }
+
+    // publications state edition
+    #[Route('/admin/produits/{id}', name: 'products_publication-admin')]
+    public function liveProduct(Products $product, EntityManagerInterface $entityManager)
+    {
+        $status = $product->isState();
+        $name = $product->getProductName();
+        $category = $product->getCategory()->getName();
+
+        
+        if ($status == FALSE) {
+            $product->setState(1);
+            $this->addFlash("success", "Le $category : ' $name ' est en Ligne");
+        } else {
+            $product->setState(0);
+            $this->addFlash("success", "Le $category  : ' $name ' est hors Ligne");
+        }
+
+        //Mise a jour du status du produit dans la bdd
+        $entityManager->persist($product);
+        $entityManager->flush();
+
+        return $this->redirectToRoute("app_products-admin");
+    }
 
     //modification of a product [backOffice]
      #[Route('/admin/produits/modifier/{id}', name: 'edit_product-admin')]
