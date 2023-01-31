@@ -5,6 +5,8 @@ namespace App\Controller;
 use DateTimeImmutable;
 use App\Entity\Products;
 use App\Form\ProductsType;
+use App\Repository\ProductsRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,21 +30,20 @@ class ProductsController extends AbstractController
 
         return $this->render('frontOffice/products/products.html.twig', [
             'products' => $products,
-            'state' => 'frontOffice',
+            'status' => 'frontOffice',
         ]);
     }
 
-    // Retail product display [website]
+    // Detail product display [website]
     #[Route('/produits/{id}', name: 'details_product')]
     public function read($id, ManagerRegistry $doctrine): Response
     {
+        
         $product = $doctrine->getRepository(Products::class)->find($id);
-        $products = $doctrine->getRepository(Products::class)->findAll();
 
         return $this->render('frontOffice/products/details_product.html.twig', [
-            'products' => $products,
             'product' => $product,
-            'state' => 'frontOffice',
+            'status' => 'frontOffice',
         ]);
     }
 
@@ -62,7 +63,7 @@ class ProductsController extends AbstractController
             'products' => $products,
             'pageInclude' => '@organism/gallery/gallery.html.twig',
             'pageIncludeTitle' => 'Produits',
-            'state' => 'backOffice',
+            'status' => 'backOffice',
         ]);
     }
 
@@ -99,6 +100,60 @@ class ProductsController extends AbstractController
             'pageIncludeTitle' => 'Ajouter un produit',
          ]);
      }
+
+    // publications state edition [BACKOFFICE]
+    #[Route('/admin/produits/{id}', name: 'products_publication-admin')]
+    public function liveProduct(Products $product, EntityManagerInterface $entityManager)
+    {
+        $state = $product->isState();
+        $name = $product->getProductName();
+        $category = $product->getCategory()->getName();
+
+        
+        if ($state == FALSE) {
+            $product->setState(1);
+            $this->addFlash("success", "Le $category : ' $name ' est en Ligne");
+        } else {
+            $product->setState(0);
+            $this->addFlash("success", "Le $category  : ' $name ' est hors Ligne");
+        }
+
+        //Mise a jour du status du produit dans la bdd
+        $entityManager->persist($product);
+        $entityManager->flush();
+
+        return $this->redirectToRoute("app_products-admin");
+    }
+
+    // filter products by state
+    #[Route('/admin/produits/statut/{state}', name: 'app_productsByState-admin')]
+    public function filteredByState(ProductsRepository $repository, $state): Response
+    {
+        //resultat de la requetes
+        $products = $repository->getProductByState($state);
+
+        return $this->render('/backOffice/pages/pages.html.twig', [
+            'products' => $products,
+            'pageInclude' => '@organism/gallery/gallery.html.twig',
+            'pageIncludeTitle' => 'Produits',
+            'status' => 'backOffice',
+        ]);
+    }
+
+    // filter products by category
+    #[Route('/admin/produits/catégorie/{category}', name: 'app_productsByCategory-admin')]
+    public function filteredByCategory(ProductsRepository $repository, $category): Response
+    {
+        //resultat de la requetes
+        $products = $repository->getProductByCategory($category);
+
+        return $this->render('/backOffice/pages/pages.html.twig', [
+            'products' => $products,
+            'pageInclude' => '@organism/gallery/gallery.html.twig',
+            'pageIncludeTitle' => 'Produits',
+            'status' => 'backOffice',
+        ]);
+    }
 
     //modification of a product [backOffice]
      #[Route('/admin/produits/modifier/{id}', name: 'edit_product-admin')]

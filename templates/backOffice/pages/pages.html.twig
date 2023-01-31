@@ -5,7 +5,10 @@
 {% block body %}
 	{% include('@molecule/menu-arbo/menu-arbo.html.twig') %}
 	<div class="o-pageContainer">
-		<h1 class="a-title1">{{ pageIncludeTitle }}</h1>
+		<div class="o-pageContainer__head">
+			<h1 class="a-title1">{{ pageIncludeTitle }}</h1>
+			{% include('@molecule/filters-bar/filters-bar.html.twig') %}
+		</div>
 		{% for message in app.flashes('success') %}
 			{% include '@molecule/addflash/addflash.html.twig' with {
 				text: message,

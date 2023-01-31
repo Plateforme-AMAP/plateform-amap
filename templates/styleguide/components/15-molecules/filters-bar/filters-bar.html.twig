@@ -1,0 +1,62 @@
+{% set componentClass = 'm-filters-bar js-filter-wrapper' %}
+{% set attributeList = attributeList is defined ? attributeList : {} %}
+{% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
+
+<div {% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>  
+
+        {% include '@atom/button/button.html.twig' with {
+            text: "Filtrer",
+            icon: "/icons/filter.svg",
+            attributeList: {
+                class: '-primaryGhost -withIcon js-filter-button',
+                title:"voir les produits en ligne",
+            }
+        } only %}
+
+        {% include '@atom/button/button.html.twig' with {
+            text: "Hors Ligne",
+            icon: "/icons/offline.svg",
+            attributeList: {
+                class: '-primaryGhost -withIcon',
+                href: path("app_productsByState-admin", {"state": 0}),
+                title:"voir les produits en ligne",
+            }
+        } only %}
+        {% include '@atom/button/button.html.twig' with {
+            text: "En Ligne",
+            icon: "/icons/online.svg",
+            attributeList: {
+                class: '-primaryGhost -withIcon',
+                href: path("app_productsByState-admin", {"state": 1}),
+                title:"voir les produits en ligne",
+            }
+        } only %}
+        {% include '@atom/button/button.html.twig' with {
+            text: "Paniers",
+            attributeList: {
+                class: '-primaryGhost',
+                href: path("app_productsByCategory-admin", {"category": 1}),
+                title:"voir les paniers",
+            }
+        } only %}
+        {% include '@atom/button/button.html.twig' with {
+            text: "Produits",
+            attributeList: {
+                class: '-primaryGhost',
+                href: path("app_productsByCategory-admin", {"category": 2}),
+                title:"voir les produits",
+            }
+        } only %}
+
+        <!-- If a filter is selected - to remove all filters -->
+        {% if app.request.requesturi != "/admin/produits" %}
+            {% include '@atom/button/button.html.twig' with {
+                text: "Réinitialiser",
+                attributeList: {
+                    class: '-primary -remove-filter',
+                    href: path("app_products-admin"),
+                    title:"voir les produits en ligne",
+                }
+            } only %}
+        {% endif %}  
+</div> 

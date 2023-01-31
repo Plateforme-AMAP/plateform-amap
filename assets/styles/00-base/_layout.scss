@@ -1,7 +1,7 @@
 .l-backOffice {
   background-color: $color-background;
   padding-top: 48px;
-  min-height: calc(100vh - 113px);
+  min-height: calc(100vh - 100px);
   @include desktop-up {
     margin-left: 10vw;
     min-height: calc(100vh - 50px);
@@ -72,7 +72,13 @@
     &.-withoutArbo {
       margin-left: 0;
     }
+    .o-pageContainer__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
+  
 }
 
 .m-linksPages {

@@ -13,6 +13,7 @@ import './styles/app.css';
 import MenuToggleDisplay from './scripts/menu-arbo';
 import ShowUserCard from './scripts/user-section';
 import FormsFieldsDisplay from './scripts/form-fields';
+import ShowFilter from './scripts/filter';
 
 var App = {
 
@@ -32,6 +33,10 @@ var App = {
 
         if (document.getElementById('products_category')) {
           new FormsFieldsDisplay(document.getElementById('products_category'));
+      }
+
+        if (document.querySelector('.js-filter-wrapper')) {
+          new ShowFilter(document.querySelector('.js-filter-wrapper'));
       }
     }
 }

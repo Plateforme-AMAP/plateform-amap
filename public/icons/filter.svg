@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-filter">
+      <rect width="20" height="20"/>
+    </clipPath>
+  </defs>
+  <g id="filter" clip-path="url(#clip-filter)">
+    <path id="filter-outline" d="M15,19.88a.959.959,0,0,1-.29.83,1,1,0,0,1-1.41,0L9.29,16.7A.989.989,0,0,1,9,15.87V10.75L4.21,4.62a1,1,0,0,1,.17-1.4A1.042,1.042,0,0,1,5,3H19a1.042,1.042,0,0,1,.62.22,1,1,0,0,1,.17,1.4L15,10.75v9.13M7.04,5,11,10.06v5.52l2,2V10.05L16.96,5Z" transform="translate(-2 -2.001)" fill="#00796b"/>
+  </g>
+</svg>
