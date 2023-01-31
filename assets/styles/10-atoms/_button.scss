@@ -1,6 +1,9 @@
 //buttons
 .a-button {
     @include textButton;
+    display: flex;
+    box-sizing: border-box;
+    width: fit-content;
     padding: 8px 16px;
     border-radius: 5px;
     &.-primary {
@@ -25,7 +28,6 @@
         @include ghost-btn($color-website, $color-white);
     }
     &.-withIcon {
-        display: flex;
         align-items: center;
         gap: 8px;
     }

@@ -30,7 +30,7 @@ class ProductsController extends AbstractController
 
         return $this->render('frontOffice/products/products.html.twig', [
             'products' => $products,
-            'state' => 'frontOffice',
+            'status' => 'frontOffice',
         ]);
     }
 
@@ -43,7 +43,7 @@ class ProductsController extends AbstractController
 
         return $this->render('frontOffice/products/details_product.html.twig', [
             'product' => $product,
-            'state' => 'frontOffice',
+            'status' => 'frontOffice',
         ]);
     }
 
@@ -63,7 +63,7 @@ class ProductsController extends AbstractController
             'products' => $products,
             'pageInclude' => '@organism/gallery/gallery.html.twig',
             'pageIncludeTitle' => 'Produits',
-            'state' => 'backOffice',
+            'status' => 'backOffice',
         ]);
     }
 
@@ -101,16 +101,16 @@ class ProductsController extends AbstractController
          ]);
      }
 
-    // publications state edition
+    // publications state edition [BACKOFFICE]
     #[Route('/admin/produits/{id}', name: 'products_publication-admin')]
     public function liveProduct(Products $product, EntityManagerInterface $entityManager)
     {
-        $status = $product->isState();
+        $state = $product->isState();
         $name = $product->getProductName();
         $category = $product->getCategory()->getName();
 
         
-        if ($status == FALSE) {
+        if ($state == FALSE) {
             $product->setState(1);
             $this->addFlash("success", "Le $category : ' $name ' est en Ligne");
         } else {
@@ -123,6 +123,20 @@ class ProductsController extends AbstractController
         $entityManager->flush();
 
         return $this->redirectToRoute("app_products-admin");
+    }
+
+    #[Route('/admin/produits/état/{state}', name: 'app_productsByState-admin')]
+    public function filteredByState(ProductsRepository $repository, $state): Response
+    {
+        //resultat de la requetes
+        $products = $repository->getProductByState($state);
+
+        return $this->render('/backOffice/pages/pages.html.twig', [
+            'products' => $products,
+            'pageInclude' => '@organism/gallery/gallery.html.twig',
+            'pageIncludeTitle' => 'Produits',
+            'status' => 'backOffice',
+        ]);
     }
 
     //modification of a product [backOffice]
