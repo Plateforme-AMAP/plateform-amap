@@ -125,11 +125,27 @@ class ProductsController extends AbstractController
         return $this->redirectToRoute("app_products-admin");
     }
 
-    #[Route('/admin/produits/état/{state}', name: 'app_productsByState-admin')]
+    // filter products by state
+    #[Route('/admin/produits/statut/{state}', name: 'app_productsByState-admin')]
     public function filteredByState(ProductsRepository $repository, $state): Response
     {
         //resultat de la requetes
         $products = $repository->getProductByState($state);
+
+        return $this->render('/backOffice/pages/pages.html.twig', [
+            'products' => $products,
+            'pageInclude' => '@organism/gallery/gallery.html.twig',
+            'pageIncludeTitle' => 'Produits',
+            'status' => 'backOffice',
+        ]);
+    }
+
+    // filter products by category
+    #[Route('/admin/produits/catégorie/{category}', name: 'app_productsByCategory-admin')]
+    public function filteredByCategory(ProductsRepository $repository, $category): Response
+    {
+        //resultat de la requetes
+        $products = $repository->getProductByCategory($category);
 
         return $this->render('/backOffice/pages/pages.html.twig', [
             'products' => $products,

@@ -52,6 +52,19 @@ class ProductsRepository extends ServiceEntityRepository
 
     }
 
+    public function getProductByCategory($category){
+
+        //createQuerryBuilder genere une requete qui s'appelle p 
+        return $this->createQueryBuilder('p')
+        //Condition ou, fonction pdo
+        ->andWhere('p.category = :val')
+        ->setParameter('val', $category)
+        ->getQuery()
+        ->getResult()
+    ;
+
+    }
+
 //    /**
 //     * @return Products[] Returns an array of Products objects
 //     */

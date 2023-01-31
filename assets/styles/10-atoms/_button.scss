@@ -3,7 +3,9 @@
     @include textButton;
     display: flex;
     box-sizing: border-box;
+    width: -moz-fit-content;
     width: fit-content;
+    align-items: center;
     padding: 8px 16px;
     border-radius: 5px;
     &.-primary {
@@ -28,7 +30,6 @@
         @include ghost-btn($color-website, $color-white);
     }
     &.-withIcon {
-        align-items: center;
         gap: 8px;
     }
 }

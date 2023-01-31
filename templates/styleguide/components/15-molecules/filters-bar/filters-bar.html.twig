@@ -1,63 +1,62 @@
-{% set componentClass = 'm-filters-bar' %}
+{% set componentClass = 'm-filters-bar js-filter-wrapper' %}
 {% set attributeList = attributeList is defined ? attributeList : {} %}
 {% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
 
 <div {% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>  
 
-    <!-- Lien permettant d'affiche les produits en fonction de leurs status -->
-    <!-- if Products online are selected -->
-    {% if app.request.requesturi|last == 1 %}
         {% include '@atom/button/button.html.twig' with {
-            text: "Hors Ligne",
-            icon: "/icons/offline.svg",
+            text: "Filtrer",
+            icon: "/icons/filter.svg",
             attributeList: {
-                class: '-primaryGhost -withIcon',
-                href: path("app_productsByState-admin", {"state": 0}),
+                class: '-primaryGhost -withIcon js-filter-button',
                 title:"voir les produits en ligne",
             }
         } only %}
-    <!-- if Products offline are selected -->
-    {% elseif app.request.requesturi|last == 0 %}
-        {% include '@atom/button/button.html.twig' with {
-            text: "En Ligne",
-            icon: "/icons/online.svg",
-            attributeList: {
-                class: '-primaryGhost -withIcon',
-                href: path("app_productsByState-admin", {"state": 1}),
-                title:"voir les produits en ligne",
-            }
-        } only %}
-    <!-- Products online and offline (when no filters are selected) -->
-    {% else %}
-        {% include '@atom/button/button.html.twig' with {
-            text: "Hors Ligne",
-            icon: "/icons/offline.svg",
-            attributeList: {
-                class: '-primaryGhost -withIcon',
-                href: path("app_productsByState-admin", {"state": 0}),
-                title:"voir les produits en ligne",
-            }
-        } only %}
-        {% include '@atom/button/button.html.twig' with {
-            text: "En Ligne",
-            icon: "/icons/online.svg",
-            attributeList: {
-                class: '-primaryGhost -withIcon',
-                href: path("app_productsByState-admin", {"state": 1}),
-                title:"voir les produits en ligne",
-            }
-        } only %}
-    {% endif %}
 
-    <!-- If a filter is selected - to remove all filters -->
-    {% if app.request.requesturi != "/admin/produits" %}
         {% include '@atom/button/button.html.twig' with {
-            text: "Réinitialiser",
+            text: "Hors Ligne",
+            icon: "/icons/offline.svg",
+            attributeList: {
+                class: '-primaryGhost -withIcon',
+                href: path("app_productsByState-admin", {"state": 0}),
+                title:"voir les produits en ligne",
+            }
+        } only %}
+        {% include '@atom/button/button.html.twig' with {
+            text: "En Ligne",
+            icon: "/icons/online.svg",
+            attributeList: {
+                class: '-primaryGhost -withIcon',
+                href: path("app_productsByState-admin", {"state": 1}),
+                title:"voir les produits en ligne",
+            }
+        } only %}
+        {% include '@atom/button/button.html.twig' with {
+            text: "Paniers",
             attributeList: {
                 class: '-primaryGhost',
-                href: path("app_products-admin"),
-                title:"voir les produits en ligne",
+                href: path("app_productsByCategory-admin", {"category": 1}),
+                title:"voir les paniers",
             }
         } only %}
-    {% endif %}          
+        {% include '@atom/button/button.html.twig' with {
+            text: "Produits",
+            attributeList: {
+                class: '-primaryGhost',
+                href: path("app_productsByCategory-admin", {"category": 2}),
+                title:"voir les produits",
+            }
+        } only %}
+
+        <!-- If a filter is selected - to remove all filters -->
+        {% if app.request.requesturi != "/admin/produits" %}
+            {% include '@atom/button/button.html.twig' with {
+                text: "Réinitialiser",
+                attributeList: {
+                    class: '-primary -remove-filter',
+                    href: path("app_products-admin"),
+                    title:"voir les produits en ligne",
+                }
+            } only %}
+        {% endif %}  
 </div> 
