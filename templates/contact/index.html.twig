@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block navbar %}{% endblock %}
+{% block sideNavbar %}{% endblock %}
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+	<div class="l-frontOffice__content -centerBlock">
+	{{ form_start(form) }}
+
+	{{ form_row(form.fullName) }}
+
+	{{ form_row(form.email) }}
+		
+	{{ form_row(form.subject) }}
+
+	{{ form_row(form.message) }}
+
+	{% include '@atom/button/button.html.twig' with {
+		text: "Envoyer",
+		attributeList: {
+			class: '-website',
+			title: "Envoyer",
+			type:"submit"
+		}
+	} only %}
+	{{ form_end(form) }}
+	</div>
+{% endblock %}

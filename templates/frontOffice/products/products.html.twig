@@ -5,6 +5,11 @@
 
 {% block body %}
 	<div class="l-frontOffice__content -centerBlock">
+        {% for message in app.flashes('success') %}
+			{% include '@molecule/addflash/addflash.html.twig' with {
+				text: message,
+			} %}		
+		{% endfor %}
 		{% include '@organism/gallery/gallery.html.twig' with {
             CardText: "En savoir plus",
 			CardClass: "-backgroundGreen",
