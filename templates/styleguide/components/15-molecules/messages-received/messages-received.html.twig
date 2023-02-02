@@ -1,0 +1,47 @@
+{% set componentClass = 'm-messagesReceived' %}
+{% set attributeList = attributeList is defined ? attributeList : {} %}
+{% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
+
+<div {% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
+    {% if contacts %}
+      {% for contact in contacts %}
+      <div class="m-messagesReceived__wrapper">
+        <div class="m-messagesReceived__head js-messages-display">
+          <div class="m-messagesReceived__title">
+            {# to cut the name after 25 characters #}
+            <p class="a-p -primary">{{ contact.fullName|length > 25 ? contact.fullName|slice(0, 25) ~ '...' : contact.fullName }}</p>
+            <img src="/icons/open.svg" alt="open" >
+          </div>
+          <p class="a-textDetails">{{ contact.createdAt|date('d/m/Y H:i') }}</p>
+        </div>
+        <div class="m-messagesReceived__content">
+          <p>{{ contact.subject }}</p>
+          <p>{{ contact.message }}</p>
+          <div class="m-messagesReceived__buttons">
+            {% include '@atom/button/button.html.twig' with {
+              text: "Supprimer",
+              attributeList: {
+                  class: '-alertGhost',
+                  href: '#',
+                  onclick:"confirm('Voulez vous vraiment supprimer ce produit?') || event.preventDefault()",
+                  title:"Supprimer le produit",
+              }
+            } only %}
+            {% include '@atom/button/button.html.twig' with {
+                text: "Répondre",
+                attributeList: {
+                    class: '-primaryGhost',
+                    href: path('app_dashboardMessage-admin', {id : contact.id}),
+                    title:"Répondre",
+                }
+            } only %}
+          </div>
+        </div> 
+
+      </div>
+
+      {% endfor %}
+    {% else %}
+    <p> Vous n'avez aucun message </p>
+    {% endif %}
+  </div>

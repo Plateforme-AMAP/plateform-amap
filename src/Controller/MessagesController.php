@@ -68,7 +68,7 @@ class MessagesController extends AbstractController
             return $this->redirectToRoute('app_products');
         }
 
-        return $this->render('backoffice/pages/dashboard.html.twig', [
+        return $this->render('backOffice/pages/dashboard.html.twig', [
             'form' => $form->createView(),
         ]);
     }

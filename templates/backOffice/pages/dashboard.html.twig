@@ -1,40 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-{% if form is defined and form %}
-	<div class="l-frontOffice__content -centerBlock">
-	{{ form_start(form) }}
-		
-	{{ form_row(form.subject) }}
+<div class="o-dashboardContainer">
+  <h1 class="a-title1">Dashboard</h1>
+  <div class="generic-whiteBackground -paddingRight">
+    {% if form is defined and form %}
+      <div class="generic-whiteBackground">
+        {{ form_start(form) }}
+          
+        {{ form_row(form.subject) }}
 
-	{{ form_row(form.message) }}
-
-	{% include '@atom/button/button.html.twig' with {
-		text: "Envoyer",
-		attributeList: {
-			class: '-primary',
-			title: "Envoyer",
-			type:"submit"
-		}
-	} only %}
-	{{ form_end(form) }}
-{% elseif contacts is defined and contacts %}
-    {% for contact in contacts %}
-        <h3>{{ contact.fullName }}</h3>
-        <p>{{ contact.subject }}</p>
-        <p>{{ contact.message }}</p>
-
+        {{ form_row(form.message) }}
 
         {% include '@atom/button/button.html.twig' with {
-            text: "Répondre",
-            attributeList: {
-                class: '-primaryGhost',
-                href: path('app_dashboardMessage-admin', {id : contact.id}),
-                title:"Répondre",
-            }
+          text: "Envoyer",
+          attributeList: {
+            class: '-primary',
+            title: "Envoyer",
+            type:"submit"
+          }
         } only %}
-        
-    {% endfor %}
-{% endif %}
+        {{ form_end(form) }}
+      </div>
+    {% elseif contacts is defined %}
+    <h2 class="a-title2">Messages <span class="a-textDetails -primary">({% if contacts %}{{ contacts|length }}{% else %}0{% endif %})</span></h2>
+      {% include('@molecule/messages-received/messages-received.html.twig')  %}
+    {% endif %}
+  </div>
+</div>
+
 
 {% endblock %}

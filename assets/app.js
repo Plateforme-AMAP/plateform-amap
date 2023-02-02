@@ -14,6 +14,7 @@ import MenuToggleDisplay from './scripts/menu-arbo';
 import ShowUserCard from './scripts/user-section';
 import FormsFieldsDisplay from './scripts/form-fields';
 import ShowFilter from './scripts/filter';
+import ShowMessage from './scripts/messages';
 
 var App = {
 
@@ -37,6 +38,10 @@ var App = {
 
         if (document.querySelector('.js-filter-wrapper')) {
           new ShowFilter(document.querySelector('.js-filter-wrapper'));
+      }
+
+        if (document.querySelector('.js-messages-display')) {
+          new ShowMessage(document.querySelector('.js-messages-display'));
       }
     }
 }

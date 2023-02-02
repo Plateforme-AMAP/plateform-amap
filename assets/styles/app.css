@@ -144,6 +144,16 @@ body.-primary {
   line-height: normal;
 }
 
+.a-p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #161616;
+  line-height: normal;
+}
+.a-p.-primary {
+  color: #00796B;
+}
+
 .a-placeholder {
   font-style: italic;
   font-size: 16px;
@@ -154,6 +164,9 @@ body.-primary {
 .a-textDetails {
   font-size: 12px;
   font-weight: 400;
+  color: #00796B;
+}
+.a-textDetails.-primary {
   color: #00796B;
 }
 
@@ -246,6 +259,9 @@ body.-primary {
   border-radius: 10px;
   padding: 24px;
   margin-bottom: 24px;
+}
+.generic-whiteBackground.-paddingRight {
+  padding-right: 16px;
 }
 
 .generic-greenBackground {
@@ -460,6 +476,11 @@ body.-primary {
     justify-content: space-between;
     align-items: center;
   }
+}
+
+.o-dashboardContainer {
+  padding: 0 16px 16px 24px;
+  margin: 16px 0;
 }
 
 .m-linksPages {
@@ -972,6 +993,70 @@ body.-primary {
   .m-filters-bar.-open .a-button {
     display: flex;
   }
+}
+
+.m-messagesReceived {
+  max-height: 500px;
+  overflow: auto;
+}
+@media (min-width: 768px) {
+  .m-messagesReceived {
+    max-height: 400px;
+  }
+}
+.m-messagesReceived::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f0f0f0;
+}
+.m-messagesReceived::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #00796B;
+  padding: 10px;
+  transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg); /* IE 9 */
+  -webkit-transform: rotateX(180deg); /* Safari and Chrome */
+}
+.m-messagesReceived .m-messagesReceived__wrapper {
+  border-bottom: 1px solid #00796B;
+  padding: 8px 0;
+  margin-right: 8px;
+}
+.m-messagesReceived .m-messagesReceived__wrapper:not(.-open) .m-messagesReceived__content {
+  display: none;
+}
+.m-messagesReceived .m-messagesReceived__wrapper:not(.-open) .m-messagesReceived__title img {
+  transition: 0.2s ease;
+}
+.m-messagesReceived .m-messagesReceived__wrapper.-open .m-messagesReceived__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0 0 0;
+}
+.m-messagesReceived .m-messagesReceived__wrapper.-open .m-messagesReceived__title img {
+  transition: 0.2s ease;
+  transform: rotate(180deg);
+}
+.m-messagesReceived .m-messagesReceived__title {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+@media (min-width: 768px) {
+  .m-messagesReceived .m-messagesReceived__title {
+    width: 30%;
+  }
+}
+.m-messagesReceived .m-messagesReceived__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.m-messagesReceived .m-messagesReceived__buttons {
+  display: flex;
+  justify-content: end;
+  gap: 16px;
 }
 
 /* All scss files are called at the app.scss file */
