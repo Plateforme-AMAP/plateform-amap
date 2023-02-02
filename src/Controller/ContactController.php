@@ -70,7 +70,7 @@ class ContactController extends AbstractController
         $contacts = $doctrine->getRepository(Contact::class)->findBy([], ['id' => 'DESC']);
 
         return $this->render('backOffice/pages/dashboard.html.twig', [
-            'emails' => $contacts,
+            'contacts' => $contacts,
             'status' => 'frontOffice',
         ]);
     }
