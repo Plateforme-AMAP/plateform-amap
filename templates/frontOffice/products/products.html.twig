@@ -5,6 +5,15 @@
 
 {% block body %}
 	<div class="l-frontOffice__content -centerBlock">
+  <h1 class="generic-m40b">site amap</h1>
+  {% include '@atom/button/button.html.twig' with {
+    text: "S'incrire",
+    attributeList: {
+        class: '-website',
+        href: path('app_register')
+    }
+    } only %}
+  
 		{% include '@organism/gallery/gallery.html.twig' with {
             CardText: "En savoir plus",
 			CardClass: "-backgroundGreen",

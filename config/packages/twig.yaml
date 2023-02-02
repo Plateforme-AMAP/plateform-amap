@@ -2,11 +2,9 @@ twig:
     default_path: '%kernel.project_dir%/templates'
     paths:
         "%kernel.project_dir%/templates/": "app"
-        "%kernel.project_dir%/templates/styleguide/components/05-design-system": "layout"
         "%kernel.project_dir%/templates/styleguide/components/10-atoms": "atom"
         "%kernel.project_dir%/templates/styleguide/components/15-molecules": "molecule"
         "%kernel.project_dir%/templates/styleguide/components/20-organisms": "organism"
-        "%kernel.project_dir%/templates/styleguide/components/25-templates": "template"
     form_themes: ['customForm/global-form-custom.html.twig']
 
 when@test:
