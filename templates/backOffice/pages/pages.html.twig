@@ -7,7 +7,9 @@
 	<div class="o-pageContainer">
 		<div class="o-pageContainer__head">
 			<h1 class="a-title1">{{ pageIncludeTitle }}</h1>
-			{% include('@molecule/filters-bar/filters-bar.html.twig') %}
+			{% if pageIncludeTitle == "Produits" %}
+				{% include('@molecule/filters-bar/filters-bar.html.twig') %}
+			{% endif %}
 		</div>
 		{% for message in app.flashes('success') %}
 			{% include '@molecule/addflash/addflash.html.twig' with {
