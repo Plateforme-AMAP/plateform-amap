@@ -8,4 +8,9 @@
     @include desktop-up {
         padding: 24px;
     }
+    &.-website {
+        background-color: $color-website--light;
+        color: $color-website;
+        border: 1px solid $color-website;
+    }
 }

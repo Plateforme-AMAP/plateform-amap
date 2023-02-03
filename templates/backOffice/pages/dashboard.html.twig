@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="o-dashboardContainer">
+  <h1 class="a-title1">{{ pageIncludeTitle }}</h1>
+  <div class="generic-whiteBackground -paddingRight">
+  
+    {% if form is defined and form %}
+    <div class="o-dashboardContainer__recap a-textDetails">
+        <p><span class="-black">Réponse à : </span> {{ contact }}</p>
+      <p class="-black -opacity">{{ contactSubject }}</p>
+      <p class="-black -opacity">{{ contactMessage }}</p>
+    </div>
+    </p> 
+        {{ form_start(form) }}
+          
+        {{ form_row(form.subject) }}
+
+        {{ form_row(form.message) }}
+
+        <div class="m-messagesReceived__buttons">
+          {% include '@atom/button/button.html.twig' with {
+            text: "Annuler",
+            attributeList: {
+              class: '-primaryGhost',
+              title: "Annuler",
+              href: path("app_dashboard-admin"),
+            }
+          } only %}
+          {% include '@atom/button/button.html.twig' with {
+            text: "Envoyer",
+            attributeList: {
+              class: '-primary',
+              title: "Envoyer",
+              type:"submit"
+            }
+          } only %}
+        </div>
+
+        {{ form_end(form) }}
+    {% elseif contacts is defined %}
+    <h2 class="a-title2">Messages <span class="a-textDetails -primary">({% if contacts %}{{ contacts|length }}{% else %}0{% endif %})</span></h2>
+      {% include('@molecule/messages-received/messages-received.html.twig')  %}
+    {% endif %}
+  </div>
+</div>
+
+
+{% endblock %}

@@ -119,6 +119,10 @@ body.-primary {
 .a-title1.-center {
   text-align: center;
 }
+.a-title1.-website {
+  color: #161616;
+  font-weight: 500;
+}
 
 .a-title2 {
   font-size: 20px;
@@ -137,6 +141,13 @@ body.-primary {
   margin: 8px 0;
 }
 
+.o-form-front .formLabel {
+  font-size: 14px;
+  font-weight: 400;
+  color: #161616;
+  margin: 8px 0;
+}
+
 .vich-image .formInput .formLabel {
   font-size: 16px;
   font-weight: 400;
@@ -144,8 +155,17 @@ body.-primary {
   line-height: normal;
 }
 
+.a-p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #161616;
+  line-height: normal;
+}
+.a-p.-primary {
+  color: #00796B;
+}
+
 .a-placeholder {
-  font-style: italic;
   font-size: 16px;
   font-weight: 400;
   color: #161616;
@@ -155,6 +175,12 @@ body.-primary {
   font-size: 12px;
   font-weight: 400;
   color: #00796B;
+}
+.a-textDetails.-primary {
+  color: #00796B;
+}
+.a-textDetails .-black {
+  color: #161616;
 }
 
 .a-textAriane {
@@ -247,6 +273,9 @@ body.-primary {
   padding: 24px;
   margin-bottom: 24px;
 }
+.generic-whiteBackground.-paddingRight {
+  padding-right: 16px;
+}
 
 .generic-greenBackground {
   background-color: #00796B;
@@ -310,10 +339,23 @@ body.-primary {
   border: 1px solid #00796B;
   padding: 8px 16px;
   border-radius: 5px;
-  font-style: italic;
   font-size: 16px;
   font-weight: 400;
   color: #161616;
+  scrollbar-width: thin;
+  scrollbar-color: #00796B #f0f0f0;
+}
+.formField::-webkit-scrollbar, .password-field::-webkit-scrollbar, .form-control::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f0f0f0;
+}
+.formField::-webkit-scrollbar-thumb, .password-field::-webkit-scrollbar-thumb, .form-control::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #00796B;
+  padding: 10px;
+  transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg); /* IE 9 */
+  -webkit-transform: rotateX(180deg); /* Safari and Chrome */
 }
 .formField.-disabled, .password-field.-disabled, .form-control.-disabled {
   opacity: 0.3;
@@ -322,6 +364,14 @@ body.-primary {
   border: 1px solid #00796B;
   outline: none;
   background-color: rgba(72, 169, 153, 0.3725490196);
+}
+.formField.-textArea, .password-field.-textArea, .form-control.-textArea {
+  min-block-size: 180px;
+}
+@media (min-width: 768px) {
+  .formField.-textArea, .password-field.-textArea, .form-control.-textArea {
+    min-block-size: 120px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -381,6 +431,23 @@ body.-primary {
   display: none;
 }
 
+.o-form-front .formField, .o-form-front .password-field, .o-form-front .form-control {
+  border: none;
+  padding: 4px 8px;
+  border-radius: 3px;
+  scrollbar-color: #689F38 #f0f0f0;
+}
+.o-form-front .formField::-webkit-scrollbar, .o-form-front .password-field::-webkit-scrollbar, .o-form-front .form-control::-webkit-scrollbar {
+  width: 4px;
+  background-color: #f0f0f0;
+}
+.o-form-front .formField::-webkit-scrollbar-thumb, .o-form-front .password-field::-webkit-scrollbar-thumb, .o-form-front .form-control::-webkit-scrollbar-thumb {
+  background-color: #689F38;
+}
+.o-form-front .formField:focus, .o-form-front .password-field:focus, .o-form-front .form-control:focus {
+  border: 1px solid #689F38;
+  background-color: #FFF;
+}
 /*
 * END FORMS
 *
@@ -426,6 +493,7 @@ body.-primary {
   width: 100vw;
   padding: 0 16px;
   max-width: 1200px;
+  margin: 0 auto;
 }
 .l-frontOffice__content.-spaceBetween {
   display: flex;
@@ -434,8 +502,38 @@ body.-primary {
 .l-frontOffice__content.-slider {
   max-width: 1300px;
 }
-.l-frontOffice__content.-slider {
-  max-width: 1300px;
+.l-frontOffice__content.-twoParts {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  background-color: #EFF5EA;
+  justify-content: center;
+}
+.l-frontOffice__content.-twoParts > img {
+  display: none;
+}
+.l-frontOffice__content.-twoParts .o-form-front > * {
+  max-width: 650px;
+  margin: 0 auto;
+}
+@media (min-width: 1200px) {
+  .l-frontOffice__content.-twoParts {
+    max-width: none;
+    padding: 0;
+  }
+  .l-frontOffice__content.-twoParts > img {
+    display: block;
+    width: 40%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    height: 100%;
+  }
+  .l-frontOffice__content.-twoParts .o-form-front {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+  }
 }
 @media (min-width: 1200px) {
   .l-frontOffice__content.-centerBlock {
@@ -460,6 +558,20 @@ body.-primary {
     justify-content: space-between;
     align-items: center;
   }
+}
+
+.o-dashboardContainer {
+  padding: 0 16px 16px 24px;
+  margin: 16px 0;
+}
+.o-dashboardContainer .o-dashboardContainer__recap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+.o-dashboardContainer .o-dashboardContainer__recap .-opacity {
+  opacity: 0.7;
 }
 
 .m-linksPages {
@@ -946,6 +1058,11 @@ body.-primary {
     padding: 24px;
   }
 }
+.m-addflash.-website {
+  background-color: #EFF5EA;
+  color: #689F38;
+  border: 1px solid #689F38;
+}
 
 .m-filters-bar {
   display: flex;
@@ -972,6 +1089,73 @@ body.-primary {
   .m-filters-bar.-open .a-button {
     display: flex;
   }
+}
+
+.m-messagesReceived {
+  max-height: 500px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #00796B #f0f0f0;
+}
+@media (min-width: 768px) {
+  .m-messagesReceived {
+    max-height: 400px;
+  }
+}
+.m-messagesReceived::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f0f0f0;
+}
+.m-messagesReceived::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #00796B;
+  padding: 10px;
+  transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg); /* IE 9 */
+  -webkit-transform: rotateX(180deg); /* Safari and Chrome */
+}
+.m-messagesReceived .m-messagesReceived__wrapper {
+  border-bottom: 1px solid #00796B;
+  padding: 8px 0;
+  margin-right: 8px;
+}
+.m-messagesReceived .m-messagesReceived__wrapper:not(.-open) .m-messagesReceived__content {
+  display: none;
+}
+.m-messagesReceived .m-messagesReceived__wrapper:not(.-open) .m-messagesReceived__title img {
+  transition: 0.2s ease;
+}
+.m-messagesReceived .m-messagesReceived__wrapper.-open .m-messagesReceived__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0 0 0;
+}
+.m-messagesReceived .m-messagesReceived__wrapper.-open .m-messagesReceived__title img {
+  transition: 0.2s ease;
+  transform: rotate(180deg);
+}
+.m-messagesReceived .m-messagesReceived__title {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+@media (min-width: 768px) {
+  .m-messagesReceived .m-messagesReceived__title {
+    width: 30%;
+  }
+}
+.m-messagesReceived .m-messagesReceived__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.m-messagesReceived__buttons {
+  display: flex;
+  justify-content: end;
+  gap: 16px;
 }
 
 /* All scss files are called at the app.scss file */

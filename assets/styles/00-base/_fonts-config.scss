@@ -22,6 +22,10 @@ Fonts
     &.-center{
       text-align: center;
     }
+    &.-website {
+      color: $color-black;
+      font-weight: 500;
+    }
   }
 
   .a-title2 {
@@ -40,6 +44,13 @@ Fonts
     color: $color-black;
     margin: 8px 0;
   }
+
+  %a-label-front {
+    font-size: 14px;
+    font-weight: 400;
+    color: $color-black;
+    margin: 8px 0;
+  }
   
   %a-title3 {
     font-size: 20px;
@@ -53,9 +64,18 @@ Fonts
     color: $color-black;
     line-height: normal;
   }
+
+  .a-p {
+    font-size: $normalFont;
+    font-weight: $regular;
+    color: $color-black;
+    line-height: normal;
+    &.-primary {
+      color: $color-primary;
+    }
+  }
   
   .a-placeholder {
-    font-style: italic;
     font-size: $normalFont;
     font-weight: $regular;
     color: $color-black;
@@ -65,6 +85,12 @@ Fonts
     font-size: 12px;
     font-weight: $regular;
     color: $color-primary;
+    &.-primary {
+      color: $color-primary;
+    }
+    .-black {
+      color: $color-black;
+    }
   }
   
   .a-textAriane {

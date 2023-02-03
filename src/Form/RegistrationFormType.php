@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -41,7 +42,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ]
             ])
-            ->add('email')
+            ->add('email', EmailType::class)
             ->add('plainPassword', RepeatedType::class, [ 
                 'type' => PasswordType::class,
                 'invalid_message' => 'Les mots de passe ne sont pas identiques.',
