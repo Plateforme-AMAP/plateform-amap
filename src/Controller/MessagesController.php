@@ -55,7 +55,8 @@ class MessagesController extends AbstractController
              ->subject($message->getSubject())
              ->context([
                  'user'=> $contact,
-                 'message' => $message->getMessage()
+                 'message' => $message->getMessage(),
+                 'author' => $message->getAuthor()->getFirstName()
              ])
              ->htmlTemplate('contact/contact_email-response.html.twig')
              );
