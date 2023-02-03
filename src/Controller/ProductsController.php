@@ -26,7 +26,7 @@ class ProductsController extends AbstractController
     #[Route('/', name: 'app_products')]
     public function readAll(ManagerRegistry $doctrine): Response
     {
-        $products = $doctrine->getRepository(Products::class)->findBy([], ['id' => 'DESC']);
+        $products = $doctrine->getRepository(Products::class)->findBy(['state' => 1], ['id' => 'DESC']);
 
         return $this->render('frontOffice/products/products.html.twig', [
             'products' => $products,

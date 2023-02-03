@@ -45,7 +45,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: Products::class, orphanRemoval: true)]
     private $products;
 
-    #[ORM\OneToMany(mappedBy: 'author', targetEntity: Messages::class)]
+    #[ORM\OneToMany(mappedBy: 'author', targetEntity: Messages::class, orphanRemoval: true)]
     private $messages;
 
     public function __construct()
