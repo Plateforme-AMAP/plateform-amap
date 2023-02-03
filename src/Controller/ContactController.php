@@ -72,6 +72,7 @@ class ContactController extends AbstractController
         return $this->render('backOffice/pages/dashboard.html.twig', [
             'contacts' => $contacts,
             'status' => 'frontOffice',
+            'pageIncludeTitle' => 'Dashboard'
         ]);
     }
 }

@@ -74,6 +74,7 @@ class MessagesController extends AbstractController
             'contactSubject' => $contact->getSubject(),
             'contactMessage' => $contact->getMessage(),
             'form' => $form->createView(),
+            'pageIncludeTitle' => 'Répondre'
         ]);
     }
     
