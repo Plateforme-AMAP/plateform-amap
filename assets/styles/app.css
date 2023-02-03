@@ -119,6 +119,10 @@ body.-primary {
 .a-title1.-center {
   text-align: center;
 }
+.a-title1.-website {
+  color: #161616;
+  font-weight: 500;
+}
 
 .a-title2 {
   font-size: 20px;
@@ -133,6 +137,13 @@ body.-primary {
 .formLabel {
   font-size: 16px;
   font-weight: 600;
+  color: #161616;
+  margin: 8px 0;
+}
+
+.o-form-front .formLabel {
+  font-size: 14px;
+  font-weight: 400;
   color: #161616;
   margin: 8px 0;
 }
@@ -155,7 +166,6 @@ body.-primary {
 }
 
 .a-placeholder {
-  font-style: italic;
   font-size: 16px;
   font-weight: 400;
   color: #161616;
@@ -329,7 +339,6 @@ body.-primary {
   border: 1px solid #00796B;
   padding: 8px 16px;
   border-radius: 5px;
-  font-style: italic;
   font-size: 16px;
   font-weight: 400;
   color: #161616;
@@ -422,6 +431,23 @@ body.-primary {
   display: none;
 }
 
+.o-form-front .formField, .o-form-front .password-field, .o-form-front .form-control {
+  border: none;
+  padding: 4px 8px;
+  border-radius: 3px;
+  scrollbar-color: #689F38 #f0f0f0;
+}
+.o-form-front .formField::-webkit-scrollbar, .o-form-front .password-field::-webkit-scrollbar, .o-form-front .form-control::-webkit-scrollbar {
+  width: 4px;
+  background-color: #f0f0f0;
+}
+.o-form-front .formField::-webkit-scrollbar-thumb, .o-form-front .password-field::-webkit-scrollbar-thumb, .o-form-front .form-control::-webkit-scrollbar-thumb {
+  background-color: #689F38;
+}
+.o-form-front .formField:focus, .o-form-front .password-field:focus, .o-form-front .form-control:focus {
+  border: 1px solid #689F38;
+  background-color: #FFF;
+}
 /*
 * END FORMS
 *
@@ -467,6 +493,7 @@ body.-primary {
   width: 100vw;
   padding: 0 16px;
   max-width: 1200px;
+  margin: 0 auto;
 }
 .l-frontOffice__content.-spaceBetween {
   display: flex;
@@ -475,8 +502,38 @@ body.-primary {
 .l-frontOffice__content.-slider {
   max-width: 1300px;
 }
-.l-frontOffice__content.-slider {
-  max-width: 1300px;
+.l-frontOffice__content.-twoParts {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  background-color: #EFF5EA;
+  justify-content: center;
+}
+.l-frontOffice__content.-twoParts > img {
+  display: none;
+}
+.l-frontOffice__content.-twoParts .o-form-front > * {
+  max-width: 650px;
+  margin: 0 auto;
+}
+@media (min-width: 1200px) {
+  .l-frontOffice__content.-twoParts {
+    max-width: none;
+    padding: 0;
+  }
+  .l-frontOffice__content.-twoParts > img {
+    display: block;
+    width: 40%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    height: 100%;
+  }
+  .l-frontOffice__content.-twoParts .o-form-front {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+  }
 }
 @media (min-width: 1200px) {
   .l-frontOffice__content.-centerBlock {
@@ -1000,6 +1057,11 @@ body.-primary {
   .m-addflash {
     padding: 24px;
   }
+}
+.m-addflash.-website {
+  background-color: #EFF5EA;
+  color: #689F38;
+  border: 1px solid #689F38;
 }
 
 .m-filters-bar {

@@ -22,6 +22,10 @@ Fonts
     &.-center{
       text-align: center;
     }
+    &.-website {
+      color: $color-black;
+      font-weight: 500;
+    }
   }
 
   .a-title2 {
@@ -37,6 +41,13 @@ Fonts
   %a-label {
     font-size: 16px;
     font-weight: 600;
+    color: $color-black;
+    margin: 8px 0;
+  }
+
+  %a-label-front {
+    font-size: 14px;
+    font-weight: 400;
     color: $color-black;
     margin: 8px 0;
   }
@@ -65,7 +76,6 @@ Fonts
   }
   
   .a-placeholder {
-    font-style: italic;
     font-size: $normalFont;
     font-weight: $regular;
     color: $color-black;
