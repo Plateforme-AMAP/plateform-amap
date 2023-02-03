@@ -45,7 +45,7 @@ class ContactController extends AbstractController
                 ->from(new Address('contact@ho-platform.com', 'Ho Platform'))->to($contact->getEmail())
                 ->subject('Nous avons bien reçu votre message')
                 ->context([
-                    'user'=> $contact
+                    'user'=> $contact->getFullName(),
                 ])
                 ->htmlTemplate('contact/contact_email-request.html.twig')
                 );

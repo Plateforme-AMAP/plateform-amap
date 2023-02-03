@@ -54,7 +54,7 @@ class MessagesController extends AbstractController
              ->from(new Address('contact@ho-platform.com', 'Ho Platform'))->to($contact->getEmail())
              ->subject($message->getSubject())
              ->context([
-                 'user'=> $contact,
+                 'user'=> $contact->getFullName(),
                  'message' => $message->getMessage(),
                  'author' => $message->getAuthor()->getFirstName()
              ])
@@ -70,6 +70,9 @@ class MessagesController extends AbstractController
         }
 
         return $this->render('backOffice/pages/dashboard.html.twig', [
+            'contact' => $contact->getFullName(),
+            'contactSubject' => $contact->getSubject(),
+            'contactMessage' => $contact->getMessage(),
             'form' => $form->createView(),
         ]);
     }

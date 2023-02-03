@@ -20,6 +20,11 @@
     -ms-transform:rotateX(180deg); /* IE 9 */
     -webkit-transform:rotateX(180deg); /* Safari and Chrome */
   }
+  
+    // Firefox
+    scrollbar-width: thin;
+    scrollbar-color:  $color-primary #f0f0f0;
+
   .m-messagesReceived__wrapper {
     border-bottom: 1px solid $color-primary;
     padding: 8px 0;

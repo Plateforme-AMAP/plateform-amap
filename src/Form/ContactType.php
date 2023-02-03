@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ContactType extends AbstractType
 {
@@ -44,7 +44,7 @@ class ContactType extends AbstractType
                     ])
                 ]
             ])
-            ->add('message', TextType::class, [
+            ->add('message', TextareaType::class, [
                 'required' => true,
                 'label' => 'Message',
                 'constraints' => [
@@ -54,6 +54,9 @@ class ContactType extends AbstractType
                         // max length allowed by Symfony for security reasons
                         'max' => 2000,
                     ])
+                ],
+                'attr' => [
+                    'class' => 'formField -textArea',
                 ]
             ])
         ;

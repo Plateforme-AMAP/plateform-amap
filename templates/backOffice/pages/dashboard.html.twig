@@ -4,8 +4,14 @@
 <div class="o-dashboardContainer">
   <h1 class="a-title1">Dashboard</h1>
   <div class="generic-whiteBackground -paddingRight">
+  
     {% if form is defined and form %}
-      <div class="generic-whiteBackground">
+    <div class="o-dashboardContainer__recap a-textDetails">
+        <p><span class="-black">Réponse à : </span> {{ contact }}</p>
+      <p class="-black -opacity">{{ contactSubject }}</p>
+      <p class="-black -opacity">{{ contactMessage }}</p>
+    </div>
+    </p> 
         {{ form_start(form) }}
           
         {{ form_row(form.subject) }}
@@ -21,7 +27,6 @@
           }
         } only %}
         {{ form_end(form) }}
-      </div>
     {% elseif contacts is defined %}
     <h2 class="a-title2">Messages <span class="a-textDetails -primary">({% if contacts %}{{ contacts|length }}{% else %}0{% endif %})</span></h2>
       {% include('@molecule/messages-received/messages-received.html.twig')  %}

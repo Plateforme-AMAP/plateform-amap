@@ -25,7 +25,10 @@ class ProductsType extends AbstractType
                 'label' => 'Nom du produit'
             ])
             ->add('productDescription', TextareaType::class, [
-                'label' => 'Description du produit'
+                'label' => 'Description du produit',
+                'attr' => [
+                    'class' => 'formField -textArea',
+                ]
             ])
             ->add('productPrice', MoneyType::class, [
                 'divisor' => 100,

@@ -169,6 +169,9 @@ body.-primary {
 .a-textDetails.-primary {
   color: #00796B;
 }
+.a-textDetails .-black {
+  color: #161616;
+}
 
 .a-textAriane {
   font-size: 16px;
@@ -330,6 +333,20 @@ body.-primary {
   font-size: 16px;
   font-weight: 400;
   color: #161616;
+  scrollbar-width: thin;
+  scrollbar-color: #00796B #f0f0f0;
+}
+.formField::-webkit-scrollbar, .password-field::-webkit-scrollbar, .form-control::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f0f0f0;
+}
+.formField::-webkit-scrollbar-thumb, .password-field::-webkit-scrollbar-thumb, .form-control::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #00796B;
+  padding: 10px;
+  transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg); /* IE 9 */
+  -webkit-transform: rotateX(180deg); /* Safari and Chrome */
 }
 .formField.-disabled, .password-field.-disabled, .form-control.-disabled {
   opacity: 0.3;
@@ -338,6 +355,14 @@ body.-primary {
   border: 1px solid #00796B;
   outline: none;
   background-color: rgba(72, 169, 153, 0.3725490196);
+}
+.formField.-textArea, .password-field.-textArea, .form-control.-textArea {
+  min-block-size: 180px;
+}
+@media (min-width: 768px) {
+  .formField.-textArea, .password-field.-textArea, .form-control.-textArea {
+    min-block-size: 120px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -481,6 +506,15 @@ body.-primary {
 .o-dashboardContainer {
   padding: 0 16px 16px 24px;
   margin: 16px 0;
+}
+.o-dashboardContainer .o-dashboardContainer__recap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+.o-dashboardContainer .o-dashboardContainer__recap .-opacity {
+  opacity: 0.7;
 }
 
 .m-linksPages {
@@ -998,6 +1032,8 @@ body.-primary {
 .m-messagesReceived {
   max-height: 500px;
   overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #00796B #f0f0f0;
 }
 @media (min-width: 768px) {
   .m-messagesReceived {
