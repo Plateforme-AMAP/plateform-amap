@@ -182,6 +182,12 @@ body.-primary {
 .a-textDetails .-black {
   color: #161616;
 }
+.a-textDetails.-black {
+  color: #161616;
+}
+.a-textDetails.-margin {
+  margin-left: 16px;
+}
 
 .a-textAriane {
   font-size: 16px;
@@ -331,6 +337,13 @@ body.-primary {
 .formInput {
   margin: 8px 0;
 }
+.formInput.-flex {
+  display: flex;
+  gap: 16px;
+}
+.formInput .-width {
+  width: auto;
+}
 
 .formField, .password-field, .form-control {
   width: -moz-available; /* WebKit-based browsers will ignore this. */
@@ -431,10 +444,14 @@ body.-primary {
   display: none;
 }
 
+.o-form-front .-alert {
+  color: #EC6262;
+}
 .o-form-front .formField, .o-form-front .password-field, .o-form-front .form-control {
   border: none;
   padding: 4px 8px;
   border-radius: 3px;
+  background-color: white;
   scrollbar-color: #689F38 #f0f0f0;
 }
 .o-form-front .formField::-webkit-scrollbar, .o-form-front .password-field::-webkit-scrollbar, .o-form-front .form-control::-webkit-scrollbar {
@@ -494,6 +511,9 @@ body.-primary {
   padding: 0 16px;
   max-width: 1200px;
   margin: 0 auto;
+}
+.l-frontOffice__content.-background {
+  background: #EFF5EA;
 }
 .l-frontOffice__content.-spaceBetween {
   display: flex;

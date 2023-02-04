@@ -91,6 +91,13 @@ Fonts
     .-black {
       color: $color-black;
     }
+    &.-black {
+      color: $color-black;
+    }
+    &.-margin {
+      margin-left: 16px;
+
+    }
   }
   
   .a-textAriane {

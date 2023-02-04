@@ -43,7 +43,9 @@
     padding: 0 $content-offset-sm;
     max-width: $content-width;
     margin: 0 auto;
-  
+    &.-background {
+      background: $color-website--light;
+    }
     &.-spaceBetween {
       display: flex;
       justify-content: space-between;

@@ -134,6 +134,13 @@
 
 .formInput {
     margin: 8px 0;
+    &.-flex {
+        display: flex;
+        gap: 16px;
+    }
+    .-width {
+        width: auto;
+    }
 }
 
 .formField, .password-field, .form-control  {
@@ -250,10 +257,14 @@
 
 //forms style for frontOffice
 .o-form-front {
+    .-alert {
+        color:$color-alert; 
+    }
     .formField, .password-field, .form-control  {
         border: none;
         padding: 4px 8px;
         border-radius: 3px;
+        background-color: white;
         &::-webkit-scrollbar
         {
           width: 4px;
