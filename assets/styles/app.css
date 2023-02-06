@@ -777,6 +777,10 @@ body.-primary {
     background: transparent;
     text-decoration: none;
   }
+  .a-link.-menuVariant.-active {
+    background: transparent;
+    text-decoration: none;
+  }
   .a-link.-menuVariant img {
     height: 32px;
     width: 32px;
