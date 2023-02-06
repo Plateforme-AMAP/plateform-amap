@@ -2,6 +2,10 @@
     width: 20px;
     height: auto;
     margin: 8px;
+    &.-iconMargin {
+        width: 24px;
+        margin: 0 16px 0 0;
+    }
 }
 
 .a-logo {
@@ -54,6 +58,10 @@
 
 .generic-m16_row {
     margin: 16px 0;
+}
+
+.generic-m16t {
+    margin-top: 16px;
 }
 
 .generic-m40t {

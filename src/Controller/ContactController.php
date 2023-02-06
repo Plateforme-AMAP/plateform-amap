@@ -64,19 +64,6 @@ class ContactController extends AbstractController
         ]);
     }
 
-    //to show and interact with messages inside the backoffice [BACKOFFICE]
-    #[Route('/admin/dashboard', name: 'app_dashboard-admin')]
-    public function read(ManagerRegistry $doctrine): Response
-    {
-        $contacts = $doctrine->getRepository(Contact::class)->findBy([], ['id' => 'DESC']);
-
-        return $this->render('backOffice/pages/dashboard.html.twig', [
-            'contacts' => $contacts,
-            'status' => 'frontOffice',
-            'pageIncludeTitle' => 'Dashboard'
-        ]);
-    }
-
     //delete messages from contacts [BACKOFFICE]
     #[Route('/admin/dashboard/supprimer/{id}', name: 'delete_contactMessage-admin')]
     public function delete($id, ManagerRegistry $doctrine) : RedirectResponse
