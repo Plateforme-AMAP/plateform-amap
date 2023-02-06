@@ -52,7 +52,11 @@ cursor: pointer;
             padding: 8px;
             &:hover, :active {
                 background: transparent;
-                text-decoration: none;;
+                text-decoration: none;
+            }
+            &.-active {
+                background: transparent;
+                text-decoration: none;
             }
             img {
                 height: 32px;

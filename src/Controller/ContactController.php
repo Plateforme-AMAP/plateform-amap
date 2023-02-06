@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
@@ -58,21 +59,27 @@ class ContactController extends AbstractController
             return $this->redirectToRoute('app_products');
         }
 
-        return $this->render('contact/index.html.twig', [
+        return $this->render('contact/contact.html.twig', [
             'form' => $form->createView(),
         ]);
     }
 
-    //to show and interact with messages inside the backoffice [BACKOFFICE]
-    #[Route('/admin/dashboard', name: 'app_dashboard-admin')]
-    public function read(ManagerRegistry $doctrine): Response
+    //delete messages from contacts [BACKOFFICE]
+    #[Route('/admin/dashboard/supprimer/{id}', name: 'delete_contactMessage-admin')]
+    public function delete($id, ManagerRegistry $doctrine) : RedirectResponse
     {
-        $contacts = $doctrine->getRepository(Contact::class)->findBy([], ['id' => 'DESC']);
+        $contactMessage = $doctrine->getRepository(Contact::class)->find($id);
 
-        return $this->render('backOffice/pages/dashboard.html.twig', [
-            'contacts' => $contacts,
-            'status' => 'frontOffice',
-            'pageIncludeTitle' => 'Dashboard'
-        ]);
+        $entityManager = $doctrine->getManager();
+        $entityManager->remove($contactMessage);
+        $entityManager->flush();
+
+        //for the contact message the only deletion security in V1 is in the template via a confirmation alert
+        $this->addFlash(
+            'success',
+            'Le message de ' . $contactMessage->getFullName() . ' a bien été supprimé !'
+        );
+
+        return $this->redirectToRoute('app_dashboard-admin');
     }
 }

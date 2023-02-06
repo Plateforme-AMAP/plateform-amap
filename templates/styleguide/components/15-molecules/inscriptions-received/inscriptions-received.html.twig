@@ -1,0 +1,22 @@
+{% set componentClass = 'm-messagesReceived' %}
+{% set attributeList = attributeList is defined ? attributeList : {} %}
+{% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
+
+<div {% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
+      {% if inscriptions %}
+      {% for inscription in inscriptions %}
+      <div class="m-messagesReceived__wrapper">
+        <a href="{{path('app_inscriptionDetail-admin', { 'id' : inscription.id })}}" class="m-messagesReceived__head" title="Voir le détail de l'inscription">
+          <div class="m-messagesReceived__title">
+            {# to cut the name after 25 characters #}
+            {% set fullName = inscription.firstName  ~ ' ' ~ inscription.lastName %}
+            <p class="a-p -primary">{{ fullName|length > 25 ? fullName|slice(0, 25) ~ '...' : fullName }}</p>
+          </div>
+          <div><img src="/icons/eye_primary.svg" alt="open"></div>
+        </a>
+      </div>
+      {% endfor %}
+    {% else %}
+    <p> Vous n'avez aucun message </p>
+    {% endif %}
+    </div>

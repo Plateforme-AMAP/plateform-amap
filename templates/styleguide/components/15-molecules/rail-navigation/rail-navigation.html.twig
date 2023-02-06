@@ -6,12 +6,17 @@
     <nav class="m-navigationSideBar__nav">
         <ul class="">
             <li>
+                {# {% set isDashboardActive = "dashboard" in app.request.attributes.get('_route') %}
+                {% if isDashboardActive %}
+                 #}
+
+
                 {% include '@atom/link/link.html.twig' with {
                     text: "Dashboard",
                     icon: "/icons/dashboard-category.svg",
                     alt: "dashboard",
                     attributeList: {
-                        class:"-light -menuVariant",
+                        class:("dashboard" in app.request.attributes.get('_route')) ? '-light -menuVariant -active' : '-light -menuVariant',
                         href: path('app_dashboard-admin'),
                         title: "Aller au tableau de bord"
                     }
@@ -23,7 +28,7 @@
                     icon: "/icons/pages-category.svg",
                     alt: "Page",
                     attributeList: {
-                        class:"-light -menuVariant",
+                        class:("app_products-admin" in app.request.attributes.get('_route')) ? '-light -menuVariant -active' : '-light -menuVariant',
                         href: path('app_products-admin'),
                         title: "Aller aux pages"
                     }
@@ -35,8 +40,8 @@
                     icon: "/icons/settings.svg",
                     alt: "Rouages",
                     attributeList: {
-                        class:"-light -menuVariant",
-                        href: "#",
+                        class:("app_user-admin" in app.request.attributes.get('_route')) ? '-light -menuVariant -active' : '-light -menuVariant',
+                        href: path('app_user-admin'),
                         title: "Aller aux paramètres"
                     }
                 } %}

@@ -40,7 +40,7 @@ class ProductsType extends AbstractType
                 "required" => false,
                 "imagine_pattern" => 'min',
                 'allow_delete' => true,
-                'delete_label' => 'Suprimer l\'image',
+                'delete_label' => 'Supprimer l\'image',
             ])
             ->add('unityValue', TextType::class, [
                 "required" => true,

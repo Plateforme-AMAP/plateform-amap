@@ -56,7 +56,7 @@
                 }
             } %}
         </div>
-        {# si on a cliqué une première fois sur "supprimer mon compte", on reçoi un email avec un lien qui permet d'afficher ce bouton ci-dessous #}
+        {# si on a cliqué une première fois sur "supprimer mon compte", on reçoit un email avec un lien qui permet d'afficher ce bouton ci-dessous #}
         {% elseif deleteAutorisation is defined and deleteAutorisation %}
 
 
@@ -78,16 +78,16 @@
                 title: "Informations du compte",
             } only %}
             <div class="generic-p32">
-                <div>
-                    <p class="formLabel">Prénom</p>
+                <div class="generic-m16t">
+                    <p class="a-textDetails -black">Prénom</p>
                     <p>{{ app.user.firstname }}</p>
                 </div>
-                <div>
-                    <p class="formLabel">Nom</p>
+                <div class="generic-m16t">
+                    <p class="a-textDetails -black">Nom</p>
                     <p>{{ app.user.lastname }}</p>
                 </div>
-                <div>
-                    <p class="formLabel">Email</p>
+                <div class="generic-m16t">
+                    <p class="a-textDetails -black">Email</p>
                     <p>{{ app.user.email }}</p>
                 </div>
             </div>
@@ -103,7 +103,7 @@
                         href: path('app_userEdit-admin', { 'id' : app.user.id }),
                     }
                 } only %}
-                {# le bouton ci-dessous crée un token qui est envoyé sous form de lien par email, au clique sur ce lien, le véritable bouton de suppression apparaît. on ne peut pas suprimer son compte par erreur #}
+                {# le bouton ci-dessous crée un token qui est envoyé sous form de lien par email, au clique sur ce lien, le véritable bouton de suppression apparaît. on ne peut pas supprimer son compte par erreur #}
                 {% include '@atom/button/button.html.twig' with {
                     text: "Supprimer mon compte",
                     attributeList: {

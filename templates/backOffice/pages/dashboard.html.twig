@@ -3,9 +3,13 @@
 {% block body %}
 <div class="o-dashboardContainer">
   <h1 class="a-title1">{{ pageIncludeTitle }}</h1>
+  	{% for message in app.flashes('success') %}
+			{% include '@molecule/addflash/addflash.html.twig' with {
+				text: message,
+			} %}		
+		{% endfor %}
+  {% if form is defined and form %}
   <div class="generic-whiteBackground -paddingRight">
-  
-    {% if form is defined and form %}
     <div class="o-dashboardContainer__recap a-textDetails">
         <p><span class="-black">Réponse à : </span> {{ contact }}</p>
       <p class="-black -opacity">{{ contactSubject }}</p>
@@ -38,12 +42,95 @@
         </div>
 
         {{ form_end(form) }}
-    {% elseif contacts is defined %}
-    <h2 class="a-title2">Messages <span class="a-textDetails -primary">({% if contacts %}{{ contacts|length }}{% else %}0{% endif %})</span></h2>
-      {% include('@molecule/messages-received/messages-received.html.twig')  %}
+    </div>
+    {# if inscriptions details #}
+    {% elseif inscription is defined %}
+     {% include '@molecule/form-separator/form-separator.html.twig' with {
+                title: "Identité",
+            } only %}
+            <div class="generic-p32">
+                <div class="generic-m16t">
+                    <p class="a-textDetails -black">Prénom</p>
+                    <p>{{ inscription.firstName }}</p>
+                </div>
+                <div class="generic-m16t">
+                    <p class="a-textDetails -black">Nom</p>
+                    <p>{{ inscription.lastName }}</p>
+                </div>
+                <div class="generic-m16t">
+                    <p class="a-textDetails -black">Email</p>
+                    <p>{{ inscription.email }}</p>
+                </div>
+            </div>
+            {% include '@molecule/form-separator/form-separator.html.twig' with {
+                title: "Coordonnées",
+            } only %}
+            <div class="generic-p32">
+                <div class="generic-m16t">
+                    <p class="a-textDetails -black">Adresse</p>
+                    <p>{{ inscription.adress }}</p>
+                    <p>{{ inscription.city }} {{ inscription.zipCode }}</p>
+                </div>
+                <div class="generic-m16t">
+                    <p class="a-textDetails -black">Email</p>
+                    <p>{{ inscription.email }}</p>
+                </div>
+                <div class="generic-m16t">
+                    <p class="a-textDetails -black">Numéro de téléphone</p>
+                    <p>{{ inscription.phoneNumber }}</p>
+                </div>
+            </div>
+            {% include '@molecule/form-separator/form-separator.html.twig' with {
+                title: "Abonnement",
+            } only %}
+            <div class="generic-p32">
+                <div class="generic-m16t">
+                    <p class="a-textDetails -black">Panier</p>
+                    <p>{{ inscription.basket }}</p>
+                </div>
+                <div class="generic-m16t">
+                    <p class="a-textDetails -black">Produits en supplément</p>
+                    <p>{% if inscription.bonusProduct %}{{ inscription.bonusProduct }}{% else %}aucun{% endif %}</p>
+                </div>
+                <div class="generic-m16t">
+                    <p class="a-textDetails -black">Statut</p>
+                    <p>{% if inscription.member == true %}Déjà membre{% else %}Non membre{% endif %}</p>
+                </div>
+                <div class="generic-m16t">
+                    <p class="a-textDetails -black">Moyen de paiement</p>
+                    <p>{{ inscription.payment }}</p>
+                </div>
+            </div>
+            <div class="p-account__buttons generic-wrap generic-m40t">
+                {% include '@atom/button/button.html.twig' with {
+                  text: "Retour",
+                  attributeList: {
+                    class: '-primaryGhost',
+                    title: "Annuler",
+                    href: path("app_dashboard-admin"),
+                  }
+                } only %}
+                {# le bouton ci-dessous crée un token qui est envoyé sous form de lien par email, au clique sur ce lien, le véritable bouton de suppression apparaît. on ne peut pas supprimer son compte par erreur #}
+                {% include '@atom/button/button.html.twig' with {
+                    text: "Supprimer l'inscription",
+                    attributeList: {
+                        class: '-alertGhost',
+                        title:"Supprimer l'inscription",
+                        href: path('delete_inscription-admin', { 'id' : inscription.id }),
+                        onclick:"confirm('Voulez vous vraiment supprimer cette inscription?') || event.preventDefault()",
+                    }
+                } only %}
+            </div>
+    {% else %}
+    {# if dashoboard regular #}
+      <div class="generic-whiteBackground -paddingRight">
+        <h2 class="a-title2">Messages <span class="a-textDetails -primary">({% if contacts %}{{ contacts|length }}{% else %}0{% endif %})</span></h2>
+        {% include('@molecule/messages-received/messages-received.html.twig')  %}
+      </div>
+      <div class="generic-whiteBackground -paddingRight">
+        <h2 class="a-title2">Inscriptions <span class="a-textDetails -primary">({% if inscriptions %}{{ inscriptions|length }}{% else %}0{% endif %})</span></h2>
+        {% include('@molecule/inscriptions-received/inscriptions-received.html.twig')  %}
+      </div>
     {% endif %}
-  </div>
 </div>
-
-
 {% endblock %}
