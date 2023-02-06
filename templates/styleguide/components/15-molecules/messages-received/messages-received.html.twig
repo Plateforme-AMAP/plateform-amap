@@ -22,9 +22,9 @@
               text: "Supprimer",
               attributeList: {
                   class: '-alertGhost',
-                  href: '#',
-                  onclick:"confirm('Voulez vous vraiment supprimer ce produit?') || event.preventDefault()",
-                  title:"Supprimer le produit",
+                  href: path('delete_contactMessage-admin', {id : contact.id}),
+                  onclick:"confirm('Voulez vous vraiment supprimer ce message?') || event.preventDefault()",
+                  title:"Supprimer le message",
               }
             } only %}
             {% include '@atom/button/button.html.twig' with {

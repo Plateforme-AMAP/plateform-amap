@@ -3,6 +3,11 @@
 {% block body %}
 <div class="o-dashboardContainer">
   <h1 class="a-title1">{{ pageIncludeTitle }}</h1>
+  	{% for message in app.flashes('success') %}
+			{% include '@molecule/addflash/addflash.html.twig' with {
+				text: message,
+			} %}		
+		{% endfor %}
   <div class="generic-whiteBackground -paddingRight">
   
     {% if form is defined and form %}

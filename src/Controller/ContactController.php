@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
@@ -74,5 +75,24 @@ class ContactController extends AbstractController
             'status' => 'frontOffice',
             'pageIncludeTitle' => 'Dashboard'
         ]);
+    }
+
+    //delete messages from contacts [BACKOFFICE]
+    #[Route('/admin/dashboard/supprimer/{id}', name: 'delete_contactMessage-admin')]
+    public function delete($id, ManagerRegistry $doctrine) : RedirectResponse
+    {
+        $contactMessage = $doctrine->getRepository(Contact::class)->find($id);
+
+        $entityManager = $doctrine->getManager();
+        $entityManager->remove($contactMessage);
+        $entityManager->flush();
+
+        //for the contact message the only deletion security in V1 is in the template via a confirmation alert
+        $this->addFlash(
+            'success',
+            'Le message de ' . $contactMessage->getFullName() . ' a bien été supprimé !'
+        );
+
+        return $this->redirectToRoute('app_dashboard-admin');
     }
 }
