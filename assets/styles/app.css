@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -637,7 +638,6 @@ body.-primary {
   display: flex;
   box-sizing: border-box;
   width: -moz-fit-content;
-  width: -webkit-fit-content;
   width: fit-content;
   align-items: center;
   padding: 8px 16px;
@@ -736,6 +736,12 @@ body.-primary {
 }
 .a-link.-light:active {
   color: #48a999;
+}
+.a-link.-back {
+  color: #161616;
+}
+.a-link.-back:hover {
+  color: rgba(22, 22, 22, 0.2274509804);
 }
 .a-link:hover {
   text-decoration: underline;
@@ -1010,7 +1016,6 @@ body.-primary {
   right: 0;
   border-radius: 0 5px;
   background: #FFF;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   width: auto;
@@ -1187,6 +1192,78 @@ body.-primary {
   display: flex;
   justify-content: end;
   gap: 16px;
+}
+
+.m-menuFront__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  padding: 0 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.m-menuFront__wrapper .-only-for-mobile {
+  display: none;
+}
+
+.m-menuFront {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+}
+.m-menuFront .m-menuFront__nav.-only-for-mobile {
+  display: none;
+}
+@media (max-width: 767px) {
+  .m-menuFront:not(.-open) .m-menuFront__nav {
+    display: none;
+  }
+  .m-menuFront:not(.-open) .m-menuFront__nav.-only-for-mobile {
+    display: none;
+  }
+  .m-menuFront:not(.-open) .a-button {
+    display: none;
+  }
+  .m-menuFront:not(.-open) .-only-for-mobile {
+    display: block;
+  }
+  .m-menuFront.-open {
+    height: 100vh;
+  }
+  .m-menuFront.-open .m-menuFront__nav {
+    display: none;
+  }
+  .m-menuFront.-open .a-button {
+    display: none;
+  }
+  .m-menuFront.-open .m-menuFront__nav.-only-for-mobile {
+    margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+    transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+    align-items: center;
+  }
+  .m-menuFront.-open .m-menuFront__nav.-only-for-mobile .a-button {
+    display: block;
+  }
+  .m-menuFront.-open .-only-for-mobile {
+    display: block;
+  }
+}
+
+.m-menuFront__separator {
+  height: auto;
+  width: 2px;
+  background: rgba(22, 22, 22, 0.2274509804);
+}
+
+.m-menuFront__items {
+  display: flex;
+  gap: 8px;
 }
 
 /* All scss files are called at the app.scss file */
