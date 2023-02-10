@@ -134,6 +134,9 @@ body.-primary {
 .a-title2.-nowrap {
   white-space: nowrap;
 }
+.a-title2.-black {
+  color: #161616;
+}
 
 .formLabel {
   font-size: 16px;
@@ -491,14 +494,11 @@ body.-primary {
 }
 
 .l-frontOffice {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  margin-top: 50px;
   height: calc(100vh - 40px);
 }
 @media (min-width: 1200px) {
   .l-frontOffice {
-    padding-top: 32px;
-    padding-bottom: 32px;
     height: calc(100vh - 64px);
   }
 }
@@ -519,7 +519,6 @@ body.-primary {
   width: 100vw;
   padding: 0 16px;
   max-width: 1200px;
-  margin: 0 auto;
 }
 .l-frontOffice__content.-background {
   background: #EFF5EA;
@@ -527,6 +526,9 @@ body.-primary {
 .l-frontOffice__content.-spaceBetween {
   display: flex;
   justify-content: space-between;
+}
+.l-frontOffice__content.-center {
+  margin: 0 auto;
 }
 .l-frontOffice__content.-slider {
   max-width: 1300px;
@@ -569,6 +571,54 @@ body.-primary {
     width: 80%;
     max-width: 1200px;
     margin: 0 auto;
+  }
+}
+
+.p-home__hero {
+  position: relative;
+  height: 50vh;
+  width: 100vw;
+}
+.p-home__hero .p-home__heroImg {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.p-home__hero .p-home__heroBasket {
+  position: absolute;
+  display: flex;
+  gap: 16px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 700px;
+  height: auto;
+  min-height: -moz-min-content;
+  min-height: min-content;
+  padding: 24px;
+  background-color: #EFF5EA;
+}
+.p-home__hero .p-home__heroBasket .p-home__heroBasketImg {
+  width: 200px;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.p-home__hero .p-home__heroBasket .p-home__heroBasketWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.p-home__hero .p-home__heroBasket .p-home__heroBasketWrapper .a-button {
+  align-self: flex-end;
+}
+.p-home__hero .p-home__heroBasket .p-home__heroBasketWrapper .a-textDetails {
+  margin: 10px 0;
+}
+@media (max-width: 767px) {
+  .p-home__hero .p-home__heroBasket {
+    width: 100%;
   }
 }
 
@@ -1199,7 +1249,7 @@ body.-primary {
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  padding: 0 16px;
+  padding: 8px 16px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -1209,9 +1259,12 @@ body.-primary {
 
 .m-menuFront {
   position: fixed;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   background: white;
+  width: 100vw;
+  z-index: 1;
 }
 .m-menuFront .m-menuFront__nav.-only-for-mobile {
   display: none;

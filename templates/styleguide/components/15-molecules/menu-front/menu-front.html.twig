@@ -14,7 +14,7 @@
                     alt: "Aller à l'accueil",
                     attributeList: {
                         class:"-back",
-                        href: "#"
+                        href: path('app_home'),
                     }
                 } %}
               </li>
@@ -26,6 +26,17 @@
                     attributeList: {
                         class:"-back",
                         href: path('app_products')
+                    }
+                } %}
+              </li>
+              <li class="m-menuFront__separator"></li>
+              <li>
+              {% include '@atom/link/link.html.twig' with {
+                    text: "Contact",
+                    alt: "Contacter l'AMAP",
+                    attributeList: {
+                        class:"-back",
+                        href: path('app_contact')
                     }
                 } %}
               </li>
@@ -48,7 +59,7 @@
                   alt: "Aller à l'accueil",
                   attributeList: {
                       class:"-back",
-                      href: "#"
+                      href: path('app_home'),
                   }
               } %}
             </li>
@@ -59,7 +70,8 @@
                   alt: "Aller aux produits",
                   attributeList: {
                       class:"-back",
-                      href: path('app_products')
+                      href: path('app_products'),
+                      title: "Aller aux produits",
                   }
               } %}
             </li>

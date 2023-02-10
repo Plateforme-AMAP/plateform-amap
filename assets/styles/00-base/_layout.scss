@@ -9,14 +9,11 @@
 }
 
 .l-frontOffice {
-      padding-top: $block-spacer-sm;
-      padding-bottom: $block-spacer-sm;
+      margin-top: 50px;
       $total-spacer-sm :  $block-spacer-sm + $block-spacer-sm;
       height: calc(100vh - $total-spacer-sm);
   
     @include desktop-up {
-      padding-top: $block-spacer-md;
-      padding-bottom: $block-spacer-md;
       $total-spacer-sm :  $block-spacer-md + $block-spacer-md;
       height: calc(100vh - $total-spacer-sm);
     }
@@ -42,13 +39,15 @@
     width: 100vw;
     padding: 0 $content-offset-sm;
     max-width: $content-width;
-    margin: 0 auto;
     &.-background {
       background: $color-website--light;
     }
     &.-spaceBetween {
       display: flex;
       justify-content: space-between;
+    }
+    &.-center {
+      margin: 0 auto;
     }
   
     &.-slider {
@@ -95,6 +94,48 @@
         margin: 0 auto;
       }
     }
+}
+.p-home__hero {
+  position: relative;
+  height: 50vh;
+  width: 100vw;
+  .p-home__heroImg {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .p-home__heroBasket {
+    position: absolute;
+    display: flex;
+    gap: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 700px;
+    height: auto;
+    min-height: min-content;
+    padding: 24px;
+    background-color: $color-website--light;
+    .p-home__heroBasketImg {
+      width: 200px;
+      height: auto;
+      object-fit: cover;
+    }
+    .p-home__heroBasketWrapper {
+      display: flex;
+      flex-direction: column;
+      .a-button {
+        align-self: flex-end;
+      }
+      .a-textDetails {
+        margin: 10px 0;
+      }
+    }
+    @include tablet-down {
+      width: 100%;
+    }
+  }
 }
 
 .o-pageContainer {

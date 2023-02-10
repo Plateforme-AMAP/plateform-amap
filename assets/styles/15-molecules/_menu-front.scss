@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  padding: 0 $content-offset-sm;
+  padding: 8px $content-offset-sm;
   max-width: $content-width;
   margin: 0 auto;
   .-only-for-mobile {
@@ -13,9 +13,12 @@
 
 .m-menuFront {
   position: fixed;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   background: white;
+  width: 100vw;
+  z-index: 1;
   .m-menuFront__nav.-only-for-mobile {
     display: none;
   }
