@@ -49,9 +49,20 @@
     &.-center {
       margin: 0 auto;
     }
+    
+    &.-flexCenter {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+    }
   
     &.-slider {
       max-width: $content-width + 100;
+    }
+
+    &.-marginY {
+      margin-top: 24px;
+      margin-bottom: 24px;
     }
   
     &.-twoParts {
@@ -93,6 +104,10 @@
         max-width: 1200px;
         margin: 0 auto;
       }
+    }
+
+    &.-background {
+      background: $color-website--light
     }
 }
 .p-home__hero {

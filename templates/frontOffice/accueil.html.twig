@@ -33,8 +33,63 @@
     <img src="/images/home.jpg" alt="" class="p-home__heroImg">
   </div>
 
-  <div class="l-frontOffice__content -spaceBetween -center">
-
+  <div class="l-frontOffice__content -flexCenter -center -marginY">
+    {% include '@molecule/card/card.html.twig' with {
+        image: '/images/home.jpg',
+        imageAlt: 'image',
+        title: 'Mon titre',
+        text: 'blabla',
+        textClass: 'a-textDetails -black',
+        buttonText: 'button',
+        buttonLink: '#',
+        buttonTitle: 'button direction',
+    } only %}	
+    {% include '@molecule/card/card.html.twig' with {
+        image: '/images/home.jpg',
+        imageAlt: 'image',
+        title: 'Mon titre',
+        text: 'blabla',
+        textClass: 'a-textDetails -black',
+        buttonText: 'button',
+        buttonLink: '#',
+        buttonTitle: 'button direction',
+    } only %}	
+    {% include '@molecule/card/card.html.twig' with {
+        image: '/images/home.jpg',
+        imageAlt: 'image',
+        title: 'Mon titre',
+        text: 'blabla',
+        textClass: 'a-textDetails -black',
+        buttonText: 'button',
+        buttonLink: '#',
+        buttonTitle: 'button direction',
+    } only %}	
   </div>
+<div>
+  <div class="l-frontOffice__content -flexCenter -center -marginY">
+    {% include '@molecule/card/card.html.twig' with {
+        image: '/images/home.jpg',
+        imageAlt: 'image',
+        title: 'Mon titre',
+        text: 'blabla',
+        textClass: 'a-textDetails -black',
+    } only %}	
+    {% include '@molecule/card/card.html.twig' with {
+        image: '/images/home.jpg',
+        imageAlt: 'image',
+        title: 'Mon titre',
+        text: 'blabla',
+        textClass: 'a-textDetails -black',
+    } only %}	
+    {% include '@molecule/card/card.html.twig' with {
+        image: '/images/home.jpg',
+        imageAlt: 'image',
+        title: 'Mon titre',
+        text: 'blabla',
+        textClass: 'a-textDetails -black',
+    } only %}	
+  </div>
+</div>
+
   
 {% endblock %}

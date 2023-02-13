@@ -530,8 +530,17 @@ body.-primary {
 .l-frontOffice__content.-center {
   margin: 0 auto;
 }
+.l-frontOffice__content.-flexCenter {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
 .l-frontOffice__content.-slider {
   max-width: 1300px;
+}
+.l-frontOffice__content.-marginY {
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 .l-frontOffice__content.-twoParts {
   display: flex;
@@ -573,6 +582,9 @@ body.-primary {
     margin: 0 auto;
   }
 }
+.l-frontOffice__content.-background {
+  background: #EFF5EA;
+}
 
 .p-home__hero {
   position: relative;
@@ -595,6 +607,7 @@ body.-primary {
   width: 80%;
   max-width: 700px;
   height: auto;
+  min-height: -webkit-min-content;
   min-height: -moz-min-content;
   min-height: min-content;
   padding: 24px;
@@ -688,6 +701,7 @@ body.-primary {
   display: flex;
   box-sizing: border-box;
   width: -moz-fit-content;
+  width: -webkit-fit-content;
   width: fit-content;
   align-items: center;
   padding: 8px 16px;
@@ -1066,6 +1080,7 @@ body.-primary {
   right: 0;
   border-radius: 0 5px;
   background: #FFF;
+  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   width: auto;
@@ -1317,6 +1332,18 @@ body.-primary {
 .m-menuFront__items {
   display: flex;
   gap: 8px;
+}
+
+.m-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.m-card img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 250px;
+  height: 150px;
 }
 
 /* All scss files are called at the app.scss file */
