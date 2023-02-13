@@ -31,6 +31,9 @@ class Page
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $subtitle2;
 
+    #[ORM\ManyToOne(targetEntity: Products::class)]
+    private $featuredProduct;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +107,18 @@ class Page
     public function setSubtitle2(string $subtitle2): self
     {
         $this->subtitle2 = $subtitle2;
+
+        return $this;
+    }
+
+    public function getFeaturedProduct(): ?Products
+    {
+        return $this->featuredProduct;
+    }
+
+    public function setFeaturedProduct(?Products $featuredProduct): self
+    {
+        $this->featuredProduct = $featuredProduct;
 
         return $this;
     }

@@ -494,12 +494,13 @@ body.-primary {
 }
 
 .l-frontOffice {
-  margin-top: 50px;
+  margin-top: 70px;
   height: calc(100vh - 40px);
 }
 @media (min-width: 1200px) {
   .l-frontOffice {
-    height: calc(100vh - 64px);
+    margin-top: 70px;
+    height: calc(100vh - 70px);
   }
 }
 .l-frontOffice.-noTop {
