@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -132,6 +133,9 @@ body.-primary {
 }
 .a-title2.-nowrap {
   white-space: nowrap;
+}
+.a-title2.-black {
+  color: #161616;
 }
 
 .formLabel {
@@ -490,14 +494,11 @@ body.-primary {
 }
 
 .l-frontOffice {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  margin-top: 50px;
   height: calc(100vh - 40px);
 }
 @media (min-width: 1200px) {
   .l-frontOffice {
-    padding-top: 32px;
-    padding-bottom: 32px;
     height: calc(100vh - 64px);
   }
 }
@@ -518,7 +519,6 @@ body.-primary {
   width: 100vw;
   padding: 0 16px;
   max-width: 1200px;
-  margin: 0 auto;
 }
 .l-frontOffice__content.-background {
   background: #EFF5EA;
@@ -527,8 +527,20 @@ body.-primary {
   display: flex;
   justify-content: space-between;
 }
+.l-frontOffice__content.-center {
+  margin: 0 auto;
+}
+.l-frontOffice__content.-flexCenter {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
 .l-frontOffice__content.-slider {
   max-width: 1300px;
+}
+.l-frontOffice__content.-marginY {
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 .l-frontOffice__content.-twoParts {
   display: flex;
@@ -568,6 +580,58 @@ body.-primary {
     width: 80%;
     max-width: 1200px;
     margin: 0 auto;
+  }
+}
+.l-frontOffice__content.-background {
+  background: #EFF5EA;
+}
+
+.p-home__hero {
+  position: relative;
+  height: 50vh;
+  width: 100vw;
+}
+.p-home__hero .p-home__heroImg {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.p-home__hero .p-home__heroBasket {
+  position: absolute;
+  display: flex;
+  gap: 16px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 700px;
+  height: auto;
+  min-height: -webkit-min-content;
+  min-height: -moz-min-content;
+  min-height: min-content;
+  padding: 24px;
+  background-color: #EFF5EA;
+}
+.p-home__hero .p-home__heroBasket .p-home__heroBasketImg {
+  width: 200px;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.p-home__hero .p-home__heroBasket .p-home__heroBasketWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.p-home__hero .p-home__heroBasket .p-home__heroBasketWrapper .a-button {
+  align-self: flex-end;
+}
+.p-home__hero .p-home__heroBasket .p-home__heroBasketWrapper .a-textDetails {
+  margin: 10px 0;
+}
+@media (max-width: 767px) {
+  .p-home__hero .p-home__heroBasket {
+    width: 100%;
   }
 }
 
@@ -736,6 +800,12 @@ body.-primary {
 }
 .a-link.-light:active {
   color: #48a999;
+}
+.a-link.-back {
+  color: #161616;
+}
+.a-link.-back:hover {
+  color: rgba(22, 22, 22, 0.2274509804);
 }
 .a-link:hover {
   text-decoration: underline;
@@ -1187,6 +1257,93 @@ body.-primary {
   display: flex;
   justify-content: end;
   gap: 16px;
+}
+
+.m-menuFront__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  padding: 8px 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.m-menuFront__wrapper .-only-for-mobile {
+  display: none;
+}
+
+.m-menuFront {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  width: 100vw;
+  z-index: 1;
+}
+.m-menuFront .m-menuFront__nav.-only-for-mobile {
+  display: none;
+}
+@media (max-width: 767px) {
+  .m-menuFront:not(.-open) .m-menuFront__nav {
+    display: none;
+  }
+  .m-menuFront:not(.-open) .m-menuFront__nav.-only-for-mobile {
+    display: none;
+  }
+  .m-menuFront:not(.-open) .a-button {
+    display: none;
+  }
+  .m-menuFront:not(.-open) .-only-for-mobile {
+    display: block;
+  }
+  .m-menuFront.-open {
+    height: 100vh;
+  }
+  .m-menuFront.-open .m-menuFront__nav {
+    display: none;
+  }
+  .m-menuFront.-open .a-button {
+    display: none;
+  }
+  .m-menuFront.-open .m-menuFront__nav.-only-for-mobile {
+    margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+    transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+    align-items: center;
+  }
+  .m-menuFront.-open .m-menuFront__nav.-only-for-mobile .a-button {
+    display: block;
+  }
+  .m-menuFront.-open .-only-for-mobile {
+    display: block;
+  }
+}
+
+.m-menuFront__separator {
+  height: auto;
+  width: 2px;
+  background: rgba(22, 22, 22, 0.2274509804);
+}
+
+.m-menuFront__items {
+  display: flex;
+  gap: 8px;
+}
+
+.m-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.m-card img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 250px;
+  height: 150px;
 }
 
 /* All scss files are called at the app.scss file */

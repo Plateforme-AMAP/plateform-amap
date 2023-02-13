@@ -1,0 +1,10 @@
+.m-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+        object-fit: cover;
+        width: 250px;
+        height: 150px;
+    }
+}

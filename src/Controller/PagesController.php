@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Products;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,4 +14,10 @@ class PagesController extends AbstractController
     // dossier recette > gérée dans recettesController
     // idem dossier producteurs 
     // idem dossier actualités
+
+    #[Route('/', name: 'app_home')]
+    public function index(): Response
+    {
+        return $this->render('frontOffice/accueil.html.twig');
+    }
 }

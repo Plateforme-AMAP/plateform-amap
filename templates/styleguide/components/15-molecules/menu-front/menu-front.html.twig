@@ -1,0 +1,88 @@
+{% set componentClass = 'm-menuFront js-menu-mobile' %}
+{% set attributeList = attributeList is defined ? attributeList : {} %}
+{% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
+
+<header {% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>  
+    <div class="m-menuFront__wrapper">
+      <div class="a-logo"><img src="/icons/logo_black.svg" alt="logo" class="icon">
+      </div>
+      <nav class="m-menuFront__nav">
+          <ul class="m-menuFront__items">
+              <li>
+              {% include '@atom/link/link.html.twig' with {
+                    text: "Accueil",
+                    alt: "Aller à l'accueil",
+                    attributeList: {
+                        class:"-back",
+                        href: path('app_home'),
+                    }
+                } %}
+              </li>
+              <li class="m-menuFront__separator"></li>
+              <li>
+              {% include '@atom/link/link.html.twig' with {
+                    text: "Les produits",
+                    alt: "Aller aux produits",
+                    attributeList: {
+                        class:"-back",
+                        href: path('app_products')
+                    }
+                } %}
+              </li>
+              <li class="m-menuFront__separator"></li>
+              <li>
+              {% include '@atom/link/link.html.twig' with {
+                    text: "Contact",
+                    alt: "Contacter l'AMAP",
+                    attributeList: {
+                        class:"-back",
+                        href: path('app_contact')
+                    }
+                } %}
+              </li>
+          </ul>
+      </nav>
+      {% include '@atom/button/button.html.twig' with {
+          text: "rejoindre l'amap",
+          attributeList: {
+              class: '-website',
+              href: path('app_inscription'),
+          }
+      } only %}
+      <img src="/icons/menu-sandwich.svg"  alt="logo" class="icon -only-for-mobile js-menu-Button">
+    </div>
+      <nav class="m-menuFront__nav -only-for-mobile">
+        <ul class="m-menuFront__items">
+            <li>
+            {% include '@atom/link/link.html.twig' with {
+                  text: "Accueil",
+                  alt: "Aller à l'accueil",
+                  attributeList: {
+                      class:"-back",
+                      href: path('app_home'),
+                  }
+              } %}
+            </li>
+            <li class="m-menuFront__separator"></li>
+            <li>
+            {% include '@atom/link/link.html.twig' with {
+                  text: "Les produits",
+                  alt: "Aller aux produits",
+                  attributeList: {
+                      class:"-back",
+                      href: path('app_products'),
+                      title: "Aller aux produits",
+                  }
+              } %}
+            </li>
+        </ul>
+        {% include '@atom/button/button.html.twig' with {
+          text: "rejoindre l'amap",
+          attributeList: {
+              class: '-website',
+              href: path('app_inscription'),
+          }
+        } only %}
+      </nav>
+
+</header>

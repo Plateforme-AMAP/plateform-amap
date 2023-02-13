@@ -1,0 +1,27 @@
+{% set componentClass = 'm-card' %}
+{% set attributeList = attributeList is defined ? attributeList : {} %}
+{% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
+{% set tag = 'article' %}
+
+<{{tag}}{% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
+{% if image is defined and image %}
+    <img src="{{ image }}" alt="{{ imageAlt }}">
+{% endif %}
+{% if title is defined and title %}
+    <h2 class="a-title2 -black">{{ title }}</h2>
+{% endif %}
+{% if text is defined and text %}
+    <p class="{% if textClass %}{{ textClass }}{% endif %}">{{ text }}</p>
+{% endif %}
+{% if buttonText is defined and buttonText %}
+    {% include '@atom/button/button.html.twig' with {
+        text: buttonText,
+        attributeList: {
+            class: '-website',
+            href: buttonLink,
+            title: buttonTitle
+        }
+    } only %}
+    
+{% endif %}
+</{{tag}}>

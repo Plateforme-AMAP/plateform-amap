@@ -23,7 +23,7 @@ class ProductsController extends AbstractController
      * 
      * **/
     // Viewing all products [website]
-    #[Route('/', name: 'app_products')]
+    #[Route('/produits', name: 'app_products')]
     public function readAll(ManagerRegistry $doctrine): Response
     {
         $products = $doctrine->getRepository(Products::class)->findBy(['state' => 1], ['id' => 'DESC']);
