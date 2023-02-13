@@ -13,10 +13,16 @@ cursor: pointer;
     }
     &.-light {
         color: $color-white;
-        &:active{
+        &:active {
         color: $color-light;
         }
     }
+    &.-back {
+      color: $color-black;
+      &:hover {
+        color: $color-black--transparent;
+      }
+  }
     &:hover {
         text-decoration: underline;
     }

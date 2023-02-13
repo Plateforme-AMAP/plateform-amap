@@ -6,22 +6,22 @@
         display: none;
     }
     @include desktop-down {
-        gap: 16px;
-        margin: 16px 0;
+      gap: 16px;
+      margin: 16px 0;
 
-        &:not(.-open) {
-            .a-button.js-filter-button, .a-button.-remove-filter {
-                display: flex;
-            }
-            .a-button {
-                display: none;
-            }
-        }
-        &.-open {
-            flex-wrap: wrap;
-            .a-button {
-                display: flex;
-            }
-        }
-    }
+      &:not(.-open) {
+          .a-button.js-filter-button, .a-button.-remove-filter {
+              display: flex;
+          }
+          .a-button {
+              display: none;
+          }
+      }
+      &.-open {
+          flex-wrap: wrap;
+          .a-button {
+              display: flex;
+          }
+      }
+  }
 }

@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+	<div class="l-frontOffice__content -centerBlock">
+
+     {% for message in app.flashes('success') %}
+			{% include '@molecule/addflash/addflash.html.twig' with {
+				text: message,
+				attributeList: {
+					class: "-website"
+				}
+			} %}		
+		{% endfor %}
+
+	</div>
+  <div class="p-home__hero">
+    <div class="p-home__heroBasket">
+      <img src="/images/home.jpg" class="p-home__heroBasketImg">
+      <div class="p-home__heroBasketWrapper">
+        <h2 class="a-title2 -black">Panier de la semaine</h2>
+        <h3 class="a-p -bold">Le salé</h3>
+        <p class="a-textDetails -black">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eleifend quam ut arcu fringilla vulputate. Sed at tortor finibus, ultricies orci sit amet, molestie sapien.</p>
+        {% include '@atom/button/button.html.twig' with {
+            text: "rejoindre l'amap",
+            attributeList: {
+                class: '-website',
+                href: path('app_inscription'),
+            }
+        } only %}	
+      </div>
+    </div>
+    <img src="/images/home.jpg" alt="" class="p-home__heroImg">
+  </div>
+
+  <div class="l-frontOffice__content -flexCenter -center -marginY">
+    {% include '@molecule/card/card.html.twig' with {
+        image: '/images/home.jpg',
+        imageAlt: 'image',
+        title: 'Mon titre',
+        text: 'blabla',
+        textClass: 'a-textDetails -black',
+        buttonText: 'button',
+        buttonLink: '#',
+        buttonTitle: 'button direction',
+    } only %}	
+    {% include '@molecule/card/card.html.twig' with {
+        image: '/images/home.jpg',
+        imageAlt: 'image',
+        title: 'Mon titre',
+        text: 'blabla',
+        textClass: 'a-textDetails -black',
+        buttonText: 'button',
+        buttonLink: '#',
+        buttonTitle: 'button direction',
+    } only %}	
+    {% include '@molecule/card/card.html.twig' with {
+        image: '/images/home.jpg',
+        imageAlt: 'image',
+        title: 'Mon titre',
+        text: 'blabla',
+        textClass: 'a-textDetails -black',
+        buttonText: 'button',
+        buttonLink: '#',
+        buttonTitle: 'button direction',
+    } only %}	
+  </div>
+<div>
+  <div class="l-frontOffice__content -flexCenter -center -marginY">
+    {% include '@molecule/card/card.html.twig' with {
+        image: '/images/home.jpg',
+        imageAlt: 'image',
+        title: 'Mon titre',
+        text: 'blabla',
+        textClass: 'a-textDetails -black',
+    } only %}	
+    {% include '@molecule/card/card.html.twig' with {
+        image: '/images/home.jpg',
+        imageAlt: 'image',
+        title: 'Mon titre',
+        text: 'blabla',
+        textClass: 'a-textDetails -black',
+    } only %}	
+    {% include '@molecule/card/card.html.twig' with {
+        image: '/images/home.jpg',
+        imageAlt: 'image',
+        title: 'Mon titre',
+        text: 'blabla',
+        textClass: 'a-textDetails -black',
+    } only %}	
+  </div>
+</div>
+
+  
+{% endblock %}

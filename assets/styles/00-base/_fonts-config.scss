@@ -36,6 +36,9 @@ Fonts
     &.-nowrap {
       white-space: nowrap;
     }
+    &.-black {
+      color: $color-black;
+    }
   }
 
   %a-label {
