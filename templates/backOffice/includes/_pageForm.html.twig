@@ -1,0 +1,40 @@
+<section>
+	{{ form_start(formPage) }}
+
+	<div class="generic-whiteBackground">
+        {{ form_row(formPage.title) }}       
+        {% if app.request.uri|last == 1 %} 
+		    {% set hasSubtitle = "formField -hide" %} 
+			{% set hasSubtitle2 = "formField -hide" %} 
+        {% else %}
+			{% set hasSubtitle = "formField -visible" %}
+			{% set hasSubtitle2 = "formField -visible" %}
+		{% endif %}
+			{# {{ form_label(formPage.subtitle) }} #}
+			{{ form_widget(formPage.subtitle, {'attr': {'class': hasSubtitle}}) }}
+
+			{# {{ form_label(formPage.subtitle2) }} #}
+			{{ form_widget(formPage.subtitle2, {'attr': {'class': hasSubtitle2}}) }}
+			
+			{{ form_label(formPage.description) }}
+			{{ form_widget(formPage.description, {'attr': {'class': 'formField -textArea'}}) }}
+
+
+	    {{ form_row(formPage.imageFile) }}
+	    {{ form_row(formPage.featuredProduct) }}
+	</div>
+
+	<div class="form__buttons-spaceBetween -align-end">
+
+	{% include '@atom/button/button.html.twig' with {
+		text: formSubmitLabel,
+		attributeList: {
+			class: '-primary',
+			title: formSubmitLabel,
+			type:"submit"
+		}
+	} only %}
+	{{ form_end(formPage) }}
+
+	</div>
+</section>
