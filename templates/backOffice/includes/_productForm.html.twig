@@ -27,6 +27,18 @@
 		{{ form_widget(formProduct.state, {'attr': {'class': 'formField'}}) }}
 	</div>
 
+	{# {{ form_row(formProduct.valueSectionTitle) }}
+	{{ form_row(formProduct.valueSectionSubtitle) }}
+	{{ form_row(formProduct.value1Title) }}
+	{{ form_row(formProduct.value1ImageName) }}
+	{{ form_row(formProduct.value1Description) }}
+	{{ form_row(formProduct.value2Title) }}
+	{{ form_row(formProduct.value2ImageName) }}
+	{{ form_row(formProduct.value2Description) }}
+	{{ form_row(formProduct.value3Title) }}
+	{{ form_row(formProduct.value3ImageName) }}
+	{{ form_row(formProduct.value3Description) }} #}
+
 	{% include '@atom/button/button.html.twig' with {
 		text: formSubmitLabel,
 		attributeList: {
