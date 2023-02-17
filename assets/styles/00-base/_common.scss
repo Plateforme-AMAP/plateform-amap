@@ -151,7 +151,7 @@
     }
 }
 
-.formField, .password-field, .form-control  {
+.formField, .password-field, .form-control, textarea  {
     width: -moz-available;          /* WebKit-based browsers will ignore this. */
     width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
     width: fill-available;
@@ -194,9 +194,22 @@
 
     &.-textArea {
         min-block-size: 180px;
+        font-family: "Arial";
+        overflow-x: hidden;
+        &.-primary {
+        color: $color-primary;
+        }
         @include tablet-up {
             min-block-size: 120px;
         }
+    }
+
+    &.-visible {
+        display: block;
+    }
+
+    &.-hide {
+        display: none;
     }
 }
 

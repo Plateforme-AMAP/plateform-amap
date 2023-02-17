@@ -26,12 +26,12 @@ class Page
     #[ORM\Column(type: 'string', length: 300, nullable: true)]
     private $description;
 
-        // NOTE: This is not a mapped field of entity metadata, just a simple property.
-        #[Vich\UploadableField(mapping: 'page_image', fileNameProperty: 'imageName')]
-        private ?File $imageFile = null;
+    // NOTE: This is not a mapped field of entity metadata, just a simple property.
+    #[Vich\UploadableField(mapping: 'page_image', fileNameProperty: 'imageName')]
+    private ?File $imageFile = null;
 
-        #[ORM\Column(type: 'string')]
-        private ?string $imageName = null;
+    #[ORM\Column(type: 'string')]
+    private ?string $imageName = null;
 
     #[ORM\Column(type: 'datetime_immutable')]
     private $createdAt;
@@ -84,6 +84,7 @@ class Page
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $value3Description;
+
 
     public function getId(): ?int
     {
@@ -367,4 +368,5 @@ class Page
 
     //     return $this;
     // }
+
 }

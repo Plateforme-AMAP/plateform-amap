@@ -357,7 +357,7 @@ body.-primary {
   width: auto;
 }
 
-.formField, .password-field, .form-control {
+.formField, .password-field, .form-control, textarea {
   width: -moz-available; /* WebKit-based browsers will ignore this. */
   width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
   width: fill-available;
@@ -370,11 +370,11 @@ body.-primary {
   scrollbar-width: thin;
   scrollbar-color: #00796B #f0f0f0;
 }
-.formField::-webkit-scrollbar, .password-field::-webkit-scrollbar, .form-control::-webkit-scrollbar {
+.formField::-webkit-scrollbar, .password-field::-webkit-scrollbar, .form-control::-webkit-scrollbar, textarea::-webkit-scrollbar {
   width: 8px;
   background-color: #f0f0f0;
 }
-.formField::-webkit-scrollbar-thumb, .password-field::-webkit-scrollbar-thumb, .form-control::-webkit-scrollbar-thumb {
+.formField::-webkit-scrollbar-thumb, .password-field::-webkit-scrollbar-thumb, .form-control::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #00796B;
   padding: 10px;
@@ -382,21 +382,32 @@ body.-primary {
   -ms-transform: rotateX(180deg); /* IE 9 */
   -webkit-transform: rotateX(180deg); /* Safari and Chrome */
 }
-.formField.-disabled, .password-field.-disabled, .form-control.-disabled {
+.formField.-disabled, .password-field.-disabled, .form-control.-disabled, textarea.-disabled {
   opacity: 0.3;
 }
-.formField:focus, .password-field:focus, .form-control:focus {
+.formField:focus, .password-field:focus, .form-control:focus, textarea:focus {
   border: 1px solid #00796B;
   outline: none;
   background-color: rgba(72, 169, 153, 0.3725490196);
 }
-.formField.-textArea, .password-field.-textArea, .form-control.-textArea {
+.formField.-textArea, .password-field.-textArea, .form-control.-textArea, textarea.-textArea {
   min-block-size: 180px;
+  font-family: "Arial";
+  overflow-x: hidden;
+}
+.formField.-textArea.-primary, .password-field.-textArea.-primary, .form-control.-textArea.-primary, textarea.-textArea.-primary {
+  color: #00796B;
 }
 @media (min-width: 768px) {
-  .formField.-textArea, .password-field.-textArea, .form-control.-textArea {
+  .formField.-textArea, .password-field.-textArea, .form-control.-textArea, textarea.-textArea {
     min-block-size: 120px;
   }
+}
+.formField.-visible, .password-field.-visible, .form-control.-visible, textarea.-visible {
+  display: block;
+}
+.formField.-hide, .password-field.-hide, .form-control.-hide, textarea.-hide {
+  display: none;
 }
 
 @media (min-width: 1200px) {
@@ -494,12 +505,13 @@ body.-primary {
 }
 
 .l-frontOffice {
-  margin-top: 50px;
+  margin-top: 70px;
   height: calc(100vh - 40px);
 }
 @media (min-width: 1200px) {
   .l-frontOffice {
-    height: calc(100vh - 64px);
+    margin-top: 70px;
+    height: calc(100vh - 70px);
   }
 }
 .l-frontOffice.-noTop {
@@ -607,7 +619,6 @@ body.-primary {
   width: 80%;
   max-width: 700px;
   height: auto;
-  min-height: -webkit-min-content;
   min-height: -moz-min-content;
   min-height: min-content;
   padding: 24px;
@@ -701,7 +712,6 @@ body.-primary {
   display: flex;
   box-sizing: border-box;
   width: -moz-fit-content;
-  width: -webkit-fit-content;
   width: fit-content;
   align-items: center;
   padding: 8px 16px;
@@ -825,7 +835,7 @@ body.-primary {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 14px;
+  font-size: 12px;
 }
 .a-link.-menuVariant img {
   height: 16px;
@@ -1080,7 +1090,6 @@ body.-primary {
   right: 0;
   border-radius: 0 5px;
   background: #FFF;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   width: auto;

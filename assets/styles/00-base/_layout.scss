@@ -9,13 +9,14 @@
 }
 
 .l-frontOffice {
-      margin-top: 50px;
+      margin-top: 70px;
       $total-spacer-sm :  $block-spacer-sm + $block-spacer-sm;
       height: calc(100vh - $total-spacer-sm);
   
     @include desktop-up {
+      margin-top: 70px;
       $total-spacer-sm :  $block-spacer-md + $block-spacer-md;
-      height: calc(100vh - $total-spacer-sm);
+      height: calc(100vh - 70px);
     }
   
     &.-noTop {

@@ -16,21 +16,21 @@
 	</div>
   <div class="p-home__hero">
     <div class="p-home__heroBasket">
-      <img src="/images/home.jpg" class="p-home__heroBasketImg">
+      <img src="{{ vich_uploader_asset(page.featuredProduct, 'imageFile') | imagine_filter('min400x200') }}" alt="{{ page.featuredProduct.productName }}"  class="p-home__heroBasketImg"/>
       <div class="p-home__heroBasketWrapper">
-        <h2 class="a-title2 -black">Panier de la semaine</h2>
-        <h3 class="a-p -bold">Le salé</h3>
-        <p class="a-textDetails -black">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eleifend quam ut arcu fringilla vulputate. Sed at tortor finibus, ultricies orci sit amet, molestie sapien.</p>
+        <h2 class="a-title2 -black">{{ page.featuredProduct.category.name }} de la semaine</h2>
+        <h3 class="a-p -bold">{{ page.featuredProduct.productName }}</h3>
+        <p class="a-textDetails -black">{{ page.featuredProduct.productDescription|length > 200 ? page.featuredProduct.productDescription|slice(0, 200) ~ '...' : page.featuredProduct.productDescription}}</p>
         {% include '@atom/button/button.html.twig' with {
-            text: "rejoindre l'amap",
-            attributeList: {
-                class: '-website',
-                href: path('app_inscription'),
-            }
-        } only %}	
+              text: 'En savoir plus',
+              attributeList: {
+                  class: '-website',
+                  href: path('details_product', { 'id' : page.featuredProduct.id }),
+              }
+          } only %}
       </div>
     </div>
-    <img src="/images/home.jpg" alt="" class="p-home__heroImg">
+    <img src="{{ vich_uploader_asset(page, 'imageFile') | imagine_filter('min400x200') }}" alt="{{ page.title }}"  class="p-home__heroImg"/>
   </div>
 
   <div class="l-frontOffice__content -flexCenter -center -marginY">
