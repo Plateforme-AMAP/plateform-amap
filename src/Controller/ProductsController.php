@@ -185,6 +185,7 @@ class ProductsController extends AbstractController
             'formSubmitLabel'=> 'Modifier',
             'pageInclude' => 'backOffice/includes/_productForm.html.twig',
             'pageIncludeTitle' => 'Modifier le produit',
+            'product' => $product
          ]);
      }
 

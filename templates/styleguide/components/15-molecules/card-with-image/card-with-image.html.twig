@@ -59,16 +59,6 @@
                 }
             } only %}
         {% endif %}
-        
-        {# {% include '@atom/button/button.html.twig' with {
-            text: "Supprimer",
-            attributeList: {
-                class: '-alertGhost',
-                href: path('delete_product-admin', {id : product.id }),
-                onclick:"confirm('Voulez vous vraiment supprimer ce produit?') || event.preventDefault()",
-                title:"Supprimer le produit",
-            }
-        } only %} #}
 
         {% elseif status is defined and status == "frontOffice"  %}
             {% include '@atom/button/button.html.twig' with {

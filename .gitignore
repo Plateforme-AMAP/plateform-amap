@@ -30,6 +30,10 @@ yarn-error.log
 /public/media/cache/
 ###< liip/imagine-bundle ###
 
+###> images ###
+/public/images/
+###< images ###
+
 ###> symfony/migrations ###
 /migrations/
 ###< symfony/webpack-encore-bundle ###

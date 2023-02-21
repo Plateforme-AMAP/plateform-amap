@@ -32,7 +32,7 @@ class PagesController extends AbstractController
 
 
     //modification of a page [backOffice]
-     #[Route('/admin/accueil/{id}', name: 'edit_page-admin')]
+     #[Route('/admin/page/{id}', name: 'edit_page-admin')]
      public function edit($id, Request $request, ManagerRegistry $doctrine): Response
      {
          $page = $doctrine->getRepository(Page::class)->find($id);
@@ -48,16 +48,16 @@ class PagesController extends AbstractController
 
              $this->addFlash(
                  'success',
-                 'Votre Page ' . $page->getTitle() . ' a bien été modifié !'
+                 'Votre ' . $page->getTitle() . ' a bien été modifié !'
              );
              return $this->redirectToRoute('app_products-admin');
          }
          return $this->render('/backOffice/pages/pages.html.twig', [
             'formPage' => $formPage->createView(),
-            'formTitle' => 'Page d\'accueil',
+            'formTitle' =>  $page->getTitle(),
             'formSubmitLabel'=> 'Modifier',
             'pageInclude' => 'backOffice/includes/_pageForm.html.twig',
-            'pageIncludeTitle' => 'Modifier la page d\'accueil',
+            'pageIncludeTitle' => 'Modifier la ' . $page->getTitle(),
          ]);
      }
 
