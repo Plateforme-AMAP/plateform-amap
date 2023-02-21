@@ -1,0 +1,10 @@
+.m-hero {
+height: 40vh;
+width: 100vw;
+background: red;
+    .m-hero__img {
+        height: 100%;
+        width: 50%;
+        object-fit: cover;
+    }    
+}

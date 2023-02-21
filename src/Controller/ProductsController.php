@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Page;
 use DateTimeImmutable;
 use App\Entity\Products;
 use App\Form\ProductsType;
@@ -27,10 +28,14 @@ class ProductsController extends AbstractController
     public function readAll(ManagerRegistry $doctrine): Response
     {
         $products = $doctrine->getRepository(Products::class)->findBy(['state' => 1], ['id' => 'DESC']);
+        $pageId = 2;
+        $page = $doctrine->getRepository(Page::class)->find($pageId);
 
         return $this->render('frontOffice/products/products.html.twig', [
             'products' => $products,
             'status' => 'frontOffice',
+            'heroInclude' => '@molecule/hero/hero.html.twig',
+            'page' => $page,
         ]);
     }
 

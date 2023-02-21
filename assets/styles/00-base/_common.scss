@@ -144,6 +144,11 @@
     }
 }
 
+.form__buttons-justifyEnd {
+    display: flex;
+    justify-content: end;
+}
+
 .formInput {
     margin: 8px 0;
     &.-flex {

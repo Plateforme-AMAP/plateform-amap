@@ -350,6 +350,11 @@ body.-primary {
   align-items: end;
 }
 
+.form__buttons-justifyEnd {
+  display: flex;
+  justify-content: end;
+}
+
 .formInput {
   margin: 8px 0;
 }
@@ -1357,6 +1362,18 @@ body.-primary {
      object-fit: cover;
   width: 250px;
   height: 150px;
+}
+
+.m-hero {
+  height: 40vh;
+  width: 100vw;
+  background: red;
+}
+.m-hero .m-hero__img {
+  height: 100%;
+  width: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 /* All scss files are called at the app.scss file */

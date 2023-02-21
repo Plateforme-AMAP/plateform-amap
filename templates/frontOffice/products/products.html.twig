@@ -12,6 +12,10 @@
 			} %}		
 		{% endfor %}
 
+		{% if heroInclude is defined and heroInclude %}
+			{% include( heroInclude ) %}
+		{% endif %}
+
 		{% include '@organism/gallery/gallery.html.twig' with {
             CardText: "En savoir plus",
 			CardClass: "-backgroundGreen",
