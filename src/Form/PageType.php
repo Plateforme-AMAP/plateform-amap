@@ -21,13 +21,19 @@ class PageType extends AbstractType
                 'label' => 'Nom de la page'
             ])
             ->add('subtitle', TextType::class, [
-                'label' => 'Sous-titre'
+                'label' => 'Sous-titre',
+                "required" => false,
+                'empty_data' => '',
             ])
             ->add('subtitle2', TextType::class, [
                 'label' => 'Sous-titre 2 ( optionnel )',
+                "required" => false,
+                'empty_data' => '',
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Description',
+                "required" => false,
+                'empty_data' => '',
             ])
             ->add('imageFile', VichImageType::class, [
                 "label" => 'Image principale',

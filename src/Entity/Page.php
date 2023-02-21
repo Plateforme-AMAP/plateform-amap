@@ -42,48 +42,48 @@ class Page
     #[ORM\ManyToOne(targetEntity: Products::class)]
     private $featuredProduct;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $valueSectionTitle;
+    // #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    // private $valueSectionTitle;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $valueSectionSubtitle;
+    // #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    // private $valueSectionSubtitle;
 
-    #[ORM\Column(type: 'string', length: 100, nullable: true)]
-    private $value1Title;
+    // #[ORM\Column(type: 'string', length: 100, nullable: true)]
+    // private $value1Title;
 
-        // NOTE: This is not a mapped field of entity metadata, just a simple property.
-        #[Vich\UploadableField(mapping: 'page_image', fileNameProperty: 'value1ImageName')]
-        private ?File $imageFile1 = null;
+    //     // NOTE: This is not a mapped field of entity metadata, just a simple property.
+    //     #[Vich\UploadableField(mapping: 'page_image', fileNameProperty: 'value1ImageName')]
+    //     private ?File $imageFile1 = null;
 
-        #[ORM\Column(type: 'string', length: 255, nullable: true)]
-        private ?string $value1ImageName = null;
+    //     #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    //     private ?string $value1ImageName = null;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $value1Description;
+    // #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    // private $value1Description;
 
-    #[ORM\Column(type: 'string', length: 100, nullable: true)]
-    private $value2Title;
+    // #[ORM\Column(type: 'string', length: 100, nullable: true)]
+    // private $value2Title;
 
-    #[Vich\UploadableField(mapping: 'page_image', fileNameProperty: 'value2ImageName')]
-    private ?File $imageFile2 = null;
+    // #[Vich\UploadableField(mapping: 'page_image', fileNameProperty: 'value2ImageName')]
+    // private ?File $imageFile2 = null;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $value2ImageName;
+    // #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    // private $value2ImageName;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $value2Description;
+    // #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    // private $value2Description;
 
-    #[ORM\Column(type: 'string', length: 100, nullable: true)]
-    private $value3Title;
+    // #[ORM\Column(type: 'string', length: 100, nullable: true)]
+    // private $value3Title;
 
-    #[Vich\UploadableField(mapping: 'page_image', fileNameProperty: 'value3ImageName')]
-    private ?File $imageFile3 = null;
+    // #[Vich\UploadableField(mapping: 'page_image', fileNameProperty: 'value3ImageName')]
+    // private ?File $imageFile3 = null;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $value3ImageName;
+    // #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    // private $value3ImageName;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $value3Description;
+    // #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    // private $value3Description;
 
 
     public function getId(): ?int
@@ -108,7 +108,7 @@ class Page
         return $this->subtitle;
     }
 
-    public function setSubtitle(?string $subtitle): self
+    public function setSubtitle(?string $subtitle)
     {
         $this->subtitle = $subtitle;
 
@@ -120,7 +120,7 @@ class Page
         return $this->description;
     }
 
-    public function setDescription(?string $description): self
+    public function setDescription(?string $description)
     {
         $this->description = $description;
 
@@ -152,7 +152,7 @@ class Page
         return $this->imageName;
     }
 
-    public function setImageName(string $imageName): self
+    public function setImageName(string $imageName)
     {
         $this->imageName = $imageName;
 
@@ -176,7 +176,7 @@ class Page
         return $this->subtitle2;
     }
 
-    public function setSubtitle2(string $subtitle2): self
+    public function setSubtitle2(string $subtitle2)
     {
         $this->subtitle2 = $subtitle2;
 
@@ -188,7 +188,7 @@ class Page
         return $this->featuredProduct;
     }
 
-    public function setFeaturedProduct(?Products $featuredProduct): self
+    public function setFeaturedProduct(?Products $featuredProduct)
     {
         $this->featuredProduct = $featuredProduct;
 
