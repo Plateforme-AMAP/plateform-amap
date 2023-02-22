@@ -1,19 +1,13 @@
-{% set componentClass = 'm-hero' %}
+{% set componentClass = 'm-hero generic-m40b' %}
 {% set attributeList = attributeList is defined ? attributeList : {} %}
 {% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
 
 <div {% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>  
-    <img src="{{ vich_uploader_asset(page, 'imageFile') | imagine_filter('large') }}" alt="{{ page.imageName }}"  class="m-hero__img"/>
-    {# <img src="{{ vich_uploader_asset(page.featuredProduct, 'imageFile') | imagine_filter('min400x200') }}" alt="{{ page.featuredProduct.productName }}"  class="p-home__heroBasketImg"/> #}
-    AAAAAAA
-    {# {% if title is defined and title %}
-        <p class="a-title2 -nowrap">{{ title }}</p>
-    {% endif %}
-    {% if subtitle is defined and subtitle %}
-    <p class="-primary">{{ subtitle }}</p>
-    {% endif %}
-    {% if icon is defined and icon %}
-    <a href="{{link}}"><img src="{{icon}}" alt="{{icon}}"></a>
-    {% endif %} #}
-
+    <img src="{{ vich_uploader_asset(page, 'imageFile') | imagine_filter('extralarge') }}" alt="{{ page.title }}" class="m-hero__img"/>
+    <div class="m-hero__txt">
+        <div>
+            <h1 class="a-title1 -black">{{ page.subtitle }}</h1>
+            <h2 class="a-p -grey">{{ page.description }}</h2>
+        </div>
+    </div>
 </div>

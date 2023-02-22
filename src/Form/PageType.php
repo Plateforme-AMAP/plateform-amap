@@ -38,7 +38,7 @@ class PageType extends AbstractType
             ->add('imageFile', VichImageType::class, [
                 "label" => 'Image principale',
                 "required" => false,
-                "imagine_pattern" => 'min',
+                "imagine_pattern" => 'medium',
                 'allow_delete' => true,
                 'delete_label' => 'Supprimer l\'image',
             ])

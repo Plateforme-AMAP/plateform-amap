@@ -124,6 +124,9 @@ body.-primary {
   color: #161616;
   font-weight: 500;
 }
+.a-title1.-black {
+  color: #161616;
+}
 
 .a-title2 {
   font-size: 20px;
@@ -167,6 +170,9 @@ body.-primary {
 }
 .a-p.-primary {
   color: #00796B;
+}
+.a-p.-grey {
+  color: #979797;
 }
 
 .a-placeholder {
@@ -465,8 +471,8 @@ body.-primary {
     grid-area: img;
   }
   .vich-image :nth-child(3n) img {
-    height: 100%;
-    width: 100%;
+    height: 90px;
+    width: 300px;
     -o-object-fit: cover;
        object-fit: cover;
     padding-right: 16px;
@@ -642,6 +648,7 @@ body.-primary {
 .p-home__hero .p-home__heroBasket .p-home__heroBasketWrapper {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 .p-home__hero .p-home__heroBasket .p-home__heroBasketWrapper .a-button {
   align-self: flex-end;
@@ -1365,15 +1372,22 @@ body.-primary {
 }
 
 .m-hero {
-  height: 40vh;
+  display: flex;
+  flex: 1 1 0;
+  height: 50vh;
   width: 100vw;
-  background: red;
+  background: #EFF5EA;
 }
 .m-hero .m-hero__img {
+  width: 100%;
   height: 100%;
-  width: 50%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.m-hero .m-hero__txt {
+  padding: 24px;
+  display: flex;
+  align-items: center;
 }
 
 /* All scss files are called at the app.scss file */

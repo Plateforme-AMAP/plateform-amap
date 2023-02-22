@@ -29,6 +29,7 @@
 
 
 	<div class="generic-flex generic-gap24">
+	{% if product is defined and product %}
 		{% include '@atom/button/button.html.twig' with {
 			text: "Supprimer",
 			attributeList: {
@@ -38,6 +39,7 @@
 				title:"Supprimer le produit",
 			}
 		} only %}
+	{% endif %}
 		{% include '@atom/button/button.html.twig' with {
 			text: formSubmitLabel,
 			attributeList: {

@@ -6,7 +6,7 @@
 <{{ tag }}{% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
     <!-- Product image-->
     {% if product.imageName %}
-        <img src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('min400x200') }}" alt="{{ product.productName }}"  class="m-cardWithImage__image"/>
+        <img src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('medium') }}" alt="{{ product.productName }}"  class="m-cardWithImage__image"/>
     {% else %}
         <img src="https://via.placeholder.com/400x200" alt="aucune image pour ce produit" class="m-cardWithImage__image">
     {% endif %}
