@@ -13,7 +13,7 @@
 
     <!-- Product name-->
 
-    <h2 class="a-title2">{{ product.productName }}</h2>
+    <h2 class="a-title2 {% if status is defined and status == "frontOffice" %}-black{% endif %}">{{ product.productName }}</h2>
 
         <!-- Product status information (offline/online)-->
     {% if status is defined and status == "backOffice" %}
@@ -24,6 +24,11 @@
         {% endif %}
     {% endif %}
 
+    {% if status is defined and status == "frontOffice" %}
+        <p class="m-cardWithImage__state generic-flex">
+         {{ product.category.name }} {{ product.unity.libelle }}
+        </p>
+    {% endif %}
     <!-- Product control-->
     
     <div class="m-cardWithImage__buttons generic-m8_row">
@@ -64,7 +69,7 @@
             {% include '@atom/button/button.html.twig' with {
                 text: text | default('var is not defined'),
                 attributeList: {
-                    class: '-website',
+                    class: '-website generic-m24b',
                     href: path('details_product', { 'id' : product.id }),
                 }
             } only %}
