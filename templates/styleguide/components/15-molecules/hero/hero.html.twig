@@ -1,0 +1,13 @@
+{% set componentClass = 'm-hero generic-m40b' %}
+{% set attributeList = attributeList is defined ? attributeList : {} %}
+{% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
+
+<div {% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>  
+    <img src="{{ vich_uploader_asset(page, 'imageFile') | imagine_filter('extralarge') }}" alt="{{ page.title }}" class="m-hero__img"/>
+    <div class="m-hero__txt">
+        <div>
+            <h1 class="a-title1 -black">{{ page.subtitle }}</h1>
+            <h2 class="a-p -grey">{{ page.description }}</h2>
+        </div>
+    </div>
+</div>

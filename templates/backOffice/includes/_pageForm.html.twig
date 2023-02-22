@@ -3,28 +3,36 @@
 
 	<div class="generic-whiteBackground">
         {{ form_row(formPage.title) }}       
-        {% if app.request.uri|last == 1 %} 
+		{% if app.request.uri|last == 1 or 2 %} 
 		    {% set hasSubtitle = "formField -hide" %} 
 			{% set hasSubtitle2 = "formField -hide" %} 
         {% else %}
 			{% set hasSubtitle = "formField -visible" %}
 			{% set hasSubtitle2 = "formField -visible" %}
+		{% endif %}		
+		{% if app.request.uri|last == 1 %} 
+		    {% set hasProduct = "formField -visible" %} 
+        {% else %}
+		    {% set hasProduct = "formField -hide" %} 
 		{% endif %}
 			{# {{ form_label(formPage.subtitle) }} #}
 			{{ form_widget(formPage.subtitle, {'attr': {'class': hasSubtitle}}) }}
 
-			{# {{ form_label(formPage.subtitle2) }} #}
+			{# {{ form_label(formPage.subtitle2, {'attr': {'class': hasSubtitle2}}) }} #}
 			{{ form_widget(formPage.subtitle2, {'attr': {'class': hasSubtitle2}}) }}
 			
 			{{ form_label(formPage.description) }}
 			{{ form_widget(formPage.description, {'attr': {'class': 'formField -textArea'}}) }}
 
 
-	    {{ form_row(formPage.imageFile) }}
-	    {{ form_row(formPage.featuredProduct) }}
+	    	{{ form_row(formPage.imageFile) }}
+			{% if app.request.uri|last == 1 %} 
+				{{ form_label(formPage.featuredProduct) }}
+			{% endif %}
+			{{ form_widget(formPage.featuredProduct, {'attr': {'class': hasProduct}}) }}
 	</div>
 
-	<div class="form__buttons-spaceBetween -align-end">
+	<div class="form__buttons-justifyEnd">
 
 	{% include '@atom/button/button.html.twig' with {
 		text: formSubmitLabel,

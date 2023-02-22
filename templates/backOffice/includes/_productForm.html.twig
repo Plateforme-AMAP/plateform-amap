@@ -27,26 +27,29 @@
 		{{ form_widget(formProduct.state, {'attr': {'class': 'formField'}}) }}
 	</div>
 
-	{# {{ form_row(formProduct.valueSectionTitle) }}
-	{{ form_row(formProduct.valueSectionSubtitle) }}
-	{{ form_row(formProduct.value1Title) }}
-	{{ form_row(formProduct.value1ImageName) }}
-	{{ form_row(formProduct.value1Description) }}
-	{{ form_row(formProduct.value2Title) }}
-	{{ form_row(formProduct.value2ImageName) }}
-	{{ form_row(formProduct.value2Description) }}
-	{{ form_row(formProduct.value3Title) }}
-	{{ form_row(formProduct.value3ImageName) }}
-	{{ form_row(formProduct.value3Description) }} #}
 
-	{% include '@atom/button/button.html.twig' with {
-		text: formSubmitLabel,
-		attributeList: {
-			class: '-primary',
-			title: formSubmitLabel,
-			type:"submit"
-		}
-	} only %}
+	<div class="generic-flex generic-gap24">
+	{% if product is defined and product %}
+		{% include '@atom/button/button.html.twig' with {
+			text: "Supprimer",
+			attributeList: {
+				class: '-alertGhost',
+				href: path('delete_product-admin', {id : product.id }),
+				onclick:"confirm('Voulez vous vraiment supprimer ce produit?') || event.preventDefault()",
+				title:"Supprimer le produit",
+			}
+		} only %}
+	{% endif %}
+		{% include '@atom/button/button.html.twig' with {
+			text: formSubmitLabel,
+			attributeList: {
+				class: '-primary',
+				title: formSubmitLabel,
+				type:"submit"
+			}
+		} only %}
+	</div>
+
 	{{ form_end(formProduct) }}
 
 	</div>

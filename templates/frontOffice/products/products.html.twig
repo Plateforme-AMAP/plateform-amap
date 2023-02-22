@@ -2,23 +2,29 @@
 {% block title %}Produits{% endblock %}
 
 {% block body %}
-	<div class="l-frontOffice__content -centerBlock">
      {% for message in app.flashes('success') %}
+		<div class="l-frontOffice__content -centerBlock">
 			{% include '@molecule/addflash/addflash.html.twig' with {
 				text: message,
 				attributeList: {
 					class: "-website"
 				}
-			} %}		
-		{% endfor %}
+			} %}
+		</div>		
+	{% endfor %}
 
+	{% if heroInclude is defined and heroInclude %}
+		{% include( heroInclude ) %}
+	{% endif %}
+	
+	<div class="l-frontOffice__content -centerBlock">
 		{% include '@organism/gallery/gallery.html.twig' with {
-            CardText: "En savoir plus",
+			CardText: "En savoir plus",
 			CardClass: "-backgroundGreen",
-            attributeList: {
-                class: '-grid24',
-            }
-        }  %}
+			attributeList: {
+				class: '-grid24',
+			}
+		}  %}
 	</div>
 
 {% endblock %}

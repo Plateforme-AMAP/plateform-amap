@@ -6,7 +6,7 @@
 <{{ tag }}{% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
     <!-- Product image-->
     {% if product.imageName %}
-        <img src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('min400x200') }}" alt="{{ product.productName }}"  class="m-cardWithImage__image"/>
+        <img src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('medium') }}" alt="{{ product.productName }}"  class="m-cardWithImage__image"/>
     {% else %}
         <img src="https://via.placeholder.com/400x200" alt="aucune image pour ce produit" class="m-cardWithImage__image">
     {% endif %}
@@ -59,16 +59,6 @@
                 }
             } only %}
         {% endif %}
-        
-        {# {% include '@atom/button/button.html.twig' with {
-            text: "Supprimer",
-            attributeList: {
-                class: '-alertGhost',
-                href: path('delete_product-admin', {id : product.id }),
-                onclick:"confirm('Voulez vous vraiment supprimer ce produit?') || event.preventDefault()",
-                title:"Supprimer le produit",
-            }
-        } only %} #}
 
         {% elseif status is defined and status == "frontOffice"  %}
             {% include '@atom/button/button.html.twig' with {

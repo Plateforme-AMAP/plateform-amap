@@ -1,0 +1,17 @@
+.m-hero {
+    display: flex;
+flex: 1 1 0;
+height: 50vh;
+width: 100vw;
+background: $color-website--light;
+    .m-hero__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }    
+    .m-hero__txt {
+        padding: 24px;
+        display: flex;
+        align-items: center;
+    }    
+}

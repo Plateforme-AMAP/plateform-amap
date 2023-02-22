@@ -31,6 +31,9 @@ class Products
     #[ORM\Column(type: 'datetime_immutable')]
     private $productCreatedAt;
 
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+    private $updatedAt;
+
     // NOTE: This is not a mapped field of entity metadata, just a simple property.
     #[Vich\UploadableField(mapping: 'product_image', fileNameProperty: 'imageName')]
     private ?File $imageFile = null;
@@ -129,11 +132,11 @@ class Products
      *
      * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
      */
-    public function setImageFile(?File $imageFile = null): void
+    public function setImageFile(?File $imageName = null): void
     {
-        $this->imageFile = $imageFile;
+        $this->imageFile = $imageName;
 
-        if (null !== $imageFile) {
+        if (null !== $imageName) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
             $this->updatedAt = new \DateTimeImmutable();

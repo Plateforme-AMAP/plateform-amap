@@ -38,61 +38,17 @@ class PageType extends AbstractType
             ->add('imageFile', VichImageType::class, [
                 "label" => 'Image principale',
                 "required" => false,
-                "imagine_pattern" => 'min',
+                "imagine_pattern" => 'medium',
                 'allow_delete' => true,
                 'delete_label' => 'Supprimer l\'image',
             ])
             ->add('featuredProduct', EntityType::class, [
                 // looks for choices from this entity
+                "label" => 'Produit / panier phare',
                 'class' => Products::class,
                 'choice_label' => 'product_name', //on affiche tout les champs de la classe en option, ce qui est dans "libellé"
                 'placeholder' => 'Choisir un produit phare',
             ])
-
-            // ->add('valueSectionTitle', TextType::class, [
-            //     'label' => 'Titre de la section informations',
-            // ])
-            // ->add('valueSectionSubtitle', TextType::class, [
-            //     'label' => 'Sous-titre de la section',
-            // ])
-
-            // ->add('value1Title', TextType::class, [
-            //     'label' => 'Titre colonne 1',
-            // ])
-            // ->add('value1ImageName', VichImageType::class, [
-            //     "label" => 'Image colonne 1',
-            //     "imagine_pattern" => 'min',
-            //     'allow_delete' => true,
-            //     'delete_label' => 'Supprimer l\'image',
-            // ])
-            // ->add('value1Description', TextareaType::class, [
-            //     'label' => 'Sous-titre colonne 1',
-            // ])
-            // ->add('value2Title', TextType::class, [
-            //     'label' => 'Titre colonne 1',
-            // ])
-            // ->add('value2ImageName', VichImageType::class, [
-            //     "label" => 'Image colonne 1',
-            //     "imagine_pattern" => 'min',
-            //     'allow_delete' => true,
-            //     'delete_label' => 'Supprimer l\'image',
-            // ])
-            // ->add('value2Description', TextareaType::class, [
-            //     'label' => 'Sous-titre colonne 1',
-            // ])
-            // ->add('value3Title', TextType::class, [
-            //     'label' => 'Titre colonne 1',
-            // ])
-            // ->add('value3ImageName', VichImageType::class, [
-            //     "label" => 'Image colonne 1',
-            //     "imagine_pattern" => 'min',
-            //     'allow_delete' => true,
-            //     'delete_label' => 'Supprimer l\'image',
-            // ])
-            // ->add('value3Description', TextareaType::class, [
-            //     'label' => 'Sous-titre colonne 1',
-            // ])
-
         ;
     }
 

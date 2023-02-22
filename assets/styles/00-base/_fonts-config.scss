@@ -26,6 +26,9 @@ Fonts
       color: $color-black;
       font-weight: 500;
     }
+    &.-black {
+      color: $color-black;
+    }
   }
 
   .a-title2 {
@@ -75,6 +78,9 @@ Fonts
     line-height: normal;
     &.-primary {
       color: $color-primary;
+    }
+    &.-grey {
+      color: $color-grey;
     }
   }
   

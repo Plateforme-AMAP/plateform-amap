@@ -10,11 +10,11 @@
 	{% set linkList = [
 		{
 		'text': 'Page "Accueil"',
-		'href': 'app_products-admin',
+		'href': '/admin/page/1',
 		},
 		{
 		'text': 'Page "Les Produits"',
-		'href': 'app_products-admin',
+		'href': '/admin/page/2',
 		'subLinkList': {
 			'text': 'Produits',
 			'href': 'app_products-admin',
@@ -60,6 +60,7 @@
 	%}
 	{% for link in linkList %}
 		 <li class="m-linksPages">
+			{% if 'app_' in link.href %}
 				{% include '@atom/link/link.html.twig' with {
 					text: link.text,
 					icon: "/icons/file.svg",
@@ -70,7 +71,18 @@
 						title: link.text
 					}
 				} %}
-
+			{% else %}
+				{% include '@atom/link/link.html.twig' with {
+					text: link.text,
+					icon: "/icons/file.svg",
+					alt: link.text,
+					attributeList: {
+						class:"-withIcon",
+						href: link.href,
+						title: link.text
+					}
+				} %}
+			{% endif %}
 			{% if link.subLinkList is defined %}
 				<a href="{{ path( link.subLinkList.href )}}"  title="{{ link.subLinkList.text }}"  class="a-link"><div class="a-illuArbo"></div><img src="/icons/folder.svg" alt="">{{ link.subLinkList.text }}</a>
 				</div>
