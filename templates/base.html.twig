@@ -29,7 +29,7 @@
       {% block body %}{% endblock %}
 
       </main>
-      {% block footer %}{# no footer in the backOffice #}{% endblock %}
+      {% block footer %}{% if isBackoffice %}{% else %}{% include '@molecule/footer/footer.html.twig' %}{% endif %} {% endblock %}
     </body>
 </html>
 

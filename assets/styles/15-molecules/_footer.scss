@@ -1,0 +1,15 @@
+.m-footer {
+    margin-top: 40px;
+    padding: 40px 0;
+    background: $color-website--light;
+    nav {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 16px;
+        align-items: center;
+        @include tablet-up {
+            justify-content: space-between;
+            flex-direction: row;
+        }
+    }
+}

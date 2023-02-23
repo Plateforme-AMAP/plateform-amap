@@ -518,19 +518,21 @@ body.-primary {
 }
 @media (min-width: 1200px) {
   .l-backOffice {
-    margin-left: 10vw;
+    padding-left: 10vw;
     min-height: calc(100vh - 50px);
   }
 }
 
 .l-frontOffice {
   margin-top: 70px;
-  height: calc(100vh - 40px);
+  min-height: calc(100vh - 40px);
+  height: auto;
 }
 @media (min-width: 1200px) {
   .l-frontOffice {
     margin-top: 70px;
-    height: calc(100vh - 70px);
+    min-height: calc(100vh - 70px);
+    height: auto;
   }
 }
 .l-frontOffice.-noTop {
@@ -1392,6 +1394,24 @@ body.-primary {
   padding: 24px;
   display: flex;
   align-items: center;
+}
+
+.m-footer {
+  margin-top: 40px;
+  padding: 40px 0;
+  background: #EFF5EA;
+}
+.m-footer nav {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 16px;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .m-footer nav {
+    justify-content: space-between;
+    flex-direction: row;
+  }
 }
 
 /* All scss files are called at the app.scss file */

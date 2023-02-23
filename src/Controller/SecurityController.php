@@ -21,7 +21,7 @@ use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 
 class SecurityController extends AbstractController
 {
-    #[Route(path: '/login', name: 'app_login')]
+    #[Route(path: '/connexion', name: 'app_login-admin')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         // if ($this->getUser()) {
@@ -43,7 +43,7 @@ class SecurityController extends AbstractController
     }
 
     // request and create a link for a new password
-    #[Route('/recuperation', name:'forgotten_password')]
+    #[Route('/recupération', name:'forgotten_password-admin')]
     public function forgottenPassword(
         Request $request,
         UserRepository $usersRepository,
@@ -69,7 +69,7 @@ class SecurityController extends AbstractController
                 $entityManager->flush();
 
                 // Generate a password reset link
-                $url = $this->generateUrl('reset_pass', ['token' => $token], UrlGeneratorInterface::ABSOLUTE_URL);
+                $url = $this->generateUrl('reset_pass-admin', ['token' => $token], UrlGeneratorInterface::ABSOLUTE_URL);
 
                 // sending the url with mailer + mime like Verify bundle
                 $mailer->send((new TemplatedEmail())
@@ -85,24 +85,25 @@ class SecurityController extends AbstractController
 
                 // send a success message
                 $this->addFlash('success', 'Email envoyé avec succès');
-                return $this->redirectToRoute('app_login');
+                return $this->redirectToRoute('app_login-admin');
             }
 
-            // if $user is null, we stop the action, return on app_login
+            // if $user is null, we stop the action, return on app_login-admin
             $this->addFlash('danger', 'Un problème est survenu');
-            return $this->redirectToRoute('app_login');
+            return $this->redirectToRoute('app_login-admin');
         }
 
         // we send a form for the user to make his password reset request with his email
         return $this->render('security/reset_password.html.twig', [
             'passForm' => $form->createView(),
             'request' => true,
-            'backOfficeBg' => true
+            'backOfficeBg' => true,
+            'security' => true
         ]);
     }
 
     // password change
-    #[Route('/recuperation/{token}', name:'reset_pass')]
+    #[Route('/recupération/{token}', name:'reset_pass-admin')]
     public function resetPass(
         string $token,
         Request $request,
@@ -145,6 +146,6 @@ class SecurityController extends AbstractController
             ]);
         }
         $this->addFlash('danger', 'invalide');
-        return $this->redirectToRoute('app_login');
+        return $this->redirectToRoute('app_login-admin');
     }
 }

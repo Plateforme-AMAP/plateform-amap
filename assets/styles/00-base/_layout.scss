@@ -3,7 +3,7 @@
   padding-top: 48px;
   min-height: calc(100vh - 100px);
   @include desktop-up {
-    margin-left: 10vw;
+    padding-left: 10vw;
     min-height: calc(100vh - 50px);
   }
 }
@@ -11,12 +11,14 @@
 .l-frontOffice {
       margin-top: 70px;
       $total-spacer-sm :  $block-spacer-sm + $block-spacer-sm;
-      height: calc(100vh - $total-spacer-sm);
+      min-height: calc(100vh - $total-spacer-sm);
+      height: auto;    
   
     @include desktop-up {
       margin-top: 70px;
       $total-spacer-sm :  $block-spacer-md + $block-spacer-md;
-      height: calc(100vh - 70px);
+      min-height: calc(100vh - 70px);
+      height: auto;    
     }
   
     &.-noTop {

@@ -1,0 +1,31 @@
+{% set componentClass = 'm-footer' %}
+{% set attributeList = attributeList is defined ? attributeList : {} %}
+{% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
+
+<footer {% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>  
+    <nav class="l-frontOffice__content -centerBlock">
+        <a href="{{ path('app_home') }}" class="a-logo"><img src="/icons/logo_black.svg" alt="logo" class="icon"> </a>
+        <ul>
+            <li> <h3>Plan du site</h3> </li>
+            <li> <a href="{{ path('app_home') }}" class="a-textDetails -black">Accueil</a> </li>
+            <li> <a href="{{ path('app_products') }}" class="a-textDetails -black">Nos produits</a> </li>
+        </ul>
+        <ul>
+            <li> <h3>Nous contacter</h3> </li>
+            <li> <a href="{{ path('app_contact') }}" class="a-textDetails -black">Contact</a> </li>
+            <li> <a href="{{ path('app_inscription') }}" class="a-textDetails -black">Inscription à l'AMAP</a> </li>
+        </ul>
+        <ul>
+            <li> <h3>Espace bénévoles</h3> </li>
+            <li> <a href="{{ path('app_login-admin') }}" target="_blank" class="a-textDetails -black">Se connecter</a> </li>
+        </ul>
+        <ul>
+            <li> <h3>Suivez-nous !</h3> </li>
+            <li class="generic-flex generic-gap8"> 
+                <a href="#"><img src="/icons/instagram_logo.svg" alt="logo" class="a-icon"> </a> 
+                <a href="#"><img src="/icons/facebook_logo.svg" alt="logo" class="a-icon"> </a> 
+                <a href="#"><img src="/icons/twitter_logo.svg" alt="logo" class="a-icon"> </a> 
+            </li>
+        </ul>
+    </nav>
+</footer>

@@ -36,7 +36,7 @@ class UserController extends AbstractController
         // Check if the user is logged in
         if(!$this->getUser()) {
             // if he's not we send the user on the login page
-            return $this->redirectToRoute('app_login');
+            return $this->redirectToRoute('app_login-admin');
         }
 
         // Check if the user is the one who modifies his profile
@@ -86,7 +86,7 @@ class UserController extends AbstractController
         // Check if the user is logged in
         if(!$this->getUser()) {
             // if he's not we send the user on the login page
-            return $this->redirectToRoute('app_login');
+            return $this->redirectToRoute('app_login-admin');
         }
 
         // Check if the user is the one who modifies his profile
@@ -102,7 +102,7 @@ class UserController extends AbstractController
             $entityManager->flush();
 
             // thanks to this one creates a unique link for the user
-            $url = $this->generateUrl('app_userPageDelete', ['token' => $token], UrlGeneratorInterface::ABSOLUTE_URL);
+            $url = $this->generateUrl('app_userPageDelete-admin', ['token' => $token], UrlGeneratorInterface::ABSOLUTE_URL);
 
             //sending the url with mailer + mime like Verify bundle
             $mailer->send((new TemplatedEmail())
@@ -120,17 +120,17 @@ class UserController extends AbstractController
             $this->addFlash('success', 'Un email vous a été envoyé pour supprimer votre compte');
             return $this->render('user/account.html.twig', [
                 'accountTitle' => 'Un lien vous a été envoyé',
-                'emailSend' => true,
+                'emailSend' => true
             ]);
     }
 
     // user account deletion page, the link is created above
-    #[Route('/admin/compte/suppression/{token}', name: 'app_userPageDelete')]
+    #[Route('/admin/compte/suppression/{token}', name: 'app_userPageDelete-admin')]
     public function deletePage() : Response
     {
         return $this->render('user/account.html.twig', [
             'deleteAutorisation' => true,
-            'accountTitle' => 'Suppression du compte'
+            'accountTitle' => 'Suppression du compte',
         ]);
     }
 
@@ -141,7 +141,7 @@ class UserController extends AbstractController
         // Check if the user is logged in
         if(!$this->getUser()) {
             // if he's not we send the user on the login page
-            return $this->redirectToRoute('app_login');
+            return $this->redirectToRoute('app_login-admin');
         }
 
         // Check if the user is the one who modifies his profile
