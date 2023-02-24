@@ -5,7 +5,7 @@
 
 <{{tag}}{% for attribute, value in attributeList %} {{ attribute }}="{{ value }}"{% endfor %}>
 {% if image is defined and image %}
-    <img src="{{ image }}" alt="{{ imageAlt }}">
+    <img src="{{ image }}" alt="{{ imageAlt }}" class="{% if imageClass is defined and imageClass %}{{ imageClass }}{% endif %}">
 {% endif %}
 {% if title is defined and title %}
     <h2 class="a-title2 -black">{{ title }}</h2>

@@ -18,7 +18,7 @@
             {% include '@molecule/form-separator/form-separator.html.twig' with {
                 title: "Mes informations",
             } only %}
-            <div class="generic-p32">
+            <div class="generic-p16">
                 <div class="form-bloc__double">
                     {{ form_row(userForm.firstname) }}
                     {{ form_row(userForm.lastname) }}
@@ -77,7 +77,7 @@
             {% include '@molecule/form-separator/form-separator.html.twig' with {
                 title: "Informations du compte",
             } only %}
-            <div class="generic-p32">
+            <div class="generic-p16">
                 <div class="generic-m16t">
                     <p class="a-textDetails -black">Prénom</p>
                     <p>{{ app.user.firstname }}</p>
@@ -94,7 +94,7 @@
             {% include '@molecule/form-separator/form-separator.html.twig' with {
                 title: "Actions",
             } only %}
-            <div class="p-account__buttons generic-p32 generic-wrap">
+            <div class="p-account__buttons generic-p16 generic-wrap">
                 {% include '@atom/button/button.html.twig' with {
                     text: "Modifier mes informations",
                     attributeList: {

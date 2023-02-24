@@ -52,6 +52,10 @@
     margin-right: 16px;
 }
 
+.generic-m16l {
+    margin-left: 16px;
+}
+
 .generic-m8_row {
     margin: 8px 0;
 }
@@ -76,6 +80,18 @@
     margin-bottom: 40px;
 }
 
+.generic-p40b {
+    padding-bottom: 40px;
+}
+
+.generic-p40t {
+    padding-top: 40px;
+}
+
+.generic-m16b {
+    margin-bottom: 16px;
+}
+
 .generic-m24b {
     margin-bottom: 24px;
 }
@@ -84,10 +100,17 @@
     margin-left: 32px;
 }
 
-.generic-p32 {
+.generic-p16 {
     padding: 0 16px;
     @include desktop-up {
         padding: 0 32px;
+    }
+}
+
+.generic-p16top {
+    padding: 16px 0;
+    @include desktop-up {
+        padding: 32px 0;
     }
 }
 
@@ -103,6 +126,10 @@
 
 .generic-greenBackground {
     background-color: $color-primary;
+}
+
+.generic-greenBackgroundWebsite {
+    background-color: $color-website--light;
 }
 
 .generic-center {

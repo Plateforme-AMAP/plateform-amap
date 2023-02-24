@@ -4,84 +4,89 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %} 
+<a class="a-textAriane -black generic-m16l" href="{{ path('app_products') }}">< Retour au site</a>
+<div class="l-frontOffice__content -centerBlock">
+    <h1 class="a-title1 -black generic-center">Formulaire d'inscription</h1>
+    <p class="a-p -grey generic-center generic-m40b">Cela ne vous prendra qu'un instant</p></div>
+<div class="generic-greenBackgroundWebsite generic-p40t generic-p40b">
 	<div class="l-frontOffice__content -centerBlock -background">
-    <div class="o-form-front">
-            {{ form_start(formInscription) }}
-            <div class="form-bloc__double">
-                {{ form_row(formInscription.firstName) }}
-                {{ form_row(formInscription.lastName) }}
-            </div>
-            {{ form_row(formInscription.adress) }}
-            <div class="form-bloc__double">
-                {{ form_row(formInscription.zipCode) }}
-                {{ form_row(formInscription.city) }}
-            </div>
-            {{ form_row(formInscription.email) }}
-            {{ form_row(formInscription.phoneNumber) }}
+        <div class="o-form-front">
+                {{ form_start(formInscription) }}
+                <div class="form-bloc__double">
+                    {{ form_row(formInscription.firstName) }}
+                    {{ form_row(formInscription.lastName) }}
+                </div>
+                {{ form_row(formInscription.adress) }}
+                <div class="form-bloc__double">
+                    {{ form_row(formInscription.zipCode) }}
+                    {{ form_row(formInscription.city) }}
+                </div>
+                {{ form_row(formInscription.email) }}
+                {{ form_row(formInscription.phoneNumber) }}
 
-            <p class="a-p">Souhaitez-vous un panier de légumes ?</p>
-            <p class="a-textDetails -black -margin">
-            Exemple de contenu (famille) : <br/>
-            1,5 kg de pommes de terre<br/>
-            1,4kg de courge muscade<br/>
-            1kg de poireaux<br/>
-            1 sac d’épinards 1,3 kg<br/>
-            2 salades<br/>
-            1kg de carottes
-            </p>
-            {{ form_row(formInscription.basket) }}
+                <p class="a-p">Souhaitez-vous un panier de légumes ?</p>
+                <p class="a-textDetails -black -margin">
+                Exemple de contenu (famille) : <br/>
+                1,5 kg de pommes de terre<br/>
+                1,4kg de courge muscade<br/>
+                1kg de poireaux<br/>
+                1 sac d’épinards 1,3 kg<br/>
+                2 salades<br/>
+                1kg de carottes
+                </p>
+                {{ form_row(formInscription.basket) }}
 
-            <p class="a-p">Souhaitez-vous un produit en plus dans votre abonnement ?</p>
-            <p class="a-textDetails -black -margin">
-            Les produits seront disponibles par contrats suite à l'inscription.
-            </p>
-            {{ form_row(formInscription.bonusProduct) }}
+                <p class="a-p">Souhaitez-vous un produit en plus dans votre abonnement ?</p>
+                <p class="a-textDetails -black -margin">
+                Les produits seront disponibles par contrats suite à l'inscription.
+                </p>
+                {{ form_row(formInscription.bonusProduct) }}
 
-            <p class="a-p">Engagements généraux</p>
-            <p class="a-textDetails -black -margin">
-            ➊ Accepter le règlement intérieur de l'association - https://www.amap-thouamaporte.fr/amap-thouamaporte/association-collectif-commissions#statuts-et-reglement-interieur<br/>
-            ➋ Respecter impérativement l’article 3 du règlement intérieur (pas d'échange d’argent sur le lieu de distribution)<br/>
-            ➌ Rendre les contrats et les règlements à la date butoir (indiquée ci-après) afin d’en faciliter la gestion<br/>
-            ➍ Récupérer ses produits aux jours et heures de distribution prévus par chaque contrat, ou prévenir les Producteurs s’il est impossible de les récupérer<br/>
-            ➎ Lire les mails relatifs à la vie de l'association et essayer de participer à la vie sociale et démocratique de I'AMAP<br/>
-            </p>
-            <div class="formInput -flex">
-                {{ form_label(formInscription.generalCommitments) }}
-                {{ form_widget(formInscription.generalCommitments, {'attr': {'class': '-width'}}) }}
-            </div>
+                <p class="a-p">Engagements généraux</p>
+                <p class="a-textDetails -black -margin">
+                ➊ Accepter le règlement intérieur de l'association - https://www.amap-thouamaporte.fr/amap-thouamaporte/association-collectif-commissions#statuts-et-reglement-interieur<br/>
+                ➋ Respecter impérativement l’article 3 du règlement intérieur (pas d'échange d’argent sur le lieu de distribution)<br/>
+                ➌ Rendre les contrats et les règlements à la date butoir (indiquée ci-après) afin d’en faciliter la gestion<br/>
+                ➍ Récupérer ses produits aux jours et heures de distribution prévus par chaque contrat, ou prévenir les Producteurs s’il est impossible de les récupérer<br/>
+                ➎ Lire les mails relatifs à la vie de l'association et essayer de participer à la vie sociale et démocratique de I'AMAP<br/>
+                </p>
+                <div class="formInput -flex">
+                    {{ form_label(formInscription.generalCommitments) }}
+                    {{ form_widget(formInscription.generalCommitments, {'attr': {'class': '-width'}}) }}
+                </div>
 
-            {{ form_row(formInscription.member) }}
+                {{ form_row(formInscription.member) }}
 
-            <div class="formInput">
-                {{ form_label(formInscription.payment) }}
-                {{ form_widget(formInscription.payment, {'attr': {'class': 'formField'}}) }}
-            </div>
+                <div class="formInput">
+                    {{ form_label(formInscription.payment) }}
+                    {{ form_widget(formInscription.payment, {'attr': {'class': 'formField'}}) }}
+                </div>
 
-            <p class="a-p">En savoir plus sur le collectif</p>
-            <p class="a-textDetails -black -margin">
-            Cras eleifend tempus facilisis. Maecenas ultrices vehicula interdum. Phasellus finibus nunc at ipsum congue porttitor. Sed sit amet pellentesque enim. Vivamus congue nisi at neque bibendum maximus. Praesent sit amet interdum nisl. Mauris viverra lectus lorem, nec dictum urna bibendum non. Nulla id rhoncus odio. Etiam auctor magna non est faucibus, ac ullamcorper ex maximus. Maecenas finibus risus ante, non tempor leo scelerisque ac. Cras eleifend tempus facilisis. Maecenas ultrices vehicula interdum. Phasellus finibus nunc at ipsum congue porttitor. Sed sit amet pellentesque enim. Vivamus congue nisi at neque bibendum maximus. Praesent sit amet interdum nisl. Mauris viverra lectus lorem, nec dictum urna bibendum non. Nulla id rhoncus odio. Etiam auctor magna non est faucibus, ac ullamcorper ex maximus. Maecenas finibus risus ante, non tempor leo scelerisque ac. 
-            </p>
-            <div class="generic-center generic-m40t form__buttons-spaceBetween">
-            {% include '@atom/button/button.html.twig' with {
-                text: "Annuler",
-                attributeList: {
-                    class: '-websiteGhost',
-                    title:"Retour au site",
-                    href: path('app_products'),
-                }
-            } only %}
-            {% include '@atom/button/button.html.twig' with {
-                text: "Envoyer",
-                attributeList: {
-                    class: '-website',
-                    title:"Valider l'inscription",
-                    type:"submit"
-                }
-            } only %}
+                <p class="a-p">En savoir plus sur le collectif</p>
+                <p class="a-textDetails -black -margin">
+                Cras eleifend tempus facilisis. Maecenas ultrices vehicula interdum. Phasellus finibus nunc at ipsum congue porttitor. Sed sit amet pellentesque enim. Vivamus congue nisi at neque bibendum maximus. Praesent sit amet interdum nisl. Mauris viverra lectus lorem, nec dictum urna bibendum non. Nulla id rhoncus odio. Etiam auctor magna non est faucibus, ac ullamcorper ex maximus. Maecenas finibus risus ante, non tempor leo scelerisque ac. Cras eleifend tempus facilisis. Maecenas ultrices vehicula interdum. Phasellus finibus nunc at ipsum congue porttitor. Sed sit amet pellentesque enim. Vivamus congue nisi at neque bibendum maximus. Praesent sit amet interdum nisl. Mauris viverra lectus lorem, nec dictum urna bibendum non. Nulla id rhoncus odio. Etiam auctor magna non est faucibus, ac ullamcorper ex maximus. Maecenas finibus risus ante, non tempor leo scelerisque ac. 
+                </p>
+                <div class="generic-center generic-m40t form__buttons-spaceBetween">
+                {% include '@atom/button/button.html.twig' with {
+                    text: "Annuler",
+                    attributeList: {
+                        class: '-websiteGhost',
+                        title:"Retour au site",
+                        href: path('app_products'),
+                    }
+                } only %}
+                {% include '@atom/button/button.html.twig' with {
+                    text: "Envoyer",
+                    attributeList: {
+                        class: '-website',
+                        title:"Valider l'inscription",
+                        type:"submit"
+                    }
+                } only %}
 
-            </div>
-        {{ form_end(formInscription) }}
+                </div>
+            {{ form_end(formInscription) }}
+        </div>
     </div>
-
-    </div>
+</div>
 {% endblock %}

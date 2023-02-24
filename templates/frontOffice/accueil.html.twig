@@ -35,58 +35,63 @@
 
   <div class="l-frontOffice__content -flexCenter -center -marginY">
     {% include '@molecule/card/card.html.twig' with {
-        image: '/images/home.jpg',
+        image: '/images/produits.webp',
         imageAlt: 'image',
-        title: 'Mon titre',
-        text: 'blabla',
-        textClass: 'a-textDetails -black',
-        buttonText: 'button',
+        title: 'Nos produits',
+        text: 'Découvrez les produits de notre région et soutenez nos agriculteurs !',
+        textClass: 'a-textDetails -grey generic-m16b',
+        buttonText: 'Les produits',
         buttonLink: '#',
         buttonTitle: 'button direction',
     } only %}	
     {% include '@molecule/card/card.html.twig' with {
-        image: '/images/home.jpg',
+        image: '/images/distribution.webp',
         imageAlt: 'image',
-        title: 'Mon titre',
-        text: 'blabla',
-        textClass: 'a-textDetails -black',
-        buttonText: 'button',
+        title: 'Nos lieux de distribution',
+        text: 'Trouvez le lieu de distribution le plus proche de chez vous',
+        textClass: 'a-textDetails -grey generic-m16b',
+        buttonText: 'Nous trouver',
         buttonLink: '#',
         buttonTitle: 'button direction',
     } only %}	
     {% include '@molecule/card/card.html.twig' with {
-        image: '/images/home.jpg',
+        image: '/images/amap.png',
         imageAlt: 'image',
-        title: 'Mon titre',
-        text: 'blabla',
-        textClass: 'a-textDetails -black',
-        buttonText: 'button',
+        title: 'L\'association',
+        text: 'Découvrez l\'association, ses bénévoles et ses agriculteurs !',
+        textClass: 'a-textDetails -grey generic-m16b',
+        buttonText: 'Découvrir l\'amap',
         buttonLink: '#',
         buttonTitle: 'button direction',
     } only %}	
   </div>
-<div>
+<div class="generic-greenBackgroundWebsite generic-center generic-p16top">
+  <h2 class="a-title2 -black">Comment ça marche ?</h2>
+  <p class="a-textDetails -grey">On vous explique à quoi sert l'abonnement !</p>
   <div class="l-frontOffice__content -flexCenter -center -marginY">
     {% include '@molecule/card/card.html.twig' with {
-        image: '/images/home.jpg',
+        image: '/images/abonnement.svg',
         imageAlt: 'image',
-        title: 'Mon titre',
-        text: 'blabla',
-        textClass: 'a-textDetails -black',
+        imageClass: '-noObjectFit',
+        title: 'L\'abonnement',
+        text: 'L\'abonnement (6 mois minimum), donne accès à un panier par semaine !',
+        textClass: 'a-textDetails -black generic-m16b',
     } only %}	
     {% include '@molecule/card/card.html.twig' with {
-        image: '/images/home.jpg',
+        image: '/images/producteur.svg',
         imageAlt: 'image',
-        title: 'Mon titre',
-        text: 'blabla',
-        textClass: 'a-textDetails -black',
+        imageClass: '-noObjectFit',
+        title: 'Nos producteurs',
+        text: 'Tout près de chez vous, ils peuvent grâce à l\'abonnement se projeter sereinement les 6 prochains mois',
+        textClass: 'a-textDetails -black generic-m16b',
     } only %}	
     {% include '@molecule/card/card.html.twig' with {
-        image: '/images/home.jpg',
+        image: '/images/assiette.svg',
         imageAlt: 'image',
-        title: 'Mon titre',
-        text: 'blabla',
-        textClass: 'a-textDetails -black',
+        imageClass: '-noObjectFit',
+        title: 'Votre assiette',
+        text: 'Grâce à ce système, en plus de soutenir les producteurs vous mangez local et de saison',
+        textClass: 'a-textDetails -black generic-m16b',
     } only %}	
   </div>
 </div>

@@ -103,9 +103,11 @@ Fonts
     &.-black {
       color: $color-black;
     }
+    &.-grey {
+      color: $color-grey;
+    }
     &.-margin {
       margin-left: 16px;
-
     }
   }
   
@@ -113,4 +115,7 @@ Fonts
     font-size: $normalFont;
     font-weight: $regular;
     color: $color-secondary;
+    &.-black {
+      color: $color-black;
+    }
   }

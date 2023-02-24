@@ -14,7 +14,7 @@
     </head>
     <body>
 
-    {% set isBackoffice = "-admin" in app.request.attributes.get('_route') %}
+        {% set isBackoffice = "-admin" in app.request.attributes.get('_route') %}
     
       {% block navbar %}
           {% if isBackoffice %}{% include '@molecule/menu/menu.html.twig' %}{% else %}{% include '@molecule/menu-front/menu-front.html.twig' %}{% endif %} 

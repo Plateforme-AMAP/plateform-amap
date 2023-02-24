@@ -195,6 +195,9 @@ body.-primary {
 .a-textDetails.-black {
   color: #161616;
 }
+.a-textDetails.-grey {
+  color: #979797;
+}
 .a-textDetails.-margin {
   margin-left: 16px;
 }
@@ -203,6 +206,9 @@ body.-primary {
   font-size: 16px;
   font-weight: 400;
   color: #004C40;
+}
+.a-textAriane.-black {
+  color: #161616;
 }
 
 .a-icon {
@@ -258,6 +264,10 @@ body.-primary {
   margin-right: 16px;
 }
 
+.generic-m16l {
+  margin-left: 16px;
+}
+
 .generic-m8_row {
   margin: 8px 0;
 }
@@ -282,6 +292,18 @@ body.-primary {
   margin-bottom: 40px;
 }
 
+.generic-p40b {
+  padding-bottom: 40px;
+}
+
+.generic-p40t {
+  padding-top: 40px;
+}
+
+.generic-m16b {
+  margin-bottom: 16px;
+}
+
 .generic-m24b {
   margin-bottom: 24px;
 }
@@ -290,12 +312,21 @@ body.-primary {
   margin-left: 32px;
 }
 
-.generic-p32 {
+.generic-p16 {
   padding: 0 16px;
 }
 @media (min-width: 1200px) {
-  .generic-p32 {
+  .generic-p16 {
     padding: 0 32px;
+  }
+}
+
+.generic-p16top {
+  padding: 16px 0;
+}
+@media (min-width: 1200px) {
+  .generic-p16top {
+    padding: 32px 0;
   }
 }
 
@@ -311,6 +342,10 @@ body.-primary {
 
 .generic-greenBackground {
   background-color: #00796B;
+}
+
+.generic-greenBackgroundWebsite {
+  background-color: #EFF5EA;
 }
 
 .generic-center {
@@ -524,13 +559,13 @@ body.-primary {
 }
 
 .l-frontOffice {
-  margin-top: 70px;
+  margin-top: 66px;
   min-height: calc(100vh - 40px);
   height: auto;
 }
 @media (min-width: 1200px) {
   .l-frontOffice {
-    margin-top: 70px;
+    margin-top: 66px;
     min-height: calc(100vh - 70px);
     height: auto;
   }
@@ -572,15 +607,15 @@ body.-primary {
   max-width: 1300px;
 }
 .l-frontOffice__content.-marginY {
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin-top: 32px;
+  margin-bottom: 32px;
 }
 .l-frontOffice__content.-twoParts {
   display: flex;
-  height: 100%;
   align-items: center;
   background-color: #EFF5EA;
   justify-content: center;
+  min-height: calc(100vh - 50px);
 }
 .l-frontOffice__content.-twoParts > img {
   display: none;
@@ -591,6 +626,7 @@ body.-primary {
 }
 @media (min-width: 1200px) {
   .l-frontOffice__content.-twoParts {
+    min-height: calc(100vh - 70px);
     max-width: none;
     padding: 0;
   }
@@ -599,7 +635,7 @@ body.-primary {
     width: 40%;
     -o-object-fit: cover;
        object-fit: cover;
-    height: 100%;
+    min-height: calc(100vh - 70px);
   }
   .l-frontOffice__content.-twoParts .o-form-front {
     display: flex;
@@ -1369,12 +1405,20 @@ body.-primary {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 280px;
 }
 .m-card img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 250px;
   height: 150px;
+}
+.m-card img.-noObjectFit {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.m-card p {
+  text-align: center;
 }
 
 .m-hero {
