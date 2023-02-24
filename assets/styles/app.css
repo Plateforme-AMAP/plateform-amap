@@ -610,6 +610,13 @@ body.-primary {
   margin-top: 32px;
   margin-bottom: 32px;
 }
+@media (max-width: 767px) {
+  .l-frontOffice__content.-marginY {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .l-frontOffice__content.-twoParts {
   display: flex;
   align-items: center;
