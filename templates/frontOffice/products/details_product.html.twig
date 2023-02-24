@@ -1,13 +1,19 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Produit FRONTOFFICE{% endblock %}
+{% block sideNavbar %}{% endblock %}
+{% block title %}{{ product.productName }}{% endblock %}
 
 {% block body %}
-	{# please create your own html here :) you can trash main, just keep the php logic ! #}
+	<div class="l-frontOffice__content -twoParts" >
+		{# <img src="/images/contact-img.jpg" alt="personne qui récolte des tomates"> #}
+              <img src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('large') }}" alt="{{ product.productName }}"/>
 
+		<div class="o-form-front -product">
+			<div class="generic-m16">
+				<h1 class="a-title1 -website">{{ product.productName }}</h1>
+				<p class="a-p -grey generic-m40b">{{ product.productPrice }} € /{% if product.category.id != 1 %} {{ product.unityValue }} {{ product.unity.libelle }} {% else %} panier {{ product.unity.libelle }} {% endif %}</p>
 
-    <h1>{{ product.productName }}</h1>
-
-<a href="{{ path('app_products') }}"  title="">Retour</a>
-
+                <p class="a-p -black generic-m40b">{{ product.productDescription }}</p>
+			</div>
+		</div>
+	</div>
 {% endblock %}
