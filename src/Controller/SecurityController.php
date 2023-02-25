@@ -137,8 +137,8 @@ class SecurityController extends AbstractController
                     $entityManager->persist($user);
                     $entityManager->flush();
 
+                    return $this->redirectToRoute('app_logout');
                     $this->addFlash('success', 'mot de passe changé avec succès');
-                    return $this->redirectToRoute('app_login-admin');
             }
 
             // once the link is sent, the user clicks on the link and we send the form to reset the password

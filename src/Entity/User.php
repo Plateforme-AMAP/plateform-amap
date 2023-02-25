@@ -41,16 +41,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     // for the custom reset password
     #[ORM\Column(type: 'string', nullable: true)]
     private $resetToken;
-    
-    #[ORM\OneToMany(mappedBy: 'author', targetEntity: Products::class, orphanRemoval: true)]
-    private $products;
 
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: Messages::class, orphanRemoval: true)]
     private $messages;
 
     public function __construct()
     {
-        $this->products = new ArrayCollection();
         $this->messages = new ArrayCollection();
     }
 
@@ -179,30 +175,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection<int, Products>
      */
-    public function getProducts(): Collection
-    {
-        return $this->products;
-    }
 
-    public function addProduct(Products $product): self
-    {
-        if (!$this->products->contains($product)) {
-            $this->products[] = $product;
-            $product->setAuthor($this);
-        }
-
-        return $this;
-    }
 
     public function removeProduct(Products $product): self
     {
-        if ($this->products->removeElement($product)) {
-            // set the owning side to null (unless already changed)
-            if ($product->getAuthor() === $this) {
-                $product->setAuthor(null);
-            }
-        }
-
         return $this;
     }
 
