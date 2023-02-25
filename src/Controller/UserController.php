@@ -74,7 +74,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    // for reset forgotten password 
+    // for delete account 
     #[Route('/admin/compte/demande-de-suppression/{id}', name:'app_userDelete_request-admin')]
     public function deleteRequest(
         User $user,

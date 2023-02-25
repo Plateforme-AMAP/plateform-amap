@@ -56,7 +56,7 @@ class RegistrationController extends AbstractController
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
 
-            return $this->redirectToRoute('app_register_confirmation');
+            return $this->redirectToRoute('app_register_confirmation-admin');
         }
 
         return $this->render('registration/register.html.twig', [
@@ -85,7 +85,7 @@ class RegistrationController extends AbstractController
         return $this->redirectToRoute('app_products-admin');
     }
 
-    #[Route('/register/confirmation', name: 'app_register_confirmation')]
+    #[Route('/register/confirmation', name: 'app_register_confirmation-admin')]
     public function index(): Response
     {
         return $this->render('registration/confirmation.html.twig');

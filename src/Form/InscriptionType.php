@@ -56,6 +56,7 @@ class InscriptionType extends AbstractType
                 ]
             ])
             ->add('zipCode', TextType::class, [
+                'label' => 'Code postal',
                 'constraints' => [
                     new NotBlank(),
                     new Regex('/^(?:0[1-9]|[1-8]\d|9[0-8])\d{3}$/')
