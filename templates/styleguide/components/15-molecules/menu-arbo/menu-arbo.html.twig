@@ -23,37 +23,46 @@
 		{
 		'text': 'L\'AMAP',
 		'href': 'app_products-admin',
+		'linkClass': "-disabled",
 		},
 		{
 		'text': 'Page "Nos producteurs"',
 		'href': 'app_products-admin',
+		'linkClass': "-disabled",
 		'subLinkList': {
 			'text': 'Producteurs',
 			'href': 'app_products-admin',
+			'linkClass': "-disabled",
 			},
 		},
 		{
 		'text': 'Page "Nous trouver"',
 		'href': 'app_products-admin',
+		'linkClass': "-disabled",
 		},
 		{
 		'text': 'Page "Nous Contacter"',
 		'href': 'app_products-admin',
+		'linkClass': "-disabled",
 		},
 		{
 		'text': 'Page "Actualités"',
 		'href': 'app_products-admin',
+		'linkClass': "-disabled",
 		'subLinkList': {
 			'text': 'Actualités',
 			'href': 'app_products-admin',
+			'linkClass': "-disabled",
 			},
 		},	
 		{
 		'text': 'Page "Recettes"',
 		'href': 'app_products-admin',
+		'linkClass': "-disabled",
 		'subLinkList': {
 			'text': 'Recettes',
 			'href': 'app_products-admin',
+			'linkClass': "-disabled",
 			},
 		},
 	]
@@ -66,7 +75,7 @@
 					icon: "/icons/file.svg",
 					alt: link.text,
 					attributeList: {
-						class:"-withIcon",
+						class:"-withIcon " ~ (link.linkClass is defined ? link.linkClass : ""),
 						href: path( link.href ),
 						title: link.text
 					}
@@ -77,14 +86,14 @@
 					icon: "/icons/file.svg",
 					alt: link.text,
 					attributeList: {
-						class:"-withIcon",
+						class:"-withIcon " ~ (link.linkClass is defined ? link.linkClass : ""),
 						href: link.href,
 						title: link.text
 					}
 				} %}
 			{% endif %}
 			{% if link.subLinkList is defined %}
-				<a href="{{ path( link.subLinkList.href )}}"  title="{{ link.subLinkList.text }}"  class="a-link"><div class="a-illuArbo"></div><img src="/icons/folder.svg" alt="">{{ link.subLinkList.text }}</a>
+				<a href="{{ path( link.subLinkList.href )}}"  title="{{ link.subLinkList.text }}"  class="a-link {% if link.subLinkList.linkClass is defined %} {{  link.subLinkList.linkClass }} {% endif %}"><div class="a-illuArbo"></div><img src="/icons/folder.svg" alt="">{{ link.subLinkList.text }}</a>
 				</div>
 			{% endif %}
 		</li>

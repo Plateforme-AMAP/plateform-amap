@@ -877,6 +877,10 @@ body.-primary {
   color: #00796B;
   cursor: pointer;
 }
+.a-link.-disabled {
+  opacity: 0.5;
+  cursor: auto;
+}
 .a-link.-withIcon {
   display: flex;
   align-items: center;
