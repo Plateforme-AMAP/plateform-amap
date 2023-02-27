@@ -55,10 +55,6 @@ class Products
     #[ORM\JoinColumn(nullable: false)]
     private $unity;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'products')]
-    #[ORM\JoinColumn(nullable: false)]
-    private $author;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -202,18 +198,6 @@ class Products
     public function setUnity(?Unity $unity): self
     {
         $this->unity = $unity;
-
-        return $this;
-    }
-
-    public function getAuthor(): ?User
-    {
-        return $this->author;
-    }
-
-    public function setAuthor(?User $author): self
-    {
-        $this->author = $author;
 
         return $this;
     }

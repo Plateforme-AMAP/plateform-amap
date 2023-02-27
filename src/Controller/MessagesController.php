@@ -21,7 +21,6 @@ class MessagesController extends AbstractController
     //to show and interact with messages inside the backoffice [BACKOFFICE]
     #[Route('/admin/dashboard/message/{id}', name: 'app_dashboardMessage-admin')]
     public function add(
-        ManagerRegistry $doctrine,
         Request $request,
         EntityManagerInterface $manager,
         MailerInterface $mailer,
@@ -66,7 +65,7 @@ class MessagesController extends AbstractController
                  'Votre message a bien été envoyé !'
              );
 
-            return $this->redirectToRoute('app_products');
+            return $this->redirectToRoute('app_products-admin');
         }
 
         return $this->render('backOffice/pages/dashboard.html.twig', [

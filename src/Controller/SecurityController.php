@@ -24,9 +24,10 @@ class SecurityController extends AbstractController
     #[Route(path: '/connexion', name: 'app_login-admin')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-        // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
-        // }
+        //if user is connecter, redirect to the dashboard
+        if ($this->getUser()) {
+            return $this->redirectToRoute('app_dashboard-admin');
+        }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -136,6 +137,7 @@ class SecurityController extends AbstractController
                     $entityManager->persist($user);
                     $entityManager->flush();
 
+                    return $this->redirectToRoute('app_logout');
                     $this->addFlash('success', 'mot de passe changé avec succès');
             }
 

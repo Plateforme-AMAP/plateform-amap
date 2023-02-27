@@ -1,7 +1,7 @@
 .l-backOffice {
   background-color: $color-background;
   padding-top: 48px;
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 48px);
   @include desktop-up {
     padding-left: 10vw;
     min-height: calc(100vh - 50px);

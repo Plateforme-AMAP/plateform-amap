@@ -3,6 +3,10 @@ font-size: $normalFont;
 font-weight: $medium;
 color: $color-primary;
 cursor: pointer;
+    &.-disabled {
+        opacity: 0.5;
+        cursor: auto;
+    }
     &.-withIcon {
         display: flex;
         align-items: center;

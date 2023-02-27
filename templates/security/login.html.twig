@@ -5,9 +5,16 @@
 {% block sideNavbar %}{% endblock %}
 {% block body %}
 <a class="a-textAriane" href="{{ path('app_products') }}">< Retour au site</a>
+
 <div class="form-center">
     <h1 class="a-title1 -center">Connexion</h1>
     <form method="post">
+    	{% for message in app.flashes('success') %}
+			{% include '@molecule/addflash/addflash.html.twig' with {
+				text: message,
+			} %}		
+		{% endfor %}
+
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
