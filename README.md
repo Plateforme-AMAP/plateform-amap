@@ -1,11 +1,22 @@
 ## The project : "HO-Plateform"
 Project to create turnkey sites for farmers' associations (AMAPs)
+Formation's project currently being evolved into a major project for the association AMAP AURA. The project is being completely overhauled.
 
 ## Installation
 
->the project works with Symfony
+>the project works with SYMPHONY (PHP framework)
 
 To install PHP, if you haven't
+[The official documentation](https://www.php.net/downloads)
+  
+
+- [ ]  Install [PHP](https://www.php.net/downloads)
+- [ ]  Install [Symfony CLI](https://symfony.com/download)  :
+```bash
+  scoop install symfony-cli
+```
+- [ ]  Install [Composer](https://getcomposer.org/download/)  :
+
 [ubuntu]  
 ```bash
 sudo apt upgrade 
@@ -13,14 +24,12 @@ sudo apt upgrade
 ```bash
 sudo apt install php8.1 
 ```
+[The DigitalOcean documentation PHP on ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-php-8-1-and-set-up-a-local-development-environment-on-ubuntu-22-04)
 
-[The DigitalOcean documentation](https://www.digitalocean.com/community/tutorials/how-to-install-php-8-1-and-set-up-a-local-development-environment-on-ubuntu-22-04)
-
-To install YARN, if you haven't
 ```bash
 npm install --global yarn
 ```
-[The Official documentation](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
+[The Official documentation YARN](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
 
 ## Run Locally
 
