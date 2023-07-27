@@ -1,6 +1,9 @@
-## The project : "HO-Plateform"
+
+# HO-Plateform | Projet for farmers' associations (AMAPs)
+
+## based on a formation project 
 Project to create turnkey sites for farmers' associations (AMAPs)
-Formation's project currently being evolved into a major project for the association AMAP AURA. The project is being completely overhauled.
+Training project that has mutated into a major project for the AMAP AURA association. Discover the latest version of this project created from scratch, from the idea to the final development, including marketing and design.
 
 ## Installation
 
@@ -107,3 +110,7 @@ still have troubles you can run :
   yarn
 ```
 you can delete all migrations before creating the base
+
+## interactive modelsof Front Office (Adobe XD)
+https://user-images.githubusercontent.com/87066549/164473706-da4c8071-7713-4a04-a7b1-f62b46167f8b.mp4
+
