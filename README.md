@@ -111,6 +111,30 @@ still have troubles you can run :
 ```
 you can delete all migrations before creating the base
 
-## interactive modelsof Front Office (Adobe XD)
-https://user-images.githubusercontent.com/87066549/164473706-da4c8071-7713-4a04-a7b1-f62b46167f8b.mp4
+## Ux part
+Site maps
+
+<img src="https://github.com/Plateforme-AMAP/plateform-amap/assets/87066549/de4a716e-8711-432d-87eb-4a76dde727bc" alt="front office sitemap" width="900"/>
+<img src="https://github.com/Plateforme-AMAP/plateform-amap/assets/87066549/f0e1f009-b003-4044-aa2f-a1e19306f22b" alt="back office sitemap" width="900"/>
+
+Wireframes
+
+<img src="https://github.com/Plateforme-AMAP/plateform-amap/assets/87066549/39a6850b-d018-44ac-ae0e-68de01eeea5f" alt="front office wireframes" width="900"/>
+<img src="https://github.com/Plateforme-AMAP/plateform-amap/assets/87066549/030a2b22-cd5c-4799-87c5-c269d28a0174" alt="front office wireframes" width="900"/>
+<img src="https://github.com/Plateforme-AMAP/plateform-amap/assets/87066549/b9da2b21-4b67-4e9c-86f4-8e247d137dab" alt="front office wireframes" width="900"/>
+
+
+<img src="https://github.com/Plateforme-AMAP/plateform-amap/assets/87066549/97c0b2c1-e37e-4732-b183-9198fd44b7cd" alt="backoffice wireframes" width="900"/>
+
+## Styleguide and ATOMIC Design
+
+All components (exemple of cut)
+<img src="https://github.com/Plateforme-AMAP/plateform-amap/assets/87066549/65b001ca-f363-46c5-96d4-8bb756fe1aab" alt="drawing" width="900"/>
+
+Details
+
+<img src="https://github.com/Plateforme-AMAP/plateform-amap/assets/87066549/8ce774da-b1b2-4d8b-8150-9c9f883ba6bf" alt="atoms" width="300"/>
+<img src="https://github.com/Plateforme-AMAP/plateform-amap/assets/87066549/5638a567-d216-47f8-a6b6-591b2e57c4de" alt="moleculs" width="300"/>
+<img src="https://github.com/Plateforme-AMAP/plateform-amap/assets/87066549/9f0bff8b-2fad-4211-8f1c-d25c5d2a354b" alt="organisms" width="300"/>
+
 
