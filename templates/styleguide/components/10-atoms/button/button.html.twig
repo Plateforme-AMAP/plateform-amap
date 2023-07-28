@@ -1,16 +1,15 @@
 <!-- on défini le nom de ce component (ici "tag") -->
 {% set componentClass = 'a-button' %}
-<!-- on lui dit de prendre les attribut qui seront donnés lors de son "include" -->
-<!--
-si on défini un attribut alors il s'applique à cetr élément
+<!-- 
+  it will take the attributes which will be given to it during its integration. if there has.
 -->
 {% set attributeList = attributeList is defined ? attributeList : {} %}
 <!--
-dans la liste d'attribut, si une class est déclarée Alors on l'ajoute à la classe déjà définie
+  in the attribute list, if a class is declared Then we add it to the class already defined
 -->
 {% set attributeList = attributeList|merge({'class': (attributeList.class is defined ? componentClass ~' ' ~ attributeList.class : componentClass)}) %}
 <!--
-"a" is the button default value. but if no links is defined, it's a button, so it takes that value
+  "a" is the button's default value. however if no link is declared it will take the button tag
 -->
 {% set defaultTag = 'a' %}
 {% if attributeList.href is not defined %}
