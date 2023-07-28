@@ -156,7 +156,7 @@ Back office part :
 ![image](https://github.com/Plateforme-AMAP/plateform-amap/assets/87066549/8a562469-7504-4bf6-9e61-e89158d7e295)
 
 
-## :floppy_disk: Curious ? the project folder
+## :floppy_disk: Curious ? have a look at the project folder
 
 <a href="https://docs.google.com/document/d/1dUAbSsfGOnTWpVyxHnKU8P-3eCXqlNNdPv_MxDIVFBY/edit?usp=sharing">Find the complete project here ! (french version only - english version on progress)</a>
 
