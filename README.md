@@ -1,4 +1,4 @@
-
+<base target="_blank"> 
 # HO-Plateform | Projet for farmers' associations (AMAPs)
 
 ## based on a formation project 
@@ -113,5 +113,5 @@ you can delete all migrations before creating the base
 
 ## :floppy_disk: Curious ? the project folder
 
-<a href="https://docs.google.com/document/d/1dUAbSsfGOnTWpVyxHnKU8P-3eCXqlNNdPv_MxDIVFBY/edit?usp=sharing" target="_blank">Find the complete project here ! (french version only - english version on progress)</a>
+<a href="https://docs.google.com/document/d/1dUAbSsfGOnTWpVyxHnKU8P-3eCXqlNNdPv_MxDIVFBY/edit?usp=sharing">Find the complete project here ! (french version only - english version on progress)</a>
 
