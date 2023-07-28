@@ -138,3 +138,7 @@ Details
 <img src="https://github.com/Plateforme-AMAP/plateform-amap/assets/87066549/9f0bff8b-2fad-4211-8f1c-d25c5d2a354b" alt="organisms" width="300"/>
 
 
+
+![Find the complete project here ! (french version only - english version on progress)](https://docs.google.com/document/d/1dUAbSsfGOnTWpVyxHnKU8P-3eCXqlNNdPv_MxDIVFBY/edit?usp=sharing)
+
+
