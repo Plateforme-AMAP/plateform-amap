@@ -159,17 +159,6 @@ Back office part :
 
 <a href="https://docs.google.com/document/d/1dUAbSsfGOnTWpVyxHnKU8P-3eCXqlNNdPv_MxDIVFBY/edit?usp=sharing">Find the complete project here ! (french version only - english version on progress)</a>
 
-## Team for the V.0
-
-[Mathilde](https://github.com/Evlow) : UI/UI DESIGN / full stack development
-
-[Kevin](https://github.com/KevinLANGLET) :  Marketing / front-end development
-
-[Lise](https://github.com/LiseRochat) : Specifications / full stack development / project organization
-
-[Julie :)](https://github.com/julieprunaret/) : UI/UI DESIGN / full stack development / project organization
-
-
 ## Team for the V.1 (
 
 [Julie :)](https://github.com/julieprunaret/) : UI/UI DESIGN / full stack development / project organization
