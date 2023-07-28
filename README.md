@@ -1,10 +1,9 @@
-<base target="_blank"> 
 # HO-Plateform | Projet for farmers' associations (AMAPs)
 
 ![image](https://github.com/Plateforme-AMAP/plateform-amap/assets/87066549/2c25139d-7e7e-48d8-b7e4-3019c805dbc1)
 
 
-## based on a formation project 
+## Based on a formation project 
 Project to create turnkey sites for farmers' associations (AMAPs)
 Training project that has mutated into a major project for the AMAP AURA association. Discover the latest version of this project created from scratch, from the idea to the final development, including marketing and design.
 
